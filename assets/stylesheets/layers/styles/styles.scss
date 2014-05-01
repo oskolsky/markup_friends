@@ -8,6 +8,7 @@
 @mixin headers($list) {
   h1, .alpha {
     font: {
+      family: "geoslbc_w_inchregular", Helvetica, Arial, sans-serif;
       weight: nth($h1-font-weight-list, $list);
       size: nth($h1-font-size-list, $list); 
     }
@@ -66,7 +67,8 @@ html {
 body {
   @if $grid == "fixed" {min-width: $grid-fixed-ctn-width + $ctn-padding * 2;}
   @if $grid == "fluid" {min-width: $mq-desktop-min-width + $ctn-padding * 2;}
-  background: $base-bg;
+  background-color: $base-bg;
+  background-image: url(/assets/images/pattern.png);
   color: $base-color;
   font: {
     weight: $base-font-weight;

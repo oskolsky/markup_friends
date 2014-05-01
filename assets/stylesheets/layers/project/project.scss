@@ -11,17 +11,102 @@
 //
 //****************************************************************************************************
 .header {
+  > .ctn {
+    position: relative;
+    z-index: 1000;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0px 1px 6px #ccc;
+  }
   @include media-query(desktop) {
     &.__sticky {
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
-      z-index: 1000;
       background: $base-bg;
       box-shadow: .1em .1em .3em rgba(0,0,0,.25);
     }
   }
+}
+  .header_logo {
+    margin-right: $ctn-padding - $grid-fixed-col-gutter;
+    margin-left: -$ctn-padding;
+    padding: 2rem 0;
+    background-color: $border-color;
+    text-align: center;
+  }
+  .header_filter {
+    margin-right: -$ctn-padding;
+    padding: 2rem 0;
+  }
+
+
+
+//****************************************************************************************************
+//
+// .. MAIN
+//
+//****************************************************************************************************
+.main {
+  > .ctn {
+    background-color: #f6f6f6;
+    box-shadow: 0px 1px 6px #ccc;
+  }
+}
+
+
+//****************************************************************************************************
+//
+// .. SIDEBAR
+//
+//****************************************************************************************************
+.sidebar {
+  position: relative;
+  z-index: 1000;
+  margin-right: $ctn-padding - $grid-fixed-col-gutter;
+  margin-left: -$ctn-padding;
+  border-right: 1px solid #e2e2e2;
+  border-bottom: 1px solid #b9b9b9;
+  background-color: #fff;
+}
+
+  //
+  // .. Menu
+  //
+  .nav {    
+
+  }
+    .nav_i {
+
+    }
+      .nav_i_a {
+        display: block;
+        padding-left: $ctn-padding;
+        height: 5rem;
+        color: #000;
+        font-size: 1.6rem;
+        line-height: 5rem;
+        @include prefixes(transition, all .33s);
+        &:hover {
+          background-color: $border-color;
+          color: #000;
+        }
+        &.__current {
+          background-color: $minor-color;
+          color: #fff;
+        }
+      }
+
+
+
+//****************************************************************************************************
+//
+// .. SECTION
+//
+//****************************************************************************************************
+.section {
+  padding: 3rem 0;
 }
 
 

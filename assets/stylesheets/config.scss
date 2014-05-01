@@ -3,7 +3,18 @@
 // .. FONTS
 //
 //****************************************************************************************************
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=latin,cyrillic);
+
+@font-face {
+  font-family: 'geoslbc_w_inchregular';
+  src: url('/assets/fonts/geoslabinch-bold-webfont-webfont.eot');
+  src: url('/assets/fonts/geoslabinch-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/geoslabinch-bold-webfont-webfont.woff') format('woff'),
+       url('/assets/fonts/geoslabinch-bold-webfont-webfont.ttf') format('truetype'),
+       url('/assets/fonts/geoslabinch-bold-webfont-webfont.svg#geoslbc_w_inchregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 
@@ -26,7 +37,7 @@ $mq-desktop-max-width: 1180px;
 // .. CONTAINER
 //
 //****************************************************************************************************
-$ctn-padding: 20px;
+$ctn-padding: 32px;
 
 
 
@@ -42,7 +53,7 @@ $grid-width-transition: false; // .. true / false
 // .. Fixed
 //
 $grid-fixed-col-qty:    12;
-$grid-fixed-col-width:  60px;
+$grid-fixed-col-width:  58px;
 $grid-fixed-col-gutter: 20px;
 $grid-fixed-col-indent: 20px;
 
@@ -75,12 +86,12 @@ $root-font-size-list: (62.5%, 57.5%, 52.5%); // .. desktop / tablet / phone
 //
 // .. Body
 //
-$base-bg: #fff;
-$base-color: #333;
-$base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
-$base-font-size-list: (1.4rem, 1.4rem, 1.4rem);
+$base-bg: #e8e8e8;
+$base-color: #2b2b2b;
+$base-font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+$base-font-size-list: (1.3rem, 1.3rem, 1.3rem);
 $base-font-weight: 400;
-$base-line-height-list: (2rem, 2rem, 2rem);
+$base-line-height-list: (1.5rem, 1.5rem, 1.5rem);
 
 //
 // .. Headings
@@ -101,7 +112,7 @@ $h4-font-weight-list: (600, 600, 600);
 $h5-font-weight-list: (600, 600, 600);
 $h6-font-weight-list: (inherit, inherit, inherit);
 
-$h1-line-height-list: (4rem, 4rem, 4rem);
+$h1-line-height-list: (7.2rem, 7.2rem, 7.2rem);
 $h2-line-height-list: (3.2rem, 3.2rem, 3.2rem);
 $h3-line-height-list: (2.8rem, 2.8rem, 2.8rem);
 $h4-line-height-list: (2.4rem, 2.4rem, 2.4rem);
@@ -111,10 +122,11 @@ $h6-line-height-list: (inherit, inherit, inherit);
 //
 // .. Colors
 //
-$major-color: #333;
-$minor-color: #eee;
+$major-color: #2c92e1;
+$minor-color: #e12c84;
 $voice-color: #000;
-$muted-color: #ccc;
+$muted-color: #848485;
+$border-color: #f0f0f0;
 
 //
 // .. Focus
@@ -124,10 +136,10 @@ $focus: true; // .. true / false
 //
 // .. Links
 //
-$link-color: #2980b9;
-$link-color-hover: #ccc;
-$link-color-active: darken($link-color-hover, 10%);
-$link-style: un;        // .. nn / uu / un / nu
+$link-color: $major-color;
+$link-color-hover: darken($link-color, 20%);
+$link-color-active: darken($link-color, 10%);
+$link-style: nn;        // .. nn / uu / un / nu
 $link-style-pseudo: uu; // .. nn / uu / un
 
 //

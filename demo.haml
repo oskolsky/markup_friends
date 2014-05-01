@@ -1,7 +1,7 @@
 !!!
 %html.no-js{lang: "ru-RU"}
   %head
-    %title Chemistry Template
+    %title Demo / Friends
     = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
     :css
       .demo {margin-left: 6rem;}
@@ -24,12 +24,10 @@
         .ctn.p-t_8.p-b_8
           %article
             %header.m-b_4
-              %h3
-                %a.a.__inner{href: "/index.html"}
-                  %i.fa.fa-flask
-                  %span Chemistry Template
+              %a{href: "/index.html"}
+                %img{src: "/assets/images/logo.png", width: 174, height: 36, alt: "Friends"}
 
             %nav.demo
               %ol
                 %li 
-                  %a{href: "/index.html"} Index
+                  %a{href: "/index.html"} Главная
