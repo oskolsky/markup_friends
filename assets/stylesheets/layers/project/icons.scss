@@ -5,20 +5,44 @@
 
 .ico {
   display: inline-block;
-  background: {
-    color: transparent;
-    repeat: no-repeat;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  &.__square {
+    width: 3rem;
+    height: 3rem;
+    background-color: $border-color;
+    @extend .decor;
   }
-  // &.__16 {
-  //   @include size(16, 16);
-  //   background-image: url(/assets/images/icons/ico-16.png);
-  //   &.__cat {background-position: 0 0;}
-  //   &.__dog {background-position: -16px 0;}
-  // }
-  // &.__32 {
-  //   @include size(32, 32);
-  //   background-image: url(/assets/images/icons/ico-32.png);
-  //   &.__eagle {background-position: 0 0;}
-  //   &.__stork {background-position: -32px 0;}
-  // }
+  &.__18 {
+    @include size(18, 18);
+    background-image: url(/assets/images/icons/ico-18.png);
+    &.__cearch  {background-position: 0 0;}
+  }
+  &.__30 {
+    @include size(30, 30);
+    background-image: url(/assets/images/icons/ico-30.png);
+    &.__chevron-left  {background-position: 0 0;}
+    &.__chevron-right {background-position: -30px 0;}
+    &.__bookmark      {background-position: -60px 0;}
+    &.__play          {background-position: -90px 0;}
+
+    &.__chevron-left.__active  {background-position: 0 -30px;}
+    &.__chevron-right.__active {background-position: -30px -30px;}
+    &.__bookmark.__active      {background-position: -60px -30px;}
+    &.__play.__active          {background-position: -90px -30px;}
+
+    &.__chevron-left.__white  {background-position: 0 -60px;}
+    &.__chevron-right.__white {background-position: -30px -60px;}
+    &.__bookmark.__white      {background-position: -60px -60px;}
+    &.__play.__white          {background-position: -90px -60px;}
+  }
+}
+
+a.ico {
+  &:hover {
+    &.__chevron-left  {background-position: 0 -30px;}
+    &.__chevron-right {background-position: -30px -30px;}
+    &.__bookmark      {background-position: -60px -30px;}
+    &.__play          {background-position: -90px -30px;}  
+  }
 }

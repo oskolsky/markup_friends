@@ -11,6 +11,7 @@ input, textarea {resize: none;}
 //****************************************************************************************************
 .form-el {
   display: inline-block;
+  vertical-align: top;
 
   &.__block {
     display: block;

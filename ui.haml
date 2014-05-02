@@ -10,9 +10,92 @@
         .ctn
           .p-t_8.p-b_8
 
-            .m-b_4
-              %h4.m-b_2 Forms
-              %div.m-b_2
-                %button.form-el.__btn.__large.__major Узнать больше
-              %div
-                %button.form-el.__btn.__small.__major Все (365)
+            .grid
+              .grid-i.__grid-6>
+    
+                .m-b_4
+                  %h4.m-b_2 Buttons
+                  %div.m-b_2
+                    %button.form-el.__btn.__large.__major Узнать больше
+                  %div.m-b_2
+                    %button.form-el.__btn.__small.__major Все (365)
+                  %div.m-b_2
+                    %button.form-el.__btn.__small.__default Работы победителей
+
+                .m-b_4
+                  %h4.m-b_2 Select
+                  %div.m-b_2
+                    %form.form
+                      .form-el.__select.__fake
+                        %p &nbsp;
+                        %select.form-el.__select.__real
+                          %option{selected: "selected"} Все устройства
+                          %option iPad
+                          %option iPhone
+                          %option iPod
+
+                .m-b_4
+                  %h4.m-b_2 Input
+                  %div.m-b_2
+                    %input.form-el.__tx{type: "text", placeholder: "Текстовое поле"}
+
+                .m-b_4
+                  %h4.m-b_2 Textarea
+                  %div.m-b_2
+                    %textarea.form-el.__textarea.__block{rows: 6, placeholder: "Вопрос, например: «MacBook Pro некорректно выходит из спящего режима, что делать?»"}
+
+                .m-b_4
+                  %h4.m-b_2 Search
+                  %div.m-b_2
+                    %form.search
+                      %input.form-el.__tx.__block{type: "text", placeholder: "Поиск"}
+                      %button.search_btn{type: "submit"}
+                        %i.ico.__18.__search
+
+              .grid-i.__grid-6>
+
+                .m-b_4
+                  %h4.m-b_2 Icons 18x18
+                  %div.m-b_2
+                    %i.ico.__18.__search
+
+                .m-b_4
+                  %h4.m-b_2 Icons 30x30
+                  %div.m-b_2
+                    %i.ico.__30.__chevron-left
+                    %i.ico.__30.__chevron-right
+                    %i.ico.__30.__bookmark
+                    %i.ico.__30.__play
+                  %div.m-b_2
+                    %i.ico.__30.__chevron-left.__active
+                    %i.ico.__30.__chevron-right.__active
+                    %i.ico.__30.__bookmark.__active
+                    %i.ico.__30.__play.__active
+                  %div.m-b_2
+                    %i.ico.__30.__chevron-left.__white
+                    %i.ico.__30.__chevron-right.__white
+                    %i.ico.__30.__bookmark.__white
+                    %i.ico.__30.__play.__white
+                  %div.m-b_2
+                    %i.ico.__30.__square.__chevron-left
+                    %i.ico.__30.__square.__chevron-right
+                    %i.ico.__30.__square.__bookmark
+                    %i.ico.__30.__square.__play
+                  %div.m-b_2
+                    %i.ico.__30.__square.__chevron-left.__active
+                    %i.ico.__30.__square.__chevron-right.__active
+                    %i.ico.__30.__square.__bookmark.__active
+                    %i.ico.__30.__square.__play.__active
+
+                .m-b_4
+                  %h4.m-b_2 Hover icons 30x30
+                  %div.m-b_2
+                    %a.ico.__30.__square.__chevron-left{href: "#"}
+                    %a.ico.__30.__square.__chevron-right{href: "#"}
+                    %a.ico.__30.__square.__bookmark{href: "#"}
+                    %a.ico.__30.__square.__play{href: "#"}
+
+                .m-b_4
+                  %h4.m-b_2 Go to
+                  %div.m-b_2
+                    %a.goto{href: "#"} Читать вопросы

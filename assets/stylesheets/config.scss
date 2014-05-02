@@ -99,22 +99,22 @@ $base-line-height-list: (1.5rem, 1.5rem, 1.5rem);
 $h-font-family: $base-font-family;
 
 $h1-font-size-list: (4rem, 4rem, 4rem);
-$h2-font-size-list: (3rem, 3rem, 3rem);
-$h3-font-size-list: (2.5rem, 2.5rem, 2.5rem);
+$h2-font-size-list: (2.5rem, 2.5rem, 2.5rem);
+$h3-font-size-list: (1.8rem, 1.8rem, 1.8rem);
 $h4-font-size-list: (2rem, 2rem, 2rem);
 $h5-font-size-list: (inherit, inherit, inherit);
 $h6-font-size-list: (inherit, inherit, inherit);
 
 $h1-font-weight-list: (600, 600, 600);
-$h2-font-weight-list: (600, 600, 600);
-$h3-font-weight-list: (600, 600, 600);
+$h2-font-weight-list: (300, 300, 300);
+$h3-font-weight-list: (300, 300, 300);
 $h4-font-weight-list: (600, 600, 600);
 $h5-font-weight-list: (600, 600, 600);
 $h6-font-weight-list: (inherit, inherit, inherit);
 
 $h1-line-height-list: (7.2rem, 7.2rem, 7.2rem);
-$h2-line-height-list: (3.2rem, 3.2rem, 3.2rem);
-$h3-line-height-list: (2.8rem, 2.8rem, 2.8rem);
+$h2-line-height-list: (2.5rem, 2.5rem, 2.5rem);
+$h3-line-height-list: (2rem, 2rem, 2rem);
 $h4-line-height-list: (2.4rem, 2.4rem, 2.4rem);
 $h5-line-height-list: (inherit, inherit, inherit);
 $h6-line-height-list: (inherit, inherit, inherit);
@@ -124,14 +124,14 @@ $h6-line-height-list: (inherit, inherit, inherit);
 //
 $major-color: #2c92e1;
 $minor-color: #e12c84;
-$voice-color: #000;
-$muted-color: #848485;
+$voice-color: #848485;
+$muted-color: #c1c1c1;
 $border-color: #f0f0f0;
 
 //
 // .. Shadow
 //
-$base-shadow: 0 .1rem .2rem 0 rgba(0, 0, 0, .33);
+$base-shadow: 0 .1rem .2rem 0 rgba(0, 0, 0, .35);
 
 //
 // .. Focus
@@ -142,9 +142,9 @@ $focus: false; // .. true / false
 // .. Links
 //
 $link-color: $major-color;
-$link-color-hover: darken($link-color, 20%);
-$link-color-active: darken($link-color, 10%);
-$link-style: nn;        // .. nn / uu / un / nu
+$link-color-hover: $link-color;
+$link-color-active: $link-color;
+$link-style: nu;        // .. nn / uu / un / nu
 $link-style-pseudo: uu; // .. nn / uu / un
 
 //
@@ -166,10 +166,10 @@ $tx-xs-font-size:    80%;
 $tx-xs-line-height:  160%;
 
 $tx-s-font-size:     90%;
-$tx-s-line-height:   160%;
+$tx-s-line-height:   inherit;
 
 $tx-m-font-size:     100%;
-$tx-m-line-height:   160%;
+$tx-m-line-height:   inherit;
 
 $tx-l-font-size:     110%;
 $tx-l-line-height:   160%;
