@@ -41,7 +41,7 @@
                         = Haml::Engine.new(File.read('views/common/_app_item.haml')).render
                       
               -# Reviews
-              .block.p-t_4.p-b_3
+              .block.p-t_2.p-b_3
                 .block_h
                   .grid
                     .grid-i.__grid-6.va-m>
@@ -60,7 +60,7 @@
                         = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
                       
               -# Contest
-              .block.p-t_4.p-b_3
+              .block.p-t_2.p-b_3
                 .block_h
                   .grid
                     .grid-i.__grid-6.va-m>
@@ -77,7 +77,7 @@
                     = Haml::Engine.new(File.read('views/common/_contest_item.haml')).render
 
               -# Recommendations
-              .block.p-t_4.p-b_3
+              .block.p-t_2.p-b_3
                 .block_h
                   .grid
                     .grid-i.__grid-6.va-m>
@@ -103,7 +103,7 @@
                           = Haml::Engine.new(File.read('views/common/_recommendation_item.haml')).render
 
               -# Videos
-              .block.p-t_4.p-b_3
+              .block.p-t_2.p-b_3
                 .block_h
                   .grid
                     .grid-i.__grid-6.va-m>
@@ -125,7 +125,7 @@
                       = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
               
               -# FAQ
-              .block.p-t_4.p-b_3
+              .block.p-t_2.p-b_3
                 .block_h
                   .grid
                     .grid-i.__grid-6.va-m>
@@ -164,4 +164,5 @@
                       %textarea.form-el.__textarea.__block{rows: 3, placeholder: "Вопрос, например: «MacBook Pro некорректно выходит из спящего режима, что делать?»"}
                     %div
                       %button.form-el.__btn.__large.__major{type: "submit"} Отправить запрос
+                      
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
