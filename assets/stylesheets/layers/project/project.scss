@@ -124,7 +124,14 @@
   padding: 1.5rem 2rem 3rem;
   
   @extend .decor;
-  &.__index {background: #fff url(/assets/images/promo-index.jpg) center no-repeat;}
+  &.__index {
+    background: #fff url(/assets/images/promo-index.png) center no-repeat;
+    color: $base-color;
+  }
+  &.__apps {
+    background: #4da3e6 url(/assets/images/promo-apps.png) center no-repeat;
+    color: #fff;
+  }
 }
   .promo_h {
     font-weight: 300;

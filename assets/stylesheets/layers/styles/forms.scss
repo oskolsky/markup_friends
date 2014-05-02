@@ -70,6 +70,7 @@ input {
     border-radius: .3rem;
     background: #fff;
     color: inherit;
+    &:not([disabled]):focus {border-color: $major-color;}
   }
 
   //
@@ -81,6 +82,7 @@ input {
     border-radius: .3rem;
     background: #fff;
     color: inherit;
+    &:not([disabled]):focus {border-color: $major-color;}
   }
 
   //
