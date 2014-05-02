@@ -1,7 +1,7 @@
 !!!
 %html.no-js{lang: "ru-RU"}
   %head
-    %title Friends
+    %title Обзоры товаров / Friends
     = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
   
   %body#page.page
@@ -18,5 +18,5 @@
           .grid-i.__grid-9>
             %section#section.section{role: "region", "aria-label" => ""}
               %p Content
-                  
+
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

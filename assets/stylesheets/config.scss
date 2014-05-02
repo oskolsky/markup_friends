@@ -129,9 +129,14 @@ $muted-color: #848485;
 $border-color: #f0f0f0;
 
 //
+// .. Shadow
+//
+$base-shadow: 0 .1rem .2rem 0 rgba(0, 0, 0, .33);
+
+//
 // .. Focus
 //
-$focus: true; // .. true / false
+$focus: false; // .. true / false
 
 //
 // .. Links

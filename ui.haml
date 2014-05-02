@@ -1,0 +1,18 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title UI / Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    %main#main.main{role: "main"}
+      %section{role: "region", "aria-label" => "Demo"}
+        .ctn
+          .p-t_8.p-b_8
+
+            .m-b_4
+              %h4.m-b_2 Forms
+              %div.m-b_2
+                %button.form-el.__btn.__large.__major Узнать больше
+              %div
+                %button.form-el.__btn.__small.__major Все (365)
