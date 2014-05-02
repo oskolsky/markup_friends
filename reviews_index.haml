@@ -17,7 +17,24 @@
 
           .grid-i.__grid-9>
             %section#section.section{role: "region", "aria-label" => ""}
-              = Haml::Engine.new(File.read('views/common/_reviews_promo.haml')).render
+              %article.promo.__reviews
+                %header.promo_h Обзоры товаров
+                %p.m-b_2
+                  Мы&nbsp;рассказываем вам о&nbsp;самом
+                  %br
+                  новом и&nbsp;интересном из&nbsp;мира техники и&nbsp;аксессуаров.
+                  %br
+                  Сюда входят обзоры акустики, чехлов,
+                  %br
+                  рюкзаков, штативов, новинок от&nbsp;Apple, и&nbsp;еще 
+                  %br
+                  много всего интересного.
+                %p
+                  Мы&nbsp;уже подготовили для вас более 350&nbsp;обзоров, 
+                  %br
+                  и&nbsp;с&nbsp;каждым днем их&nbsp;становится все
+                  %br
+                  больше.
 
               %hr.hr.__dashed
 

@@ -202,6 +202,7 @@ input {
     background: #fff;
     color: inherit;
     line-height: 3.2rem;
+    &:not([disabled]):hover {border-color: $major-color;}
     &::after {
       position: absolute;
       top: 0;

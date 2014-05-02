@@ -17,7 +17,20 @@
 
           .grid-i.__grid-9>
             %section#section.section{role: "region", "aria-label" => ""}
-              = Haml::Engine.new(File.read('views/common/_index_promo.haml')).render
+              %article.promo.__index
+                %header.promo_h
+                  Добро пожаловать
+                  %br
+                  в&nbsp;re:Store Friends
+                %p.m-b_3
+                  %i re:Store Friends
+                  &nbsp;&mdash; ваш проводник в&nbsp;цифровом 
+                  %br
+                  мире. Мы&nbsp;подготовили для вас много 
+                  %br
+                  интересной и&nbsp;полезной информации.
+                %footer
+                  %button.form-el.__btn.__large.__major Узнать подробнее              
               
               %hr.hr.__dashed
 
