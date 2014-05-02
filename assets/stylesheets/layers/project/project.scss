@@ -181,6 +181,7 @@
       &:last-child  {padding-right: 2rem;}
     }
   }
+  .title > span {background-color: #fff !important;}
 }
 
 
@@ -191,7 +192,6 @@
 //
 //****************************************************************************************************
 .item {
-
   position: relative;
   
   &:not(:last-child) {margin-bottom: 2rem;}
@@ -325,6 +325,7 @@
   &.__dashed {
     position: relative;
     margin-bottom: 2rem;
+    background-color: inherit;
     &::after {
       position: absolute;
       top: 50%;
@@ -336,7 +337,7 @@
       content: '';
       z-index: 0;
     }
-    span {
+    > span {
       position: relative;
       z-index: 1;
       display: inline-block;
