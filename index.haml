@@ -1,0 +1,110 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => ""}
+
+              %article.promo
+                %header.promo_h
+                  Добро пожаловать
+                  %br
+                  в&nbsp;re:Store Friends
+                %p.m-b_3
+                  %i re:Store Friends
+                  &nbsp;&mdash; ваш проводник в&nbsp;цифровом 
+                  %br
+                  мире. Мы&nbsp;подготовили для вас много 
+                  %br
+                  интересной и&nbsp;полезной информации.
+                %footer
+                  %button.form-el.__btn.__large.__major Узнать подробнее
+
+              %hr.hr.__dotted
+
+              .block.p-t_1.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1 Приложения
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/app_index.html"} Все (365)
+                .block_b
+                  %p Test
+
+              .block.p-t_4.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1 Обзоры товаров
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/reviews_index.html"} Все (365)
+                .block_b
+                  %p Test
+
+              .block.p-t_4.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1 Конкурсы
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "#"} Архив конкурсов
+                .block_b
+                  %p Test
+                  
+              .block.p-t_4.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1 Рекомендации
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/recommendations_index_logout.html"} Все (193)
+                .block_b
+                  %p Test
+
+              .block.p-t_4.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1 Видеоролики
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/video_index.html"} Все (63)
+                .block_b
+                  %p Test
+
+              .block.p-t_4.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1 F.A.Q.
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %button.form-el.__btn.__small.__major Re:Store Genius (240)
+                .block_b
+                  %p Test
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
