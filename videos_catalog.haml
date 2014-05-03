@@ -17,7 +17,7 @@
 
           .grid-i.__grid-9>
             %section#section.section{role: "region", "aria-label" => "Content"}
-              %article.promo.__videos-catalog
+              %article.promo.__videos
                 %header.promo_h Видеообзоры
                 %p
                   Вы&nbsp;задаете себе вопросы о&nbsp;том, какой 
@@ -48,7 +48,7 @@
                         %h1.block_h_t Видеообзоры акустики
                     .grid-i.__grid-2.va-m>
                       .tx.__right
-                        %a.form-el.__btn.__small.__major{href: "/reviews_feed.html"} Все (365)
+                        %a.form-el.__btn.__small.__major{href: "/videos_feed.html"} Все (365)
                 .block_b
                   - 1.upto(2) do
                     = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
@@ -61,7 +61,7 @@
                         %h1.block_h_t Видеообзоры чехлов
                     .grid-i.__grid-2.va-m>
                       .tx.__right
-                        %a.form-el.__btn.__small.__major{href: "/reviews_feed.html"} Все (365)
+                        %a.form-el.__btn.__small.__major{href: "/videos_feed.html"} Все (365)
                 .block_b
                   - 1.upto(2) do
                     = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
@@ -74,7 +74,7 @@
                         %h1.block_h_t Видеообзоры наушников
                     .grid-i.__grid-2.va-m>
                       .tx.__right
-                        %a.form-el.__btn.__small.__major{href: "/reviews_feed.html"} Все (365)
+                        %a.form-el.__btn.__small.__major{href: "/videos_feed.html"} Все (365)
                 .block_b
                   - 1.upto(2) do
                     = Haml::Engine.new(File.read('views/common/_video_item.haml')).render

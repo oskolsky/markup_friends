@@ -125,27 +125,27 @@
   
   @extend .decor;
   &.__index {
-    background: #fff url(/assets/images/promo-index.png) top center no-repeat;
+    background: #fff url(/assets/images/promo-index.png) top right no-repeat;
     color: $base-color;
   }
   &.__apps {
-    background: #4da3e6 url(/assets/images/promo-apps.png) top center no-repeat;
+    background: #4da3e6 url(/assets/images/promo-apps.png) top right no-repeat;
     color: #fff;
   }
   &.__reviews {
-    background: #4da3e6 url(/assets/images/promo-reviews.png) top center no-repeat;
+    background: #4da3e6 url(/assets/images/promo-reviews.png) top right no-repeat;
     color: #fff;
   }
   &.__reviews-feed {
-    background: #4da3e6 url(/assets/images/promo-reviews-feed.png) top center no-repeat;
+    background: #4da3e6 url(/assets/images/promo-reviews-feed.png) top right no-repeat;
+    color: #fff;
+  }
+  &.__recommendations {
+    background: #4da3e6 url(/assets/images/promo-recommendations.png) top right no-repeat;
     color: #fff;
   }
   &.__videos {
-    background: #4da3e6 url(/assets/images/promo-videos.png) top center no-repeat;
-    color: #fff;
-  }
-  &.__videos-catalog {
-    background: #4da3e6 url(/assets/images/promo-videos.png) top center no-repeat;
+    background: #4da3e6 url(/assets/images/promo-videos.png) top right no-repeat;
     color: #fff;
   }
 }

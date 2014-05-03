@@ -17,6 +17,34 @@
 
           .grid-i.__grid-9>
             %section#section.section{role: "region", "aria-label" => "Content"}
-              %p Content
+              %article.promo.__recommendations
+                %header.promo_h 
+                  Персональные
+                  %br
+                  рекомендации
+                  %br
+                  для путешествий
+                %p
+                  Эти приложения мы&nbsp;подобрали специально
+                  %br
+                  для вас учитывая ваши предпочтения,
+                  %br
+                  которые вы&nbsp;указали в&nbsp;анкете.
+
+              %hr.hr.__dashed
+
+              .block.p-t_3.p-b_6
+                .block_b.m-b_4
+                  .feed.grid
+                    - 1.upto(9) do
+                      .grid-i.__grid-3>
+                        = Haml::Engine.new(File.read('views/common/_recommendation_item_feed.haml')).render
+                .block_f
+                  .load-more
+                    .load-more_inner
+                      %a.form-el.__btn.__small.__default{href: "#", data: {load: "/data/recommendations_feed.html"}} 
+                        %span Показать еще 6 рекомендаций
+                        %i.fa.fa-refresh
+                    %hr.hr.__dashed
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
