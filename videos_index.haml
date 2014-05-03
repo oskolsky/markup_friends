@@ -17,6 +17,69 @@
 
           .grid-i.__grid-9>
             %section#section.section{role: "region", "aria-label" => ""}
-              %p Content
+              %article.promo.__videos
+                %header.promo_h Видеоролики
+                %p.m-b_2
+                  Когда у&nbsp;нас в&nbsp;магазине появляется что-то 
+                  %br
+                  новое и&nbsp;интересное мы&nbsp;снимаем для вас 
+                  %br
+                  видеообзор об&nbsp;этом товаре, чтобы подробно 
+                  %br
+                  рассказать о&nbsp;его преимущества&nbsp;и, возможно, 
+                  %br
+                  недостатках.
+                %p
+                  Так&nbsp;же в&nbsp;этом разделе вы&nbsp;сможете найти
+                  %br
+                  видеоподсказки для разных устройств, 
+                  %br
+                  приложений и&nbsp;программ.
+
+              %hr.hr.__dashed
+
+              .block.p-t_1.p-b_3
+                .block_h
+                  %h1.block_h_t Лучшие за неделю
+                .block_b
+                  .grid
+                    .grid-i.__grid-3>
+                      %h3.title.__dashed
+                        %span Выбор редакции
+                      = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
+                    .grid-i.__grid-3>
+                      %h3.title.__dashed
+                        %span Видеообзор
+                      = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
+                    .grid-i.__grid-3>
+                      %h3.title.__dashed
+                        %span Видеоподсказка
+                      = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
+
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1.block_h_t Видеообзоры товаров
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/reviews_feed.html"} Все (365)
+                .block_b
+                  - 1.upto(3) do
+                    = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-6.va-m>
+                      .tx.__left
+                        %h1.block_h_t Видеоподсказки
+                    .grid-i.__grid-3.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/reviews_feed.html"} Все (365)
+                .block_b
+                  - 1.upto(3) do
+                    = Haml::Engine.new(File.read('views/common/_video_item.haml')).render                    
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
