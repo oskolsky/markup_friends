@@ -16,7 +16,38 @@
             = Haml::Engine.new(File.read('views/layouts/_sidebar.haml')).render
 
           .grid-i.__grid-9>
-            %section#section.section{role: "region", "aria-label" => ""}
-              %p Content
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              %article.promo.__videos-catalog
+                %header.promo_h 
+                  Видеообзоры
+                  %br
+                  чехлов
+                %p
+                  Вы&nbsp;задаете себе вопросы о&nbsp;том, какой чехол
+                  %br
+                  выбрать для вашего iPhone, какая 
+                  %br
+                  акустическая система лучше всего подойдет 
+                  %br
+                  для вашей гостинной или что лучше всего 
+                  %br
+                  подарить другу geek&rsquo;у, или&nbsp;же вы&nbsp;просто 
+                  %br
+                  хотите узнать, что нового появилось.
+
+              %hr.hr.__dashed
+
+              .block.p-t_3.p-b_6
+                .block_b.m-b_4
+                  .feed
+                    - 1.upto(6) do
+                      = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+                .block_f
+                  .load-more
+                    .load-more_inner
+                      %a.form-el.__btn.__small.__default{href: "#", data: {load: "/data/reviews_video_catalog.html"}} 
+                        %span Показать еще 6 видеообзорово чехлов
+                        %i.fa.fa-refresh
+                    %hr.hr.__dashed
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
