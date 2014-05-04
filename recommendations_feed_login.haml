@@ -1,0 +1,56 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Лента / Рекомендации / Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              %article.promo.__recommendations
+                %header.promo_h Рекомендации
+                %p.m-b_2 Вы&nbsp;счастливый обладатель гаджета от&nbsp;компании Apple. 
+                %p.m-b_2 
+                  Заполните анкету и&nbsp;получите еще больше 
+                  %br
+                  рекомендаций по&nbsp;приложениям, которые будут 
+                  %br
+                  интересны именно вам.
+                %footer
+                  %button.form-el.__btn.__large.__default Заполнить анкету
+
+              %hr.hr.__dashed
+
+              .block.p-t_1.p-b_3
+                .block_h
+                  %h1.block_h_t Приложение дня
+                .block_b
+                  = Haml::Engine.new(File.read('views/common/_app_promo_item.haml')).render
+
+              .block.p-t_2.p-b_6
+                .block_h
+                  %h1.block_h_t Выбор редакции
+                .block_b.m-b_4
+                  .feed.grid
+                    - 1.upto(9) do
+                      .grid-i.__grid-3>
+                        = Haml::Engine.new(File.read('views/common/_recommendation_item_feed.haml')).render
+                .block_f
+                  .load-more
+                    .load-more_inner
+                      %a.form-el.__btn.__small.__default{href: "#", data: {load: "/data/recommendations_feed.html"}} 
+                        %span Показать еще 6 рекомендаций
+                        %i.fa.fa-refresh
+                    %hr.hr.__dashed
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

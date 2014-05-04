@@ -118,7 +118,7 @@ input {
     //
     &.__default {
       background-color: #fff;
-      color: inherit;
+      color: $base-color;
     }
     &.__major {
       background-color: $major-color;

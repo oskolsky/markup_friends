@@ -1,7 +1,7 @@
 !!!
 %html.no-js{lang: "ru-RU"}
   %head
-    %title Нет регистрации / Рекомендации / Friends
+    %title Рекомендации / Friends
     = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
   
   %body#page.page
@@ -39,7 +39,7 @@
                         %h1.block_h_t Для путешествий
                     .grid-i.__grid-2.va-m>
                       .tx.__right
-                        %a.form-el.__btn.__small.__major{href: "/recommendations_feed.html"} Все (365)
+                        %a.form-el.__btn.__small.__major{href: "/recommendations_feed_logout.html"} Все (365)
                 .block_b
                   %div.m-b_3
                     %h3.title.__dashed
@@ -64,7 +64,7 @@
                         %h1.block_h_t Игры
                     .grid-i.__grid-2.va-m>
                       .tx.__right
-                        %a.form-el.__btn.__small.__major{href: "/recommendations_feed.html"} Все (365)
+                        %a.form-el.__btn.__small.__major{href: "/recommendations_feed_logout.html"} Все (365)
                 .block_b
                   %div.m-b_3
                     %h3.title.__dashed
