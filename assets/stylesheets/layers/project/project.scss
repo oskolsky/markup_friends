@@ -374,8 +374,36 @@
 }
 
 //
-// .. OWL Controls
+// .. OWL Carousel
 //
+.owl-carousel {
+  &::before, &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    display: none;
+    width: 9px;
+    background-image: url(/assets/images/shadow.png);
+    background-repeat: no-repeat;
+    content: '';
+  }
+  &::before {
+    left: 0;
+    background-position: -9px 0;
+  }
+  &::after {
+    right: 0;
+    background-position: 0 0;
+  }
+  &.__shadow-left {
+    &::before {display: block;}
+  }
+  &.__shadow-right {
+    &::after {display: block;}
+  }
+}
+
 .owl-controls {
 
 }
@@ -388,7 +416,8 @@
       @extend .ico.__square;
       position: absolute;
       top: 53px;
-      &.disabled {opacity: .3;}
+      z-index: 1000;
+      &.disabled {display: none;}
     }
     .owl-prev {
       left:  -1rem;

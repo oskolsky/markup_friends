@@ -5,35 +5,48 @@
 //****************************************************************************************************
 $(function() {
 
-  //
-  // .. OWL Carousel init
-  //
-  $('.owl-carousel').owlCarousel({
-    autoWidth: true,
-    items: 4,
-    loop: false,
-    margin: 20,
-    merge: true,
-    navigation: true,
-    navText: false
-  });
-  
-  //****************************************************************************************************
-  //
-  // .. SCROLL
-  //
-  //****************************************************************************************************
-  $(window).scroll(function() {});
+    //
+    // .. OWL Carousel init
+    //
+    $('.owl-carousel').each(function() {
+        var $owl = $(this);
+
+        $owl.owlCarousel({
+            autoWidth: true,
+            items: 4,
+            loop: false,
+            margin: 20,
+            merge: true,
+            navigation: true,
+            navText: false,
+            info: setShadow
+        });
+
+        function setShadow(i) {
+            i.currentPosition == 0 ? $owl.removeClass('__shadow-left') : $owl.addClass('__shadow-left');
+            i.currentPosition == (i.allItems - i.items) ? $owl.removeClass('__shadow-right') : $owl.addClass('__shadow-right');
+
+            console.log(i.currentPosition, i.allItems, i.items);
+        }
+
+    });
+
+    //****************************************************************************************************
+    //
+    // .. SCROLL
+    //
+    //****************************************************************************************************
+    $(window).scroll(function() {});
 
 
 
-  //****************************************************************************************************
-  //
-  // .. RESIZE
-  //
-  //****************************************************************************************************
-  $(window).smartresize(function() {});
-  
+    //****************************************************************************************************
+    //
+    // .. RESIZE
+    //
+    //****************************************************************************************************
+    $(window).smartresize(function() {});
+
 });
 
 
