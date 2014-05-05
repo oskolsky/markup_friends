@@ -6,6 +6,12 @@
 $(function() {
 
     //
+    // .. Masket input
+    //
+    $('.form-el.__tx.__phone').mask('+7 (999) 999-99-99');
+    $('.form-el.__tx.__date').mask('99.99.99');
+
+    //
     // .. OWL Carousel init
     //
     $('.owl-carousel').each(function() {

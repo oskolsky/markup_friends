@@ -43,6 +43,7 @@ var paths = {
       './assets/javascripts/vendor/imagesloaded.pkgd.js',
       './assets/javascripts/vendor/masonry.pkgd.js',
       './assets/javascripts/vendor/accounting.js',
+      './assets/javascripts/vendor/jquery.maskedinput.js',      
       './assets/javascripts/polyfill/polyfill.js',
       './assets/javascripts/config.js',
       './assets/javascripts/jquery.extensions.js',

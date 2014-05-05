@@ -53,4 +53,274 @@
                         %i.fa.fa-refresh
                     %hr.hr.__dashed
 
+              .block.p-t_3.p-b_3
+                .block_b
+                  .content-block
+                    %h2.title.__dashed
+                      %span Получить персональные рекомендации
+                    %form.form
+                      %div.m-b_2
+                        .grid-i.__grid-6.__suffix-3>
+                          %p.tx.__muted.__i Заполните эту анкеты, если вы&nbsp;хотите получать персональные рекомендации по&nbsp;приложениям, которые будут интересны исключительно вам. Наша команда будет подбирать материал специально для вас.
+                      %div.m-b_2
+                        %h3 Личные данные
+                      %div.m-b_1
+                        .grid
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block{type: "text", placeholder: "Фамилия"}
+                          .grid-i.__grid-3.va-m>
+                            .form-el.__select.__fake.__block
+                              %p &nbsp;
+                              %select.form-el.__select.__real
+                                %option{selected: "selected"} Пол
+                                %option Женщина
+                                %option Мужчина
+                      %div.m-b_1
+                        .grid
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block{type: "text", placeholder: "Имя"}
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block.__date{type: "text", placeholder: "Дата рождения ДД.ММ.ГГ"}
+                          .grid-i.__grid-3.va-m>
+                            %p.tx.__muted.__i.__300 Ограничение контента по возрасту
+                      %div.m-b_1
+                        .grid
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block{type: "text", placeholder: "Отчество"}
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block{type: "text", placeholder: "Электронная почта", data: {valid: "false"}}
+                          .grid-i.__grid-3.va-m>
+                            %p.tx.__muted.__i.__300 Пришлем новые предложения специально для вас
+                      %div.m-b_2
+                        .grid
+                          .grid-i.__grid-3.va-m>
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block.__phone{type: "text", placeholder: "+7 (___) ___-__-__"}
+                          .grid-i.__grid-3.va-m>
+                            %p.tx.__muted.__i.__300 СМС для специальных предложений
+                      %div.m-b_2
+                        %hr.hr.__dashed
+                      %div.m-b_2
+                        %h3 Опыт использования устройств с iOs
+                      %div.m-b_2
+                        .grid
+                          .grid-i.__grid-1.va-m>
+                            %label.form-el.__label
+                              %span.form-el.__radio.__fake.__top{data: {checked: "false"}}
+                                %input.form-el.__radio.__real{type: "radio", name: "1", checked: "checked"}
+                              %span Есть
+                          .grid-i.__grid-1.va-m>
+                            %label.form-el.__label
+                              %span.form-el.__radio.__fake.__top{data: {checked: "false"}}
+                                %input.form-el.__radio.__real{type: "radio", name: "1"}
+                              %span Нет
+                      %div.m-b_2
+                        %hr.hr.__dashed
+                      %div.m-b_2
+                        %h3 Что вам интересно?
+                      %div.m-b_2
+                        %div.m-b_1
+                          .grid
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Дети
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Путешествия
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox", checked: "checked"}
+                                %span Спорт
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Резвлечения
+                        %div
+                          .grid
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox", checked: "checked"}
+                                %span Учеба
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox", checked: "checked"}
+                                %span Работа
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Творчество
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox", checked: "checked"}
+                                %span Игры
+                      %div.m-b_2
+                        %hr.hr.__dashed
+                      %div.m-b_2
+                        %h3 Какая у вас профессия?
+                      %div.m-b_2
+                        %div.m-b_1
+                          .grid
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Экономика
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span ИТ
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox", checked: "checked"}
+                                %span Творчество
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Педагогика
+                        %div.m-b_1
+                          .grid
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Медицина
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox", checked: "checked"}
+                                %span Медиа
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Сервис
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Другое
+                        %div
+                          .grid
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Наука
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Техника
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Юриспруденция
+                      %div.m-b_2
+                        %hr.hr.__dashed
+                      %div.m-b_2
+                        %h3 Какая у вас профессия?
+                      %div.m-b_2
+                        %div.m-b_1
+                          .grid
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Аркады
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Головоломки
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Азартные
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Настольные
+                        %div
+                          .grid
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Боевики
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox", checked: "checked"}
+                                %span Гонки
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Музыкальные
+                            .grid-i.__grid-2.va-m>
+                              %label.form-el.__label
+                                %span.form-el.__checkbox.__fake.__top{data: {checked: "false"}}
+                                  %input.form-el.__checkbox.__real{type: "checkbox"}
+                                %span Обучающие
+                      %div.m-b_2
+                        %hr.hr.__dashed
+                      %div.m-b_2
+                        %h3 Дети
+                      %div.m-b_2
+                        .grid
+                          .grid-i.__grid-1.va-m>
+                            %label.form-el.__label
+                              %span.form-el.__radio.__fake.__top{data: {checked: "false"}}
+                                %input.form-el.__radio.__real{type: "radio", name: "2", checked: "checked"}
+                              %span Есть
+                          .grid-i.__grid-1.va-m>
+                            %label.form-el.__label
+                              %span.form-el.__radio.__fake.__top{data: {checked: "false"}}
+                                %input.form-el.__radio.__real{type: "radio", name: "2"}
+                              %span Нет
+                      %div.m-b_2
+                        .grid
+                          .grid-i.__grid-3.va-m>
+                            .form-el.__select.__fake.__block
+                              %p &nbsp;
+                              %select.form-el.__select.__real
+                                %option{selected: "selected"} Пол ребенка
+                                %option Женщина
+                                %option Мужчина
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block.__date{type: "text", placeholder: "Дата рождения ДД.ММ.ГГ"}
+                          .grid-i.__grid-3.va-m>
+                            %p.tx.__muted.__i.__300 Информация о первом ребенке
+                      %div.m-b_2
+                        .grid
+                          .grid-i.__grid-3.va-m>
+                            .form-el.__select.__fake.__block
+                              %p &nbsp;
+                              %select.form-el.__select.__real
+                                %option{selected: "selected"} Пол ребенка
+                                %option Женщина
+                                %option Мужчина
+                          .grid-i.__grid-3.va-m>
+                            %input.form-el.__tx.__block.__date{type: "text", placeholder: "Дата рождения ДД.ММ.ГГ"}
+                          .grid-i.__grid-3.va-m>
+                            %p.tx.__muted.__i.__300 Информация о втором ребенке
+                      %div
+                        %button.form-el.__btn.__large.__major{type: "submit"} Отправить анкету
+
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
