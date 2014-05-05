@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru-RU">
+  <head>
+    <title>Приложения / Friends</title>
+    <meta charset='utf-8'>
+    <meta content='width=device-width' name='viewport'>
+    <meta content='telephone=no' name='format-detection'>
+    <meta content='' name='description'>
+    <meta content='' name='keywords'>
+    <link href='/humans.txt' rel='author'>
+    <link href='/favicon.ico' rel='icon'>
+    <link href='/apple-touch-icon-precomposed.png' rel='apple-touch-icon'>
+    <link href='/apple-touch-icon-57x57-precomposed.png' rel='apple-touch-icon' sizes='57x57'>
+    <link href='/apple-touch-icon-72x72-precomposed.png' rel='apple-touch-icon' sizes='72x72'>
+    <link href='/apple-touch-icon-114x114-precomposed.png' rel='apple-touch-icon' sizes='114x114'>
+    <link href='/apple-touch-icon-144x144-precomposed.png' rel='apple-touch-icon' sizes='144x144'>
+    <link href='/assets/stylesheets/application.css' rel='stylesheet'>
+    <!-- build:javascripts -->
+    <script src='/assets/javascripts/vendor/modernizr-latest.js'></script>
+    <script src='/assets/javascripts/vendor/yepnope.js'></script>
+    <script src='/assets/javascripts/vendor/jquery-2.1.0.js'></script>
+    <script src='/assets/javascripts/vendor/jquery-ui-1.10.4.js'></script>
+    <script src='/assets/javascripts/vendor/underscore.js'></script>
+    <script src='/assets/javascripts/vendor/backbone.js'></script>
+    <script src='/assets/javascripts/vendor/smartresize.js'></script>
+    <script src='/assets/javascripts/vendor/doublehover.js'></script>
+    <script src='/assets/javascripts/vendor/jquery.arcticmodal.js'></script>
+    <script src='/assets/javascripts/vendor/owl.carousel.js'></script>
+    <script src='/assets/javascripts/vendor/imagesloaded.pkgd.js'></script>
+    <script src='/assets/javascripts/vendor/masonry.pkgd.js'></script>
+    <script src='/assets/javascripts/vendor/accounting.js'></script>
+    <script src='/assets/javascripts/polyfill/polyfill.js'></script>
+    <script src='/assets/javascripts/config.js'></script>
+    <script src='/assets/javascripts/jquery.extensions.js'></script>
+    <script src='/assets/javascripts/forms.js'></script>
+    <script src='/assets/javascripts/components.js'></script>
+    <script src='/assets/javascripts/feed.js'></script>
+    <script src='/assets/javascripts/application.js'></script>
+    <script src='/assets/javascripts/project.js'></script>
+    <!-- endbuild -->
+  </head>
+  <body class="page" id="page">
+    <style>
+      .alert-no-js {display: none;}
+      .no-js .alert-no-js {display: block;}
+    </style>
+    <div class='alert-no-js c-alert __l c-bg __red' role='alert'>
+      <h1>У вас отключен JavaScript.</h1>
+    </div>
+    <!--[if lt IE 9]>
+      <div role='alert' style='padding: 30px; background-color: #2980b9; text-align: center;'>
+        <h1 style='color: #fff; font-size: 40px; line-height: 1.5;'>
+          Использование устаревшего браузера
+          <br>
+          повышает риск взлома вашего компьютера.
+          <br>
+          <a href='http://browsehappy.com/' style='color: #fff; text-decoration: underline;' target='_blank'>Обновите свой браузер!</a>
+        </h1>
+      </div>
+    <![endif]-->
+    <header class='header' id='header' role='banner'>
+      <div class='ctn'>
+        <div class='grid'><div class='grid-i __grid-3 va-m'>
+            <div class='header_logo'>
+              <a href='/'>
+                <img alt='Friends' class='va-t' height='45' src='/assets/images/logo.png' width='174'>
+              </a>
+            </div>
+          </div><div class='grid-i __grid-9 va-m'>
+            <div class='header_filter'>
+              <form class='form'>
+                <div class='grid'><div class='grid-i __grid-5 __suffix-1'>
+                    <form class='form'><div class='form-el __select __fake'>
+                        <p>&nbsp;</p>
+                        <select class='form-el __select __real'>
+                          <option selected='selected'>Все устройства</option>
+                          <option>iPad</option>
+                          <option>iPhone</option>
+                          <option>iPod</option>
+                        </select>
+                      </div><div class='form-el __select __fake'>
+                        <p>&nbsp;</p>
+                        <select class='form-el __select __real'>
+                          <option selected='selected'>Все типы</option>
+                          <option>iPad</option>
+                          <option>iPhone</option>
+                          <option>iPod</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div><div class='grid-i __grid-3'>
+                    <form class='search'>
+                      <input class='form-el __tx __block' placeholder='Поиск' type='text'>
+                      <button class='search_btn' type='submit'>
+                        <i class='ico __18 __search'></i>
+                      </button>
+                    </form>
+                  </div></div>
+              </form>
+            </div>
+          </div></div>
+      </div>
+    </header>
+    <main class="main" id="main" role="main">
+      <div class="ctn">
+        <div class="grid"><div class="grid-i __grid-3">
+            <aside class='sidebar' id='sidebar'>
+              <nav role='navigation'>
+                <ul class='nav'>
+                  <li class='nav_i'>
+                    <a class='nav_i_a __current' href='/'>Главная</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/apps_index.html'>Приложения</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/reviews_index.html'>Обзоры товаров</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='#'>Конкурсы</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/recommendations_index.html'>Рекомендации</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/videos_index.html'>Видеоролики</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='#'>FAQ</a>
+                  </li>
+                </ul>
+              </nav>
+            </aside>
+          </div><div class="grid-i __grid-9">
+            <section aria-label="Content" class="section" id="section" role="region">
+              <article class="promo __apps">
+                <header class="promo_h">Приложения</header>
+                <p class="m-b_2">
+                  Выбор приложений в&nbsp;Appstore на&nbsp;столько
+                  <br>
+                  огроменн, что в&nbsp;нем с&nbsp;легкостью можно
+                  <br>
+                  потеряться.
+                </p>
+                <p>
+                  В&nbsp;этом разделе мы&nbsp;расскажем о&nbsp;самых
+                  <br>
+                  интересных и&nbsp;необычных приложениях уже
+                  <br>
+                  доступныхдля скачивания, или&nbsp;же только
+                  <br>
+                  готовящихся к&nbsp;выходу.
+                </p>
+              </article>
+              <hr class="hr __dashed">
+              <div class="block p-t_1 p-b_3">
+                <div class="block_h">
+                  <h1 class="block_h_t">Главное за сегодня</h1>
+                </div>
+                <div class="block_b">
+                  <h3 class="title __dashed">
+                    <span>Приложение дня</span>
+                  </h3>
+                  <div class='item __promo'>
+                    <div class='item_controls'>
+                      <a class='ico __30 __square __play' href='#'></a>
+                      <a class='ico __30 __square __bookmark' href='#'></a>
+                    </div>
+                    <div class='grid'><div class='grid-i __grid-4'>
+                        <a href='/apps_show.html'>
+                          <img alt='Рецензия на вторую часть культовой игры Cut the Rope' class='va-t c-bg __light' height='292' src='/assets/images/blank.gif' width='292'>
+                        </a>
+                      </div><div class='grid-i __grid-5'>
+                        <div class='m-b_1'>
+                          <p class='tx __s'>21.01.2014 | Александр Рипонен</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h2>
+                            <a href='/apps_show.html'>Jetpack Joyride: бесконечный драйв реактивного ранца</a>
+                          </h2>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Сюжетная завязка Jetpack Joyride проста до&nbsp;невозможности. Совершенно обычный мужчина средних лет, проходя мимо сверхсекретной лаборатории, увешанной с&nbsp;фундамента и&nbsp;до&nbsp;крыши неоновыми вывесками, замечает готовящийся к&nbsp;запуску джетпак.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>Игры</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>Раннер</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div></div>
+                  </div>
+                  <div class="m-b_3">
+                    <h3 class="title __dashed">
+                      <span>Свежие приложения</span>
+                    </h3>
+                    <div class="grid"><div class="grid-i __grid-3">
+                        <div class='item'>
+                          <div class='item_controls'>
+                            <a class='ico __30 __square __play' href='#'></a>
+                            <a class='ico __30 __square __bookmark' href='#'></a>
+                          </div>
+                          <div class='m-b_2'>
+                            <a class='double-hover' href='/apps_show.html#410'>
+                              <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                            </a>
+                          </div>
+                          <div class='m-b_1'>
+                            <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                          </div>
+                          <div class='m-b_1'>
+                            <h3>
+                              <a class='double-hover' href='/apps_show.html#410'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                            </h3>
+                          </div>
+                          <div class='m-b_2'>
+                            <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                          </div>
+                          <nav>
+                            <ul class='item_tags'>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPhone</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPad</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPod</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iOs</a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div><div class="grid-i __grid-3">
+                        <div class='item'>
+                          <div class='item_controls'>
+                            <a class='ico __30 __square __play' href='#'></a>
+                            <a class='ico __30 __square __bookmark' href='#'></a>
+                          </div>
+                          <div class='m-b_2'>
+                            <a class='double-hover' href='/apps_show.html#246'>
+                              <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                            </a>
+                          </div>
+                          <div class='m-b_1'>
+                            <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                          </div>
+                          <div class='m-b_1'>
+                            <h3>
+                              <a class='double-hover' href='/apps_show.html#246'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                            </h3>
+                          </div>
+                          <div class='m-b_2'>
+                            <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                          </div>
+                          <nav>
+                            <ul class='item_tags'>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPhone</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPad</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPod</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iOs</a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div><div class="grid-i __grid-3">
+                        <div class='item'>
+                          <div class='item_controls'>
+                            <a class='ico __30 __square __play' href='#'></a>
+                            <a class='ico __30 __square __bookmark' href='#'></a>
+                          </div>
+                          <div class='m-b_2'>
+                            <a class='double-hover' href='/apps_show.html#838'>
+                              <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                            </a>
+                          </div>
+                          <div class='m-b_1'>
+                            <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                          </div>
+                          <div class='m-b_1'>
+                            <h3>
+                              <a class='double-hover' href='/apps_show.html#838'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                            </h3>
+                          </div>
+                          <div class='m-b_2'>
+                            <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                          </div>
+                          <nav>
+                            <ul class='item_tags'>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPhone</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPad</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPod</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iOs</a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div></div>
+                  </div>
+                  <div>
+                    <h3 class="title __dashed">
+                      <span>Популярные приложения</span>
+                    </h3>
+                    <div class="grid"><div class="grid-i __grid-3">
+                        <div class='item'>
+                          <div class='item_controls'>
+                            <a class='ico __30 __square __play' href='#'></a>
+                            <a class='ico __30 __square __bookmark' href='#'></a>
+                          </div>
+                          <div class='m-b_2'>
+                            <a class='double-hover' href='/apps_show.html#708'>
+                              <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                            </a>
+                          </div>
+                          <div class='m-b_1'>
+                            <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                          </div>
+                          <div class='m-b_1'>
+                            <h3>
+                              <a class='double-hover' href='/apps_show.html#708'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                            </h3>
+                          </div>
+                          <div class='m-b_2'>
+                            <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                          </div>
+                          <nav>
+                            <ul class='item_tags'>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPhone</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPad</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPod</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iOs</a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div><div class="grid-i __grid-3">
+                        <div class='item'>
+                          <div class='item_controls'>
+                            <a class='ico __30 __square __play' href='#'></a>
+                            <a class='ico __30 __square __bookmark' href='#'></a>
+                          </div>
+                          <div class='m-b_2'>
+                            <a class='double-hover' href='/apps_show.html#517'>
+                              <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                            </a>
+                          </div>
+                          <div class='m-b_1'>
+                            <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                          </div>
+                          <div class='m-b_1'>
+                            <h3>
+                              <a class='double-hover' href='/apps_show.html#517'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                            </h3>
+                          </div>
+                          <div class='m-b_2'>
+                            <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                          </div>
+                          <nav>
+                            <ul class='item_tags'>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPhone</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPad</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPod</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iOs</a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div><div class="grid-i __grid-3">
+                        <div class='item'>
+                          <div class='item_controls'>
+                            <a class='ico __30 __square __play' href='#'></a>
+                            <a class='ico __30 __square __bookmark' href='#'></a>
+                          </div>
+                          <div class='m-b_2'>
+                            <a class='double-hover' href='/apps_show.html#909'>
+                              <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                            </a>
+                          </div>
+                          <div class='m-b_1'>
+                            <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                          </div>
+                          <div class='m-b_1'>
+                            <h3>
+                              <a class='double-hover' href='/apps_show.html#909'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                            </h3>
+                          </div>
+                          <div class='m-b_2'>
+                            <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                          </div>
+                          <nav>
+                            <ul class='item_tags'>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPhone</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPad</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iPod</a>
+                              </li>
+                              <li class='item_tags_i'>
+                                <a class='item_tags_i_a' href='#'>iOs</a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block p-t_2 p-b_3">
+                <div class="block_h">
+                  <div class="grid"><div class="grid-i __grid-6 va-m">
+                      <div class="tx __left">
+                        <h1 class="block_h_t">Игры</h1>
+                      </div>
+                    </div><div class="grid-i __grid-3 va-m">
+                      <div class="tx __right">
+                        <a class="form-el __btn __small __major" href="#">Все (365)</a>
+                      </div>
+                    </div></div>
+                </div>
+                <div class="block_b">
+                  <div class="grid"><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#663'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#663'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#445'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#445'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#503'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#503'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div></div>
+                </div>
+              </div>
+              <div class="block p-t_2 p-b_3">
+                <div class="block_h">
+                  <div class="grid"><div class="grid-i __grid-6 va-m">
+                      <div class="tx __left">
+                        <h1 class="block_h_t">Образование</h1>
+                      </div>
+                    </div><div class="grid-i __grid-3 va-m">
+                      <div class="tx __right">
+                        <a class="form-el __btn __small __major" href="#">Все (365)</a>
+                      </div>
+                    </div></div>
+                </div>
+                <div class="block_b">
+                  <div class="grid"><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#397'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#397'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#352'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#352'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#409'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#409'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div></div>
+                </div>
+              </div>
+              <div class="block p-t_2 p-b_3">
+                <div class="block_h">
+                  <div class="grid"><div class="grid-i __grid-6 va-m">
+                      <div class="tx __left">
+                        <h1 class="block_h_t">Бизнес</h1>
+                      </div>
+                    </div><div class="grid-i __grid-3 va-m">
+                      <div class="tx __right">
+                        <a class="form-el __btn __small __major" href="#">Все (365)</a>
+                      </div>
+                    </div></div>
+                </div>
+                <div class="block_b">
+                  <div class="grid"><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#320'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#320'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#238'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#238'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#178'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#178'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div></div>
+                </div>
+              </div>
+              <div class="block p-t_2 p-b_3">
+                <div class="block_h">
+                  <div class="grid"><div class="grid-i __grid-6 va-m">
+                      <div class="tx __left">
+                        <h1 class="block_h_t">Развлечения</h1>
+                      </div>
+                    </div><div class="grid-i __grid-3 va-m">
+                      <div class="tx __right">
+                        <a class="form-el __btn __small __major" href="#">Все (365)</a>
+                      </div>
+                    </div></div>
+                </div>
+                <div class="block_b">
+                  <div class="grid"><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#379'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#379'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#350'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#350'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_2'>
+                          <a class='double-hover' href='/apps_show.html#827'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <p class='tx __s __voice'>21.01.2014 | Антон Дуров</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#827'>Device&nbsp;6: интерактивная книга под маской игры</a>
+                          </h3>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div></div>
+                </div>
+              </div>
+            </section>
+          </div></div>
+      </div>
+    </main>
+    <footer class='footer' id='footer' role='contentinfo'>
+      <div class='ctn'></div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru-RU">
+  <head>
+    <title>Лента / Рекомендации / Friends</title>
+    <meta charset='utf-8'>
+    <meta content='width=device-width' name='viewport'>
+    <meta content='telephone=no' name='format-detection'>
+    <meta content='' name='description'>
+    <meta content='' name='keywords'>
+    <link href='/humans.txt' rel='author'>
+    <link href='/favicon.ico' rel='icon'>
+    <link href='/apple-touch-icon-precomposed.png' rel='apple-touch-icon'>
+    <link href='/apple-touch-icon-57x57-precomposed.png' rel='apple-touch-icon' sizes='57x57'>
+    <link href='/apple-touch-icon-72x72-precomposed.png' rel='apple-touch-icon' sizes='72x72'>
+    <link href='/apple-touch-icon-114x114-precomposed.png' rel='apple-touch-icon' sizes='114x114'>
+    <link href='/apple-touch-icon-144x144-precomposed.png' rel='apple-touch-icon' sizes='144x144'>
+    <link href='/assets/stylesheets/application.css' rel='stylesheet'>
+    <!-- build:javascripts -->
+    <script src='/assets/javascripts/vendor/modernizr-latest.js'></script>
+    <script src='/assets/javascripts/vendor/yepnope.js'></script>
+    <script src='/assets/javascripts/vendor/jquery-2.1.0.js'></script>
+    <script src='/assets/javascripts/vendor/jquery-ui-1.10.4.js'></script>
+    <script src='/assets/javascripts/vendor/underscore.js'></script>
+    <script src='/assets/javascripts/vendor/backbone.js'></script>
+    <script src='/assets/javascripts/vendor/smartresize.js'></script>
+    <script src='/assets/javascripts/vendor/doublehover.js'></script>
+    <script src='/assets/javascripts/vendor/jquery.arcticmodal.js'></script>
+    <script src='/assets/javascripts/vendor/owl.carousel.js'></script>
+    <script src='/assets/javascripts/vendor/imagesloaded.pkgd.js'></script>
+    <script src='/assets/javascripts/vendor/masonry.pkgd.js'></script>
+    <script src='/assets/javascripts/vendor/accounting.js'></script>
+    <script src='/assets/javascripts/polyfill/polyfill.js'></script>
+    <script src='/assets/javascripts/config.js'></script>
+    <script src='/assets/javascripts/jquery.extensions.js'></script>
+    <script src='/assets/javascripts/forms.js'></script>
+    <script src='/assets/javascripts/components.js'></script>
+    <script src='/assets/javascripts/feed.js'></script>
+    <script src='/assets/javascripts/application.js'></script>
+    <script src='/assets/javascripts/project.js'></script>
+    <!-- endbuild -->
+  </head>
+  <body class="page" id="page">
+    <style>
+      .alert-no-js {display: none;}
+      .no-js .alert-no-js {display: block;}
+    </style>
+    <div class='alert-no-js c-alert __l c-bg __red' role='alert'>
+      <h1>У вас отключен JavaScript.</h1>
+    </div>
+    <!--[if lt IE 9]>
+      <div role='alert' style='padding: 30px; background-color: #2980b9; text-align: center;'>
+        <h1 style='color: #fff; font-size: 40px; line-height: 1.5;'>
+          Использование устаревшего браузера
+          <br>
+          повышает риск взлома вашего компьютера.
+          <br>
+          <a href='http://browsehappy.com/' style='color: #fff; text-decoration: underline;' target='_blank'>Обновите свой браузер!</a>
+        </h1>
+      </div>
+    <![endif]-->
+    <header class='header' id='header' role='banner'>
+      <div class='ctn'>
+        <div class='grid'><div class='grid-i __grid-3 va-m'>
+            <div class='header_logo'>
+              <a href='/'>
+                <img alt='Friends' class='va-t' height='45' src='/assets/images/logo.png' width='174'>
+              </a>
+            </div>
+          </div><div class='grid-i __grid-9 va-m'>
+            <div class='header_filter'>
+              <form class='form'>
+                <div class='grid'><div class='grid-i __grid-5 __suffix-1'>
+                    <form class='form'><div class='form-el __select __fake'>
+                        <p>&nbsp;</p>
+                        <select class='form-el __select __real'>
+                          <option selected='selected'>Все устройства</option>
+                          <option>iPad</option>
+                          <option>iPhone</option>
+                          <option>iPod</option>
+                        </select>
+                      </div><div class='form-el __select __fake'>
+                        <p>&nbsp;</p>
+                        <select class='form-el __select __real'>
+                          <option selected='selected'>Все типы</option>
+                          <option>iPad</option>
+                          <option>iPhone</option>
+                          <option>iPod</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div><div class='grid-i __grid-3'>
+                    <form class='search'>
+                      <input class='form-el __tx __block' placeholder='Поиск' type='text'>
+                      <button class='search_btn' type='submit'>
+                        <i class='ico __18 __search'></i>
+                      </button>
+                    </form>
+                  </div></div>
+              </form>
+            </div>
+          </div></div>
+      </div>
+    </header>
+    <main class="main" id="main" role="main">
+      <div class="ctn">
+        <div class="grid"><div class="grid-i __grid-3">
+            <aside class='sidebar' id='sidebar'>
+              <nav role='navigation'>
+                <ul class='nav'>
+                  <li class='nav_i'>
+                    <a class='nav_i_a __current' href='/'>Главная</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/apps_index.html'>Приложения</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/reviews_index.html'>Обзоры товаров</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='#'>Конкурсы</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/recommendations_index.html'>Рекомендации</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='/videos_index.html'>Видеоролики</a>
+                  </li>
+                  <li class='nav_i'>
+                    <a class='nav_i_a' href='#'>FAQ</a>
+                  </li>
+                </ul>
+              </nav>
+            </aside>
+          </div><div class="grid-i __grid-9">
+            <section aria-label="Content" class="section" id="section" role="region">
+              <article class="promo __recommendations">
+                <header class="promo_h">Рекомендации</header>
+                <p class="m-b_2">Вы&nbsp;счастливый обладатель гаджета от&nbsp;компании Apple.</p>
+                <p class="m-b_2">
+                  Заполните анкету и&nbsp;получите еще больше
+                  <br>
+                  рекомендаций по&nbsp;приложениям, которые будут
+                  <br>
+                  интересны именно вам.
+                </p>
+                <footer>
+                  <button class="form-el __btn __large __default">Заполнить анкету</button>
+                </footer>
+              </article>
+              <hr class="hr __dashed">
+              <div class="block p-t_1 p-b_3">
+                <div class="block_h">
+                  <h1 class="block_h_t">Приложение дня</h1>
+                </div>
+                <div class="block_b">
+                  <div class='item __promo'>
+                    <div class='item_controls'>
+                      <a class='ico __30 __square __play' href='#'></a>
+                      <a class='ico __30 __square __bookmark' href='#'></a>
+                    </div>
+                    <div class='grid'><div class='grid-i __grid-4'>
+                        <a href='/apps_show.html'>
+                          <img alt='Рецензия на вторую часть культовой игры Cut the Rope' class='va-t c-bg __light' height='292' src='/assets/images/blank.gif' width='292'>
+                        </a>
+                      </div><div class='grid-i __grid-5'>
+                        <div class='m-b_1'>
+                          <p class='tx __s'>21.01.2014 | Александр Рипонен</p>
+                        </div>
+                        <div class='m-b_1'>
+                          <h2>
+                            <a href='/apps_show.html'>Jetpack Joyride: бесконечный драйв реактивного ранца</a>
+                          </h2>
+                        </div>
+                        <div class='m-b_2'>
+                          <p>Сюжетная завязка Jetpack Joyride проста до&nbsp;невозможности. Совершенно обычный мужчина средних лет, проходя мимо сверхсекретной лаборатории, увешанной с&nbsp;фундамента и&nbsp;до&nbsp;крыши неоновыми вывесками, замечает готовящийся к&nbsp;запуску джетпак.</p>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>Игры</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>Раннер</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block p-t_2 p-b_6">
+                <div class="block_h">
+                  <h1 class="block_h_t">Выбор редакции</h1>
+                </div>
+                <div class="block_b m-b_4">
+                  <div class="feed grid"><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#794'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#794'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#115'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#115'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#661'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#661'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#737'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#737'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#49'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#49'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#758'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#758'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#27'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#27'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#211'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#211'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div><div class="grid-i __grid-3">
+                      <div class='item'>
+                        <div class='item_controls'>
+                          <a class='ico __30 __square __play' href='#'></a>
+                          <a class='ico __30 __square __bookmark' href='#'></a>
+                        </div>
+                        <div class='m-b_1'>
+                          <a class='double-hover' href='/apps_show.html#480'>
+                            <img alt='Device 6' class='item_photo c-bg __light' height='214' src='/assets/images/blank.gif' width='214'>
+                          </a>
+                        </div>
+                        <div class='m-b_1'>
+                          <h3>
+                            <a class='double-hover' href='/apps_show.html#480'>Despicable Me</a>
+                          </h3>
+                        </div>
+                        <nav>
+                          <ul class='item_tags'>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPhone</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPad</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iPod</a>
+                            </li>
+                            <li class='item_tags_i'>
+                              <a class='item_tags_i_a' href='#'>iOs</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div></div>
+                </div>
+                <div class="block_f">
+                  <div class="load-more">
+                    <div class="load-more_inner">
+                      <a class="form-el __btn __small __default" data-load="/data/recommendations_feed.html" href="#">
+                        <span>Показать еще 6 рекомендаций</span>
+                        <i class="fa fa-refresh"></i>
+                      </a>
+                    </div>
+                    <hr class="hr __dashed">
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div></div>
+      </div>
+    </main>
+    <footer class='footer' id='footer' role='contentinfo'>
+      <div class='ctn'></div>
+    </footer>
+  </body>
+</html>
