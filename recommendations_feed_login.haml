@@ -35,7 +35,7 @@
                 .block_h
                   %h1.block_h_t Приложение дня
                 .block_b
-                  = Haml::Engine.new(File.read('views/common/_app_promo_item.haml')).render
+                  = Haml::Engine.new(File.read('views/common/_item_app_promo.haml')).render
 
               .block.p-t_2.p-b_6
                 .block_h
@@ -44,7 +44,7 @@
                   .feed.grid
                     - 1.upto(9) do
                       .grid-i.__grid-3>
-                        = Haml::Engine.new(File.read('views/common/_recommendation_item_feed.haml')).render
+                        = Haml::Engine.new(File.read('views/common/_item_recommendation_feed.haml')).render
                 .block_f
                   .load-more
                     .load-more_inner

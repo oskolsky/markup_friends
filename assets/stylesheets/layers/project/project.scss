@@ -116,9 +116,13 @@
   padding-top: 3rem;
 }
 
+
+
+//****************************************************************************************************
 //
-// .. Promo
+// .. PROMO
 //
+//****************************************************************************************************
 .promo {
   margin-bottom: 3rem;
   padding: 1.5rem 2rem 3rem;
@@ -156,9 +160,13 @@
     margin-bottom: 3rem;
   }
 
+
+
+//****************************************************************************************************
 //
-// .. Block
+// .. BLOCK
 //
+//****************************************************************************************************
 .block {
   position: relative;
   
@@ -192,12 +200,12 @@
 
 //****************************************************************************************************
 //
-// .. ITEMS
+// .. CONTENT BLOCK
 //
 //****************************************************************************************************
 .content-block {
-  background-color: #fff;
   padding: 2rem;
+  background-color: #fff;
   @extend .decor;
   .grid {
     margin-right: -2rem;
@@ -209,6 +217,23 @@
   }
   .title > span {background-color: #fff !important;}
 }
+  .content-block_header {
+    position: relative;
+    padding-bottom: 3rem;
+    .action-controls {
+      top: -1rem;
+      right: -1rem;
+      left: auto;
+    }
+  }
+    .content-block_header_t {
+      font-size: 4rem;
+      font-family: "geoslbc_w_inchregular", Helvetica, Arial, sans-serif;
+      line-height: 3.5rem;
+    }
+  .content-block_footer {
+    padding-top: 2rem;
+  }
 
 
 
@@ -232,22 +257,12 @@
     color: #fff;
     @extend .decor;
     .grid-i:last-child {padding: 2rem 2rem 2rem 0;}
-    a:not(.item_tags_i_a) {color: inherit;}
+    a:not(.tags_i_a) {color: inherit;}
     .hr.__dashed {border-color: #3a3a3a;}
+
+    .details {color: #fff !important;}
   }
 }
-
-  //
-  // .. Controls
-  //
-  .item_controls {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: 0;
-    z-index: 1;
-    a:not(:last-child) {margin-right: 1rem;}
-  }
 
   //
   // .. Photo
@@ -256,22 +271,6 @@
     vertical-align: top;
     @extend .decor;
   }
-
-  //
-  // .. Tags
-  //
-  .item_tags {
-
-  }
-    .item_tags_i {
-      display: inline-block;
-      &:not(:last-child) {
-        &::after {content: '⋅';}
-      }
-    }
-      .item_tags_i_a {
-        @extend .tx.__s;
-      }
 
   //
   // .. Buttons
@@ -372,6 +371,51 @@
     }
   }
 }
+
+//
+// .. Details
+//
+.details {
+  color: $voice-color;
+  font-size: 1.2rem;
+}
+  .details_date {
+    
+    &::after {
+      margin: 0 .4rem;
+      content: "|";
+    }
+  }
+  .details_author {color: inherit;}
+
+//
+// .. Tags
+//
+.tags {
+
+}
+  .tags_i {
+    display: inline-block;
+    &:not(:last-child) {
+      &::after {content: "\00B7";}
+    }
+  }
+    .tags_i_a {
+      font-size: 1.2rem;
+    }
+
+//
+// .. Action controls
+//
+.action-controls {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0;
+  z-index: 1;
+  
+} 
+  .action-controls_i:not(:last-child) {margin-right: 1rem;}   
 
 //
 // .. OWL Carousel

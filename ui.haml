@@ -52,7 +52,7 @@
                       %button.search_btn{type: "submit"}
                         %i.ico.__18.__search
 
-              .grid-i.__grid-6>
+              .grid-i.__grid-3>
 
                 .m-b_4
                   %h4.m-b_2 Icons 18x18
@@ -95,7 +95,19 @@
                     %a.ico.__30.__square.__bookmark{href: "#"}
                     %a.ico.__30.__square.__play{href: "#"}
 
+              .grid-i.__grid-3>
+
                 .m-b_4
                   %h4.m-b_2 Go to
                   %div.m-b_2
                     %a.goto{href: "#"} Читать вопросы
+
+                .m-b_4
+                  %h4.m-b_2 Tags
+                  %div.m-b_2
+                    = Haml::Engine.new(File.read('views/common/_tags.haml')).render
+
+                .m-b_4
+                  %h4.m-b_2 Details
+                  %div.m-b_2
+                    = Haml::Engine.new(File.read('views/common/_details.haml')).render

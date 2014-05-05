@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=latin,cyrillic);
 @import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
 @import url(vendor/jquery.arcticmodal-0.3.css);
@@ -788,7 +787,7 @@ h6, .zeta {
 .tx.__xs {
   font-size: 80%;
   line-height: 160%; }
-.tx.__s, .c-badge, .item_tags_i_a {
+.tx.__s, .c-badge {
   font-size: 90%;
   line-height: inherit; }
 .tx.__m {
@@ -1148,12 +1147,25 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
 .cnt ul li {
   margin: 0 0 1rem 4rem; }
 .cnt h1:not(:first-child), .cnt h2:not(:first-child), .cnt h3:not(:first-child), .cnt h4:not(:first-child), .cnt h5:not(:first-child), .cnt h6:not(:first-child) {
-  margin-top: 4rem; }
-.cnt figure img {
-  margin-bottom: 0 !important; }
-.cnt figure > figcaption {
-  color: #999;
-  font-style: italic; }
+  margin-top: 3rem; }
+.cnt figure {
+  position: relative;
+  margin-top: 1rem;
+  margin-right: -2rem;
+  margin-left: -2rem;
+  background-color: #f0f0f0; }
+  .cnt figure img {
+    margin-right: auto;
+    margin-bottom: 4.5rem !important;
+    margin-left: auto; }
+  .cnt figure > figcaption {
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    color: #848485;
+    font-size: 1.2rem; }
 .cnt img {
   display: block; }
 .cnt p > img {
@@ -1639,8 +1651,8 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
   text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.75); }
 
 .content-block {
-  background-color: #fff;
-  padding: 2rem; }
+  padding: 2rem;
+  background-color: #fff; }
   .content-block .grid {
     margin-right: -2rem;
     margin-left: -4rem; }
@@ -1648,8 +1660,24 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
       padding-left: 2rem; }
     .content-block .grid > .grid-i:last-child {
       padding-right: 2rem; }
-  .content-block .title > span {
+  .content-block .title > span, .content-block .cnt h1 > span, .cnt .content-block h1 > span, .content-block .cnt h2 > span, .cnt .content-block h2 > span, .content-block .cnt h3 > span, .cnt .content-block h3 > span, .content-block .cnt h4 > span, .cnt .content-block h4 > span, .content-block .cnt h5 > span, .cnt .content-block h5 > span, .content-block .cnt h6 > span, .cnt .content-block h6 > span {
     background-color: #fff !important; }
+
+.content-block_header {
+  position: relative;
+  padding-bottom: 3rem; }
+  .content-block_header .action-controls {
+    top: -1rem;
+    right: -1rem;
+    left: auto; }
+
+.content-block_header_t {
+  font-size: 4rem;
+  font-family: "geoslbc_w_inchregular", Helvetica, Arial, sans-serif;
+  line-height: 3.5rem; }
+
+.content-block_footer {
+  padding-top: 2rem; }
 
 .item {
   position: relative; }
@@ -1662,27 +1690,15 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
     color: #fff; }
     .item.__promo .grid-i:last-child {
       padding: 2rem 2rem 2rem 0; }
-    .item.__promo a:not(.item_tags_i_a) {
+    .item.__promo a:not(.tags_i_a) {
       color: inherit; }
     .item.__promo .hr.__dashed {
       border-color: #3a3a3a; }
-
-.item_controls {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 0;
-  z-index: 1; }
-  .item_controls a:not(:last-child) {
-    margin-right: 1rem; }
+    .item.__promo .details {
+      color: #fff !important; }
 
 .item_photo {
   vertical-align: top; }
-
-.item_tags_i {
-  display: inline-block; }
-  .item_tags_i:not(:last-child)::after {
-    content: 'тЛЕ'; }
 
 .item_btns .form-el.__btn:not(:last-child) {
   margin-right: 1rem; }
@@ -1723,11 +1739,11 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
   border-radius: .3rem;
   box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.35); }
 
-.title.__dashed {
+.title.__dashed, .cnt h1, .cnt h2, .cnt h3, .cnt h4, .cnt h5, .cnt h6 {
   position: relative;
   margin-bottom: 2rem;
   background-color: inherit; }
-  .title.__dashed::after {
+  .title.__dashed::after, .cnt h1::after, .cnt h2::after, .cnt h3::after, .cnt h4::after, .cnt h5::after, .cnt h6::after {
     position: absolute;
     top: 50%;
     right: 0;
@@ -1737,12 +1753,41 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
     border-bottom: 1px dashed #ccc;
     content: '';
     z-index: 0; }
-  .title.__dashed > span {
+  .title.__dashed > span, .cnt h1 > span, .cnt h2 > span, .cnt h3 > span, .cnt h4 > span, .cnt h5 > span, .cnt h6 > span {
     position: relative;
     z-index: 1;
     display: inline-block;
     background-color: #f6f6f6;
     padding-right: 2rem; }
+
+.details {
+  color: #848485;
+  font-size: 1.2rem; }
+
+.details_date::after {
+  margin: 0 .4rem;
+  content: "|"; }
+
+.details_author {
+  color: inherit; }
+
+.tags_i {
+  display: inline-block; }
+  .tags_i:not(:last-child)::after {
+    content: "\00B7"; }
+
+.tags_i_a {
+  font-size: 1.2rem; }
+
+.action-controls {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0;
+  z-index: 1; }
+
+.action-controls_i:not(:last-child) {
+  margin-right: 1rem; }
 
 .owl-carousel::before, .owl-carousel::after {
   position: absolute;

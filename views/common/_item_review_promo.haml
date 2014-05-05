@@ -1,0 +1,15 @@
+.item.__promo
+  = Haml::Engine.new(File.read('views/common/_action_controls.haml')).render
+  .grid
+    .grid-i.__grid-5>
+      %a{href: "/reviews_show.html"}
+        %img.va-t.c-bg.__light{src: "/assets/images/blank.gif", width: 370, height: 320, alt: "Apple iMac: союз технологии и дизайна"}
+    .grid-i.__grid-4>
+      .m-b_1
+        = Haml::Engine.new(File.read('views/common/_details.haml')).render
+      .m-b_1
+        %h2 
+          %a{href: "/reviews_show.html"} Apple iMac: союз технологии и&nbsp;дизайна
+      .m-b_2
+        %p С&nbsp;момента выхода последнего iMac прошло уже полгода. Для современного мира с&nbsp;его скоростями срок немаленький. Ведь, наверное, еще полгода&nbsp;&mdash; и&nbsp;выйдет пятое поколение процессоров Intel Core, за&nbsp;ними подтянется Nvidia, разработчики софта... и&nbsp;все.
+      = Haml::Engine.new(File.read('views/common/_tags.haml')).render

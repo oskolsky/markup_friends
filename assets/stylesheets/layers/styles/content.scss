@@ -153,17 +153,33 @@
   // .. Headings
   //
   h1, h2, h3, h4, h5, h6 {
-    &:not(:first-child) {margin-top: #{$content-factor * 2}rem;} 
+    &:not(:first-child) {margin-top: #{$content-factor + 1}rem;} 
+    @extend .title;
+    @extend .title.__dashed;
   }
 
   //
   // .. Figure
   //
   figure {
-    img {margin-bottom: 0 !important;}
+    position: relative;
+    margin-top: 1rem;
+    margin-right: -2rem;
+    margin-left: -2rem;
+    background-color: #f0f0f0;
+    img {
+      margin-right: auto;
+      margin-bottom: 4.5rem !important;
+      margin-left: auto;
+    }
     > figcaption {
-      color: #999;
-      font-style: italic;
+      position: absolute;
+      bottom: -3rem;
+      left: 0;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      color: $voice-color;
+      font-size: 1.2rem;
     }
   } 
 

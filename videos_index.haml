@@ -46,15 +46,15 @@
                     .grid-i.__grid-3>
                       %h3.title.__dashed
                         %span Выбор редакции
-                      = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
+                      = Haml::Engine.new(File.read('views/common/_item_review.haml')).render
                     .grid-i.__grid-3>
                       %h3.title.__dashed
                         %span Видеообзор
-                      = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
+                      = Haml::Engine.new(File.read('views/common/_item_review.haml')).render
                     .grid-i.__grid-3>
                       %h3.title.__dashed
                         %span Видеоподсказка
-                      = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
+                      = Haml::Engine.new(File.read('views/common/_item_review.haml')).render
 
               .block.p-t_2.p-b_3
                 .block_h
@@ -67,7 +67,7 @@
                         %a.form-el.__btn.__small.__major{href: "/videos_catalog.html"} Все (365)
                 .block_b
                   - 1.upto(3) do
-                    = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+                    = Haml::Engine.new(File.read('views/common/_item_video.haml')).render
 
               .block.p-t_2.p-b_3
                 .block_h
@@ -80,6 +80,6 @@
                         %a.form-el.__btn.__small.__major{href: "/videos_catalog.html"} Все (365)
                 .block_b
                   - 1.upto(3) do
-                    = Haml::Engine.new(File.read('views/common/_video_item.haml')).render                    
+                    = Haml::Engine.new(File.read('views/common/_item_video.haml')).render                    
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

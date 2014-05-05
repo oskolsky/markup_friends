@@ -51,7 +51,7 @@
                         %a.form-el.__btn.__small.__major{href: "/videos_feed.html"} Все (365)
                 .block_b
                   - 1.upto(2) do
-                    = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+                    = Haml::Engine.new(File.read('views/common/_item_video.haml')).render
 
               .block.p-t_2.p-b_3
                 .block_h
@@ -64,7 +64,7 @@
                         %a.form-el.__btn.__small.__major{href: "/videos_feed.html"} Все (365)
                 .block_b
                   - 1.upto(2) do
-                    = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+                    = Haml::Engine.new(File.read('views/common/_item_video.haml')).render
 
               .block.p-t_2.p-b_3
                 .block_h
@@ -77,6 +77,6 @@
                         %a.form-el.__btn.__small.__major{href: "/videos_feed.html"} Все (365)
                 .block_b
                   - 1.upto(2) do
-                    = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+                    = Haml::Engine.new(File.read('views/common/_item_video.haml')).render
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

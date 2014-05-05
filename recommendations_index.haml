@@ -47,14 +47,14 @@
                     .owl-carousel
                       - 1.upto(10) do
                         .grid-i.__grid-2>
-                          = Haml::Engine.new(File.read('views/common/_recommendation_item.haml')).render
+                          = Haml::Engine.new(File.read('views/common/_item_recommendation.haml')).render
                   %div
                     %h3.title.__dashed
                       %span Самые популярные
                     .owl-carousel
                       - 1.upto(10) do
                         .grid-i.__grid-2>
-                          = Haml::Engine.new(File.read('views/common/_recommendation_item.haml')).render
+                          = Haml::Engine.new(File.read('views/common/_item_recommendation.haml')).render
 
               .block.p-t_2.p-b_3
                 .block_h
@@ -72,13 +72,13 @@
                     .owl-carousel
                       - 1.upto(10) do
                         .grid-i.__grid-2>
-                          = Haml::Engine.new(File.read('views/common/_recommendation_item.haml')).render
+                          = Haml::Engine.new(File.read('views/common/_item_recommendation.haml')).render
                   %div
                     %h3.title.__dashed
                       %span Самые популярные
                     .owl-carousel
                       - 1.upto(10) do
                         .grid-i.__grid-2>
-                          = Haml::Engine.new(File.read('views/common/_recommendation_item.haml')).render
+                          = Haml::Engine.new(File.read('views/common/_item_recommendation.haml')).render
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

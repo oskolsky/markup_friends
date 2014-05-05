@@ -45,13 +45,13 @@
                       .tx.__right
                         %a.form-el.__btn.__small.__major{href: "/apps_index.html"} Все (365)
                 .block_b
-                  = Haml::Engine.new(File.read('views/common/_app_promo_item.haml')).render
+                  = Haml::Engine.new(File.read('views/common/_item_app_promo.haml')).render
                   %h3.title.__dashed
                     %span Выбор редакции
                   .grid
                     - 1.upto(3) do
                       .grid-i.__grid-3>
-                        = Haml::Engine.new(File.read('views/common/_app_item.haml')).render
+                        = Haml::Engine.new(File.read('views/common/_item_app.haml')).render
                       
               -# Reviews
               .block.p-t_2.p-b_3
@@ -64,13 +64,13 @@
                       .tx.__right
                         %a.form-el.__btn.__small.__major{href: "/reviews_index.html"} Все (365)
                 .block_b
-                  = Haml::Engine.new(File.read('views/common/_review_promo_item.haml')).render
+                  = Haml::Engine.new(File.read('views/common/_item_review_promo.haml')).render
                   %h3.title.__dashed
                     %span Свежие обзоры
                   .grid
                     - 1.upto(3) do
                       .grid-i.__grid-3>
-                        = Haml::Engine.new(File.read('views/common/_review_item.haml')).render
+                        = Haml::Engine.new(File.read('views/common/_item_review.haml')).render
                       
               -# Contest
               .block.p-t_2.p-b_3
@@ -83,11 +83,11 @@
                       .tx.__right
                         %a.form-el.__btn.__small.__major{href: "#"} Архив конкурсов
                 .block_b
-                  = Haml::Engine.new(File.read('views/common/_contest_promo_item.haml')).render
+                  = Haml::Engine.new(File.read('views/common/_item_contest_promo.haml')).render
                   %h3.title.__dashed
                     %span Прошедшие конкурсы
                   - 1.upto(2) do
-                    = Haml::Engine.new(File.read('views/common/_contest_item.haml')).render
+                    = Haml::Engine.new(File.read('views/common/_item_contest.haml')).render
 
               -# Recommendations
               .block.p-t_2.p-b_3
@@ -106,14 +106,14 @@
                     .owl-carousel
                       - 1.upto(10) do
                         .grid-i.__grid-2>
-                          = Haml::Engine.new(File.read('views/common/_recommendation_item.haml')).render
+                          = Haml::Engine.new(File.read('views/common/_item_recommendation.haml')).render
                   %div
                     %h3.title.__dashed
                       %span Лучшие в категории
                     .owl-carousel
                       - 1.upto(10) do
                         .grid-i.__grid-2>
-                          = Haml::Engine.new(File.read('views/common/_recommendation_item.haml')).render
+                          = Haml::Engine.new(File.read('views/common/_item_recommendation.haml')).render
 
               -# Videos
               .block.p-t_2.p-b_3
@@ -130,12 +130,12 @@
                     %h3.title.__dashed
                       %span Свежие видеообзоры
                     - 1.upto(2) do
-                      = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+                      = Haml::Engine.new(File.read('views/common/_item_video.haml')).render
                   %div
                     %h3.title.__dashed
                       %span Видеоподсказки
                     - 1.upto(2) do
-                      = Haml::Engine.new(File.read('views/common/_video_item.haml')).render
+                      = Haml::Engine.new(File.read('views/common/_item_video.haml')).render
               
               -# FAQ
               .block.p-t_2.p-b_3
@@ -153,7 +153,7 @@
                   .grid
                     - 1.upto(3) do
                       .grid-i.__grid-3>
-                        = Haml::Engine.new(File.read('views/common/_faq_item.haml')).render
+                        = Haml::Engine.new(File.read('views/common/_item_faq.haml')).render
 
               -# Feedback
               .block.p-t_3.p-b_3
