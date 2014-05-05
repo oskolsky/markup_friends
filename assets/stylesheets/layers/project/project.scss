@@ -550,6 +550,18 @@
     }
   }
 
+//
+// .. Share
+//
+.share {
+  margin-bottom: 3rem;
+}
+  .share_i {
+    display: inline-block;
+    vertical-align: middle;
+    &:not(:last-child) {margin-right: 3rem;}
+  }
+
 
 
 //****************************************************************************************************

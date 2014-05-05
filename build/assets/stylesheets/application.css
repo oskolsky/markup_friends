@@ -1881,5 +1881,14 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
   .load-more_inner a .fa {
     display: none; }
 
+.share {
+  margin-bottom: 3rem; }
+
+.share_i {
+  display: inline-block;
+  vertical-align: middle; }
+  .share_i:not(:last-child) {
+    margin-right: 3rem; }
+
 .footer {
   padding: 2rem; }
