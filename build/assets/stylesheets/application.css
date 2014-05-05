@@ -1148,11 +1148,42 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
   margin: 0 0 1rem 4rem; }
 .cnt h1:not(:first-child), .cnt h2:not(:first-child), .cnt h3:not(:first-child), .cnt h4:not(:first-child), .cnt h5:not(:first-child), .cnt h6:not(:first-child) {
   margin-top: 3rem; }
+.cnt .content-carousel {
+  position: relative; }
+  .cnt .content-carousel:not(:last-child) {
+    margin-bottom: 1.5rem; }
+.cnt .content-carousel_slider {
+  margin-left: -2rem;
+  padding: 0 2rem;
+  background-color: #f0f0f0; }
+  .cnt .content-carousel_slider:not(:last-child) {
+    margin-bottom: 1.5rem; }
+  .cnt .content-carousel_slider .owl-prev, .cnt .content-carousel_slider .owl-next {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .cnt .content-carousel_slider .owl-prev {
+    left: 1rem; }
+  .cnt .content-carousel_slider .owl-next {
+    right: 1rem; }
+.cnt .content-carousel_caption {
+  padding-right: 5rem;
+  color: #848485;
+  font-size: 1.2rem; }
+.cnt .content-carousel_counter {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 1.2rem; }
 .cnt figure {
   position: relative;
   margin-top: 1rem;
   margin-right: -2rem;
   margin-left: -2rem;
+  padding: 0 2rem;
   background-color: #f0f0f0; }
   .cnt figure img {
     margin-right: auto;

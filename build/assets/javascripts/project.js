@@ -25,11 +25,32 @@ $(function() {
         function setShadow(i) {
             i.currentPosition == 0 ? $owl.removeClass('__shadow-left') : $owl.addClass('__shadow-left');
             i.currentPosition == (i.allItems - i.items) ? $owl.removeClass('__shadow-right') : $owl.addClass('__shadow-right');
-
-            console.log(i.currentPosition, i.allItems, i.items);
         }
 
     });
+
+    //
+    // .. Content carousel init
+    //
+    $('.content-carousel').each(function() {
+        var 
+            _this = this,
+            $owl = $(this).find('.content-carousel_slider');
+
+        $owl.owlCarousel({
+            items: 1,
+            loop: false,
+            navigation: true,
+            navText: false,
+            info: setCounter
+        });
+
+        function setCounter(i) {
+            $(_this).find('.content-carousel_counter').html((i.currentPosition + 1) + ' из ' + i.allItems);
+        }
+    });
+
+
 
     //****************************************************************************************************
     //

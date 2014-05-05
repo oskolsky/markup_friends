@@ -159,6 +159,37 @@
   }
 
   //
+  // .. Carousel
+  //
+  .content-carousel {
+    position: relative;
+    &:not(:last-child) {margin-bottom: 1.5rem;}
+  }
+    .content-carousel_slider {
+      margin-left: -2rem;
+      padding: 0 2rem;
+      background-color: #f0f0f0;
+      &:not(:last-child) {margin-bottom: 1.5rem;}
+      .owl-prev, .owl-next {
+        top: 50%;
+        @include prefixes(transform, translateY(-50%));
+      }
+      .owl-prev {left:  1rem;}
+      .owl-next {right: 1rem;}
+    }
+    .content-carousel_caption {
+      padding-right: 5rem;
+      color: $voice-color;
+      font-size: 1.2rem;
+    }
+    .content-carousel_counter {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 1.2rem;
+    }
+
+  //
   // .. Figure
   //
   figure {
@@ -166,6 +197,7 @@
     margin-top: 1rem;
     margin-right: -2rem;
     margin-left: -2rem;
+    padding: 0 2rem;
     background-color: #f0f0f0;
     img {
       margin-right: auto;
