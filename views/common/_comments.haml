@@ -1,0 +1,19 @@
+.comments
+  %h2.title.__dashed
+    %span Комментарии (4)
+  - 1.upto(4) do
+    .comments_i
+      .comments_i_user
+        %a{href: "#"}
+          %img.va-t.c-bg.__light{src: "/assets/images/blank.gif", width: 34, height: 34, alt: ""}
+      .comments_i_inner
+        .m-b_1
+          = Haml::Engine.new(File.read('views/common/_details.haml')).render
+        .m-b_1
+          %p Или вот такая нехитрая арифметика: в&nbsp;ноябре руководство Samsung намекнуло на&nbsp;отгрузки 100&nbsp;млн. смартфонов премиум-класса, каковая категория подразумевает всего две линейки устройств.
+        %a.a.__pseudo{href: "#"} Ответить
+  %form.form
+    %div.m-b_2
+      %textarea.form-el.__textarea.__block{rows: 3, placeholder: "Текст вашего комментария"}
+    %div
+      %button.form-el.__btn.__large.__major Оставить коментарий

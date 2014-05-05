@@ -65,4 +65,8 @@
                       .grid-i.__grid-3>
                         = Haml::Engine.new(File.read('views/common/_item_review.haml')).render
 
+              .block.p-t_3.p-b_3
+                .block_b
+                  = Haml::Engine.new(File.read('views/common/_comments.haml')).render
+
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
