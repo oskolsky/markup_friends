@@ -1,0 +1,106 @@
+//****************************************************************************************************
+//
+// .. FOOTER
+//
+//****************************************************************************************************
+.footer {
+  padding: 5.4rem 30px 40px;
+  font-size: 1.2rem;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.8rem;
+
+  br.cc {
+    display: block;
+    float: none;
+    clear: both;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    height: 0;    
+  }
+
+  .w-1-fifth {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 40px;
+    width: 160px;
+  }
+
+  .w-2-fifth {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 30px;
+    width: 350px;
+    &.padded {
+      padding-left: 40px;
+      width: 300px;
+    }
+  }
+
+  .last {margin-right: 0 !important;}
+
+  ul {
+    margin-bottom: 10px;
+    margin-left: -.2rem;
+    li {
+      &.title {
+        color: #000;
+        white-space: nowrap;
+        line-height: 1.6rem;
+      }
+      a {
+        color: #5a5a5a;
+        white-space: nowrap;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  .mnogoru {
+    display: block;
+    margin-left: 102px;
+    width: 87px;
+    height: 27px;
+    background: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/logo_mnogoru.png) 0 0 no-repeat;
+  }
+
+  .akit {
+    display: block;
+    margin-top: 10px;
+    margin-left: 102px;
+    width: 106px;
+    height: 55px;
+  }
+
+  .left {
+    float: left !important;
+    margin-left: -.2rem;
+    p {text-align: left;}
+  }
+  .right {
+    float: right !important;
+    margin-right: -.2rem;
+    p {
+      text-align: right;
+      &:last-child {
+        padding-top: .1rem;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+  }
+
+  a {
+    color: #E1207C;
+    text-decoration: underline;
+  }
+
+}
