@@ -1,6 +1,286 @@
 //****************************************************************************************************
 //
-// .. FOOTER
+// .. re:Store SOCIAL
+//
+//****************************************************************************************************
+.restore-social {
+  font-family: Helvetica, Arial, sans-serif;
+  .social-fixed {
+    margin-bottom: 18px;
+    &.wide {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      z-index: 10000;
+      margin-left: -555px;
+      a {
+        display: block;
+        margin-right: 6px;
+        margin-bottom: 1px;
+        width: 45px;
+        height: 45px;
+        border-radius: 0px;
+        background-color: #c0c0c0;
+        background-position: center center;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        opacity: 0.9;
+        cursor: pointer;
+        &.fb   {background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/facebook_icon.png);}
+        &.vk   {background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/vkontakte_icon.png);}
+        &.tw   {background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/twitter_icon.png);}
+        &.inst {background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/instagramm_icon.png);}
+        &:hover {
+          background-color: #4D749E;
+          opacity: 1;
+        }
+      }      
+      p {
+        display: none;
+        margin-bottom: 10px;
+        color: #000;
+        font-weight: 600;
+        font-size: 1.2em;
+        line-height: 1.6em;
+      }
+    }
+  }  
+}
+
+
+
+//****************************************************************************************************
+//
+// .. re:Store HEADER
+//
+//****************************************************************************************************
+.restore-header {
+  position: relative;
+  z-index: 99;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 980px;
+  height: 120px;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+
+  .w-1-fifth {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 30px;
+    width: 160px;
+    &.first {margin-left: 30px;}
+  }  
+
+  .last {margin-right: 0 !important;}
+  .grey {color: #a6a6a6 !important;}
+
+  .bordered {
+    border-bottom: 1px solid #a6a6a6;
+    color: #ffffff;
+    text-decoration: none;
+  }  
+
+  .purple {color: #ff208a !important;}
+
+
+  #black-line {
+    height: 80px;
+    border-radius: 6px 6px 0 0;
+    background: url("http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_header.png") 0 0 repeat-x;
+  }
+
+  #white-line {
+    display: block;
+    height: 40px;
+    background: #fff;
+    vertical-align: middle;
+    line-height: 40px;
+  }
+
+  #logo {
+    object {margin-top: 24px;}
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }  
+  }
+
+  #moskva_phone {width: 160px;}
+
+  .city {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 18px;
+    line-height: 10px;
+    &:hover {text-decoration: none;}
+    b {
+      border-bottom: 1px dashed rgb(166, 166, 166);
+      font-weight: 600;
+    }
+    ins {
+      display: inline-block;
+      margin-left: 6px;
+      width: 7px;
+      height: 12px;
+      background: url("http://www.re-store.ru/bitrix/templates/restore/images/ui/city_arrow.png") 0 6px no-repeat;
+    }    
+  }  
+
+  .shops {
+    display: inline-block;
+    margin-top: 3px;
+    border-bottom: 1px solid #ff208a;
+    line-height: 14px;
+    b {
+      color: #FF208A;
+      font-weight: bold;
+      font-size: 11px;
+    }  
+  }
+
+  .login {margin-right: 4px;}
+
+  .login, .registration, .logout {
+    display: inline-block;
+    margin-bottom: 4px;
+    color: #fff;
+    text-decoration: underline;
+    font-size: 11px;
+    line-height: 12px;
+  }
+
+  .basket {
+    position: relative;
+    top: -7px;
+    display: inline-block;
+    margin-left: -20px;
+    padding-left: 20px;
+    background: url("http://www.re-store.ru/bitrix/templates/restore/images/ui/icon_basket.png") 0 0 no-repeat;
+    vertical-align: bottom;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  #client_id {
+    position: relative;
+    top: -6px;
+    display: block;
+    margin-top: 5px;
+    width: 150px;
+    color: #FFFFFF;
+    font-size: 12px;
+    &:hover {text-decoration: none;}
+  }
+
+  #logo-apr {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    display: block;
+    margin-top: 4px;
+    margin-right: 0px;
+    width: 50px;
+    height: 50px;
+  }  
+
+  #search-quick {
+    position: relative;
+    margin-top: 9px;
+    .text {
+      position: relative;
+      display: block;
+      padding-right: 26px;
+      padding-left: 4px;
+      width: 160px;
+      height: 22px;
+      border: 1px solid #e6e6e6;
+      border-radius: 6px;
+      color: #c9c9c9 !important;
+      vertical-align: middle;
+      font-size: 13px;
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 22px;
+    }
+    .submit {
+      position: absolute;
+      top: 1px;
+      right: 0px;
+      display: block;
+      width: 24px;
+      height: 20px;
+      border: none;
+      background: url("http://www.re-store.ru/bitrix/templates/restore/images/ui/icon_search.png") 0 0 no-repeat;
+      text-indent: -9999px;
+      cursor: pointer;
+    }    
+  }
+
+  #nav-top {
+    position: absolute;
+    left: 220px;
+    width: 730px;
+    text-align: justify;
+    li {
+      position: relative;
+      display: inline-block;
+      a {
+        color: #000;
+        font-weight: 800;
+        font-size: 14px;
+      }
+      &.helper {
+        width: 100%;
+        height: 0px;
+      }
+    }  
+  }  
+
+  span {
+    &.block {
+      display: block;
+      color: #fff;
+      font-size: 11px;
+      line-height: 12px;
+      &.first {
+        margin-top: 14px;
+        margin-bottom: 8px;
+      }
+      &.last {margin-top: 6px;}
+    }
+  }  
+
+  big {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 12px;
+  }
+
+  span var {
+    padding-right: 1px;
+    font-weight: bold;
+  }  
+
+  i, var, em {font-style: normal;}
+
+}
+
+
+
+//****************************************************************************************************
+//
+// .. re:Store FOOTER
 //
 //****************************************************************************************************
 .footer {
@@ -63,7 +343,7 @@
     margin-left: 102px;
     width: 87px;
     height: 27px;
-    background: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/logo_mnogoru.png) 0 0 no-repeat;
+    background: url("http://www.re-store.ru/bitrix/templates/restore/images/ui/logo_mnogoru.png") 0 0 no-repeat;
   }
 
   .akit {

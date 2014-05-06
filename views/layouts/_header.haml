@@ -1,3 +1,78 @@
+.restore-social
+  .social-fixed.wide
+    %a.fb{href: "https://www.facebook.com/restore.ru", target: "_blank"}
+    %a.vk{href: "http://vk.com/re_store", target: "_blank"}
+    %a.tw{href: "https://twitter.com/restore_ru", target: "_blank"}
+    %a.inst{href: "http://instagram.com/restore_ru", target: "_blank"}
+    %p.dark-grey Присоединяйтесь к сообществу re:Store
+
+.restore-header
+  #black-line
+    .w-1-fifth.first
+      #logo
+        %object{data: "http://www.re-store.ru/bitrix/templates/restore/images/ui/logo.svg", height: "26px", type: "image/svg+xml", width: "113px"}
+          %img{alt: "re:Store", src: "http://www.re-store.ru/bitrix/templates/restore/images/ui/logo.png"}/
+        %a{href: "/", title: "re:Store"}
+    .w-1-fifth
+      %span.block.first Справочная служба
+      %big 8 (800) 700-19-44
+      %span.block.grey.last круглосуточно, без выходных
+    #moskva_phone.w-1-fifth
+      %span.block.first Интернет-магазин
+      %big 8 (495) 651-62-85
+      %span.block.grey.last 9:00-22:00, без выходных
+    .w-1-fifth{style: "margin-left:-14px; margin-right:43px"}
+      %div
+        %span.block.first Город
+        %a#client_city.city.dialog-trigger{href: "?dialog=dlg-city", rel: "dialog_cities"}
+          %b> Москва
+          %ins
+      %a.shops.bordered{href: "/shops/"}
+        %b Адреса магазинов
+    .w-1-fifth
+      %span.block.first
+        %a.login.dialog-trigger{href: "?dialog=dlg-login", rel: "dialog_login"} Вход
+        %a.registration.dialog-trigger{href: "?dialog=dlg-register", rel: "dialog_register"} Регистрация
+      %a.basket{href: "/order/"}
+        %span.bordered Корзина:
+        %span.purple
+          %var 0
+          %i шт
+      %a#client_id
+        %span> Ваш ID:&nbsp;&nbsp;&nbsp;
+        %span.purple>
+          %strong 973389
+      #logo-apr
+        %object{data: "http://www.re-store.ru/bitrix/templates/restore/images/ui/logo_apr.svg", height: "50px", type: "image/svg+xml", width: "50px"}
+          %img{alt: "re:Store", src: "http://www.re-store.ru/bitrix/templates/restore/images/ui/logo_apr.png"}/
+        %a{href: "#"}
+  #white-line
+    .w-1-fifth.first
+      %form#search-quick{action: "/search", autocomplete: "off"}
+        %input.text{name: "q", type: "text"}
+        %input.submit{type: "submit"}
+      #search-suggestions{style: "display: none;"}
+    %ul#nav-top
+      %li
+        %a{href: "/apple-mac/"} Mac
+      %li
+        %a{href: "/apple-ipad/"} iPad
+      %li
+        %a{href: "/apple-iphone/"} iPhone
+      %li
+        %a{href: "/apple-ipod/"} iPod
+      %li
+        %a{href: "/speakers/"} Аудио
+      %li
+        %a{href: "/accessories/"} Аксессуары
+      %li
+        %a{href: "/services/"} Услуги
+      %li
+        %a{href: "/promo/"} Акции
+      %li
+        %a{href: "/b2b/"} Бизнес
+      %li.helper    
+
 %header#header.header{role: "banner"}
   .ctn
     .grid
