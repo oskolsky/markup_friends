@@ -1931,10 +1931,10 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
     margin-right: 3rem; }
 
 .footer {
-  padding: 5.4rem 30px 40px;
-  font-size: 1.2rem;
+  padding: 54px 30px 40px;
+  font-size: 12px;
   font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.8rem; }
+  line-height: 18px; }
   .footer br.cc {
     display: block;
     float: none;
@@ -1962,15 +1962,15 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
     margin-right: 0 !important; }
   .footer ul {
     margin-bottom: 10px;
-    margin-left: -.2rem; }
+    margin-left: -2px; }
     .footer ul li.title {
       color: #000;
       white-space: nowrap;
-      line-height: 1.6rem; }
+      line-height: 16px; }
     .footer ul li a {
       color: #5a5a5a;
       white-space: nowrap;
-      line-height: 1.5rem; }
+      line-height: 15px; }
   .footer .mnogoru {
     display: block;
     margin-left: 102px;
@@ -1985,22 +1985,22 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
     height: 55px; }
   .footer .left {
     float: left !important;
-    margin-left: -.2rem; }
+    margin-left: -2px; }
     .footer .left p {
       text-align: left; }
   .footer .right {
     float: right !important;
-    margin-right: -.2rem; }
+    margin-right: -2px; }
     .footer .right p {
       text-align: right; }
       .footer .right p:last-child {
-        padding-top: .1rem; }
+        padding-top: 1px; }
   .footer p {
     margin-bottom: 10px;
     color: #000;
     font-weight: 400;
-    font-size: 1.1rem;
-    line-height: 1.7rem; }
+    font-size: 11px;
+    line-height: 17px; }
   .footer a {
     color: #E1207C;
     text-decoration: underline; }
