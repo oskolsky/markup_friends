@@ -2339,6 +2339,94 @@ ul.city-list li a:hover {
   top: 0 !important;
   left: 0 !important; }
 
+form.plain {
+  margin: 8px 0; }
+
+form.plain input {
+  vertical-align: middle; }
+
+form.plain input.text {
+  width: 268px;
+  border-radius: 0;
+  height: 28px;
+  font-size: 1.6em;
+  line-height: 26px;
+  color: #333; }
+
+form.plain input.text.mnogoru-card {
+  background: url(../images/ui/icon_mnogoru_h24.png) 4px 2px no-repeat;
+  padding-left: 30px;
+  width: 246px; }
+
+form.plain input.submit {
+  font-size: 1.4em;
+  color: #ff208a;
+  padding: 0 46px 0 16px;
+  margin: 0;
+  margin-top: 8px; }
+
+form.plain input.submit.big {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ff208a;
+  padding: 0 26px;
+  margin: 0;
+  margin-top: 8px;
+  width: 150px;
+  height: 50px;
+  background: url(../images/ui/bt_submit-big.png) 0 0 no-repeat;
+  border: none; }
+
+form.plain dd.checkbox input {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px; }
+
+form.plain input.back {
+  display: inline-block;
+  border-radius: 0px;
+  width: auto;
+  height: 36px;
+  line-height: 30px;
+  padding: 0 16px;
+  font-size: 1.4em;
+  background: url(../images/ui/bt_back.png) 0 0 no-repeat;
+  cursor: pointer;
+  vertical-align: middle;
+  padding-left: 20px;
+  border: 1px solid transparent;
+  color: #8f8f8f;
+  margin-top: 8px; }
+
+form.plain label {
+  color: #000;
+  font-size: 1.4em;
+  font-weight: bolder;
+  vertical-align: middle; }
+
+form.plain label i {
+  color: red;
+  margin-left: 4px; }
+
+form.plain dt {
+  display: inline-block;
+  width: 128px;
+  padding-right: 10px;
+  vertical-align: top; }
+
+form.plain dd {
+  display: inline-block;
+  margin-bottom: 12px;
+  vertical-align: top;
+  clear: both;
+  min-width: 400px; }
+
+form.plain dt p {
+  color: #878787;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  margin-top: 4px; }
+
 .restore-footer {
   padding: 54px 0 40px;
   font-size: 12px;
