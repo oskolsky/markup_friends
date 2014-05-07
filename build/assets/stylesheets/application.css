@@ -2203,7 +2203,7 @@ br.cc, li.cc {
 
 .ui-widget-overlay {
   z-index: 9999;
-  background: none; }
+  background: none !important; }
 
 .ui-dialog {
   z-index: 9999; }
