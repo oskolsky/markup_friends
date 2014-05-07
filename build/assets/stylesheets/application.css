@@ -2189,6 +2189,9 @@ div.block {
     color: #000;
     text-decoration: none; }
 
+.no-js-only {
+  display: none !important; }
+
 .left {
   float: left !important;
   margin-left: 0; }

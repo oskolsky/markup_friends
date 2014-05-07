@@ -300,6 +300,8 @@
 // .. Dialogs
 //
 //****************************************************************************************************
+.no-js-only{display:none !important}
+
 .left {
   float: left !important;
   margin-left: 0;
@@ -322,7 +324,13 @@ div.dialog p{font-size:14px;}
 div.dialog h1{ margin-bottom:16px;font-size:26px;line-height: 26px;}
 div.dialog input.submit{margin-left:0 !important;}
 div.dialog .ui-dialog-titlebar{position:absolute; top:0; right:0; z-index:9999; border:none; background:none;}
-div.dialog .ui-dialog-titlebar-close{margin-top:0px; margin-right:12px; padding:0 !important; background:none !important;}
+div.dialog .ui-dialog-titlebar-close{
+  margin-top: 0px; 
+  margin-right: 12px; 
+  padding: 0 !important; 
+  background: none !important;
+  border: none !mportant
+}
 div.dialog .ui-icon-closethick{ margin:0 !important; width:26px; height:26px;background:url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_bt_close.png) 0 0 no-repeat; }
 
 .dialog-trigger{cursor:pointer;}
@@ -349,6 +357,10 @@ ul.city-list li a:hover{color:#FF208A;}
 #dialog_cities label{display:inline-block; color:#333; vertical-align:middle; font-size:12px;}
 #dialog_cities form{ float:left;margin-top: 8px;margin-left:48px;}
 
+.ui-button-icon-only .ui-icon {
+  top: 0 !important;
+  left: 0 !important;
+}
 
 
 
