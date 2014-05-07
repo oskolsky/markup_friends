@@ -2224,7 +2224,8 @@ div.dialog p {
 
 div.dialog h1 {
   margin-bottom: 16px;
-  font-size: 24px; }
+  font-size: 26px;
+  line-height: 26px; }
 
 div.dialog input.submit {
   margin-left: 0 !important; }
