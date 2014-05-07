@@ -279,16 +279,16 @@
   //
   // .. Suggestion
   //
-  #search-suggestions{position:absolute; width:100%; box-shadow:0 3px 4px #ccc; height:auto; z-index:1000; background:#fff url(http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_suggestion.png) 0 0 repeat-x; border-radius:0 0 6px 6px; margin-left:1px; margin-top:-2px; display:none}
-  .suggestion-blocks li{border-bottom:1px dotted #ccc; margin:6px; padding:3px 4px 6px; line-height:1.5em;}
-  .suggestion-blocks li.last{border-bottom:none}
-  .suggestion-blocks span{font-size:1.1em; font-family: Helvetica, Arial, sans-serif; display:block;}
+  #search-suggestions{position:absolute; z-index:1000; display:none; margin-top:-2px; margin-left:1px; width:100%; height:auto; border-radius:0 0 6px 6px; background:#fff url(http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_suggestion.png) 0 0 repeat-x; box-shadow:0 3px 4px #ccc;}
+  .suggestion-blocks li{ margin:6px; padding:3px 4px 6px;border-bottom:1px dotted #ccc; line-height:15px;}
+  .suggestion-blocks li.last{border-bottom:none;}
+  .suggestion-blocks span{ display:block;font-size:11px; font-family: Helvetica, Arial, sans-serif;}
   .suggestion-blocks ul{margin:6px 0 4px;}
-  .suggestion-blocks ul li{font-size:11px; border:none; margin:2px 0; padding:0;line-height:1.1em; font-weight:500}
-  .suggestion-blocks span a{color:#000; text-decoration:underline !important}
-  .suggestion-blocks div.holder-img{width:38px; display:inline-block; vertical-align:top; position:relative}
-  .suggestion-blocks div.holder-img img{display:block; margin-top:1px; max-width:100%}
-  .suggestion-blocks div.holder-desc{width:96px; display:inline-block; vertical-align:top;}
+  .suggestion-blocks ul li{ margin:2px 0; padding:0; border:none; font-weight:500;font-size:11px;line-height:11px;}
+  .suggestion-blocks span a{color:#000; text-decoration:underline !important;}
+  .suggestion-blocks div.holder-img{ position:relative; display:inline-block;width:38px; vertical-align:top;}
+  .suggestion-blocks div.holder-img img{display:block; margin-top:1px; max-width:100%;}
+  .suggestion-blocks div.holder-desc{ display:inline-block;width:96px; vertical-align:top;}
   .suggestion-blocks div.holder-desc a{color:#000; text-decoration:none;}
   .suggestion-blocks div a{color:#000; text-decoration:none;}
 
@@ -300,40 +300,54 @@
 // .. Dialogs
 //
 //****************************************************************************************************
-.ui-widget-overlay{background:none; z-index: 9999;}
+.left {
+  float: left !important;
+  margin-left: 0;
+}
+br.cc, li.cc {
+  display: block;
+  float: none;
+  clear: both;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  height: 0;
+}
+
+.ui-widget-overlay{ z-index: 9999;background:none;}
 .ui-dialog {z-index: 9999;}
-div.dialog.ui-widget-content{background:#fff; border:none; box-shadow:0px 1px 36px #333}
+div.dialog.ui-widget-content{ border:none;background:#fff; box-shadow:0px 1px 36px #333;}
 div.dialog{font-family:Arial, Helvetica, sans-serif; }
 div.dialog .ui-dialog-content{padding:28px 30px;}
-div.dialog p{font-size:14px}
-div.dialog h1{font-size:24px; margin-bottom:16px}
-div.dialog input.submit{margin-left:0 !important}
-div.dialog .ui-dialog-titlebar{position:absolute; background:none; right:0; border:none; z-index:9999; top:0;}
-div.dialog .ui-dialog-titlebar-close{margin-top:0px; margin-right:12px; background:none !important; padding:0 !important;}
-div.dialog .ui-icon-closethick{background:url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_bt_close.png) 0 0 no-repeat; width:26px; height:26px; margin:0 !important }
+div.dialog p{font-size:14px;}
+div.dialog h1{ margin-bottom:16px;font-size:24px;}
+div.dialog input.submit{margin-left:0 !important;}
+div.dialog .ui-dialog-titlebar{position:absolute; top:0; right:0; z-index:9999; border:none; background:none;}
+div.dialog .ui-dialog-titlebar-close{margin-top:0px; margin-right:12px; padding:0 !important; background:none !important;}
+div.dialog .ui-icon-closethick{ margin:0 !important; width:26px; height:26px;background:url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_bt_close.png) 0 0 no-repeat; }
 
-.dialog-trigger{cursor:pointer}
+.dialog-trigger{cursor:pointer;}
 #dialog_one-click-order input.text{width:350px;}
-#dialog_recall-us span.phone{font-size:67px;font-family:GeoSlab, Helvetica, Arial, sans-serif; font-weight:bold; display:block; white-space:nowrap}
-#dialog_presence select{display:inline-block;width:140px; margin-right:10px;}
+#dialog_recall-us span.phone{ display:block; white-space:nowrap; font-weight:bold;font-size:67px;font-family:GeoSlab, Helvetica, Arial, sans-serif;}
+#dialog_presence select{display:inline-block; margin-right:10px;width:140px;}
 
 #dialog_accessories .bt-scroll-right{right:-12px;}
 #dialog_accessories .bt-scroll-left{left:-12px;}
 
 #dialog_accessories, .dlg-accessories{overflow:visible;}
-.dialog_tip{ display:block; position:absolute; top:-14px; left:70px; width:28px; height:12px; background:url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_tip.png) 0 0 no-repeat}
+.dialog_tip{ position:absolute; top:-14px; left:70px; display:block; width:28px; height:12px; background:url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_tip.png) 0 0 no-repeat;}
 
-#dialog_forget-password dd p{width:350px; font-size:12px; margin-top:16px; margin-bottom:0;}
+#dialog_forget-password dd p{ margin-top:16px; margin-bottom:0;width:350px; font-size:12px;}
 
 ul.city-list{width:180px;}
 ul.city-list li{display:block; margin:6px 0;}
-ul.city-list li a{font-size:13px; color:#323536; text-decoration:none;}
-ul.city-list li a:hover{color:#FF208A}
+ul.city-list li a{ color:#323536; text-decoration:none;font-size:13px;}
+ul.city-list li a:hover{color:#FF208A;}
 
-#dialog_cities h1{float:left}
-#dialog_cities input#remember_me{display:inline-block; vertical-align:middle; margin-right:4px;}
-#dialog_cities label{display:inline-block; vertical-align:middle; font-size:12px; color:#333}
-#dialog_cities form{margin-left:48px;margin-top: 8px; float:left;}
+#dialog_cities h1{float:left;}
+#dialog_cities input#remember_me{display:inline-block; margin-right:4px; vertical-align:middle;}
+#dialog_cities label{display:inline-block; color:#333; vertical-align:middle; font-size:12px;}
+#dialog_cities form{ float:left;margin-top: 8px;margin-left:48px;}
+
 
 
 
