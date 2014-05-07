@@ -1,6 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=latin,cyrillic);
 @import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
-@import url(vendor/jquery.arcticmodal-0.3.css);
 @import url(vendor/owl/owl.carousel.css);
 @font-face {
   font-family: 'geoslbc_w_inchregular';
@@ -2208,6 +2207,73 @@ div.block {
   .restore-header .suggestion-blocks div a {
     color: #000;
     text-decoration: none; }
+  .restore-header .ui-widget-overlay {
+    background: none; }
+  .restore-header div.dialog.ui-widget-content {
+    background: #fff;
+    border: none;
+    box-shadow: 0px 1px 36px #333; }
+  .restore-header div.dialog {
+    font-family: Arial, Helvetica, sans-serif; }
+  .restore-header div.dialog .ui-dialog-content {
+    padding: 28px 30px; }
+  .restore-header div.dialog p {
+    font-size: 1.4em; }
+  .restore-header div.dialog h1 {
+    font-size: 2.4em;
+    margin-bottom: 16px; }
+  .restore-header div.dialog input.submit {
+    margin-left: 0 !important; }
+  .restore-header div.dialog .ui-dialog-titlebar {
+    position: absolute;
+    background: none;
+    right: 0;
+    border: none;
+    z-index: 9999;
+    top: 0; }
+  .restore-header div.dialog .ui-dialog-titlebar-close {
+    margin-top: 0px;
+    margin-right: 12px;
+    background: none !important;
+    padding: 0 !important; }
+  .restore-header div.dialog .ui-icon-closethick {
+    background: url(../images/ui/dialog_bt_close.png) 0 0 no-repeat;
+    width: 26px;
+    height: 26px;
+    margin: 0 !important; }
+  .restore-header .dialog-trigger {
+    cursor: pointer; }
+  .restore-header #dialog_one-click-order input.text {
+    width: 350px; }
+  .restore-header #dialog_recall-us span.phone {
+    font-size: 6.7em;
+    font-family: GeoSlab, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    display: block;
+    white-space: nowrap; }
+  .restore-header #dialog_presence select {
+    display: inline-block;
+    width: 140px;
+    margin-right: 10px; }
+  .restore-header #dialog_accessories .bt-scroll-right {
+    right: -12px; }
+  .restore-header #dialog_accessories .bt-scroll-left {
+    left: -12px; }
+  .restore-header #dialog_accessories, .restore-header .dlg-accessories {
+    overflow: visible; }
+  .restore-header .dialog_tip {
+    display: block;
+    position: absolute;
+    top: -14px;
+    left: 70px;
+    width: 28px;
+    height: 12px;
+    background: url(../images/ui/dialog_tip.png) 0 0 no-repeat; }
+  .restore-header #dialog_forget-password dd p {
+    width: 350px;
+    font-size: 1.2em;
+    margin-top: 16px;
+    margin-bottom: 0; }
 
 .restore-footer {
   padding: 54px 0 40px;
