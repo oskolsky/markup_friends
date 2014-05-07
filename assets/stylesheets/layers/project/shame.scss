@@ -278,7 +278,7 @@
   //
   // .. Suggestion
   //
-  #search-suggestions{position:absolute; width:100%; box-shadow:0 3px 4px #ccc; height:auto; z-index:100; background:#fff url(http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_suggestion.png) 0 0 repeat-x; border-radius:0 0 6px 6px; margin-left:1px; margin-top:-2px; display:none}
+  #search-suggestions{position:absolute; width:100%; box-shadow:0 3px 4px #ccc; height:auto; z-index:1000; background:#fff url(http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_suggestion.png) 0 0 repeat-x; border-radius:0 0 6px 6px; margin-left:1px; margin-top:-2px; display:none}
   .suggestion-blocks li{border-bottom:1px dotted #ccc; margin:6px; padding:3px 4px 6px; line-height:1.5em;}
   .suggestion-blocks li.last{border-bottom:none}
   .suggestion-blocks span{font-size:1.1em; font-family: Helvetica, Arial, sans-serif; display:block;}

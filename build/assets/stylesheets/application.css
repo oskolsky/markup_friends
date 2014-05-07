@@ -1579,20 +1579,23 @@ a.ico:hover.__bookmark, a.owl-prev:hover.__bookmark, a.owl-next:hover.__bookmark
 a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
   background-position: -90px -30px; }
 
-.header > .ctn {
+.header {
   position: relative;
-  z-index: 1000;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0px 1px 6px #ccc; }
-@media all and (min-width: 941px) {
-  .header.__sticky {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    background: #e8e8e8;
-    box-shadow: 0.1em 0.1em 0.3em rgba(0, 0, 0, 0.25); } }
+  z-index: 1; }
+  .header > .ctn {
+    position: relative;
+    z-index: 1000;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0px 1px 6px #ccc; }
+  @media all and (min-width: 941px) {
+    .header.__sticky {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: #e8e8e8;
+      box-shadow: 0.1em 0.1em 0.3em rgba(0, 0, 0, 0.25); } }
 
 .header_logo {
   margin-right: 12px;
@@ -2157,7 +2160,7 @@ div.block {
     width: 100%;
     box-shadow: 0 3px 4px #ccc;
     height: auto;
-    z-index: 100;
+    z-index: 1000;
     background: white url(http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_suggestion.png) 0 0 repeat-x;
     border-radius: 0 0 6px 6px;
     margin-left: 1px;
