@@ -40,8 +40,8 @@
         margin-bottom: 10px;
         color: #000;
         font-weight: 600;
-        font-size: 1.2em;
-        line-height: 1.6em;
+        font-size: 12px;
+        line-height: 16px;
       }
     }
   }  
@@ -305,8 +305,8 @@
 div.dialog.ui-widget-content{background:#fff; border:none; box-shadow:0px 1px 36px #333}
 div.dialog{font-family:Arial, Helvetica, sans-serif; }
 div.dialog .ui-dialog-content{padding:28px 30px;}
-div.dialog p{font-size:1.4em}
-div.dialog h1{font-size:2.4em; margin-bottom:16px}
+div.dialog p{font-size:14px}
+div.dialog h1{font-size:24px; margin-bottom:16px}
 div.dialog input.submit{margin-left:0 !important}
 div.dialog .ui-dialog-titlebar{position:absolute; background:none; right:0; border:none; z-index:9999; top:0;}
 div.dialog .ui-dialog-titlebar-close{margin-top:0px; margin-right:12px; background:none !important; padding:0 !important;}
@@ -314,7 +314,7 @@ div.dialog .ui-icon-closethick{background:url(http://www.re-store.ru/bitrix/temp
 
 .dialog-trigger{cursor:pointer}
 #dialog_one-click-order input.text{width:350px;}
-#dialog_recall-us span.phone{font-size:6.7em;font-family:GeoSlab, Helvetica, Arial, sans-serif; font-weight:bold; display:block; white-space:nowrap}
+#dialog_recall-us span.phone{font-size:67px;font-family:GeoSlab, Helvetica, Arial, sans-serif; font-weight:bold; display:block; white-space:nowrap}
 #dialog_presence select{display:inline-block;width:140px; margin-right:10px;}
 
 #dialog_accessories .bt-scroll-right{right:-12px;}
@@ -323,16 +323,16 @@ div.dialog .ui-icon-closethick{background:url(http://www.re-store.ru/bitrix/temp
 #dialog_accessories, .dlg-accessories{overflow:visible;}
 .dialog_tip{ display:block; position:absolute; top:-14px; left:70px; width:28px; height:12px; background:url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_tip.png) 0 0 no-repeat}
 
-#dialog_forget-password dd p{width:350px; font-size:1.2em; margin-top:16px; margin-bottom:0;}
+#dialog_forget-password dd p{width:350px; font-size:12px; margin-top:16px; margin-bottom:0;}
 
 ul.city-list{width:180px;}
 ul.city-list li{display:block; margin:6px 0;}
-ul.city-list li a{font-size:1.3em; color:#323536; text-decoration:none;}
+ul.city-list li a{font-size:13px; color:#323536; text-decoration:none;}
 ul.city-list li a:hover{color:#FF208A}
 
 #dialog_cities h1{float:left}
 #dialog_cities input#remember_me{display:inline-block; vertical-align:middle; margin-right:4px;}
-#dialog_cities label{display:inline-block; vertical-align:middle; font-size:1.2em; color:#333}
+#dialog_cities label{display:inline-block; vertical-align:middle; font-size:12px; color:#333}
 #dialog_cities form{margin-left:48px;margin-top: 8px; float:left;}
 
 
