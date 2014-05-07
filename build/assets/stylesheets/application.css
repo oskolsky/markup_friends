@@ -2228,7 +2228,7 @@ div.dialog .ui-dialog-titlebar-close {
   padding: 0 !important; }
 
 div.dialog .ui-icon-closethick {
-  background: url(../images/ui/dialog_bt_close.png) 0 0 no-repeat;
+  background: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_bt_close.png) 0 0 no-repeat;
   width: 26px;
   height: 26px;
   margin: 0 !important; }
@@ -2267,7 +2267,7 @@ div.dialog .ui-icon-closethick {
   left: 70px;
   width: 28px;
   height: 12px;
-  background: url(../images/ui/dialog_tip.png) 0 0 no-repeat; }
+  background: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/dialog_tip.png) 0 0 no-repeat; }
 
 #dialog_forget-password dd p {
   width: 350px;
