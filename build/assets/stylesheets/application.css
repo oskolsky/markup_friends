@@ -1980,6 +1980,7 @@ div.block {
   margin-top: 10px;
   width: 980px;
   height: 120px;
+  border-bottom: 1px solid #eee;
   font-size: 14px;
   font-family: Helvetica, Arial, sans-serif; }
   .restore-header .w-1-fifth {
