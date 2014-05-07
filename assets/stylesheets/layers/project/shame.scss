@@ -325,6 +325,16 @@ div.dialog .ui-icon-closethick{background:url(http://www.re-store.ru/bitrix/temp
 
 #dialog_forget-password dd p{width:350px; font-size:1.2em; margin-top:16px; margin-bottom:0;}
 
+ul.city-list{width:180px;}
+ul.city-list li{display:block; margin:6px 0;}
+ul.city-list li a{font-size:1.3em; color:#323536; text-decoration:none;}
+ul.city-list li a:hover{color:#FF208A}
+
+#dialog_cities h1{float:left}
+#dialog_cities input#remember_me{display:inline-block; vertical-align:middle; margin-right:4px;}
+#dialog_cities label{display:inline-block; vertical-align:middle; font-size:1.2em; color:#333}
+#dialog_cities form{margin-left:48px;margin-top: 8px; float:left;}
+
 
 
 //****************************************************************************************************
