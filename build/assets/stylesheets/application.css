@@ -2190,7 +2190,11 @@ div.block {
     text-decoration: none; }
 
 .ui-widget-overlay {
-  background: none; }
+  background: none;
+  z-index: 9999; }
+
+.ui-dialog {
+  z-index: 9999; }
 
 div.dialog.ui-widget-content {
   background: #fff;
