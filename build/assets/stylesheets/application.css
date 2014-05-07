@@ -1671,6 +1671,18 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
   line-height: 1;
   margin-bottom: 3rem; }
 
+div.block {
+  position: relative; }
+  div.block:not(:last-child)::after {
+    position: absolute;
+    right: -32px;
+    bottom: 0;
+    left: -266px;
+    height: .1rem;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #fff;
+    content: ''; }
+
 .block_h {
   margin-bottom: 1rem; }
 
@@ -2138,6 +2150,59 @@ a.ico:hover.__play, a.owl-prev:hover.__play, a.owl-next:hover.__play {
     font-weight: bold; }
   .restore-header i, .restore-header var, .restore-header em {
     font-style: normal; }
+  .restore-header #search-suggestions {
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 3px 4px #ccc;
+    height: auto;
+    z-index: 100;
+    background: white url(http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_suggestion.png) 0 0 repeat-x;
+    border-radius: 0 0 6px 6px;
+    margin-left: 1px;
+    margin-top: -2px;
+    display: none; }
+  .restore-header .suggestion-blocks li {
+    border-bottom: 1px dotted #ccc;
+    margin: 6px;
+    padding: 3px 4px 6px;
+    line-height: 1.5em; }
+  .restore-header .suggestion-blocks li.last {
+    border-bottom: none; }
+  .restore-header .suggestion-blocks span {
+    font-size: 1.1em;
+    font-family: Helvetica, Arial, sans-serif;
+    display: block; }
+  .restore-header .suggestion-blocks ul {
+    margin: 6px 0 4px; }
+  .restore-header .suggestion-blocks ul li {
+    font-size: 11px;
+    border: none;
+    margin: 2px 0;
+    padding: 0;
+    line-height: 1.1em;
+    font-weight: 500; }
+  .restore-header .suggestion-blocks span a {
+    color: #000;
+    text-decoration: underline !important; }
+  .restore-header .suggestion-blocks div.holder-img {
+    width: 38px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative; }
+  .restore-header .suggestion-blocks div.holder-img img {
+    display: block;
+    margin-top: 1px;
+    max-width: 100%; }
+  .restore-header .suggestion-blocks div.holder-desc {
+    width: 96px;
+    display: inline-block;
+    vertical-align: top; }
+  .restore-header .suggestion-blocks div.holder-desc a {
+    color: #000;
+    text-decoration: none; }
+  .restore-header .suggestion-blocks div a {
+    color: #000;
+    text-decoration: none; }
 
 .restore-footer {
   padding: 54px 0 40px;
