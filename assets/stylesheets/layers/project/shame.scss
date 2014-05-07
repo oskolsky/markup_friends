@@ -471,6 +471,8 @@ form.plain dd.filled-error p.error-desc {
     text-align: left;
 }
 
+form.search-plain input.text, form.plain input.text, form.plain input.text.rounded{display:inline-block;   border:1px solid #e6e6e6; width:430px; height:34px; padding:0 8px; line-height:34px; vertical-align:middle; font-size:18px; border-radius:6px; color:#c9c9c9;}
+
 
 
 //****************************************************************************************************
