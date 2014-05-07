@@ -2067,6 +2067,8 @@ div.block {
     font-weight: bold;
     font-size: 14px;
     line-height: 14px; }
+    .restore-header .basket:hover {
+      text-decoration: none; }
   .restore-header #client_id {
     position: relative;
     top: -6px;
