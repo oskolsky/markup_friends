@@ -13,6 +13,20 @@ $(document).on('click', '.action-controls > .action-controls_i.__bookmark', func
     return false;
 });
 
+//
+// .. Comments reply
+//
+$(document).on('click', '.js-comments-reply', function() {
+    var $el = $(this).closest('.comments_i').find('.comments_i_reply');
+    if ($el.is(':hidden')) {
+        $(this).text('Закрыть');
+        $el.fadeIn();
+    } else {
+        $(this).text('Ответить');
+        $el.fadeOut();
+    }
+    return false;
+});
 
 
 //****************************************************************************************************

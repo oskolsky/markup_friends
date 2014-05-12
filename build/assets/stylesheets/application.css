@@ -1766,6 +1766,14 @@ div.block {
 .comments_i_inner {
   padding-left: 5.5rem; }
 
+.comments_i_reply {
+  display: none;
+  margin-top: 2rem; }
+
+.comments_i_nested {
+  margin-top: 3rem;
+  padding-left: 5.5rem; }
+
 .hr.__dashed {
   height: 0;
   border-bottom: 1px dashed #ccc; }
