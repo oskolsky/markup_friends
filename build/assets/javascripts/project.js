@@ -21,6 +21,7 @@ $(document).on('click', '.js-comments-reply', function() {
     if ($el.is(':hidden')) {
         $(this).text('Закрыть');
         $el.fadeIn();
+        $el.find('.form-el.__textarea').focus();
     } else {
         $(this).text('Ответить');
         $el.fadeOut();
