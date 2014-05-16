@@ -1,4 +1,4 @@
-Friends
+re:Store
 ============
 
-Markup "Friends"
+Markup "re:Store"
