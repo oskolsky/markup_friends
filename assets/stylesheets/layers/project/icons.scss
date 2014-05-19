@@ -36,6 +36,19 @@
     &.__bookmark.__white      {background-position: -60px -60px;}
     &.__play.__white          {background-position: -90px -60px;}
   }
+  &.__44 {
+    @include size(44, 44);
+    background-image: url(/assets/images/icons/ico-44.png);
+    &.__clock     {background-position: 0 0;}
+    &.__bicycle   {background-position: -44px 0;}
+    &.__lightning {background-position: -88px 0;}
+    &.__pulse     {background-position: -132px 0;}
+
+    &.__clock.__white     {background-position: 0 -44px;}
+    &.__bicycle.__white   {background-position: -44px -44px;}
+    &.__lightning.__white {background-position: -88px -44px;}
+    &.__pulse.__white     {background-position: -132px -44px;}
+  }
 }
 
 a.ico {
@@ -44,5 +57,10 @@ a.ico {
     &.__chevron-right {background-position: -30px -30px;}
     &.__bookmark      {background-position: -60px -30px;}
     &.__play          {background-position: -90px -30px;}  
+
+    &.__clock     {background-position: 0 -44px;}
+    &.__bicycle   {background-position: -44px -44px;}
+    &.__lightning {background-position: -88px -44px;}
+    &.__pulse     {background-position: -132px -44px;}
   }
 }

@@ -131,27 +131,27 @@
   
   @extend .decor;
   &.__index {
-    background: #fff url(/assets/images/promo-index.png) top right no-repeat;
+    background: #fff url(/assets/images/friends/promo-index.png) top right no-repeat;
     color: $base-color;
   }
   &.__apps {
-    background: #4da3e6 url(/assets/images/promo-apps.png) top right no-repeat;
+    background: #4da3e6 url(/assets/images/friends/promo-apps.png) top right no-repeat;
     color: #fff;
   }
   &.__reviews {
-    background: #4da3e6 url(/assets/images/promo-reviews.png) top right no-repeat;
+    background: #4da3e6 url(/assets/images/friends/promo-reviews.png) top right no-repeat;
     color: #fff;
   }
   &.__reviews-feed {
-    background: #4da3e6 url(/assets/images/promo-reviews-feed.png) top right no-repeat;
+    background: #4da3e6 url(/assets/images/friends/promo-reviews-feed.png) top right no-repeat;
     color: #fff;
   }
   &.__recommendations {
-    background: #4da3e6 url(/assets/images/promo-recommendations.png) top right no-repeat;
+    background: #4da3e6 url(/assets/images/friends/promo-recommendations.png) top right no-repeat;
     color: #fff;
   }
   &.__videos {
-    background: #4da3e6 url(/assets/images/promo-videos.png) top right no-repeat;
+    background: #4da3e6 url(/assets/images/friends/promo-videos.png) top right no-repeat;
     color: #fff;
   }
 }
@@ -230,7 +230,7 @@ div.block {
   }
     .content-block_header_t {
       font-size: 4rem;
-      font-family: "geoslbc_w_inchregular", Helvetica, Arial, sans-serif;
+      font-family: $geoslbc-font-family;
       line-height: 3.5rem;
     }
   .content-block_footer {
@@ -357,6 +357,129 @@ div.block {
 
 //****************************************************************************************************
 //
+// .. SPORT CATALOG
+//
+//****************************************************************************************************
+//
+// .. Promo carousel
+//
+.sport-promo {
+
+}
+  .sport-promo_carousel {
+    margin-left: -32px;
+    width: 980px !important;
+  }
+    .sport-promo_carousel_i {
+      position: relative;
+    }
+      .sport-promo_carousel_i_tx {
+        position: absolute;
+        top: 5rem;
+        right: 0;
+        @extend .grid-i;
+        @extend .grid-i.__grid-5;
+        @extend .grid-i.__prefix-7;
+        p {
+          margin-bottom: 2rem;
+          font-size: 3rem;
+          font-family: $geoslbc-font-family;
+          line-height: 3rem;
+        }
+        ul {
+          li {
+            margin-left: 4.5rem;
+            list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5M0ZBODlCQkRGNDMxMUUzODczRUE5NkQwMTlGNDdDOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5M0ZBODlCQ0RGNDMxMUUzODczRUE5NkQwMTlGNDdDOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkzRkE4OUI5REY0MzExRTM4NzNFQTk2RDAxOUY0N0M4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkzRkE4OUJBREY0MzExRTM4NzNFQTk2RDAxOUY0N0M4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+L3l4/wAAAM1JREFUeNpi/K/QxUAmCAdiHyYyNQcC8UIg3kOOAZ5AvByIc0GGkGqAMxCvBeIyIJ4NEiDFAFsg3gTE9UA8CSZIrAHmQLwFiEEh3o0sATJAF4h58Wg2AuKdQDwNiBvRJZmgJh4CYiksmkGG7wDi+UBcic10kAEhQPwCiI8DsTaSnAYomqCBVoTLeSADvgCxLxDvBuLDQOwAxCpQ/lYgzgLi/7gMYIHSf4A4BYgfAvF2IH4PxAeBOBWfZmQDYKAZiB9BE0sMEP8lFD0AAQYA5pck9dZPX80AAAAASUVORK5CYII=');
+            font-size: 1.8rem;
+            line-height: 3.5rem;
+          }
+        }
+      }
+  .sport-promo_controls {
+    position: relative;
+    top: -6.5rem;
+    z-index: 1000;
+    border-radius: .6rem;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 .7rem 0 rgba(0, 0, 0, .68);
+    @extend .grid;
+    @extend .grid.__no-gutter;
+  }
+
+//
+// .. Nav block (for promo carousel)
+//
+.sport-nav-block {
+  text-align: center;
+  @extend .grid-i;
+  @extend .grid-i.__grid-3;
+  &:not(:last-child) {border-right: 1px solid #e6e2e2;}
+  &.__current {
+    .sport-nav-block_header {
+      @extend .sport-nav-block_header:hover;
+    }   
+  }
+  &:first-child {
+    .sport-nav-block_header {border-radius: .6rem 0 0 0;}
+  }
+  &:last-child  {
+    .sport-nav-block_header {border-radius: 0 .6rem 0 0;}
+  }
+}
+  .sport-nav-block_header {
+    position: relative;
+    display: block;
+    height: 6.5rem;
+    background-color: #fff;
+    color: $minor-color;
+    font-size: 1.5rem;
+    font-family: $geoslbc-font-family;
+    line-height: 2rem;
+    cursor: pointer;
+    p {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      text-align: left;
+      padding-left: 2rem;
+      @include prefixes(transform, translateY(-50%));
+      i, span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    &:hover {
+      background-color: $minor-color;
+      color: #fff;
+      i {
+        &.__clock     {background-position: 0 -44px;}
+        &.__bicycle   {background-position: -44px -44px;}
+        &.__lightning {background-position: -88px -44px;}
+        &.__pulse     {background-position: -132px -44px;}
+      }
+    }
+  }
+  .sport-nav-block_footer {
+    padding: .5rem 2rem 2rem;
+    height: 6rem;
+    @include prefixes(box-sizing, border-box);
+    a {
+      display: block;
+      height: 3.5rem;
+      border: 1px solid #ccc;
+      border-radius: 1.8rem;
+      color: #898484;
+      font-size: 1.4rem;
+      line-height: 3.5rem;
+      &:hover {text-decoration: none;}
+    }
+  }
+
+
+
+//****************************************************************************************************
+//
 // .. ELEMENTS
 //
 //****************************************************************************************************
@@ -463,7 +586,7 @@ div.block {
     z-index: 999;
     display: none;
     width: 9px;
-    background-image: url(/assets/images/shadow.png);
+    background-image: url(/assets/images/friends/shadow.png);
     background-repeat: no-repeat;
     content: '';
   }

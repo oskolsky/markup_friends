@@ -68,6 +68,32 @@ $(function() {
     });
 
     //
+    // . Promo carousel init
+    //
+    $('.sport-promo').each(function() {
+        var $owl = $(this).find('.sport-promo_carousel');
+
+        $owl.owlCarousel({
+            items: 1,
+            loop: false,
+            info: setNavBlock
+        });
+
+        var owlApi = $owl.data('owlCarousel');
+
+        $(this).find('.sport-nav-block').find('.sport-nav-block_header').on('click', function(){
+            var item = $(this).data('item');
+            owlApi.goTo(item);
+            return false;
+        });
+
+        function setNavBlock(i) {
+            $('.sport-nav-block.__current').removeClass('__current');
+            $('.sport-nav-block').find('.sport-nav-block_header[data-item="' + i.currentPosition + '"]').closest('.sport-nav-block').addClass('__current');
+        }
+    });
+
+    //
     // .. Content carousel init
     //
     $('.content-carousel').each(function() {
