@@ -22,46 +22,55 @@
     %main#main.main{role: "main"}
       %section{role: "region", "aria-label" => "Demo"}
         .ctn.p-t_8.p-b_8
-          %article
-            
-            %header.m-b_4
-              %a{href: "/friends_index.html"}
-                %img.va-t{src: "/assets/images/logo.png", width: 174, height: 45, alt: "Friends"}
+          .grid
+            .grid-i.__grid-6>
+              %article
+                %header.m-b_4
+                  %a{href: "/friends_index.html"}
+                    %img.va-t{src: "/assets/images/logo.png", width: 174, height: 45, alt: "Friends"}
+                %nav.demo
+                  %ol
+                    %li.m-b_2
+                      %a{href: "/friends_ui.html"} UI
 
-            %nav.demo
-              %ol
-                %li.m-b_2
-                  %a{href: "/friends_ui.html"} UI
+                    %li.m-b_2
+                      %a{href: "/friends_index.html"} Главная
 
-                %li.m-b_2
-                  %a{href: "/friends_index.html"} Главная
+                    %li
+                      %a{href: "/friends_apps_index.html"} Приложения
+                    %li.m-b_2
+                      %a{href: "/friends_apps_show.html"} Приложения - просмотр
 
-                %li
-                  %a{href: "/friends_apps_index.html"} Приложения
-                %li.m-b_2
-                  %a{href: "/friends_apps_show.html"} Приложения - просмотр
+                    %li
+                      %a{href: "/friends_reviews_index.html"} Обзоры товаров
+                    %li
+                      %a{href: "/friends_reviews_feed.html"} Обзоры товаров - лента
+                    %li.m-b_2
+                      %a{href: "/friends_reviews_show.html"} Обзоры товаров - просмотр
 
-                %li
-                  %a{href: "/friends_reviews_index.html"} Обзоры товаров
-                %li
-                  %a{href: "/friends_reviews_feed.html"} Обзоры товаров - лента
-                %li.m-b_2
-                  %a{href: "/friends_reviews_show.html"} Обзоры товаров - просмотр
+                    %li
+                      %a{href: "/friends_recommendations_index.html"} Рекомендации
+                    %li
+                      %a{href: "/friends_recommendations_feed_logout.html"} Рекомендации - лента
+                    %li
+                      %a{href: "/friends_recommendations_feed_login.html"} Рекомендации - лента (персональные рекомендации)
+                    %li.m-b_2
+                      %a{href: "/friends_recommendations_show.html"} Рекомендации - просмотр
 
-                %li
-                  %a{href: "/friends_recommendations_index.html"} Рекомендации
-                %li
-                  %a{href: "/friends_recommendations_feed_logout.html"} Рекомендации - лента
-                %li
-                  %a{href: "/friends_recommendations_feed_login.html"} Рекомендации - лента (получить персональные рекомендации)
-                %li.m-b_2
-                  %a{href: "/friends_recommendations_show.html"} Рекомендации - просмотр
-
-                %li
-                  %a{href: "/friends_videos_index.html"} Видео
-                %li
-                  %a{href: "/friends_videos_catalog.html"} Видео - каталог
-                %li
-                  %a{href: "/friends_videos_feed.html"} Видео - лента
-                %li
-                  %a{href: "/friends_videos_show.html"} Видео - просмотр
+                    %li
+                      %a{href: "/friends_videos_index.html"} Видео
+                    %li
+                      %a{href: "/friends_videos_catalog.html"} Видео - каталог
+                    %li
+                      %a{href: "/friends_videos_feed.html"} Видео - лента
+                    %li
+                      %a{href: "/friends_videos_show.html"} Видео - просмотр
+            .grid-i.__grid-6>
+              %article
+                %header.m-b_4
+                  %a{href: "/friends_index.html"}
+                    %img.va-t{src: "http://www.re-store.ru/bitrix/templates/restore/images/ui/logo.svg", width: 152, height: 35, alt: "Friends"}
+                %nav.demo
+                  %ol
+                    %li.m-b_2
+                      %a{href: "/restore_sport_catalog.html"} Спортивный каталог
