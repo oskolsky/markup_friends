@@ -1918,6 +1918,80 @@ div.block {
     .sport-nav-block_footer a:hover {
       text-decoration: none; }
 
+.sport-catalog_i_promo {
+  position: relative;
+  margin-left: -32px;
+  z-index: 1000; }
+
+.sport-catalog_i_feed {
+  position: relative;
+  top: -8rem;
+  margin: 0 auto;
+  margin-bottom: -23rem;
+  padding-top: 4rem;
+  width: 780px;
+  background-color: #fff;
+  z-index: 1000; }
+  .sport-catalog_i_feed::after {
+    position: absolute;
+    right: -10rem;
+    bottom: 15rem;
+    left: -10rem;
+    height: 15px;
+    content: '';
+    background: url(/assets/images/restore/sport-shadow.png) center no-repeat; }
+
+.sport-catalog_i_feed_title {
+  margin-bottom: 4rem;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "geoslbc_w_inchregular", Helvetica, Arial, sans-serif;
+  line-height: 1; }
+
+.sport-catalog_item {
+  display: inline-block;
+  margin-bottom: 4rem;
+  padding: 0 20px;
+  width: 25%;
+  vertical-align: top;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.8rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+  .sport-catalog_item a {
+    color: #2b2b2b; }
+    .sport-catalog_item a:hover {
+      text-decoration: none; }
+  .sport-catalog_item img {
+    margin-bottom: 1rem;
+    vertical-align: top; }
+  .sport-catalog_item .format-money {
+    color: #e12c84; }
+
+.sport-catalog_i_feed_load {
+  position: absolute;
+  bottom: 12rem;
+  left: 50%;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e12c84;
+  text-align: center;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+  .sport-catalog_i_feed_load i {
+    position: relative;
+    top: 8px;
+    display: none;
+    color: #fff; }
+
 .hr.__dashed {
   height: 0;
   border-bottom: 1px dashed #ccc; }

@@ -1,0 +1,74 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Спортивный каталог / re:store
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/friends/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn        
+        %section#section.section.p-t_0.p-b_0{role: "region", "aria-label" => "Sport catalog"}
+          = Haml::Engine.new(File.read('views/common/restore/_promo_sport.haml')).render
+          .sport-catalog
+            
+            .sport-catalog_i#lifestyle
+              .sport-catalog_i_promo
+                %img.va-t{src: "/assets/images/restore/catalog-1.jpg", width: 980, height: 620, alt: "Для активного образа жизни"}
+              .sport-catalog_i_feed
+                .sport-catalog_i_feed_title Для активного образа жизни
+                .js-feed
+                  - 1.upto(12) do
+                    .sport-catalog_item>
+                      = Haml::Engine.new(File.read('views/common/restore/_catalog_item_sport.haml')).render
+                %a.sport-catalog_i_feed_load{href: "#", data: {load: "/data/sport_feed.html", feed: ".js-feed"}}
+                  %span
+                    %img{src: "/assets/images/restore/sport-load-arrow.png", width: 60, height: 30, alt: ""}
+                  %i.fa.fa-refresh
+            
+            .sport-catalog_i#bicycle
+              .sport-catalog_i_promo
+                %img.va-t{src: "/assets/images/restore/catalog-2.jpg", width: 980, height: 620, alt: "Для активного образа жизни"}
+              .sport-catalog_i_feed.__shadow                
+                .sport-catalog_i_feed_title Для веломанов
+                .js-feed
+                  - 1.upto(12) do
+                    .sport-catalog_item>
+                      = Haml::Engine.new(File.read('views/common/restore/_catalog_item_sport.haml')).render
+                %a.sport-catalog_i_feed_load{href: "#", data: {load: "/data/sport_feed.html", feed: ".js-feed"}}
+                  %span
+                    %img{src: "/assets/images/restore/sport-load-arrow.png", width: 60, height: 30, alt: ""}
+                  %i.fa.fa-refresh
+            
+            .sport-catalog_i#extrime
+              .sport-catalog_i_promo
+                %img.va-t{src: "/assets/images/restore/catalog-3.jpg", width: 980, height: 620, alt: "Для активного образа жизни"}
+              .sport-catalog_i_feed.__shadow
+                .sport-catalog_i_feed_title Для экстремалов
+                .js-feed
+                  - 1.upto(12) do
+                    .sport-catalog_item>
+                      = Haml::Engine.new(File.read('views/common/restore/_catalog_item_sport.haml')).render
+                %a.sport-catalog_i_feed_load{href: "#", data: {load: "/data/sport_feed.html", feed: ".js-feed"}}
+                  %span
+                    %img{src: "/assets/images/restore/sport-load-arrow.png", width: 60, height: 30, alt: ""}
+                  %i.fa.fa-refresh
+            
+            .sport-catalog_i#pulse
+              .sport-catalog_i_promo
+                %img.va-t{src: "/assets/images/restore/catalog-4.jpg", width: 980, height: 620, alt: "Для активного образа жизни"}
+              .sport-catalog_i_feed.__shadow
+                %a.sport-catalog_i_feed_load{href: "#", data: {load: "/data/sport_feed.html"}}
+                .sport-catalog_i_feed_title Технологии на страже здоровья
+                .js-feed
+                  - 1.upto(12) do
+                    .sport-catalog_item>
+                      = Haml::Engine.new(File.read('views/common/restore/_catalog_item_sport.haml')).render
+                %a.sport-catalog_i_feed_load{href: "#", data: {load: "/data/sport_feed.html", feed: ".js-feed"}}
+                  %span
+                    %img{src: "/assets/images/restore/sport-load-arrow.png", width: 60, height: 30, alt: ""}
+                  %i.fa.fa-refresh
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

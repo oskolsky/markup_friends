@@ -1,0 +1,35 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title UI / re:store
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    %main#main.main{role: "main"}
+      %section{role: "region", "aria-label" => "Demo"}
+        .ctn
+          .p-t_8.p-b_8
+
+            .grid
+              .grid-i.__grid-3>
+
+                .m-b_4
+                  %h4.m-b_2 Icons 44x44
+                  %div.m-b_2
+                    %i.ico.__44.__clock
+                    %i.ico.__44.__bicycle
+                    %i.ico.__44.__lightning
+                    %i.ico.__44.__pulse
+                  %div.m-b_2
+                    %i.ico.__44.__clock.__white
+                    %i.ico.__44.__bicycle.__white
+                    %i.ico.__44.__lightning.__white
+                    %i.ico.__44.__pulse.__white
+
+                .m-b_4
+                  %h4.m-b_2 Hover icons 44x44
+                  %div.m-b_2
+                    %a.ico.__44.__clock{href: "#"}
+                    %a.ico.__44.__bicycle{href: "#"}
+                    %a.ico.__44.__lightning{href: "#"}
+                    %a.ico.__44.__pulse{href: "#"}
