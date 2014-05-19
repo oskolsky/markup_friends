@@ -1,0 +1,10 @@
+- rand = rand(1..1000)
+.item
+  = Haml::Engine.new(File.read('views/common/friends/_action_controls.haml')).render
+  .m-b_1
+    %a.double-hover{href: "/friends_recommendations_show.html##{rand}"}
+      %img.item_photo.c-bg.__light{src: "/assets/images/blank.gif", width: 136, height: 136, alt: "Device 6"}
+  .m-b_1
+    %h3
+      %a.double-hover{href: "/friends_recommendations_show.html##{rand}"} Device 6
+  = Haml::Engine.new(File.read('views/common/friends/_tags.haml')).render

@@ -1,0 +1,86 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Рекомендации / Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/friends/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_friends_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_friends_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              
+              %article.promo.__recommendations
+                %header.promo_h 
+                  Персональные
+                  %br
+                  рекомендации
+                %p
+                  Эти приложения мы&nbsp;подобрали специально
+                  %br
+                  для вас учитывая ваши предпочтения,
+                  %br
+                  которые вы&nbsp;указали в&nbsp;анкете.
+
+              %hr.hr.__dashed
+
+              .block.p-t_1.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1.block_h_t Для путешествий
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/friends_recommendations_feed_logout.html"} Все (365)
+                .block_b
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Новинки
+                    .owl-carousel
+                      - 1.upto(10) do
+                        .grid-i.__grid-2>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
+                  %div
+                    %h3.title.__dashed
+                      %span Самые популярные
+                    .owl-carousel
+                      - 1.upto(10) do
+                        .grid-i.__grid-2>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
+
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-7.va-m>
+                      .tx.__left
+                        %h1.block_h_t Игры
+                    .grid-i.__grid-2.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/friends_recommendations_feed_logout.html"} Все (365)
+                .block_b
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Новинки
+                    .owl-carousel
+                      - 1.upto(10) do
+                        .grid-i.__grid-2>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
+                  %div
+                    %h3.title.__dashed
+                      %span Самые популярные
+                    .owl-carousel
+                      - 1.upto(10) do
+                        .grid-i.__grid-2>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

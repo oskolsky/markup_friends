@@ -1,0 +1,55 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Лента / Видео / Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/friends/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_friends_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_friends_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              
+              %article.promo.__videos
+                %header.promo_h 
+                  Видеообзоры
+                  %br
+                  чехлов
+                %p
+                  Вы&nbsp;задаете себе вопросы о&nbsp;том, какой чехол
+                  %br
+                  выбрать для вашего iPhone, какая 
+                  %br
+                  акустическая система лучше всего подойдет 
+                  %br
+                  для вашей гостинной или что лучше всего 
+                  %br
+                  подарить другу geek&rsquo;у, или&nbsp;же вы&nbsp;просто 
+                  %br
+                  хотите узнать, что нового появилось.
+
+              %hr.hr.__dashed
+
+              .block.p-t_3.p-b_6
+                .block_b.m-b_4
+                  .feed
+                    - 1.upto(6) do
+                      = Haml::Engine.new(File.read('views/common/friends/_item_video.haml')).render
+                .block_f
+                  .load-more
+                    .load-more_inner
+                      %a.form-el.__btn.__small.__default{href: "#", data: {load: "/data/videos_feed.html"}} 
+                        %span Показать еще 6 видеообзорово чехлов
+                        %i.fa.fa-refresh
+                    %hr.hr.__dashed
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

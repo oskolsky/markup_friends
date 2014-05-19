@@ -1,0 +1,55 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Лента / Обзоры товаров / Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/friends/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_friends_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_friends_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              
+              %article.promo.__reviews-feed
+                %header.promo_h Обзоры акустики
+                %p.m-b_2
+                  В&nbsp;этом разделе вы&nbsp;сможете узнать о&nbsp;самых 
+                  %br
+                  новых акустических системах на&nbsp;рынке.
+                  %br
+                  Мы&nbsp;строго выбираем ассортимент нашего
+                  %br
+                  магазина, поэтому вашему вниманию 
+                  %br
+                  представлены лучшие из&nbsp;лучших.
+                %p
+                  Наши обзоры помогут вам принять верное 
+                  %br
+                  решение о&nbsp;покупке, взвесив все за&nbsp;и&nbsp;против.
+
+              %hr.hr.__dashed
+
+              .block.p-t_3.p-b_6
+                .block_b.m-b_4
+                  .feed.grid
+                    - 1.upto(15) do
+                      .grid-i.__grid-3>
+                        = Haml::Engine.new(File.read('views/common/friends/_item_review.haml')).render
+                .block_f
+                  .load-more
+                    .load-more_inner
+                      %a.form-el.__btn.__small.__default{href: "#", data: {load: "/data/reviews_feed.html"}} 
+                        %span Показать еще 6 обзоров
+                        %i.fa.fa-refresh
+                    %hr.hr.__dashed
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

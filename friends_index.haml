@@ -1,0 +1,183 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/friends/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_friends_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_friends_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              
+              %article.promo.__index
+                %header.promo_h
+                  Добро пожаловать
+                  %br
+                  в&nbsp;re:Store Friends
+                %p.m-b_3
+                  %i re:Store Friends
+                  &nbsp;&mdash; ваш проводник в&nbsp;цифровом 
+                  %br
+                  мире. Мы&nbsp;подготовили для вас много 
+                  %br
+                  интересной и&nbsp;полезной информации.
+                %footer
+                  %button.form-el.__btn.__large.__major Узнать подробнее              
+              
+              %hr.hr.__dashed
+
+              -# Apps
+              .block.p-t_1.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-6.va-m>
+                      .tx.__left
+                        %h1.block_h_t Приложения
+                    .grid-i.__grid-3.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/friends_apps_index.html"} Все (365)
+                .block_b
+                  = Haml::Engine.new(File.read('views/common/friends/_item_app_promo.haml')).render
+                  %h3.title.__dashed
+                    %span Выбор редакции
+                  .grid
+                    - 1.upto(3) do
+                      .grid-i.__grid-3>
+                        = Haml::Engine.new(File.read('views/common/friends/_item_app.haml')).render
+                      
+              -# Reviews
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-6.va-m>
+                      .tx.__left
+                        %h1.block_h_t Обзоры товаров
+                    .grid-i.__grid-3.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/friends_reviews_index.html"} Все (365)
+                .block_b
+                  = Haml::Engine.new(File.read('views/common/friends/_item_review_promo.haml')).render
+                  %h3.title.__dashed
+                    %span Свежие обзоры
+                  .grid
+                    - 1.upto(3) do
+                      .grid-i.__grid-3>
+                        = Haml::Engine.new(File.read('views/common/friends/_item_review.haml')).render
+                      
+              -# Contest
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-6.va-m>
+                      .tx.__left
+                        %h1.block_h_t Конкурсы
+                    .grid-i.__grid-3.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "#"} Архив конкурсов
+                .block_b
+                  = Haml::Engine.new(File.read('views/common/friends/_item_contest_promo.haml')).render
+                  %h3.title.__dashed
+                    %span Прошедшие конкурсы
+                  - 1.upto(2) do
+                    = Haml::Engine.new(File.read('views/common/friends/_item_contest.haml')).render
+
+              -# Recommendations
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-6.va-m>
+                      .tx.__left
+                        %h1.block_h_t Рекомендации
+                    .grid-i.__grid-3.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/friends_recommendations_feed_logout.html"} Все (193)
+                .block_b
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Новинки
+                    .owl-carousel
+                      - 1.upto(10) do
+                        .grid-i.__grid-2>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
+                  %div
+                    %h3.title.__dashed
+                      %span Лучшие в категории
+                    .owl-carousel
+                      - 1.upto(10) do
+                        .grid-i.__grid-2>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
+
+              -# Videos
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-6.va-m>
+                      .tx.__left
+                        %h1.block_h_t Видеоролики
+                    .grid-i.__grid-3.va-m>
+                      .tx.__right
+                        %a.form-el.__btn.__small.__major{href: "/friends_videos_index.html"} Все (63)
+                .block_b
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Свежие видеообзоры
+                    - 1.upto(2) do
+                      = Haml::Engine.new(File.read('views/common/friends/_item_video.haml')).render
+                  %div
+                    %h3.title.__dashed
+                      %span Видеоподсказки
+                    - 1.upto(2) do
+                      = Haml::Engine.new(File.read('views/common/friends/_item_video.haml')).render
+              
+              -# FAQ
+              .block.p-t_2.p-b_3
+                .block_h
+                  .grid
+                    .grid-i.__grid-6.va-m>
+                      .tx.__left
+                        %h1.block_h_t F.A.Q.
+                    .grid-i.__grid-3.va-m>
+                      .tx.__right
+                        %button.form-el.__btn.__small.__major Re:Store Genius (240)
+                .block_b
+                  %h3.title.__dashed
+                    %span Популярные категории
+                  .grid
+                    - 1.upto(3) do
+                      .grid-i.__grid-3>
+                        = Haml::Engine.new(File.read('views/common/friends/_item_faq.haml')).render
+
+              -# Feedback
+              .block.p-t_3.p-b_3
+                .content-block
+                  %h2.title.__dashed 
+                    %span Задайте вопрос
+                  %form.form
+                    %div.m-b_1
+                      .grid
+                        .grid-i.__grid-3.va-m>
+                          .form-el.__select.__fake.__block
+                            %p &nbsp;
+                            %select.form-el.__select.__real
+                              %option{selected: "selected"} MacBook Pro (245)
+                              %option iPad (165)
+                              %option iPhone (285)
+                              %option iPod (113)
+                        .grid-i.__grid-6.va-m>
+                          %a.goto{href: "#"} Читать вопросы
+                    %div.m-b_2
+                      %textarea.form-el.__textarea.__block{rows: 3, placeholder: "Вопрос, например: «MacBook Pro некорректно выходит из спящего режима, что делать?»"}
+                    %div
+                      %button.form-el.__btn.__large.__major{type: "submit"} Отправить запрос
+                      
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
