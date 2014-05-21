@@ -38,6 +38,15 @@ $(document).on('click', '.js-comments-reply', function() {
 $(function() {
 
     //
+    // .. Sticky
+    // .. https://github.com/leafo/sticky-kit
+    //
+    $('#sidebar').stick_in_parent({
+        parent: '.ctn',
+    });
+    
+
+    //
     // .. Masket input
     //
     $('.form-el.__tx.__phone').mask('+7 (999) 999-99-99');
