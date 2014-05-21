@@ -1730,7 +1730,7 @@ div.block {
       padding-left: 2rem; }
     .content-block .grid > .grid-i:last-child, .comments .grid > .grid-i:last-child, .content-block .sport-promo_controls > .grid-i:last-child, .comments .sport-promo_controls > .grid-i:last-child, .content-block .grid > .sport-promo_carousel_i_tx:last-child, .comments .grid > .sport-promo_carousel_i_tx:last-child, .content-block .sport-promo_controls > .sport-promo_carousel_i_tx:last-child, .comments .sport-promo_controls > .sport-promo_carousel_i_tx:last-child, .content-block .grid > .sport-nav-block:last-child, .comments .grid > .sport-nav-block:last-child, .content-block .sport-promo_controls > .sport-nav-block:last-child, .comments .sport-promo_controls > .sport-nav-block:last-child {
       padding-right: 2rem; }
-  .content-block .title > span, .comments .title > span, .content-block .cnt h1 > span, .cnt .content-block h1 > span, .comments .cnt h1 > span, .cnt .comments h1 > span, .content-block .cnt h2 > span, .cnt .content-block h2 > span, .comments .cnt h2 > span, .cnt .comments h2 > span, .content-block .cnt h3 > span, .cnt .content-block h3 > span, .comments .cnt h3 > span, .cnt .comments h3 > span, .content-block .cnt h4 > span, .cnt .content-block h4 > span, .comments .cnt h4 > span, .cnt .comments h4 > span, .content-block .cnt h5 > span, .cnt .content-block h5 > span, .comments .cnt h5 > span, .cnt .comments h5 > span, .content-block .cnt h6 > span, .cnt .content-block h6 > span, .comments .cnt h6 > span, .cnt .comments h6 > span {
+  .content-block .title > span, .comments .title > span {
     background-color: #fff !important; }
 
 .content-block_header {
@@ -2000,11 +2000,11 @@ div.block {
   border-radius: .3rem;
   box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.35); }
 
-.title.__dashed, .cnt h1, .cnt h2, .cnt h3, .cnt h4, .cnt h5, .cnt h6 {
+.title.__dashed {
   position: relative;
   margin-bottom: 2rem;
   background-color: inherit; }
-  .title.__dashed::after, .cnt h1::after, .cnt h2::after, .cnt h3::after, .cnt h4::after, .cnt h5::after, .cnt h6::after {
+  .title.__dashed::after {
     position: absolute;
     top: 50%;
     right: 0;
@@ -2014,7 +2014,7 @@ div.block {
     border-bottom: 1px dashed #ccc;
     content: '';
     z-index: 0; }
-  .title.__dashed > span, .cnt h1 > span, .cnt h2 > span, .cnt h3 > span, .cnt h4 > span, .cnt h5 > span, .cnt h6 > span {
+  .title.__dashed > span {
     position: relative;
     z-index: 1;
     display: inline-block;
