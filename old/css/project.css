@@ -1,0 +1,37 @@
+/* Style */
+.b-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tx.__center {text-align: center;}
+
+/* Links */
+.a.__pseudo {
+  text-decoration: none;
+  border-bottom: 1px dotted #ff208a;
+}
+
+/* Clearfix */
+.cf::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+
+
+/****************************************************************************************************
+//
+// .. UI
+//
+*****************************************************************************************************/
+/* jQuery ui select menu */
+.ui-selectmenu {
+  overflow: visible !important;
+}
+
+/* UI Send to */
+.ui-send-to {
+  vertical-align: top;
+}

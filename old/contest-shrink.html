@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.fancybox/jquery.fancybox.css" />
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<link type="text/css" rel="stylesheet" href="/css/social.css"/>
+
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox/helpers/jquery.fancybox-history.js"></script>
+<script type="text/javascript">
+function showFancyOnUrl(url){
+	$.fancybox({
+			width	: 770,
+			height	: 'auto',
+			fitToView	: false,
+			padding:0,
+			margin:8,
+			autoSize	: false,
+			closeClick	: false,
+			openEffect	: 'none',
+			closeEffect	: 'none',
+			beforeLoad : function(){
+				$(this.element).addClass('zoomed');
+			},
+			afterClose: function(){
+				$(this.element).removeClass('zoomed');
+			},
+			tpl: {
+					error    : '<p class="fancybox-error">Невозможно загрузить указанный контент. <br/>Попробуйте позже.</p>',
+					closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>',
+					next     : '<a title="След." class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+					prev     : '<a title="Пред." class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+			},
+			helpers: {
+				history : true
+			},
+			href: url,
+			'type': 'ajax',
+	});		
+}
+
+$(function(){
+			$('img.source').live('click', function(e){
+				if ($(this).hasClass('shrinked'))
+					$(this).removeClass('shrinked');
+				else
+					$(this).addClass('shrinked');
+			})		
+	$('.contest-list a.zoom-in').fancybox({
+		width	: 770,
+		height	: 'auto',
+		fitToView	: false,
+		padding:0,
+		margin:8,
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+		beforeLoad : function(){
+			$(this.element).addClass('zoomed');
+		},
+		afterClose: function(){
+			$(this.element).removeClass('zoomed');
+		},
+		tpl: {
+				error    : '<p class="fancybox-error">Невозможно загрузить указанный контент. <br/>Попробуйте позже.</p>',
+				closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>',
+				next     : '<a title="След." class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+				prev     : '<a title="Пред." class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+		},
+		helpers: {
+			history : true
+		}
+	});
+
+
+	
+	$('select#sort-order option[disabled]').removeAttr('disabled'); //remove disabled for the element (hint) to be visible within js-version
+	$('select#sort-order').selectmenu({style:'dropdown', menuWidth: 170});
+	$('select#sort-order').selectmenu('disable',0); //disable first element, which is actually is the hint
+	
+	$('#tabs-tape-new, #tabs-tape-special').removeClass('hidden');
+	$('.tabs-tape .nav li a').each(function(i,el){
+		rel = $(this).attr('rel');
+		$(this).attr('href', rel);
+	});	
+	$('#tabs-tape-leaders').contentSlider({});
+	$('#tabs-tape-new').contentSlider({});
+	$('#tabs-tape-special').contentSlider({});	
+	
+
+	$('.tabs-tape').tabs();
+
+	$.extend($.ui.dialog.prototype.options, {
+		autoOpen: false, 				 
+		closeOnEscape: false,
+		modal: true,
+		draggable:false,
+		resizable:false
+	});
+	$(".ui-widget-overlay").live("click", function() {  $("div[id^='dialog']").dialog("close");} );		
+	var $cityTrigger = $('a.city.dialog-trigger');
+	var $dialogCity = $("div#dialog_cities").dialog({ 
+		width:	  600,
+		height: 'auto',
+		dialogClass: 'dialog dlg-city',
+		position: {
+			my: "center top",
+			at: "right+300 top+300",
+			of: $cityTrigger,
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	$('div#dialog_cities a').click(function(e){
+		e.preventDefault();
+		var city = $(this).text();
+		$('a.city.dialog-trigger b').text(city);
+		$dialogCity.dialog("close");
+	});
+	var $dialogLogin = $("div#dialog_login").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-login',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	
+	var $dialogRegister = $("div#dialog_register").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-register',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});		
+	$('a.dialog-trigger').click(function(e){
+		e.preventDefault();
+		var dlg = $(this).attr('rel');
+		$('div#'+dlg).dialog('open'); 
+	});
+	
+	function drawSocial(){
+		var w = $(window).width();
+		if (w > 1150) {
+			$('.social-fixed').addClass('wide');
+		}else {
+			$('.social-fixed').removeClass('wide');
+		}
+	};
+	drawSocial();
+	$(window).resize(function() {
+		drawSocial();
+	});
+	$('.contest-list .thumb-up').click(function(e){
+		e.preventDefault();
+		if (!$(this).parents('li').hasClass('checked')){
+			$(this).parents('li').addClass('checked');
+			$(this).attr('title', 'вы проголосовали за эту работу');
+		}else{
+			$(this).parents('li').removeClass('checked');
+			$(this).attr('title', 'голосовать');			
+		}
+		
+	});
+	$('.contest-zoomed a.thumb-up').live('click',function(e){
+		e.preventDefault();
+		if (!$(this).hasClass('checked')){
+			$(this).parents('.contest-zoomed').find('a.thumb-up').addClass('checked');
+			$(this).attr('title', 'вы проголосовали за эту работу');
+			
+			$('.contest-list .zoomed').parents('li').addClass('checked');
+		}else{
+			$(this).parents('.contest-zoomed').find('a.thumb-up').removeClass('checked');			
+			$(this).attr('title', 'голосовать');		
+			$('.contest-list .zoomed').parents('li').removeClass('checked');			
+		}
+	});
+	
+	
+	str=location.href;
+	if(str.indexOf('#u-id')>-1){
+		hash = 'u-id228'; //non-existend in DOM id
+		if ($('#' + hash).length == 0){
+			
+			//showFancyOnUrl('/contest-work-1.ajax.html');  //url for getting this id directly
+		}
+	}	
+	        
+});
+
+</script>
+</head>
+<body class="no-js">
+<script>
+$('body').removeClass('no-js');
+</script>
+<div id="noscript-warning">
+  <span>Для полноценной работы с сайтом требуется поддержка JavaScript.</span>
+</div>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey last">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth" style="margin-left:-14px; margin-right:43px">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr_50x50.png" alt="Apple Premium Reseller"/></a>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <h1>Конкурс <span class="purple">«Клик к мировой славе»</span></h1>
+    <div class="sidebar w-1-fifth">
+      <ul id="nav-contest">
+        <li><a href="/contest">Номинация 1</a><ins> </ins></li>
+        <li class="active"><a href="/contest">Номинация 2</a><ins> </ins></li>
+        <li><a href="/contest">Номинация 3</a><ins> </ins></li>
+        <li class="separator"><ins> </ins></li>
+        <li><a href="#">Показать&nbsp;все&nbsp;номинации</a><ins> </ins></li>
+        <li><a href="#">Мне понравилось</a><ins> </ins></li>
+      </ul>
+      <form class="plain" style="margin-left:-1px;">
+        <input type="submit" class="submit big" value="Участвовать" />
+      </form>
+      <br />
+      <ul id="nav-left">
+        <li><a href="/catalog">О компании</a></li>
+        <li><a href="/catalog">Каталог</a></li>
+        <li><a href="/catalog">Бонусная программа</a></li>
+        <li><a href="/catalog">Оплата и доставка</a></li>
+        <li><a href="/catalog">Гарантии</a></li>
+        <li><a href="/catalog">Обзоры товаров</a></li>
+        <li><a href="/catalog">Обучение</a></li>
+        <li><a href="/catalog">Корпоративным клиентам</a></li>
+        <li><a href="/catalog">Контакты</a></li>
+      </ul>
+      <div class="social-fixed">
+        <a class="fb" href="http://facebook.com" target="_blank">&nbsp;</a> <a class="vk" href="http://vk.com" target="_blank">&nbsp;</a> <a class="tw" href="http://twitter.com" target="_blank">&nbsp;</a> <a class="inst" href="http://instagram.com/restore_ru" target="_blank">&nbsp;</a>
+        <p class="dark-grey">Присоединяйтесь
+          к сообществу re:Store</p>
+      </div>
+    </div>
+    <div class="w-4-fifth last">
+      <form>
+        <label for="sort-order" class="sort-order-title">Выводить</label>
+        <select id="sort-order" name="sort-order">
+          <option selected value="m0" id="m0" disabled="disabled">выберите фильтр</option>
+          <option value="m1">по рейтингу</option>
+          <option value="m2">по дате</option>
+          <option value="m3">по кол-ву участников</option>
+        </select>
+        <input type="submit" class="order-filter no-js-only" value="Сортировать" />
+      </form>
+      <ul class="contest-list">
+        <li class="checked"> <a href="#" class="thumb-up" title="вы проголосовали за эту работу"><ins>&nbsp;</ins><var>33</var></a> <a href="/contest-work-tall.ajax.html" class="zoom-in fancybox.ajax" id="id220" rel="u"><img src="/images/contest/01.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+        <li> <a href="#" class="thumb-up" title="голосовать"><ins>&nbsp;</ins><var>33</var></a> <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id221" rel="u"><img src="/images/contest/02.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+        <li> <a href="#" class="thumb-up" title="голосовать"><ins>&nbsp;</ins><var>33</var></a> <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id222" rel="u"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+        <li class="checked"> <a href="#" class="thumb-up" title="вы проголосовали за эту работу"><ins>&nbsp;</ins><var>33</var></a> <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id223" rel="u"><img src="/images/contest/04.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+        <li> <a href="#" class="thumb-up" title="голосовать"><ins>&nbsp;</ins><var>33</var></a> <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id224" rel="u"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+      </ul>
+      <br class="cc" />
+	<ul class="pagination">
+      <li class="arrow disabled"><a href="#">&larr;</a>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li class="arrow"><a href="#">&rarr;</a>
+       <li class="show-all"> <a href="#">Показать все</a></li>
+    </ul>
+
+    </div>
+    <br class="cc"/>
+    <div class="w-5-fifth">
+      <div class="w-1-fifth">
+        <h5>Техника Apple и аксессуары </h5>
+        <p> re:Store (реСтор) — 
+          официальный партнер 
+          компании Apple (Эппл)
+          в России и Европе, имеющий статус премиум-реселлера 
+          Apple Premium Reseller 
+          (Эппл Премиум Реселлер). </p>
+      </div>
+      <div class="w-2-fifth">
+        <p class="smaller"> re:Store — это не просто магазин, но и центр обслуживания, место, куда вы можете прийти, чтобы посоветоваться, выбрать подходящее устройство, где вас научат пользоваться им, дадут советы по эксплуатации и покажут возможности того, что вы приобрели. </p>
+        <p class="smaller"> re:Store — это компания, которая специализируется на продукции одной фирмы, фирмы, достойной особого разговора и пристального внимания. Наши продавцы — это специалисты в своей области. А качественная, удобная, простая в использовании техника от Apple (Эппл) доставляет удовольствие своим пользователям и редко требует какой-либо технической поддержки. </p>
+      </div>
+      <div class="w-2-fifth last">
+        <p class="smaller"> Мы продаем только официальные версии с легальной русской прошивкой, что избавляет клиентов от множества проблем. Цены на всю продукцию в наших магазинах техники Apple (Эппл) курируются поставщиками. </p>
+        <p class="smaller"> Мы продаем компьютеры, клавиатуры, мышки, мониторы, плееры, телефоны и многое другое по ценам, соответствующим политике компаний-производителей. Мы работаем, чтобы вам было удобно. Центры продаж техники Apple (Эппл) расположены по всей России. Вы можете придти, чтобы лично ознакомиться с тем или иным устройством. У нас предусмотрена и возможность заказа через интернет. Как покупать — выбор за вами! </p>
+      </div>
+      <br class="cc"/>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="left">
+      <a href="http://mnogo.ru" class="mnogoru"></a>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+  <div class="dialogs-container" style="display:none">
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-city">
+      <div id="dialog_cities">
+        <h1>Ваш город</h1>
+        <form>
+          <input type="checkbox" id="remember_me" name="remember_me" />
+          <label for="remember_me">Запомнить меня</label>
+          <input class="submit no-js-only inline" type="submit" value="Запомнить" />
+        </form>
+        <br class="cc" />
+        <ul class="city-list left">
+          <li><a href="/?city=moscow">Москва</a></li>
+          <li><a href="/?city=spb">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+        <ul class="city-list left">
+          <li><a href="">Москва</a></li>
+          <li><a href="">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+        <ul class="city-list left">
+          <li><a href="">Москва</a></li>
+          <li><a href="">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-login">
+      <div id="dialog_login">
+        <h1>Вход</h1>
+        <form class="plain">
+          <dt>
+            <label for="login">Логин</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="login" id="login"/>
+          </dd>
+          <dt>
+            <label for="password">Пароль</label>
+          </dt>
+          <dd style="margin-bottom:18px">
+            <input type="password"  class="text" name="password" id="password"/>
+          </dd>
+          <dd class="inline checkbox">
+            <input type="checkbox" name="remember-me" id="remember-me"/>
+            <label for="remember-me">Запомнить меня</label>
+          </dd>
+          <dd class="inline right"> <a href="" class="dashed dialog-trigger" rel="dialog_forget-password">Забыли пароль?</a> </dd>
+          <dd style="margin-bottom:0" class="inline">
+            <input type="submit" class="submit narrow" value="Войти"/>
+          </dd>
+          <dd style="padding-top:20px;" class="inline right last"> <a href="/?dialog=register" class="dashed dialog-trigger" rel="dialog_register">Зарегистрироваться</a> </dd>
+        </form>
+      </div>
+    </div>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-register" style="display:none">
+      <div id="dialog_register">
+        <h1>Регистрация</h1>
+        <form class="plain">
+          <dt>
+            <label for="login">Логин</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="login" id="login"/>
+          </dd>
+          <dt>
+            <label for="password">Email</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="email" id="email"/>
+          </dd>
+          <dt>
+            <label for="password">Пароль</label>
+          </dt>
+          <dd>
+            <input type="password"  class="text" name="password" id="password"/>
+          </dd>
+          <dd class="centered last">
+            <input type="submit" class="submit middle" value="Зарегистрироваться" style="margin-bottom:12px;"/>
+            <a href="/?dialog=login" class="dashed" id="close-dialog-register">Войти</a> </dd>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

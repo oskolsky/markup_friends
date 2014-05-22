@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+</head>
+<style>
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	vertical-align:baseline;
+	background:transparent;
+}
+body, textarea, input {
+	font:62.5%/1.4 "Times New Roman", Times, serif;
+	margin:0;
+	padding:0
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	clear: both;
+	cursor:default;
+}
+i, var, em {
+	font-style:normal
+}
+div, table, p {
+	cursor:default;
+}
+ol, ul {
+	list-style:none;
+}
+blockquote {
+	quotes:none;
+}
+blockquote:before, blockquote:after {
+	content: '';
+	content:none;
+}
+del {
+	text-decoration:line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+td {
+	border:1px solid #000
+}
+table.no-border td {
+	border:none
+}
+p {
+	font-size:14px;
+	text-align:justify
+}
+p.small{font-size:12px;}
+h1 {
+	text-align:center;
+	font-size:14px;
+}
+.container {
+	width:595px;
+
+}
+td, th {
+	padding:6px; line-height:15px;
+}
+th, td {
+	font-size:13px;
+}
+</style>
+<body>
+<div class="container">
+  <table class="no-border" style="width:100%" border="0" cellpadding="0">
+    <tr>
+      <td width="360" valign="top"><p>&nbsp;</p></td>
+      <td width="360" valign="top"><p align="right">&nbsp;</p></td>
+    </tr>
+  </table>
+  <table style="width:100%" class="no-border">
+    <tr>
+      <td width="25%"><p><strong>Заказ № </strong><strong>{</strong><strong>}</strong></p></td>
+      <td width="27%"><p><strong>от </strong><strong>{</strong><strong>}</strong></p></td>
+      <td width="48%"><p align="right"><strong>Менеджер заказа:&nbsp;</strong>{} </p></td>
+    </tr>
+  </table>
+  <br />
+  <table style="width:100%" cellspacing="0">
+    <tr>
+      <td width="26%" valign="top"><p><strong>Покупатель:</strong></p></td>
+      <td width="74%" valign="top"><p>{имя} </p></td>
+    </tr>
+    <tr>
+      <td valign="top"><p><strong>Конт. телефон:</strong></p></td>
+      <td valign="top"><p>{телефоны} </p></td>
+    </tr>
+    <tr>
+      <td valign="top"><p><strong>Адрес доставки</strong></p></td>
+      <td valign="top"><p>{полный адрес доставки с      указанием города и метро} </p></td>
+    </tr>
+    <tr>
+      <td valign="top"><p><strong>Дата доставки:</strong></p></td>
+      <td valign="top"><p>{Дата и время доставки} </p></td>
+    </tr>
+    <tr>
+      <td valign="top"><p><strong>Комментарии:</strong></p></td>
+      <td valign="top"><p>{Комментарии} </p></td>
+    </tr>
+    <tr>
+      <td valign="top"><p><strong>Тип Оплаты</strong></p></td>
+      <td valign="top"><p>{Тип оплаты} </p></td>
+    </tr>
+  </table>
+  <br />
+  <br />
+  <table style="width:100%"  cellspacing="0">
+    <tr>
+      <th width="8%">№ п.п
+        </td>
+      <th width="16%">Артикул
+        </td>
+      <th width="40%">Наименование товара
+        </td>
+      <th width="10%">Кол-во
+        </td>
+      <th width="12%">Цена (руб.)
+        </td>
+      <th width="14%">Итого (руб.)
+        </td>
+    </tr>
+    <tr>
+      <td><p align="center">1</p></td>
+      <td><p>{артикул} </p></td>
+      <td><p>Полное наименование    товара Бренд + название + название категории </p></td>
+      <td><p align="center">1</p></td>
+      <td><p align="center">106</p></td>
+      <td><p align="center">106</p></td>
+    </tr>
+    <tr>
+      <td colspan="4" style="border-width:1px 1px 0 0 "><p>&nbsp;</p></td>
+      <td><p align="center">Итого:</p></td>
+      <td><p align="center">106 </p></td>
+    </tr>
+  </table>
+  <br />
+  <br />
+  <p class="small">Гарантийный талон, инструкцию на русском языке, всю  необходимую информацию о состоянии, назначении и правилах эксплуатации товара  получил. Товар, комплектность (в соответствии с инструкцией по эксплуатации)  проверены в моем присутствии, товар не имеет внешних повреждений (царапин,  потертостей и т.п.), гарантийные пломбы не нарушены. Полученный товар  потребительским свойствам отвечает полностью, к внешнему виду претензий не  имею. Информацию о сроках возврата товара надлежащего качества получил.</p>
+  <br />
+  <br />
+  <table class="no-border" style="width:100%">
+    <tr>
+      <td width="150"><p>Подпись покупателя</p></td>
+      <td width="120" style="border-bottom:1px solid"><p>&nbsp;</p></td>
+    </tr>
+  </table>
+  <br />
+  <br />
+
+</div>
+</body>
+</html>

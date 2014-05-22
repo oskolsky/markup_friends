@@ -1,0 +1,1275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.rateit/jquery.rateit.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css?v=20131015"/>
+
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.fadeGallery.js"></script>
+<script type="text/javascript" src="/js/jquery.quantifier.js"></script>
+<script type="text/javascript" src="/js/jquery.rateit/jquery.rateit.js"></script>
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e982e7a18fd3985"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$('#tabs-info-accessories,#tabs-info-params, #tabs-info-reviews, #tabs-info-similar, #tabs-info-feedback').removeClass('hidden');
+	$('.tabs-info .nav li a').each(function(i,el){
+		rel = $(this).attr('rel');
+		$(this).attr('href', rel);
+	});
+	$('.tabs-info').tabs();
+	$('select#product-model').selectmenu({style:'popup', menuWidth: 328, format: productDetailsFormatting});
+
+	$('select#shop-city').selectmenu({style:'popup', menuWidth: 108});
+
+	$('.show-more-addresses').click(function(e){
+		e.preventDefault();
+		$('.presence-in-shops tr.hidden')
+		 .removeClass('hidden')
+		 .find('td')
+		 .wrapInner('<div style="display: none;" />')
+		 .parent()
+		 .find('td > div')
+		 .slideDown(300, function(){
+
+		  var $set = $(this);
+		  $set.replaceWith($set.contents());
+		
+		 });
+		 
+		$(this).addClass('hidden');
+	});
+	
+	
+	
+	
+	$('div.gallery-area').fadeGallery({
+		slideElements:'ul.product-galery li',
+		activeClass:'active',
+		autoRotation:true,
+		onBeforeFade:false,
+		onAfterFade:false,
+		pagerLinks:'ul.thumbs li',
+		switchTime:3000,
+		event:'mouseenter',
+		duration:($.browser.msie && $.browser.version < 9) ? 0 : 850
+	});	
+	$('.product-area a.review').click(function(e){
+		e.preventDefault();
+		$('.tabs-info').tabs('select', 4);
+		$('html, body').animate({
+	        scrollTop: $("#product-tabs").offset().top
+	    }, 500);
+	});
+	$('.product-area a.feedback').click(function(e){
+		e.preventDefault();
+		$('.tabs-info').tabs('select', 5);
+		$('html, body').animate({
+	        scrollTop: $("#product-tabs").offset().top
+	    }, 500);		
+	});	
+	$('.qnt').quantifier();
+	$('.qnt').bind("change", function(){
+        console.log($(this).val());
+//        $(".price-friends").html(p);
+	});
+	
+	$('.rateit-feedback:not(.active)').each(function(){
+		var val = $(this).attr('aria-valuenow');
+		$(this).rateit({ max: 5, step:1, value:val, min:0, resetable :false, readonly:true, starwidth:13});
+	})
+	
+	$('.rateit-feedback.active').each(function(){
+		var val = $(this).attr('aria-valuenow');
+		var backing = $(this).prev('input');
+		$(this).rateit({ max: 5, step:1, min:0, resetable:false, backingfld: backing, starwidth:13}).rateit("value", val);
+	})	
+	$('a.leave-feedback').live('click', function(e){
+		e.preventDefault();
+		$('html, body').animate({
+	        scrollTop: $("#leave-feedback").offset().top
+	    }, 500);		
+	});
+	
+	
+});
+var productDetailsFormatting = function (text) {
+	var newText = text;
+	//array of find replaces
+	var findreps = [{
+		find: /^([^\|]+)/g,
+		rep: '<span class="ui-selectmenu-item-model">$1</span>'
+	}, {
+		find: /(.*)\|(.*)/g,
+		rep: '$1<span class="ui-selectmenu-item-price">$2</span>'
+	}
+	
+	];
+	for (var i in findreps) {
+		newText = newText.replace(findreps[i].find, findreps[i].rep);
+	}
+	return newText;
+}
+var detailsFormatting = function (text) {
+	var newText = text;
+	//array of find replaces
+	var findreps = [{
+		find: /^([^\|]+) \| /g,
+		rep: '<span class="ui-selectmenu-item-header">$1</span>'
+	}, {
+		find: /([^\|><]+) \| /g,
+		rep: '<span class="ui-selectmenu-item-content">$1</span>'
+	}, {
+		find: /([^\|><\(\)]+) (\()/g,
+		rep: '<span class="ui-selectmenu-item-content">$1</span>$2'
+	}, {
+		find: /([^\|><\(\)]+)$/g,
+		rep: '<span class="ui-selectmenu-item-content">$1</span>'
+	}];
+
+	for (var i in findreps) {
+		newText = newText.replace(findreps[i].find, findreps[i].rep);
+	}
+	return newText;
+}
+</script>
+</head>
+<body class="no-js">
+<script>
+$('body').removeClass('no-js');
+</script>
+<div id="noscript-warning">
+  <span>Для полноценной работы с сайтом требуется поддержка JavaScript.</span>
+</div>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey last">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth" style="margin-left:-14px; margin-right:43px">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr_50x50.png" alt="Apple Premium Reseller"/></a>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="w-5-fifth first">
+      <ul class="bread">
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">Mac</a></li>
+        <li><a href="#">MacBook Pro</a></li>
+        <li class="active"><a href="#">MacBookPro Retina</a></li>
+      </ul>
+      <h1>MacBook Pro с экраном Retina 15’’ <ins class="novelty">Новинка</ins><small>MC975RS/A</small></h1>
+      <div class="w-3-fifth">
+        <div class="product-gallery">
+          <div class="gallery-area">
+            <!-- product-gallery -->
+            <ul class="product-galery">
+              <li class="active"><img src="/images/catalog/img_14_b_1.jpg" alt="image description" /></li>
+              <li><img src="/images/catalog/img_15_b_1.jpg" alt="image description" /></li>
+              <li><img src="/images/catalog/img_16_b_1.jpg" alt="image description" /></li>
+              <li><img src="/images/catalog/img_17_b_1.jpg" alt="image description" /></li>
+              <li><img src="/images/catalog/img_14_b_1.jpg" alt="image description" /></li>
+              <li><img src="/images/catalog/img_15_b_1.jpg" alt="image description" /></li>
+              <li><img src="/images/catalog/img_15_b_1.jpg" alt="image description" /></li>
+              <li><img src="/images/catalog/img_14_b_1.jpg" alt="image description" /></li>
+            </ul>
+            <!-- gallery-area thumbs -->
+            <div id="thumbs-slider">
+              <div class="scroll-pane" style="overflow: hidden;">
+                <ul class="thumbs scroll-content">
+                  <li class="active"><a href="/images/catalog/img_14_b_1.jpg"><img src="/images/catalog/img_14_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="/images/catalog/img_15_b_1.jpg" target="_blank"><img src="/images/catalog/img_15_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="/images/catalog/img_16_b_1.jpg" target="_blank"><img src="/images/catalog/img_16_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="/images/catalog/img_17_b_1.jpg" target="_blank"><img src="/images/catalog/img_17_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="/images/catalog/img_14_b_1.jpg" target="_blank"><img src="/images/catalog/img_14_s_1.jpg" alt="image description" /></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="video-placeholder">
+            <img src="/images/tmp_video.png" />
+          </div>
+        </div>
+        <ul class="bigger dark-grey" style="clear:both">
+          <li><strong>re:Store – это качество!</strong></li>
+          <li>&mdash; Только официальная поставка. </li>
+          <li>&mdash; Консультации сертифицированных специалистов Apple.</li>
+          <li>&mdash; Более 1 миллиона довольных покупателей по всей России.</li>
+          <li>&mdash; Доставка в любую точку России</li>
+        </ul>
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style" style="margin-top:18px;">
+          <a class="addthis_button_vk"></a> <a class="addthis_button_facebook"></a> <a class="addthis_button_twitter"></a> <a class="addthis_button_compact"></a> <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <!-- AddThis Button END -->
+        
+        <div class="product-promo">
+          <div class="w-1-fifth">
+            <div class="widget-h-88">
+              <a href="/promo-01"><img src="/images/catalog/img-11.png"/></a>
+            </div>
+            <div style="padding-top:18px;">
+              <p>Скидка 10% при покупке
+                трёх аксессуаров 
+                одного цвета.</p>
+            </div>
+          </div>
+          <div class="w-1-fifth">
+            <div class="widget-h-88">
+              <a href="/promo-02"><img src="/images/catalog/img-12.png"/></a>
+            </div>
+            <div style="padding-top:18px;">
+              <p>Большой Jambox,
+                Еще больше 
+                удовольствий.
+                Вся полнота звука.</p>
+            </div>
+          </div>
+          <div class="w-1-fifth last">
+            <div class="widget-h-88">
+              <a href="/promo-03"><img src="/images/catalog/img-13.png"/></a>
+            </div>
+            <div style="padding-top:18px;">
+              <p>Купить в кредит
+                теперь можно
+                и через сайт.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-2-fifth last product-area">
+        <form class="plain" method="post">
+          <p class="bigger"> Экран Retina c фантастическим разрешением 2880×1800 точек при диагонали 15’’ — глаз на нём уже не различает отдельных пикселей. Flash-архитектура накопителей. Скоростной 4-ядерный процессор Intel Ivy Bridge Core i7. До 7 часов работы без подзарядки. И всё это — в очень компактном корпусе толщиной 1,8 см и весом 2 кг. </p>
+
+          <a href="/review" class="review purple"><ins>&nbsp;</ins><span class="bordered">Обзор продукта</span></a> 
+          <a href="/feedback" class="feedback purple"><ins>&nbsp;</ins><span class="bordered">12 отзывов</span></a>
+          <a class="send-to dialog-trigger ui-send-to" rel="dialog_send-to" title="Отправить почтой"></a> 
+          <br class="cc" />
+
+          <div class="greybox">
+            <div class="model">
+              <label for="product-model" class="model-title">Модель</label>
+              <select id="product-model" name="product-model">
+                <option value="m0">16" Retina  2880×1800 / Intel Core i7/ 2300 MГц/ 54 ГБ | 33 980 руб.</option>
+                <option value="m1">17" Retina  2880×1800 / Intel Core i7/ 2300 MГц/ 4 ГБ | 64 980 руб.</option>
+                <option selected value="m2">18" Retina  2880×1800 / Intel Core i7/ 2300 MГц/ 4 ГБ | 34 980 руб.</option>
+              </select>
+            </div>
+            <div class="left-col">
+              <del class="price">206 990,- </del> <span class="price big">199 490 <small>руб.</small></span>
+              <input type="submit" value="Купить" class="submit narrow inline"/>
+              <a class="one-click-order dialog-trigger" rel="dialog_one-click-order">Заказ в 1 клик</a>
+            </div>
+            <div class="right-col">
+              <a class="mnogoru"><var>520</var> бонусов **</a> <a class="restore-re"><var>520</var> бонусов</a>
+            </div>
+            <br class="cc" />
+            <p>Цена в розничном магазине <b>220 000 руб.</b>&nbsp;*</p>
+          </div>
+        </form>
+        <div class="order-with-paypal">
+        <a href="#" class="bt_order-with-paypal">Оформить заказ через PayPal</a>
+        </div> 
+                
+        <div class="credit-terms">
+          <p>Этот товар можно <a class="order-credit" href="/credit-request">оформить в кредит</a><br />
+            за 9000 руб./мес.</p>
+        </div>
+       
+        <div class="buy-with-friends">
+          <form>
+            <button type="submit" value="Купить" class="submit dialog-trigger" rel="dialog_buy-with-friends">Купить</button>
+            вместе с
+            <input tabindex="-1" type="text" class="qnt" value="12" name="buy-together"/>
+            друзьями <br />
+            по 5555 рублей.
+          </form>
+        </div>
+        <div>
+          <p><span class="notice">*</span> Цена на сайте и в магазинах может отличаться. <br />
+            <span class="notice">**</span> Баллы начисляются только при покупке в интернет-магазине.</p>
+          <p class="bigger">Доставка <span class="purple">бесплатна</span> в течении 1-2 дней</p>
+          <p class="bigger">Вы можете также <a class="bt inline dialog-trigger" rel="dialog_reserve">отложить этот товар</a> в удобном для вас магазине. Услуга бронирования бесплатна. </p>
+          <p class="bigger" style="float:left; margin-right:6px; margin-top:4px;">Товар есть в наличии в магазинах</p>
+          <div class="right">
+            <select name="city" id="shop-city">
+              <option value="c1">Москва</option>
+              <option selected value="c2">Санкт Петербург</option>
+              <option selected value="c3">Калининград</option>
+            </select>
+          </div>
+          <table class="presence-in-shops">
+            <tr>
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="orange"></ins>Речной вокзал, ул. Новомосковская-Калининская , д. 3</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr>
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="grey"></ins>Речной вокзал, ул. Новомосковская-Калининская , д. 3</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr>
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="green"></ins>Речной вокзал, ул. Новомосковская-Калининская , д. 3</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr>
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="cyan"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr>
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="red"></ins>Речной вокзал, ул. Новомосковская-Калининская , д. 3</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr>
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="yellow"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr class="hidden">
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="yellow"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr class="hidden">
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="yellow"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr class="hidden">
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="yellow"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr class="hidden">
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="yellow"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr class="hidden">
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="yellow"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+            <tr class="hidden">
+              <td class="w-280"><a href="#" class="market-name">ТЦ «Первый»</a> <span class="market-address"><ins class="yellow"></ins>Домодедовская</span></td>
+              <td class="w-130 top"><a class="bt inline small">Отложить</a></td>
+            </tr>
+          </table>
+          <p style="text-align:center;"><a href="#" class="show-more-addresses">Показать еще 12</a></p>
+        </div>
+      </div>
+      <br class="cc"/>
+    </div>
+    <div class="w-5-fifth first">
+      <div class="tabs-info tabs-tape" id="product-tabs">
+        <ul class="nav">
+          <li class="ui-state-active"><a href="/product?tab=tabs-info-cheaper" rel="#tabs-info-cheaper">Вместе дешевле</a></li>
+          <li><a href="/product?tab=tabs-info-params" rel="#tabs-info-params"> Технические характеристки</a></li>
+          <li><a href="/product?tab=tabs-info-similar" rel="#tabs-info-similar" >Похожие товары</a></li>
+          <li><a href="/product?tab=tabs-info-accessories" rel="#tabs-info-accessories" >Рекомендуемые аксессуары</a></li>
+          <li><a href="/product?tab=tabs-info-reviews" rel="#tabs-info-reviews" >Обзор</a><sub>15</sub></li>
+          <li><a href="/product?tab=tabs-info-feedback" rel="#tabs-info-feedback" >Отзывы</a></li>
+        </ul>
+        <br class="cc" />
+        <div id="tabs-info-cheaper">
+          <ul class="catalog">
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+              Retina i7 Longest prelongest profits <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи и прочая хренотень <i class="fader"></i></a> <a class="bt buy">В корзину</a> </li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+              16 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+              64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+          </ul>
+          <br class="cc" />
+        </div>
+        <div id="tabs-info-params" class="hidden">
+          <div class="w-1-third">
+            <div style="background:url(/images/ui/delivery_box.png) 0 0 no-repeat; width:80px; height:80px;float:left; margin-top:24px;">
+            </div>
+            <div style="float:left; width:172px; margin-left:20px;">
+              <strong class="title">Комплект поставки</strong>
+              <p>Ноутбук MacBook Pro 15″, салфетка для протирки экрана, блок питания MagSafe мощностью 85 Вт, электрическая вилка и кабель питания, документация в печатном и электронном виде.</p>
+              <strong class="title">Гарантия</strong>
+              <p>Официальная гарантия от компании Apple сроком 1 год (гарантийное и послегарантийное обслуживание в любом авторизованном сервисном центре).</p>
+            </div>
+          </div>
+          <div class="w-1-third">
+            <strong class="title">Процессор</strong>
+            <p>Intel Core i7 2,3 ГГц, 4 ядра, Turbo Boost до 3,3 ГГц, 6 МБ кэш-памяти 3-го уровня<br />
+              Intel Core i7 2,6 ГГц, 4 ядра, Turbo Boost до 3,6 ГГц, 6 МБ кэш-памяти 3-го уровня<br />
+              В моделях на заказ может быть установлен процессор Intel Core i7 2,7 ГГц, 4 ядра, Turbo Boost до 3,7 ГГц, 8 МБ кэш-памяти 3-го уровня</p>
+            <strong class="title">Объём встроенной памяти</strong>
+            <p>Тип памяти: DDR3 1600 МГц SO-DIMM<br />
+              Количество слотов: 2, поддерживается до 8 ГБ<br />
+              Установлено: 4 или 8 ГБ (заняты оба слота)</p>
+            <strong class="title">Экран</strong>
+            <p>Диагональ: 15,4″<br />
+              Тип подсветки: светодиодная (LED)<br />
+              Тип покрытия экрана: глянцевое стеклянное<br />
+              Разрешение экрана: 1440×900 точек<br />
+              В моделях на заказ может быть установлен HiRes-экран с разрешением 1680×1050 точек, с глянцевым или матовым антибликовым покрытием</p>
+          </div>
+          <div class="w-1-third">
+            <strong class="title">Ключевые отличия от iPad 2</strong>
+            <p>Новые процессоры серии Intel Ivy Bridge, выполненные по 22-нм техпроцессу
+              Поддержка памяти, работающей на частоте 1600 МГц
+              Новый интегрированный графический процессор Intel HD Graphics 4000 и мощный дискретный графический процессор NVIDIA GeForce GT 650M (графические процессоры переключаются автоматически в зависимости от того, какие программы используются)
+              Поддержка интерфейса USB 3.0</p>
+          </div>
+          <br class="cc" />
+        </div>
+        <div id="tabs-info-accessories" class="hidden">
+          <ul class="catalog">
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+              Retina i7 Longest prelongest profits <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи и прочая хренотень <i class="fader"></i></a> <a class="bt buy">В корзину</a> </li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+              16 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+              64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
+          </ul>
+          <br class="cc" />
+        </div>
+        <div id="tabs-info-reviews" class="hidden">
+          <div class="speech-bubble">
+            <p>Скажите пожалуйста-4S, приобретенный в Европе-будет ли на него распространена гарантия Apple и можно ли его застраховать в re:store??? Куплен у офиц.представителя. Спасибо </p>
+            <p>Ответ редактора сайта: Пожалуйста, обратитесь с этим вопросом в ближайший розничный магазин re:Store, или задайте его по телефону 8 (495) 651-62-85.</p>
+            <div class="tip">
+            </div>
+          </div>
+          <span class="speech-author">Джей</span> <span class="speech-date">19 ноября, 2012</span>
+          <div class="speech-bubble">
+            <p> Больше никаких волосатых монашек! </p>
+            <div class="tip">
+            </div>
+          </div>
+          <span class="speech-author">Молчаливый Боб</span> <span class="speech-date last">19 ноября, 2012</span>
+        </div>
+        <div id="tabs-info-similar" class="hidden">
+          <ul class="catalog multi-rows">
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+              Retina i7 <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+              16 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+              64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+              By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+          </ul>
+        </div>
+        <div id="tabs-info-feedback" class="hidden">
+          <a class="bt inline leave-feedback" href="#leave-feedback">Добавить отзыв</a>
+          <div class="feedback-item">
+            <span class="feedback-author">Сергей Галицкий, <span class="grey">12 декабря 2012</span></span>
+            <div class="w-4-fifth" >
+              <h6>Достоинства</h6>
+              <p>Телефон КЛАСС!!! До это был 3GS все хотел поменять на 4GS ,но меня останавливало стеклянный корпус. С выходом пятерки понял ,что не зря ждал. Айфон 5 оправдал все ожидания, по скорости и дизайну, и экрану.</p>
+              <h6>Недостатки</h6>
+              <p>Сменили разьём пришлось покупать переходники, но это мелочь.</p>
+              <h6>Комментарий</h6>
+              <p>Отличный телефон!!! Лучше просто не существует. Зарядку держит не хуже 4с. Экран отпад) Цвета выражены ярко. Очень быстрая и стабильная ось. У меня черный и он пока не поцарапался)) Короче не слушайте никого,кто говорит что то плохое про этот телефон! Просто купите и Вы будете в восторге</p>
+            </div>
+            <div class="w-1-fifth feedback-stars">
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>общий рейтинг</span><br />
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>быстродействие</span><br />
+              <div class="rateit-feedback" aria-valuenow="1">
+              </div>
+              <span>дизайн</span><br />
+              <div class="rateit-feedback" aria-valuenow="5">
+              </div>
+              <span>надёжность</span><br />
+              <div class="rateit-feedback" aria-valuenow="2">
+              </div>
+              <span>спектр возможностей</span><br />
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>удобство</span><br />
+            </div>
+            <br class="cc" />
+          </div>
+          <div class="feedback-item">
+            <span class="feedback-author">Сергей Галицкий, <span class="grey">12 декабря 2012</span></span>
+            <div class="w-4-fifth" >
+              <h6>Достоинства</h6>
+              <p>Телефон КЛАСС!!! До это был 3GS все хотел поменять на 4GS ,но меня останавливало стеклянный корпус. С выходом пятерки понял ,что не зря ждал. Айфон 5 оправдал все ожидания, по скорости и дизайну, и экрану.</p>
+              <h6>Недостатки</h6>
+              <p>Сменили разьём пришлось покупать переходники, но это мелочь.</p>
+              <h6>Комментарий</h6>
+              <p>Отличный телефон!!! Лучше просто не существует. Зарядку держит не хуже 4с. Экран отпад) Цвета выражены ярко. Очень быстрая и стабильная ось. У меня черный и он пока не поцарапался)) Короче не слушайте никого,кто говорит что то плохое про этот телефон! Просто купите и Вы будете в восторге</p>
+            </div>
+            <div class="w-1-fifth feedback-stars">
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>общий рейтинг</span><br />
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>быстродействие</span><br />
+              <div class="rateit-feedback" aria-valuenow="1">
+              </div>
+              <span>дизайн</span><br />
+              <div class="rateit-feedback" aria-valuenow="5">
+              </div>
+              <span>надёжность</span><br />
+              <div class="rateit-feedback" aria-valuenow="2">
+              </div>
+              <span>спектр возможностей</span><br />
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>удобство</span><br />
+            </div>
+            <br class="cc" />
+          </div>
+          <div class="feedback-item">
+            <span class="feedback-author">Сергей Галицкий, <span class="grey">12 декабря 2012</span></span>
+            <div class="w-4-fifth" >
+              <h6>Достоинства</h6>
+              <p>Телефон КЛАСС!!! До это был 3GS все хотел поменять на 4GS ,но меня останавливало стеклянный корпус. С выходом пятерки понял ,что не зря ждал. Айфон 5 оправдал все ожидания, по скорости и дизайну, и экрану.</p>
+              <h6>Недостатки</h6>
+              <p>Сменили разьём пришлось покупать переходники, но это мелочь.</p>
+              <h6>Комментарий</h6>
+              <p>Отличный телефон!!! Лучше просто не существует. Зарядку держит не хуже 4с. Экран отпад) Цвета выражены ярко. Очень быстрая и стабильная ось. У меня черный и он пока не поцарапался)) Короче не слушайте никого,кто говорит что то плохое про этот телефон! Просто купите и Вы будете в восторге</p>
+            </div>
+            <div class="w-1-fifth feedback-stars">
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>общий рейтинг</span><br />
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>быстродействие</span><br />
+              <div class="rateit-feedback" aria-valuenow="1">
+              </div>
+              <span>дизайн</span><br />
+              <div class="rateit-feedback" aria-valuenow="5">
+              </div>
+              <span>надёжность</span><br />
+              <div class="rateit-feedback" aria-valuenow="2">
+              </div>
+              <span>спектр возможностей</span><br />
+              <div class="rateit-feedback" aria-valuenow="4">
+              </div>
+              <span>удобство</span><br />
+            </div>
+            <br class="cc" />
+          </div>
+          <div id="leave-feedback" class="feedback-item">
+            <span class="feedback-author"><b>Оставить отзыв</b></span>
+            <form id="personal-form" class="plain">
+              <div class="w-4-fifth">
+                <dl>
+                  <dd class="inline">
+                    <label for="feedback_name">Ваше имя</label>
+                    <input type="text" class="text" name="name" id="feedback_name"/>
+                  </dd>
+                  <dd class="inline">
+                    <label for="feedback_email">Ваш email</label>
+                    <input type="text"  class="text" name="email" id="feedback_email"/>
+                  </dd>
+                  <br />
+                  <dd>
+                    <label for="feedback_address">Достоинства</label>
+                    <textarea name="address" id="feedback_address"></textarea>
+                  </dd>
+                  <dd>
+                    <label for="feedback_address">Недостатки</label>
+                    <textarea name="address" id="feedback_address"></textarea>
+                  </dd>
+                  <dd>
+                    <label for="feedback_address">Комментарий</label>
+                    <textarea name="address" id="feedback_address"></textarea>
+                  </dd>
+                  <dd>
+                    <input class="submit middle" type="submit" value="Отправить отзыв"/>
+                  </dd>
+                </dl>
+              </div>
+              <div class="w-1-fifth feedback-stars">
+                <input type="hidden" id="rateit-backing-rating" name="rateit-rating">
+                <div class="rateit-feedback active" id="rateit-feedback-rating" aria-valuenow="3">
+                </div>
+                <label>общий рейтинг</label>
+                <br />
+                <input type="hidden" id="rateit-backing-acting" name="rateit-acting">
+                <div class="rateit-feedback active" id="rateit-feedback-acting" aria-valuenow="3">
+                </div>
+                <label>быстродействие</label>
+                <br />
+                <input type="hidden" id="rateit-backing-design" name="rateit-design">
+                <div class="rateit-feedback active" id="rateit-feedback-design" aria-valuenow="3">
+                </div>
+                <label>дизайн</label>
+                <br />
+                <input type="hidden" id="rateit-backing-durability" name="rateit-durability">
+                <div class="rateit-feedback active" id="rateit-leave-durability" aria-valuenow="3">
+                </div>
+                <label>надёжность</label>
+                <br />
+                <input type="hidden" id="rateit-backing-possibilities" name="rateit-possibilities">
+                <div class="rateit-feedback active" id="rateit-feedback-possibilities" aria-valuenow="3">
+                </div>
+                <label>спектр возможностей</label>
+                <br />
+                <input type="hidden" id="rateit-backing-convenience" name="rateit-convenience">
+                <div class="rateit-feedback active" id="rateit-feedback-convenience" aria-valuenow="3">
+                </div>
+                <label>удобство</label>
+                <br />
+              </div>
+            </form>
+          </div>
+          <br class="cc" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+<div class="hidden">
+ <div id="dialog_send-to">
+    <h1>Отправить предложение</h1>
+    <form class="plain wide">
+      <p>Аксессуары производства Apple, акустика и наушники в акции не участвуют. В чеке не должно быть более двух одинаковых позиций.</p>
+      <dt>
+        <label for="name">Ваше имя <ins>*</ins></label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="name" id="name"/>
+      </dd>
+      <dt>
+        <label for="name">Телефон <ins>*</ins></label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="phone" id="phone"/>
+      </dd>    
+            <dt>
+        <label for="name">Электронная почта <ins>*</ins></label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="email" id="email"/>
+      </dd>    
+      <dt>
+        <label for="message">Проверочный код <ins>*</ins></label>
+      </dt>
+      <dd class="block">
+        <input type="text"  class="text" name="verification" id="verification" style="width:100px;"/>
+      </dd>
+      
+      <dd class="last">
+        <input type="submit" class="submit big" value="Отправить"/>
+      </dd>
+    </form>
+  </div>
+  <div id="dialog_one-click-order">
+    <h1>Заказ в 1 клик!</h1>
+    <p>Оставьте свой данные и наш менеджер, свяжется 
+      с вами для уточнения деталей.</p>
+    <form class="plain">
+      <dl>
+        <dt>
+          <label>Имя</label>
+        </dt>
+        <dd>
+          <input class="text rounded"/>
+        </dd>
+        <dt>
+          <label>Телефон</label>
+        </dt>
+        <dd>
+          <input class="text rounded"/>
+        </dd>
+        <dd>
+          <input class="submit black" value="Заказать" type="submit"/>
+        </dd>
+      </dl>
+    </form>
+  </div>
+  <div id="dialog_recall-us">
+    <h1>Перезвоните нам</h1>
+    <span class="phone purple">8&#21;(800)&#21;700-19-44</span>
+    <p>Круглосуточно, без выходных. Возможно дополнительный текст с уточнением, <br />
+      к примеру время работы или дополнительные услуги.</p>
+  </div>
+  <div id="dialog_presence">
+    <h1>Наличие в магазинах</h1>
+    <form>
+      <select name="city">
+        <option></option>
+        <option value="c1">Москва</option>
+        <option selected value="c2">Санкт Петербург</option>
+      </select>
+      <select name="district">
+        <option></option>
+        <option value="d1">Центр</option>
+        <option selected value="d2">Трущобы</option>
+      </select>
+    </form>
+    <table class="presence-in-shops">
+      <tr>
+        <td><i class="present"></i></td>
+        <td class="w-150"><a href="">Интернет-магазин</a></td>
+        <td><small>Есть в наличии</small></td>
+        <td class="w-130">8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="absent"></i></td>
+        <td><a href="">Ст.м. Петровка</a></td>
+        <td><small>Нет наличии</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+      <tr>
+        <td><i class="a-little"></i></td>
+        <td><a href="">ТЦ Галерея Актер</a></td>
+        <td><small>Есть, но мало</small></td>
+        <td>8 (800) 700-19-44 </td>
+      </tr>
+    </table>
+  </div>
+  <div id="dialog_map">
+    <a class="back-to-maplist">&larr; <span class="dashed">Назад к списку</span></a>
+    <h1>ТЦ Галерея Актер, Москва <i class="presence presented">Есть в наличии</i></h1>
+    <dl class="shop-info">
+      <dt>Адрес:</dt>
+      <dd>ул. Тверская, д. 16, павильон 3-13, 3 этаж</dd>
+      <dt>Телефон:</dt>
+      <dd>+7 (495) 258-44-39</dd>
+      <dt>Время работы:</dt>
+      <dd>С 11:00 до 21:00 без выходных</dd>
+    </dl>
+    <div id="shop-gmap">
+    </div>
+  </div>
+  <div id="dialog_reserve">
+    <h1>Бронировать товар</h1>
+    <p class="bigger">Это товар отложат специально для вас в магазине. Вам останется только прийти, оплатить и забрать.</p>
+    <form class="plain middle" id="reserve-form">
+      <dl>
+        <dd>
+          <label for="reserve-city" class="inline">Город</label>
+          <select name="reserve-city" id="reserve-city" >
+            <option value="c1">Москва</option>
+            <option selected value="c2">Санкт Петербург</option>
+          </select>
+        </dd>
+        <dt>
+          <label for="reserve-shop">Магазин</label>
+        </dt>
+        <dd style="margin-bottom:18px;">
+          <select name="reserve-shop" id="reserve-shop">
+            <option value="c1">м. Речной вокзал, ТЦ Европейский | ул. Герцена, д.32. В наличии 15 штук</option>
+            <option selected value="c2">м. Достоевкая, ТЦ Новый |  ул. Достоевского, д.12. В наличии 10 штук</option>
+          </select>
+          <p style="margin-top:12px;">Время работы — с 9<sup>00</sup> до 21<sup>00</sup>. <br />
+            Телефон: (495) 435-34-54 </p>
+          <a id="show-map" class="pink dashed dialog-trigger" rel="dialog-map">Посмотреть на карте</a> </dd>
+        <dt>
+          <label for="login">ФИО</label>
+        </dt>
+        <dd>
+          <input type="text" class="text" name="login" id="login">
+        </dd>
+        <dt>
+          <label for="phone">Телефон</label>
+        </dt>
+        <dd>
+          <input type="text" class="text" name="phone" id="phone">
+        </dd>
+        <dt>
+          <label for="password">Email</label>
+        </dt>
+        <dd>
+          <input type="text" class="text" name="email" id="email">
+        </dd>
+        <dd class="last">
+          <input type="submit" class="submit big" value="Отложить" style="margin-bottom:12px;">
+          <a href="/credit-request" class="pink right" id="credit-request" >Хочу в кредит</a> </dd>
+      </dl>
+    </form>
+  </div>
+  <div id="dialog_reserve-thanks">
+    <h1>Бронировать товар</h1>
+    <p> Спасибо за бронирование!<br />
+      Ваш товар отложен на складе. </p>
+  </div>
+  <div id="dialog_buy-with-friends">
+    <h4 class="light-blue centered geoslab" style="background:url(/images/ui/buy-with-friends.png) center 0 no-repeat; padding-top:80px;">Вы начинаете создавать коллективный подарок</h4>
+    <p class="centered small" style="padding:0 10px"> Далее, вы перейдете на сайт 33 друга с выбранным товаром, зарегистрируетесь и пригласите друзей 
+      для участия. Система поможет Вам управлять списком приглашенных и удобно оплатить взносы 
+      с помощью кредитной карты. Товар будет зарезервирован для Вас на 5 дней.</p>
+    <form class="plain middle" id="buy-with-friends-form">
+      <p class="centered no-margin"><strong>Оставьте Ваши имя и телефон</strong></p>
+      <dl>
+        <dt>
+          <label for="login">Имя</label>
+        </dt>
+        <dd>
+          <input type="text" class="text" name="login" id="login">
+        </dd>
+        <dt>
+          <label for="phone">Телефон</label>
+        </dt>
+        <dd>
+          <input type="text" class="text" name="phone" id="phone">
+        </dd>
+        <dd class="last centered" style="display:block">
+          <input type="submit" class="submit black" value="Продолжить">
+        </dd>
+      </dl>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+		$.extend($.ui.dialog.prototype.options, {
+			autoOpen: false, 				 
+    	    closeOnEscape: false,
+	        modal: true,
+			draggable:false,
+			resizable:false
+	    });
+
+
+		$('select#reserve-city').selectmenu({
+			style:'dropdown', 
+			menuWidth: 180,
+		});		
+		$('select#reserve-shop').selectmenu({
+			style:'dropdown', 
+			menuWidth: 380,
+			format: detailsFormatting
+		});
+		
+		
+		$(".ui-widget-overlay").live("click", function() {  $("div[id^='dialog']").dialog("close");} );		
+		$("div#dialog_one-click-order").dialog({ 
+			width:	  440,
+			height: 'auto',
+			dialogClass: 'dialog dlg-one-click-order'
+		});	
+		var $dialogRecallUs = $("div#dialog_recall-us").dialog({ 
+			width:	  648,
+			height: 'auto',
+			dialogClass: 'dialog dlg-recall-us'
+		});		
+		var $dialogReserve = $("div#dialog_reserve").dialog({ 
+			width:	  440,
+			height: 'auto',
+			dialogClass: 'dialog dlg-reserve'
+		});	
+		var $dialogReserveThanks = $("div#dialog_reserve-thanks").dialog({ 
+			width:	  440,
+			height: 'auto',
+			dialogClass: 'dialog dlg-reserve-thanks'
+		});	
+		var $dialogFriends = $("div#dialog_buy-with-friends").dialog({ 
+			width:	  440,
+			height: 'auto',
+			dialogClass: 'dialog dlg-buy-with-friends'
+		});
+    var $dialogSendTo = $("div#dialog_send-to").dialog({ 
+      width:    540,
+      height: 'auto',
+      dialogClass: 'dialog dlg-send-to',
+      position: {
+        my: "center center",
+        collision: 'none',
+        offset: "0 0"
+      }
+    }); 
+										
+		$.extend($.ui.dialog.prototype.options.position, { collision: 'none' });
+		var $dialogPresence = $("div#dialog_presence").dialog({ 
+			width:	  520,
+			height: 'auto',
+			dialogClass: 'dialog dlg-presence',
+			position: ['center', 20],
+		});		
+		var gmap;
+		var shopMarker;
+		var $dialogMap = $("div#dialog_map").dialog({ 
+			width:	  700,
+			height: 'auto',
+			dialogClass: 'dialog dlg-map',
+			open: function(){
+				google.maps.event.trigger(gmap, 'resize');
+			},
+			close: function(ev, ui) { 
+			}
+		});		
+		$('table.presence-in-shops td a, a#show-map').live('click', function(e){
+			e.preventDefault();
+			var latlng;
+			if (gmap != null){
+				//preload other values with json or simple ajax instead of harcoding;
+				latlng = new google.maps.LatLng(54.765271, 37.615964);
+				gmap.setCenter(latlng);
+				shopMarker.setPosition(latlng);
+			}else{
+				latlng = new google.maps.LatLng(55.765271, 37.615964);
+				var myOptions = {
+				  zoom: 14,
+				  center: latlng,
+				  mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				var image = '/images/ui/letter_a-black.png';
+				gmap = new google.maps.Map(document.getElementById("shop-gmap"), myOptions);	
+				shopMarker = new google.maps.Marker({
+				  position: latlng,
+				  map: gmap,
+				  icon: image
+				});			
+		
+			}
+			$('div#dialog_map').dialog('open'); 
+		});
+
+		
+		$('a.dialog-trigger, button.dialog-trigger').click(function(e){
+			e.preventDefault();
+			var dlg = $(this).attr('rel');
+			$('div#'+dlg).dialog('open'); 
+		});
+		$('.back-to-maplist').live('click',function(e){
+			e.preventDefault();
+			$dialogMap.dialog('close');
+		});
+		
+		$('#reserve-form').live('submit',function(e){
+			e.preventDefault();
+			$dialogReserve.dialog('close');
+			$dialogReserveThanks.dialog('open');
+		});
+		
+</script>
+</body>
+</html>

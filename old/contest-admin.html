@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.defaultinputs.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$('select#filter-status').selectmenu({style:'dropdown', menuWidth: 170});
+	$('select#filter-nominations').selectmenu({style:'dropdown', menuWidth: 220});
+	$('.thumb-down').click(function(e){
+		e.preventDefault();
+		var that = $(this);
+		$(this).parents('li').fadeOut(500, function(){
+			//serverside actions...
+			that.remove();
+		});
+	});
+});
+</script>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey last">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth" style="margin-left:-14px; margin-right:43px">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr_50x50.png" alt="Apple Premium Reseller"/></a>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="w-5-fifth first">
+      <h1>Админка конкурса <span class="purple">«Клик к мировой славе»</span></h1>
+      <form>
+        <label for="filter-status" class="sort-order-title">Статус</label>
+        <select id="filter-status" name="filter-status">
+          <option value="m0">по рейтингу</option>
+          <option value="m1">по дате</option>
+          <option selected value="m2">по кол-ву участников</option>
+        </select>
+        <label for="filter-nominations" class="filter-nominations-title">Номинации</label>
+        <select id="filter-nominations" name="filter-nominations">
+          <option value="n0">все номинации</option>
+          <option value="n1">лучший портрет</option>
+          <option selected value="m2">лучший пейзаж</option>
+        </select>        
+        <input type="submit" class="order-filter no-js-only" value="Сортировать" />
+      </form>
+      
+      <ul class="contest-list admin">
+        <li> <a href="#"><img src="/images/contest/01.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a> <a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/02.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/04.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/04.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/04.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+        <li> <a href="#"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+          участника конкурса</a> <a href="#" class="author">Вильгельм третий</a><a href="#" class="thumb-up"><ins>&nbsp;</ins></a> <a href="#" class="thumb-down"><ins>&nbsp;</ins></a></li>
+      </ul>
+      <br class="cc" />
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+</body>
+</html>

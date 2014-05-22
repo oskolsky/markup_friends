@@ -1,0 +1,1323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.datepicker-ru.js"></script>
+<script type="text/javascript" src="/js/jquery.custom-radio-checkbox.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	
+	$('dl.devices-list input[type="checkbox"], dl.interests-list input[type="checkbox"]').customRadioCheckbox({'parent':'dl'});
+	$('#form-more-about dd.gender input[type="radio"]').customRadioCheckbox({'parent':'dd'});
+	$('#devices9, #interests9, #activity11, #gamegenre16').change(function(){
+		if ($(this).is(':checked')){
+			$(this).siblings('.text').focus();
+		}
+	})
+	$('h1.subform').click(function(){
+		var $cnt = $(this).next('div.subform');
+		var $this = $(this);
+		if (! $(this).hasClass('expanded')){
+			$cnt.slideDown(500);
+			$this.addClass('expanded');
+		}else{
+			$cnt.slideUp(500);
+			$this.removeClass('expanded');		
+		}
+	});
+	
+	var $childBackup = $('dl.child.template').clone();
+	var childCopiesCount = 1;
+	$childBackup.removeClass('template');
+	$childBackup.find('.ui-datepicker-trigger').remove();
+	$childBackup.find('input.date').removeClass('hasDatepicker');
+	$childBackup.css({'opacity':0});	
+	$('#add-child').click(function(e){
+		e.preventDefault();
+		$child = $childBackup.clone();
+		childCopiesCount++;
+		$child.find('input').val("").attr("id",function(i,oldVal) {
+		  return oldVal.replace(/\d+/,function(n){
+			return  childCopiesCount;
+		  });
+		});
+			
+		$child.find('label').attr("for",function(i,oldVal) {
+		  return oldVal.replace(/\d+/,function(n){
+			return  childCopiesCount;
+		  });
+		});	
+		$child.find('input.date').datepicker(opts);
+		
+		$(this).parents('dl').after($child);
+		$child.find('input[type="radio"]').unbind().customRadioCheckbox({'parent':'dd'});
+		$child.animate({opacity:1});
+		console.log($child);
+	});
+	
+	var opts = { dateFormat: "dd.mm.yy", buttonImage: "/images/ui/icon_calendar.png", buttonImageOnly: true, showOn: 'both', changeMonth: true, changeYear: true, yearRange: "-100:+0"};	
+	$('input.date').datepicker(opts);
+	$('a.child-remove').live('click',function(){
+		var $parent = $(this).parents('dl') 
+		$parent.fadeOut(300, function(){
+			$parent.remove();
+		});
+	});	
+		
+	$('.bind-fb a').bind('click', function(e){
+		e.preventDefault();
+		$(this).parents('div').addClass('binded');
+		$('.bind-vk').removeClass('binded');
+	});
+	$('.bind-vk a').bind('click', function(e){
+		e.preventDefault();
+		$(this).parents('div').addClass('binded');
+		$('.bind-fb').removeClass('binded');
+	});
+	$('.unbind-button').bind('click', function(e){
+		e.preventDefault();
+		$(this).parents('div').removeClass('binded');
+	});
+	$('.contest-work-img.holder').bind('click',function(e){
+		/*here file upload and onfly update of the picture*/
+		e.preventDefault(); 
+	});
+	$('select#contest-work-nomination').selectmenu({style:'dropdown', menuWidth: 290});
+	$('#tabs-cabinet .nav li a').each(function(i,el){
+		rel = $(this).attr('rel');
+		$(this).attr('href', rel);
+	});		
+	$('#tabs-cabinet').tabs();
+	$.extend($.ui.dialog.prototype.options, {
+		autoOpen: false, 				 
+		closeOnEscape: false,
+		modal: true,
+		draggable:false,
+		resizable:false
+	});
+	$(".ui-widget-overlay").live("click", function() {  $("div[id^='dialog']").dialog("close");} );		
+	var $cityTrigger = $('a.city.dialog-trigger');
+	
+	var $dialogCity = $("div#dialog_cities").dialog({ 
+		width:	  600,
+		height: 'auto',
+		dialogClass: 'dialog dlg-city',
+		position: {
+			my: "center top",
+			at: "right+300 top+300",
+			of: $cityTrigger,
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	
+	var $dialogLogin = $("div#dialog_login").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-login',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	
+	var $dialogRegister = $("div#dialog_register").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-register',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});		
+	var $dialogForgetPassword = $("div#dialog_forget-password").dialog({ 
+		width:	 400,
+		height: 'auto',
+		dialogClass: 'dialog dlg-forget-password',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	
+	var $dialogFeedback = $("div#dialog_feedback").dialog({ 
+		width:	  540,
+		height: 'auto',
+		dialogClass: 'dialog dlg-feedback',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});					
+	var $dialogChangePasswords = $("div#dialog_change-passwords").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-passwords',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});		
+	
+	var $dialogConfirmDeletion = $("div#dialog_confirm-deletion").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-confirmation',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	
+	$('#confirmation_cancel').click(function(e){
+		e.preventDefault();
+		$dialogConfirmDeletion.dialog('close');
+	});
+	
+	$('select#recepient').selectmenu({
+		style:'dropdown', 
+		menuWidth: 260,
+	});	
+	
+	$('select#password-destination').selectmenu({
+		style:'dropdown', 
+		menuWidth: 256,
+	});
+	
+	$('a#close-dialog-register').click(function(e){
+		e.preventDefault();
+		$dialogRegister.dialog("close");
+	});
+		
+	$('div#dialog_change-passwords form').submit(function(e){
+		e.preventDefault();
+		$dialogChangePasswords.dialog("close");
+	});	
+	
+	
+	
+	$('div#dialog_cities a').click(function(e){
+		e.preventDefault();
+		var city = $(this).text();
+		$('a.city.dialog-trigger b').text(city);
+		$dialogCity.dialog("close");
+	});
+	
+	
+	$('a.dialog-trigger').click(function(e){
+		e.preventDefault();
+		var dlg = $(this).attr('rel');
+		$('div#'+dlg).dialog('open'); 
+		
+	});
+	
+	$('.add-more-input').click(function(e){
+		e.preventDefault();
+		$(this).parents('dd').find('input.text')
+		   .last()
+		   .clone()
+           .insertBefore($(this))
+	       .val("")
+		   .attr("id",function(i,oldVal) {
+			  return oldVal.replace(/\d+/,function(n){
+				return (++n);
+			  });
+		   }).focus();
+	});
+	$('.toggle-details:not(.hide)').click(function(e){
+		e.preventDefault();
+		var $that = $(this);
+		$(this).parents('tr').next('tr.odd').find('div.order-buyings-wrapper').slideDown(700, function(){
+			$that.parents('tr').addClass('active').next('tr.odd').addClass('active');
+		});
+		$(this).animate({'opacity':'0'}, 300);
+		
+		
+	});
+	$('.toggle-details.hide').click(function(e){
+		e.preventDefault();
+		var $that = $(this);
+		$(this).parents('div.order-buyings-wrapper').slideUp(700, function(){
+			$that.parents('tr').prev('tr').find('.toggle-details').animate({'opacity':1});
+		});
+		$(this).parents('tr').removeClass('active').prev('tr').removeClass('active');
+	});
+	$( "#personal_birthday").datepicker({ dateFormat: "dd.mm.yy", buttonImage: "/images/ui/icon_calendar.png", buttonImageOnly: true, showOn: 'both', changeMonth: true, changeYear: true, yearRange: "-100:+0"});
+
+
+	var $dialogPassword = $("div#dialog_password").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-password',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		},
+		closeOnEscape: false,
+		open: function(event, ui) { 
+			$(".ui-dialog-titlebar-close", ui.dialog ).hide();
+			$(".ui-widget-overlay").die('click');		
+		},
+		close: function(event, ui){
+			$(".ui-dialog-titlebar-close", ui.dialog ).show();
+			$(".ui-widget-overlay").live("click", function() {  $("div[id^='dialog']").dialog("close");} );		
+		}
+		
+	});	
+	$('div#dialog_password form').submit(function(e){
+		e.preventDefault();
+		$dialogPassword.dialog("close");
+	});		
+	
+	
+});
+
+</script>
+</head>
+<body class="no-js">
+<script>
+$('body').removeClass('no-js');
+</script>
+<div id="noscript-warning">
+  <span>Для полноценной работы с сайтом требуется поддержка JavaScript.</span>
+</div>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <div id="logo">
+          <object data="/images/ui/logo.svg" width="113px" height="26px" type="image/svg+xml">
+            <img src="/images/ui/logo.png" alt="re:Store"/>
+          </object>
+          <a href="/" title="re:Store"></a>
+        </div>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey last">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth" style="margin-left:-14px; margin-right:43px">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a>
+        <div id="logo-apr">
+          <object data="/images/ui/logo_apr.svg" width="50px" height="50px" type="image/svg+xml">
+            <img src="/images/ui/logo_apr.png" alt="re:Store"/>
+          </object>
+          <a href="/aps"></a>
+        </div>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="sidebar w-1-fifth">
+      <ul id="nav-left">
+        <li><a href="/catalog">О компании</a></li>
+        <li><a href="/catalog">Каталог</a></li>
+        <li><a href="/catalog">Бонусная программа</a></li>
+        <li><a href="/catalog">Оплата и доставка</a></li>
+        <li><a href="/catalog">Гарантии</a></li>
+        <li><a href="/catalog">Обзоры товаров</a></li>
+        <li><a href="/catalog">Обучение</a></li>
+        <li><a href="/catalog">Корпоративным клиентам</a></li>
+        <li><a href="/catalog">Контакты</a></li>
+      </ul>
+      <div class="social">
+        <a class="fb" href="http://facebook.com" target="_blank">&nbsp;</a> <a class="vk" href="http://vk.com" target="_blank">&nbsp;</a> <a class="tw" href="http://twitter.com" target="_blank">&nbsp;</a> <a class="yt" href="http://youtube.com" target="_blank">&nbsp;</a>
+        <p class="dark-grey">Присоединяйтесь
+          к сообществу re:Store</p>
+      </div>
+    </div>
+    <div class="w-4-fifth last">
+      <h1>Личный кабинет</h1>
+      <div class="review-links">
+        <a href="" class="ya-market"><ins>&nbsp;</ins> <span>Оставить отзыв на Маркете</span></a> <a href="" class="dialog-trigger" rel="dialog_feedback"><span>Форма обратной связи</span></a> <a href=""><span>Написать руководству</span></a>
+      </div>
+      <div class="tabs-tape" id="tabs-cabinet">
+        <ul class="nav tip-nav">
+          <li><a href="/cabinet?tab=personal" rel="#cabinet-page-1" ><span>Персональная информация</span><ins>&nbsp;</ins></a></li>
+          <li><a href="/cabinet?tab=orders" rel="#cabinet-page-2" ><span>Мои заказы</span><ins>&nbsp;</ins></a></li>
+          <li><a href="/cabinet?tab=contests" rel="#cabinet-page-3" ><span>Мои конкурсы</span><ins>&nbsp;</ins></a></li>
+          <li class="ui-state-active"><a href="/cabinet?tab=devices" rel="#cabinet-page-4" ><span>Обо мне</span><ins>&nbsp;</ins></a></li>
+        </ul>
+        <div id="cabinet-page-1" class="cabinet-page-tab">
+          <div class="w-1-fifth">
+            <img class="avatar" src="/images/ui/avatar_default.png" /> <a href="" class="dialog-trigger" rel="dialog_password">Изменить фото</a> <br />
+            <a href="" class="dialog-trigger" rel="dialog_change-passwords">Изменить пароли</a>
+          </div>
+          <div class="w-3-fifth last">
+            <form id="personal-form" class="plain">
+              <dl>
+                <dd class="inline">
+                  <label for="personal_name">Ваше имя</label>
+                  <input type="text" class="text" name="name" id="personal_name"/>
+                </dd>
+                <dd class="inline">
+                  <label for="personal_birthday">Дата рождения</label>
+                  <input type="text"  class="text date" name="birthday" id="personal_birthday"/>
+                </dd>
+                <dd>
+                  <label for="personal_address">Адрес доставки</label>
+                  <textarea name="address" id="personal_address"></textarea>
+                </dd>
+                <dd class="emails">
+                  <label for="personal_email">Email</label>
+                  <input type="text"  class="text" name="email[]" id="personal_email_1"/>
+                  <p class="smaller">сюда мы отправим детали заказа</p>
+                  <a href="#" class="add-more-input">+ <span>Добавить еще один адрес</span></a> </dd>
+                <dd class="subscribe">
+                  <input type="checkbox" class="checkbox" name="subscribe" id="personal_subscribe"/>
+                  <label for="personal_subscribe">Подписаться на ежемесячную рассылку</label>
+                </dd>
+                <dd>
+                  <label for="personal_phone">Телефон</label>
+                  <input type="text"  class="text" name="phone[]" id="personal_phone_1"/>
+                  <p class="smaller">по нему вам позвонит курьер, а мы сможем отправлять<br />
+                    дополнительную информацию по СМС</p>
+                  <a href="#" class="add-more-input">+ <span>Добавить еще один телефон</span></a></dd>
+                <dd>
+                  <input type="submit" class="submit big" value="Сохранить"/>
+                </dd>
+              </dl>
+            </form>
+          </div>
+          <br class="cc" />
+          <div class="hr">
+            <div class="w-1-fifth">
+              <br />
+            </div>
+            <div class="w-3-fifth last">
+              <p><b>Привязать социальные сети</b></p>
+              <p>Небольшая информация зачем это пользователю и что будет поститься.</p>
+              <div class="bind-vk">
+                <a href="#"><ins> </ins></a><span class="name">Andrew Peterson</span><span class="unbinded-label">Аккаунт не подключен</span> <a href="#" class="unbind-button" title="Отвязать"></a>
+              </div>
+              <div class="bind-fb binded">
+                <a href="#"><ins> </ins></a><span class="name">Andrew Peterson</span><span class="unbinded-label">Аккаунт не подключен</span> <a href="#" class="unbind-button" title="Отвязать"></a>
+              </div>
+            </div>
+            <br class="cc" />
+          </div>
+        </div>
+        <div id="cabinet-page-2" class="cabinet-page-tab">
+          <table class="cabinet-orders">
+            <tr>
+              <td class="order-details"><var>№ 2190-2390</var> <span class="title">Макбук, наушники, iPod</span> <a class="toggle-details js-only"><span>Показать подробности</span><ins>&nbsp;</ins></a></td>
+              <td class="order-date">12 декабря 2012, 
+                18:40</td>
+              <td class="order-price">75 537,-</td>
+              <td class="order-status"><span class="status">Передан в доставку</span> <span class="date">14 декабря, 14:34 </span>
+                <form class="order-notifications">
+                  <span>Информировать по</span>
+                  <input type="checkbox" id="notify-sms-1" class="checkbox" />
+                  <label for="notify-sms-1">SMS</label>
+                  <input type="checkbox" id="notify-email-1" class="checkbox" />
+                  <label for="notify-email-1">E-mail</label>
+                  <input type="submit" class="no-js-only apply" value="Применить"/>
+                </form></td>
+            </tr>
+            <tr class="odd">
+              <td colspan="3"><div class="order-buyings-pusher">
+                </div>
+                <div class="order-buyings-wrapper">
+                  <table class="order-buyings">
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price"><b>23 990,-</b></td>
+                    </tr>
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 из крокодиловой кожи с позолоченными заклёпками из платины </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price "><small>2 x 10 000 =</small> <b>23 990,-</b></td>
+                    </tr>
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price"><b>23 990,-</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Доставка</b> курьером по адресу: Москва, ул. Академика Янгеля, д.3, кв 56. <br />
+                        <br /></td>
+                      <td class="buying-price"><b class="pink">бесплатно</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Бонус</b> Много.ру по карте №34732-4332-4923 </td>
+                      <td class="buying-price"><b>500,-</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Бонус</b> re:Store по карте №3432-3240 </td>
+                      <td class="buying-price"><b>1300,-</b></td>
+                    </tr>
+                  </table>
+                  <a class="toggle-details hide js-only"><span>Скрыть подробности</span><ins>&nbsp;</ins></a>
+                </div></td>
+              <td class="order-status">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="order-details"><var>№ 2190-2390</var> <span class="title">Макбук, наушники, iPod</span><a class="toggle-details js-only"><span>Показать подробности</span><ins>&nbsp;</ins></a></td>
+              <td class="order-date">12 декабря 2012, 
+                18:40</td>
+              <td class="order-price">75 537,-</td>
+              <td class="order-status"><span class="status">Доставлен</span> <span class="date">14 декабря, 14:34 </span></td>
+            </tr>
+            <tr class="odd">
+              <td colspan="3"><div class="order-buyings-pusher">
+                </div>
+                <div class="order-buyings-wrapper">
+                  <table class="order-buyings">
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price"><b>23 990,-</b></td>
+                    </tr>
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 из крокодиловой кожи с позолоченными заклёпками из платины </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price "><small>2 x 10 000 =</small> <b>23 990,-</b></td>
+                    </tr>
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price"><b>23 990,-</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Доставка</b> курьером по адресу: Москва, ул. Академика Янгеля, д.3, кв 56. <br />
+                        <br /></td>
+                      <td class="buying-price"><b class="pink">бесплатно</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Бонус</b> Много.ру по карте №34732-4332-4923 </td>
+                      <td class="buying-price"><b>500,-</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Бонус</b> re:Store по карте №3432-3240 </td>
+                      <td class="buying-price"><b>1300,-</b></td>
+                    </tr>
+                  </table>
+                  <a class="toggle-details hide js-only"><span>Скрыть подробности</span><ins>&nbsp;</ins></a>
+                </div></td>
+              <td class="order-status">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="order-details"><var>№ 2190-2390</var> <span class="title">Макбук, наушники, iPod</span> <a class="toggle-details js-only"><span>Показать подробности</span><ins>&nbsp;</ins></a></td>
+              <td class="order-date">12 декабря 2012, 
+                18:40</td>
+              <td class="order-price">75 537,-</td>
+              <td class="order-status"><span class="status">Отправлен</span> <span class="date">14 декабря, 14:34 </span>
+                <form class="order-notifications">
+                  <span>Информировать по</span>
+                  <input type="checkbox" id="notify-sms-2" class="checkbox" />
+                  <label for="notify-sms-2">SMS</label>
+                  <input type="checkbox" id="notify-email-2" class="checkbox" />
+                  <label for="notify-email-2">E-mail</label>
+                  <input type="submit" class="no-js-only apply" value="Применить"/>
+                </form></td>
+            </tr>
+            <tr class="odd">
+              <td colspan="3"><div class="order-buyings-pusher">
+                </div>
+                <div class="order-buyings-wrapper">
+                  <table class="order-buyings">
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price"><b>23 990,-</b></td>
+                    </tr>
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 из крокодиловой кожи с позолоченными заклёпками из платины </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price "><small>2 x 10 000 =</small> <b>23 990,-</b></td>
+                    </tr>
+                    <tr>
+                      <td class="buying-name"><div class="holder-img">
+                          <img src="/images/catalog/img-21_64x64.jpg" />
+                        </div>
+                        <div class="holder-desc">
+                          <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
+                        </div></td>
+                      <td class="buying-price"><b>23 990,-</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Доставка</b> курьером по адресу: Москва, ул. Академика Янгеля, д.3, кв 56. <br />
+                        <br /></td>
+                      <td class="buying-price"><b class="pink">бесплатно</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Бонус</b> Много.ру по карте №34732-4332-4923 </td>
+                      <td class="buying-price"><b>500,-</b></td>
+                    </tr>
+                    <tr class="additional">
+                      <td><b>Бонус</b> re:Store по карте №3432-3240 </td>
+                      <td class="buying-price"><b>1300,-</b></td>
+                    </tr>
+                  </table>
+                  <a class="toggle-details hide js-only"><span>Скрыть подробности</span><ins>&nbsp;</ins></a>
+                </div></td>
+              <td class="order-status">&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+        <div id="cabinet-page-3" class="cabinet-page-tab">
+          <div class="cabinet-contest-work">
+            <h4 class="geoslab"><span class="purple">Название конкурса.</span> Заканчивается 12 сентября.</h4>
+            <div class="w-1-fifth centered">
+              <a href="#" class="contest-work-img"><img src="/images/contest/01.jpg" /></a> <a href="#" class="grey dashed dialog-trigger" rel="dialog_confirm-deletion">Удалить работу</a>
+            </div>
+            <div class="w-3-fifth last">
+              <dl>
+                <dd class="title"><b>Название работы</b>Тыква на даче</dd>
+                <dd>
+                  <ul class="social">
+                    <li><a class="vk" href="#"></a></li>
+                    <li><a class="fb" href="#"></a></li>
+                    <li><a class="mailto" href="#"></a></li>
+                    <li style="clear:both"></li>
+                  </ul>
+                </dd>
+                <dd><b>Номинация</b>Природа</dd>
+                <dd class="left" style="margin-right:40px;"><b>Текущий рейтинг</b> <a href="#" class="thumb-up"><ins>&nbsp;</ins><var>33</var></a></dd>
+                <dd class="left"><b>Дата публикации</b><span class="publish-date">12 декабря 2012, 18:40</span></dd>
+              </dl>
+            </div>
+            <br class="cc" />
+          </div>
+          <div class="cabinet-contest-work">
+            <h4 class="geoslab"><span class="purple">Название конкурса.</span> Заканчивается 12 сентября.</h4>
+            <div class="w-1-fifth centered">
+              <a href="#" class="contest-work-img"><img src="/images/contest/01.jpg" /></a> <a href="#" class="grey dashed dialog-trigger" rel="dialog_confirm-deletion">Удалить работу</a>
+            </div>
+            <div class="w-3-fifth last">
+              <dl>
+                <dd class="title"><b>Название работы</b>Тыква на даче</dd>
+                <dd>
+                  <ul class="social">
+                    <li><a class="vk" href="#"></a></li>
+                    <li><a class="fb" href="#"></a></li>
+                    <li><a class="mailto" href="#"></a></li>
+                    <li style="clear:both"></li>
+                  </ul>
+                </dd>
+                <dd><b>Номинация</b>Природа</dd>
+                <dd class="left" style="margin-right:40px;"><b>Текущий рейтинг</b> <a href="#" class="thumb-up"><ins>&nbsp;</ins><var>33</var></a></dd>
+                <dd class="left"><b>Дата публикации</b><span class="publish-date">12 декабря 2012, 18:40></span></dd>
+              </dl>
+            </div>
+            <br class="cc" />
+          </div>
+          <div class="cabinet-contest-work form">
+            <h4 class="geoslab"><span class="purple">Название конкурса.</span> Заканчивается 12 сентября.</h4>
+            <form class="plain">
+              <div class="w-1-fifth centered">
+                <dl>
+                  <dd class="filled-error"> <span class="contest-work-img upload-holder"><span>Загрузить работу</span>
+                    <input type="file">
+                    </span>
+                    <p class="error-desc">Неверный формат файла</p>
+                  </dd>
+                </dl>
+              </div>
+              <div class="w-3-fifth last">
+                <p>Маска конкурсной работы для <a href="#" class="dashed">айфона</a>, <a href="#" class="dashed">айпада</a>, <a href="#" class="dashed">макбука</a></p>
+                <dl>
+                  <dd class="filled-error">
+                    <label for="contest-work-title">Название работы</label>
+                    <input name="contest-work-title" id="contest-work-title" class="text" />
+                    <p class="error-desc">Укажите название работы</p>
+                  </dd>
+                  <dd>
+                    <label for="contest-work-nomination">Выберите номинацию</label>
+                    <select id="contest-work-nomination" name="contest-work-nomination">
+                      <option value="n0">все номинации</option>
+                      <option value="n1">лучший портрет</option>
+                      <option selected value="n2">лучший пейзаж</option>
+                    </select>
+                  </dd>
+                  <dd>
+                    <input class="submit middle" type="submit" value="Опубликовать" />
+                  </dd>
+                </dl>
+              </div>
+            </form>
+            <br class="cc" />
+          </div>
+        </div>
+        <div id="cabinet-page-4" class="cabinet-page-tab">
+          <div class="w-1-fifth">
+            <img class="avatar" src="/images/ui/avatar_default.png" /> <a href="" class="dialog-trigger" rel="dialog_password">Изменить фото</a> <br />
+            <a href="" class="dialog-trigger" rel="dialog_change-passwords">Изменить пароли</a>
+          </div>
+          <div class="w-3-fifth last">
+            <form id="form-more-about" class="plain">
+              <dl class="three-fifth">
+                <dd class="inline">
+                  <label for="about_surname">Фамилия</label>
+                  <input type="text" class="text" name="about_surname" id="about_surname"/>
+                </dd>
+                <dd class="inline">
+                  <label for="about_name">Имя</label>
+                  <input type="text" class="text" name="about_name" id="about_name"/>
+                </dd>
+                <dd class="inline last">
+                  <label for="about_patronymic">Отчество</label>
+                  <input type="text" class="text" name="about_patronymic" id="about_patronymic"/>
+                </dd>
+                <dd class="inline" >
+                  <label for="about_birthday">Дата рождения</label>
+                  <input type="text"  class="text date" name="about_birthday" id="about_birthday"/>
+                </dd>
+                <dd class="inline gender" >
+                  <label for="about_gender" style="padding-left:10px;">Пол</label>
+                  <input type="radio" name="about_gender" id="about_gender_male" value="male"/>
+                  <label for="about_gender_male" class="inline radio-tab">Мужской</label>
+                  <input type="radio" name="about_gender" id="about_gender_female" value="female"/>
+                  <label for="about_gender_female" class="inline radio-tab">Женский</label>
+                </dd>
+              </dl>
+              <div class="hr single light" style="margin-top:0">
+              </div>
+              <dl class="devices-list w-half">
+                <dd>
+                  <label>Какие устройства Apple у вас есть?</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="devices" id="devices1"/>
+                  <label class="smaller radio-plain" for="devices1"><ins class="icon_iPhone"></ins>iPhone</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v2" name="devices" id="devices2"/>
+                  <label class="smaller radio-plain" for="devices2"><ins class="icon_iPad"></ins>iPad</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v3" name="devices" id="devices3"/>
+                  <label class="smaller radio-plain" for="devices3"><ins class="icon_iPod-touch"></ins>iPod touch</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v4" name="devices" id="devices4"/>
+                  <label class="smaller radio-plain" for="devices4"><ins class="icon_iMac"></ins>iMac</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v5" name="devices" id="devices5"/>
+                  <label class="smaller radio-plain" for="devices5"><ins class="icon_Mac-mini"></ins>Mac mini</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v6" name="devices" id="devices6"/>
+                  <label class="smaller radio-plain" for="devices6"><ins class="icon_Mac-Pro"></ins>Mac Pro</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v7" name="devices" id="devices7"/>
+                  <label class="smaller radio-plain" for="devices7"><ins class="icon_MacBook-Pro"></ins>MacBook Pro</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v8" name="devices" id="devices8"/>
+                  <label class="smaller radio-plain" for="devices8"><ins class="icon_MacBook-Air"></ins>MacBook Air</label>
+                </dd>
+                <dd class="inline">
+                  <input type="checkbox" value="v9" name="devices" id="devices9"/>
+                  <label class="smaller radio-plain" for="devices9"><ins class="icon_other"></ins>Другое</label>
+                  <input type="text" class="text narrow" name="devices_other" id="devices_other"/>
+                </dd>
+              </dl>
+              <dl class="interests-list w-half">
+                <dd>
+                  <label>Какие у вас интересы?</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="interests" id="interests1"/>
+                  <label class="smaller radio-plain" for="interests1"><ins class="icon_childrens"></ins>Дети</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v2" name="interests" id="interests2"/>
+                  <label class="smaller radio-plain" for="interests2"><ins class="icon_training"></ins>Учеба</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v3" name="interests" id="interests3"/>
+                  <label class="smaller radio-plain" for="interests3"><ins class="icon_travelling"></ins>Путешествия</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v4" name="interests" id="interests4"/>
+                  <label class="smaller radio-plain" for="interests4"><ins class="icon_working"></ins>Работа</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v5" name="interests" id="interests5"/>
+                  <label class="smaller radio-plain" for="interests5"><ins class="icon_sport"></ins>Спорт</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v6" name="interests" id="interests6"/>
+                  <label class="smaller radio-plain" for="interests6"><ins class="icon_creativity"></ins>Творчество</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v7" name="interests" id="interests7"/>
+                  <label class="smaller radio-plain" for="interests7"><ins class="icon_entertainment"></ins>Развлечения</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v8" name="interests" id="interests8"/>
+                  <label class="smaller radio-plain" for="interests8"><ins class="icon_games"></ins>Игры</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v9" name="interests" id="interests9"/>
+                  <label class="smaller radio-plain" for="interests9"><ins class="icon_other"></ins>Другое</label>
+                  <input type="text" class="text narrow" name="interests_other" id="interests_other"/>
+                </dd>
+              </dl>
+              <br class="cc" />
+              <div class="hr single light">
+              </div>
+				<h1 class="subform">Дополнительно <ins class="collapse"></ins></h1>
+              <div class="subform">
+                <dl class="three-fifth">
+                  <dd><a href="#nogo" id="add-child">+ <span>Добавить ребёнка</span></a></dd>
+                </dl>
+              
+              <div class="hr single light" style="margin-top:0; padding-top:24px">
+              </div>                           
+                            
+              <dl class="activities-list w-half">
+                <dd>
+                  <label>Сфера вашей деятельности</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity1"/>
+                  <label class="smaller radio-plain" for="activity1">Экономика</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity2"/>
+                  <label class="smaller radio-plain" for="activity2">Медицина</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity3"/>
+                  <label class="smaller radio-plain" for="activity3">Наука</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity4"/>
+                  <label class="smaller radio-plain" for="activity4">ИТ</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity5"/>
+                  <label class="smaller radio-plain" for="activity5">Медиа</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity6"/>
+                  <label class="smaller radio-plain" for="activity6">Техника</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity7"/>
+                  <label class="smaller radio-plain" for="activity7">Творчество</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity8"/>
+                  <label class="smaller radio-plain" for="activity8">Сервис</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity9"/>
+                  <label class="smaller radio-plain" for="activity9">Юриспруденция</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity10"/>
+                  <label class="smaller radio-plain" for="activity10">Педагогика</label>
+                </dd>
+                <dd>
+                  <input type="radio" value="v1" name="activity" id="activity11"/>
+                  <label class="smaller radio-plain" for="activity11">Другое</label>
+                  <input type="text" class="text narrow" name="activities_other" id="activities_other"/>
+                </dd>
+              </dl>
+              <dl class="gamegenres-list w-half">
+                <dd>
+                  <label>Жанры игр</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre1"/>
+                  <label class="smaller radio-plain" for="gamegenre1">Аркады</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre2"/>
+                  <label class="smaller radio-plain" for="gamegenre2">Боевики</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre3"/>
+                  <label class="smaller radio-plain" for="gamegenre3">Головоломки</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre4"/>
+                  <label class="smaller radio-plain" for="gamegenre4">Гонки</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre5"/>
+                  <label class="smaller radio-plain" for="gamegenre5">Азартные</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre6"/>
+                  <label class="smaller radio-plain" for="gamegenre6">Музыка</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre7"/>
+                  <label class="smaller radio-plain" for="gamegenre7">Настольные</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre8"/>
+                  <label class="smaller radio-plain" for="gamegenre8">Обучающие</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre9"/>
+                  <label class="smaller radio-plain" for="gamegenre9">Приключения</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre10"/>
+                  <label class="smaller radio-plain" for="gamegenre10">Ролевые</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre11"/>
+                  <label class="smaller radio-plain" for="gamegenre11">Семейные</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre12"/>
+                  <label class="smaller radio-plain" for="gamegenre12">Симуляторы</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre13"/>
+                  <label class="smaller radio-plain" for="gamegenre13">Словесные</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre14"/>
+                  <label class="smaller radio-plain" for="gamegenre14">Спорт</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre15"/>
+                  <label class="smaller" for="gamegenre15">Стратегии</label>
+                </dd>
+                <dd>
+                  <input type="checkbox" value="v1" name="gamegenre" id="gamegenre16"/>
+                  <label class="smaller radio-plain" for="gamegenre16">Другое</label>
+                  <input type="text" class="text narrow" name="gamegenres_other" id="gamegenres_other"/>
+                </dd>
+              </dl>
+              </div> 
+              <br class="cc" />
+              <div class="hr single light">
+              </div>
+
+              <dl>
+                <dd>
+                  <input type="submit" class="submit big" value="Сохранить"/>
+                </dd>
+              </dl>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="left">
+      <a href="http://mnogo.ru" class="mnogoru"></a>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+<div class="hidden">
+  <div id="dialog_cities">
+    <h1>Ваш город</h1>
+    <form>
+      <input type="checkbox" id="remember_me" name="remember_me" />
+      <label for="remember_me">Запомнить меня</label>
+    </form>
+    <br class="cc" />
+    <ul class="city-list left">
+      <li><a href="">Москва</a></li>
+      <li><a href="">Санкт-Петербург</a></li>
+      <li><a href="">Нижний Новгород</a></li>
+      <li><a href="">Уфа</a></li>
+      <li><a href="">Тула</a></li>
+      <li><a href="">Орёл</a></li>
+      <li><a href="">Курск</a></li>
+      <li><a href="">Новгород</a></li>
+      <li><a href="">Краснодар</a></li>
+      <li><a href="">Челябинск</a></li>
+      <li><a href="">Белгород</a></li>
+      <li><a href="">Рязань</a></li>
+    </ul>
+    <ul class="city-list left">
+      <li><a href="">Москва</a></li>
+      <li><a href="">Санкт-Петербург</a></li>
+      <li><a href="">Нижний Новгород</a></li>
+      <li><a href="">Уфа</a></li>
+      <li><a href="">Тула</a></li>
+      <li><a href="">Орёл</a></li>
+      <li><a href="">Курск</a></li>
+      <li><a href="">Новгород</a></li>
+      <li><a href="">Краснодар</a></li>
+      <li><a href="">Челябинск</a></li>
+      <li><a href="">Белгород</a></li>
+      <li><a href="">Рязань</a></li>
+    </ul>
+    <ul class="city-list left">
+      <li><a href="">Москва</a></li>
+      <li><a href="">Санкт-Петербург</a></li>
+      <li><a href="">Нижний Новгород</a></li>
+      <li><a href="">Уфа</a></li>
+      <li><a href="">Тула</a></li>
+      <li><a href="">Орёл</a></li>
+      <li><a href="">Курск</a></li>
+      <li><a href="">Новгород</a></li>
+      <li><a href="">Краснодар</a></li>
+      <li><a href="">Челябинск</a></li>
+      <li><a href="">Белгород</a></li>
+      <li><a href="">Рязань</a></li>
+    </ul>
+    <br class="cc" />
+  </div>
+  <div id="dialog_change-passwords">
+    <h1>Изменить пароль</h1>
+    <form class="plain">
+      <dd>
+        <select id="password-destination" name="password-destination">
+          <option></option>
+          <option value="c1">К личному кабинету</option>
+          <option selected value="c2">К бонус-карте</option>
+        </select>
+      </dd>
+      <dt>
+        <label for="old-password">Старый пароль</label>
+      </dt>
+      <dd>
+        <input type="password"  class="text" name="old-password" id="old-password"/>
+      </dd>
+      <dt style="margin-top:12px;">
+        <label for="new-password">Новый пароль</label>
+      </dt>
+      <dd>
+        <input type="password"  class="text" name="new-password" id="new-password"/>
+      </dd>
+      <dt>
+        <label for="new-password-repeat">Ещё раз</label>
+      </dt>
+      <dd>
+        <input type="password"  class="text" name="new-password" id="new-password-repeat"/>
+      </dd>
+      <dd class="last">
+        <input type="submit" class="submit big" value="Сохранить"/>
+      </dd>
+    </form>
+  </div>
+  <div id="dialog_login">
+    <h1>Вход</h1>
+    <form class="plain">
+      <dt>
+        <label for="login">Логин</label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="login" id="login"/>
+      </dd>
+      <dt>
+        <label for="password">Пароль</label>
+      </dt>
+      <dd style="margin-bottom:18px">
+        <input type="password"  class="text" name="password" id="password"/>
+      </dd>
+      <dd class="inline checkbox">
+        <input type="checkbox" name="remember-me" id="remember-me"/>
+        <label for="remember-me">Запомнить меня</label>
+      </dd>
+      <dd class="inline right"> <a href="" class="dashed dialog-trigger" rel="dialog_forget-password">Забыли пароль?</a> </dd>
+      <dd style="margin-bottom:0" class="inline">
+        <input type="submit" class="submit narrow" value="Войти"/>
+      </dd>
+      <dd style="padding-top:20px;" class="inline right last"> <a href="/register" class="dashed dialog-trigger" rel="dialog_register">Зарегистрироваться</a> </dd>
+    </form>
+  </div>
+  <div id="dialog_password">
+    <h1>Пароль и email</h1>
+    <form class="plain">
+      <dd>
+        <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+      </dd>
+      <dt>
+        <label for="login">Email</label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="login" id="login"/>
+      </dd>
+      <dt>
+        <label for="password">Пароль</label>
+      </dt>
+      <dd style="margin-bottom:18px">
+        <input type="password"  class="text" name="password" id="password"/>
+      </dd>
+      <dt>
+        <label for="password_confirm" style="white-space:nowrap">Подтверждение пароля</label>
+      </dt>
+      <dd style="margin-bottom:18px">
+        <input type="password"  class="text" name="password_confirm" id="password_confirm"/>
+      </dd>
+      <dd style="margin-bottom:0" class="inline">
+        <input type="submit" class="submit big" value="Сохранить"/>
+      </dd>
+    </form>
+  </div>
+  <div id="dialog_register">
+    <h1>Регистрация</h1>
+    <form class="plain">
+      <dt>
+        <label for="login">Логин</label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="login" id="login"/>
+      </dd>
+      <dt>
+        <label for="password">Email</label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="email" id="email"/>
+      </dd>
+      <dt>
+        <label for="password">Пароль</label>
+      </dt>
+      <dd>
+        <input type="password"  class="text" name="password" id="password"/>
+      </dd>
+      <dd class="centered last">
+        <input type="submit" class="submit middle" value="Зарегистрироваться" style="margin-bottom:12px;"/>
+        <a href="/login" class="dashed" id="close-dialog-register">Войти</a> </dd>
+    </form>
+  </div>
+  <div id="dialog_forget-password">
+    <h1>Восстановление пароля</h1>
+    <form class="plain">
+      <dt>
+        <label for="password">Ваш email</label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="email" id="email"/>
+        <p>Введите адрес эл.почты, который вы указывали
+          при регистрации. Мы пришлем пароль туда. </p>
+      </dd>
+      <dd class="last">
+        <input type="submit" class="submit middle" value="Восстановить"/>
+      </dd>
+    </form>
+  </div>
+  <div id="dialog_feedback">
+    <h1>Обратная связь</h1>
+    <form class="plain wide">
+      <dt>
+        <label for="recipient">Кому</label>
+      </dt>
+      <dd>
+        <select id="recepient" name="recipient">
+          <option></option>
+          <option value="c1">Отдел продаж</option>
+          <option selected value="c2">Региональный представитель</option>
+        </select>
+      </dd>
+      <dt>
+        <label for="name">Ваше имя</label>
+      </dt>
+      <dd>
+        <input type="text"  class="text" name="name" id="name"/>
+      </dd>
+      <dt>
+        <label for="message">Сообщение</label>
+      </dt>
+      <dd>
+        <textarea name="message" id="message"></textarea>
+      </dd>
+      <dd class="last">
+        <input type="submit" class="submit big" value="Отправить"/>
+      </dd>
+    </form>
+  </div>
+  <div id="dialog_confirm-deletion">
+    <h1>Подтверждение</h1>
+    <form class="plain">
+      <dl>
+        <dd>
+          <p>Вы уверены что хотите удалить эту работу?</p>
+          <input type="submit" class="submit big" value="Удалить"/>
+          <a href="#" class="dashed inline-link" id="confirmation_cancel" style="font-size:1.2em;">Отмена</a><br />
+        </dd>
+      </dl>
+    </form>
+  </div>
+  <!-- child template -->
+  <dl class="three-fifth child template">
+    <a class="child-remove" href="#nogo">Удалить</a>
+    <dd class="inline gender" style="width:172px;" >
+      <label for="about_gender" class="inline caption">Пол</label>
+      <input type="radio" name="child_gender[]" id="child_gender_male_1" value="male"/>
+      <label for="child_gender_male_1" class="inline radio-tab">м</label>
+      <input type="radio" name="child_gender[]" id="child_gender_female_1" value="female"/>
+      <label for="child_gender_female_1" class="inline radio-tab">ж</label>
+    </dd>
+    <dd class="inline">
+      <label for="child_birthday_1" class="inline caption">Дата рождения</label>
+      <input type="text"  class="text date inline" name="child_birthday[]" id="child_birthday_1"/>
+    </dd>
+  </dl>
+  <!-- end child template-->
+</div>
+</body>
+</html>

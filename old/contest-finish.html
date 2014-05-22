@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.fancybox/jquery.fancybox.css" />
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<link type="text/css" rel="stylesheet" href="/css/social.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.defaultinputs.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox/helpers/jquery.fancybox-history.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$('.contest-list a.zoom-in').fancybox({
+		width	: 770,
+		height	: 'auto',
+		fitToView	: false,
+		padding:0,
+		margin:8,
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+		beforeLoad : function(){
+			$(this.element).addClass('zoomed');
+		},
+		afterClose: function(){
+			$(this.element).removeClass('zoomed');
+		},
+		tpl: {
+				error    : '<p class="fancybox-error">Невозможно загрузить указанный контент. <br/>Попробуйте позже.</p>',
+				closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>',
+				next     : '<a title="След." class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+				prev     : '<a title="Пред." class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+		},
+		helpers: {
+			history : true
+		}
+	});
+
+
+});
+</script>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey last">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth" style="margin-left:-14px; margin-right:43px">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr_50x50.png" alt="Apple Premium Reseller"/></a>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="w-5-fifth first" style="background:url(/images/contest/contest-1_bg.png) 0 0 no-repeat; height:390px; margin-top:-36px">
+      <div id="contest-1_heading">
+        <h1 class="purple" style="margin:8px 0;">Клик <br />
+          к мировой славе</h1>
+        <p class="bigger no-margin"> Конкурс заканчивается 15 января 2013 г в 15:00<br />
+          До окончания прима заявок осталось </p>
+        <h3 style="margin:12px 0; font-size:2.4em; line-height:1em">Конкурс<br />
+          завершён </h3>
+        <form class="plain" style="margin-left:-1px; margin-bottom:-20px;">
+          <input type="submit" class="submit middle" value="Посмотреть работы" />
+        </form>
+      </div>
+    </div>
+    <div class="centered" style="margin-top:42px">
+      <h3 class="purple geoslab"> Победители в номинациях </h3>
+      <p class="bigger w-3-fifth" style="margin:-12px auto 0; float:none"> Получают iPad mini и  контракт с Гела-Скинс </p>
+    </div>
+    <ul class="contest-list">
+      <li>
+        <h6>Природа</h6>
+        <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id220" rel="u"><img src="/images/contest/01.jpg" /></a> <a href="#" class="title">Длинное название работы
+        участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+      <li>
+        <h6>Животные</h6>
+        <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id221" rel="u"><img src="/images/contest/02.jpg" /></a> <a href="#" class="title">Длинное название работы
+        участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+      <li>
+        <h6>Город</h6>
+        <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id222" rel="u"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное название работы
+        участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+      <li>
+        <h6>Персонажи</h6>
+        <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id223" rel="u"><img src="/images/contest/04.jpg" /></a> <a href="#" class="title">Длинное название работы
+        участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+      <li>
+        <h6>Природа</h6>
+        <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id224" rel="u"><img src="/images/contest/03.jpg" /></a> <a href="#" class="title">Длинное предлинное название работы
+        участника конкурса</a> <a href="#" class="author">Вильгельм третий</a></li>
+    </ul>
+    <div class="w-5-fifth" style="background:none;">
+      <div class="opinion">
+        <div class="opinion-text w-3-fifth">
+          <p>Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата. </p>
+          <ins>&nbsp;</ins>
+        </div>
+        <div class="opinion-author">
+          <img src="/images/contest/contest-1_judge-2.jpg" class="contest-photo"/>
+          <h4>Наташа Климчук</h4>
+        </div>
+      </div>
+      <div class="opinion right">
+        <div class="opinion-text w-3-fifth">
+          <p>Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата.Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата. </p>
+          <ins>&nbsp;</ins>
+        </div>
+        <div class="opinion-author">
+          <img src="/images/contest/contest-1_judge-1.jpg" class="contest-photo"/>
+          <h4>Виктор Меламед</h4>
+        </div>
+      </div>
+      <div class="opinion left">
+        <div class="opinion-text w-3-fifth">
+          <p>Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата.Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата. </p>
+          <ins>&nbsp;</ins>
+        </div>
+        <div class="opinion-author">
+          <img src="/images/contest/contest-1_judge-3.jpg" class="contest-photo"/>
+          <h4>Слава Кутеев</h4>
+        </div>
+      </div>
+      <br class="cc" />
+      <div class="centered" style="margin-top:72px;">
+        <h3 class="purple geoslab"> Победители в спецноминациях </h3>
+        <p class="bigger w-3-fifth" style="margin:-12px auto 0; float:none"> Получают призы от организаторов, a также сертификаты<br />
+          номиналом $200 для покупок на сайте www.GelaSkins.com </p>
+      </div>
+      <ul class="contest-list finish">
+        <li>
+          <div class="work-wrapper">
+            <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id220" rel="u"><img src="/images/contest/01.jpg" /></a> <a href="#" class="title">Длинное название работы
+            участника конкурса</a> <a href="#" class="author">Вильгельм третий</a>
+          </div>
+          <div class="opinion">
+            <div class="opinion-text">
+              <p>Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата.Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата. </p>
+              <ins></ins>
+            </div>
+            <div class="opinion-author">
+              <img src="/images/contest/contest-1_judge-3.jpg" class="contest-photo"/>
+              <h4>Слава Кутеев</h4>
+            </div>
+          </div>
+          <br class="cc" />
+          <div class="prize">
+            <img src="/images/contest/contest-1_prize-1.png"/>
+            <p class="purple"> Продукция с изображением <br/>
+              работы победителя, и контракт с GelaSkins </p>
+          </div>
+        </li>
+        <li>
+          <div class="work-wrapper">
+            <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id220" rel="u"><img src="/images/contest/01.jpg" /></a> <a href="#" class="title">Длинное название работы
+            участника конкурса</a> <a href="#" class="author">Вильгельм третий</a>
+          </div>
+          <div class="opinion">
+            <div class="opinion-text">
+              <p>Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата. </p>
+              <ins></ins>
+            </div>
+            <div class="opinion-author">
+              <img src="/images/contest/contest-1_judge-3.jpg" class="contest-photo"/>
+              <h4>Слава Кутеев</h4>
+            </div>
+          </div>
+          <br class="cc" />
+          <div class="prize">
+            <img src="/images/contest/contest-1_prize-2.png"/>
+            <p class="purple">Wacom Inking </p>
+          </div>
+        </li>
+        <li style="margin:32px auto; clear:both; float:none">
+          <div class="work-wrapper">
+            <a href="/contest-work.ajax.html" class="zoom-in fancybox.ajax" id="id220" rel="u"><img src="/images/contest/01.jpg" /></a> <a href="#" class="title">Длинное название работы
+            участника конкурса</a> <a href="#" class="author">Вильгельм третий</a>
+          </div>
+          <div class="opinion">
+            <div class="opinion-text">
+              <p>Вся наша культура образования строится на выявлении ошибок, по этой причине она слабо вдохновляет. Хотите чтобы человек три ночи работал без сна и остался уставшим и довольным — дайте ему формулу успешного проекта.Так и добиваются результата. </p>
+              <ins></ins>
+            </div>
+            <div class="opinion-author">
+              <img src="/images/contest/contest-1_judge-3.jpg" class="contest-photo"/>
+              <h4>Слава Кутеев</h4>
+            </div>
+          </div>
+          <br class="cc" />
+          <div class="prize">
+            <img src="/images/contest/contest-1_prize-3.png"/>
+            <p class="purple">Wacom Bamboo Fun<br />
+              Pen & Touch Small </p>
+          </div>
+        </li>
+      </ul>
+      <br class="cc" />
+    </div>
+    <div class="hr single">
+    </div>
+    <ul class="nav_big">
+      <li><a href="#">Правила</a></li>
+      <li><a href="#">Галерея</a></li>
+      <li><a href="#">Тех. требования</a></li>
+    </ul>
+    <br class="cc" />
+    <div class="w-5-fifth" style="background:none;">
+      <div class="w-2-fifth">
+        <img src="/images/contest/contest-1_phones.jpg"/>
+      </div>
+      <div class="w-3-fifth last">
+        <p class="bigger"  style="padding-top:28px;">Восприятие марки, в рамках сегодняшних воззрений, концентрирует портрет потребителя, осознав маркетинг как часть производства. Исходя из структуры пирамиды Маслоу, VIP-мероприятие конструктивно. Контент экономит диктат потребителя, осознав маркетинг как часть производства. Психологическая среда требовальна к креативу. Медиавес тормозит фирменный стиль, работая над проектом.</p>
+      </div>
+      <br class="cc" />
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+</body>
+</html>

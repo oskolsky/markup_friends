@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<link type="text/css" rel="stylesheet" href="/css/social.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.datepicker-ru.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.autocomplete.min.js"></script>
+<script type="text/javascript" src="/js/project.js"></script>
+<script type="text/javascript">
+$(function(){
+	var opts = { dateFormat: "dd.mm.yy", buttonImage: "/images/ui/icon_calendar.png", buttonImageOnly: true, showOn: 'both', changeMonth: true, changeYear: true, yearRange: "-100:+0"};
+	var $cvBackup = $('#add-experience').parents('dl').prev('dl.cv-personal').clone();
+	var cvCopiesCount = 1;
+	$cvBackup.find('.ui-datepicker-trigger').remove();
+	$cvBackup.find('.checkbox.no-experience').remove();
+	$cvBackup.find('input.date').removeClass('hasDatepicker');
+	$cvBackup.css({'opacity':0});
+	
+	$('#add-experience').click(function(e){
+		e.preventDefault();
+		$('#cv_no-experience').attr('checked', false);
+		$('.cv-personal.experience').fadeIn(300); //show hidden
+		$cv = $cvBackup.clone();
+		cvCopiesCount++;
+		$cv.find('input').val("").attr("id",function(i,oldVal) {
+		  return oldVal.replace(/\d+/,function(n){
+			return  cvCopiesCount;
+		  });
+		});
+		$cv.find('textarea').val("").attr("id",function(i,oldVal) {
+		  return oldVal.replace(/\d+/,function(n){
+			return  cvCopiesCount;
+		  });
+		});		
+		$cv.find('label').attr("for",function(i,oldVal) {
+		  return oldVal.replace(/\d+/,function(n){
+			return  cvCopiesCount;
+		  });
+		});	
+		$cv.find('input.date').datepicker(opts);
+		$(this).parents('dl').before($cv);
+		$cv.animate({opacity:1});
+	});
+	
+	$('input.date').datepicker(opts);
+	$('a.resume-remove').live('click',function(){
+		var $parent = $(this).parents('dl') 
+		$parent.fadeOut(300, function(){
+			$parent.remove();
+		});
+	});
+	$('#cv_no-experience').change(function(){
+		if ($(this).is(':checked'))
+			$('.cv-personal.experience').fadeOut(200);
+		else
+			$('.cv-personal.experience').fadeIn(300);
+	});
+	$('.submit-cv-block').css({'display':'none'});
+	$('a#submit-cv-button').live('click',function(e){
+		e.preventDefault();
+		$(this).fadeOut(10);
+		$('.submit-cv-block').fadeIn(500);
+	});	
+	$('select#feedback_category').selectmenu({style:'dropdown', menuWidth: 215});
+	
+});
+
+</script>
+</head>
+<body class="no-js">
+<script>
+$('body').removeClass('no-js');
+</script>
+<div id="noscript-warning">
+  <span>Для полноценной работы с сайтом требуется поддержка JavaScript.</span>
+</div>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <div id="logo">
+          <object data="/images/ui/logo.svg" width="113px" height="26px" type="image/svg+xml">
+            <img src="/images/ui/logo.png" alt="re:Store"/>
+          </object>
+          <a href="/" title="re:Store"></a>
+        </div>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey last">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth" style="margin-left:-14px; margin-right:43px">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a>
+        <div id="logo-apr">
+          <object data="/images/ui/logo_apr.svg" width="50px" height="50px" type="image/svg+xml">
+            <img src="/images/ui/logo_apr.png" alt="re:Store"/>
+          </object>
+          <a href="/aps"></a>
+        </div>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="sidebar w-1-fifth">
+      <ul id="nav-left">
+        <li><a href="/catalog">О компании</a></li>
+        <li><a href="/catalog">Каталог</a></li>
+        <li><a href="/catalog">Бонусная программа</a></li>
+        <li><a href="/catalog">Оплата и доставка</a></li>
+        <li><a href="/catalog">Гарантии</a></li>
+        <li><a href="/catalog">Обзоры товаров</a></li>
+        <li><a href="/catalog">Обучение</a></li>
+        <li><a href="/catalog">Корпоративным клиентам</a></li>
+        <li><a href="/catalog">Контакты</a></li>
+      </ul>
+      <div class="social-fixed">
+        <a class="fb" href="http://facebook.com" target="_blank">&nbsp;</a> <a class="vk" href="http://vk.com" target="_blank">&nbsp;</a> <a class="tw" href="http://twitter.com" target="_blank">&nbsp;</a> <a class="inst" href="http://instagram.com/restore_ru" target="_blank">&nbsp;</a>
+        <p class="dark-grey">Присоединяйтесь
+          к сообществу re:Store</p>
+      </div>
+    </div>
+    <div class="w-4-fifth last plain-content">
+      <ul class="bread">
+        <li><a href="/" title="Главная">Главная</a></li>
+        <li><a href="/about/" title="О компании">О компании</a></li>
+        <li class="active"><a href="#">Напишите нам</a></li>
+      </ul>
+      <h1>Напишите нам</h1>
+      <p class="big">Если хотите поблагодарить наших сотрудников или, наоборот, сообщить<br />
+        о недопустимом обращении с вами, напишите нам. <br />
+        Мы гарантируем конфиденциальность ваших персональных данных. </p>
+      <form id="personal-form" class="plain">
+        <dl class="cv-personal">
+          <dd class="w-2-fifth inline">
+            <label for="feedback_name">Имя</label>
+            <input type="text" class="text" name="feedback_name" id="feedback_name"/>
+          </dd>
+          <dd class="right" style="clear:none; padding-right: 16px">
+            <label>Город</label>
+            <input type="text" class="text" name="feedback_city" id="autocomplete" style="width: 264px;"/>
+          </dd>
+          <dd class="w-2-fifth inline ">
+            <label for="feedback_email">Email</label>
+            <input type="text"  class="text" name="feedback_email" id="feedback_email"/>
+          </dd>
+          <dd class="inline right" style="clear:none; padding-right:16px">
+            <label for="feedback_phone-pt1">Телефон</label>
+            <strong style="font-size:1.2em">+7</strong>
+            <input type="text"  class="text phone-pt1" name="feedback_phone_pt1" id="feedback_phone-pt1"/>
+            <input type="text"  class="text phone-pt2" name="feedback_phone-pt2" id="feedback_phone-pt2"/>
+          </dd>
+          <dd>
+            <p class="big">Пожалуйста, укажите один из способов контакта с вами, иначе мы не сможем связаться с вами и ответить.</p><br />
+
+
+          </dd>
+          <dd class="inline long">
+            <label for="feedback_subject">Тема обращения</label>
+<input type="text" class="text" name="feedback_subject" id="feedback_subject"/>
+            
+          </dd>
+          <dd class="inline">
+            <label for="feedback_category">Категория</label>
+                       <select id="feedback_category" name="feedback_category">
+              <option selected value="n0">Общие вопросы</option>
+              <option value="n1">Пожелания и рекомендации</option>
+              <option value="n2">Благодарность</option>
+              <option value="n2">Жалоба</option>
+              <option value="n2">Карта почётного клиента</option>
+            </select>
+          </dd>
+          <dd class="w-4-fifth">
+            <label for="feedback_msg">Сообщение</label>
+            <textarea name="feedback_msg" id="feedback_msg"></textarea>
+          </dd>
+          <dd style="padding-top:14px;">
+            <ul class="attached-files">
+              <li>screenshot.jpg <a href="#" class="attachment-remove"></a></li>
+            </ul>
+            <a href="#" class="attachment-add">Добавить файл</a> </dd>
+          <dd>
+            <input type="submit" class="submit big" value="Отправить"/>
+          </dd>
+        </dl>
+      </form>
+    </div>
+    <br class="cc"/>
+    <div class="w-5-fifth">
+      <div class="w-1-fifth">
+        <h5>Техника Apple и аксессуары </h5>
+        <p> re:Store (реСтор) — 
+          официальный партнер 
+          компании Apple (Эппл)
+          в России и Европе, имеющий статус премиум-реселлера 
+          Apple Premium Reseller 
+          (Эппл Премиум Реселлер). </p>
+      </div>
+      <div class="w-2-fifth">
+        <p class="smaller"> re:Store — это не просто магазин, но и центр обслуживания, место, куда вы можете прийти, чтобы посоветоваться, выбрать подходящее устройство, где вас научат пользоваться им, дадут советы по эксплуатации и покажут возможности того, что вы приобрели. </p>
+        <p class="smaller"> re:Store — это компания, которая специализируется на продукции одной фирмы, фирмы, достойной особого разговора и пристального внимания. Наши продавцы — это специалисты в своей области. А качественная, удобная, простая в использовании техника от Apple (Эппл) доставляет удовольствие своим пользователям и редко требует какой-либо технической поддержки. </p>
+      </div>
+      <div class="w-2-fifth last">
+        <p class="smaller"> Мы продаем только официальные версии с легальной русской прошивкой, что избавляет клиентов от множества проблем. Цены на всю продукцию в наших магазинах техники Apple (Эппл) курируются поставщиками. </p>
+        <p class="smaller"> Мы продаем компьютеры, клавиатуры, мышки, мониторы, плееры, телефоны и многое другое по ценам, соответствующим политике компаний-производителей. Мы работаем, чтобы вам было удобно. Центры продаж техники Apple (Эппл) расположены по всей России. Вы можете придти, чтобы лично ознакомиться с тем или иным устройством. У нас предусмотрена и возможность заказа через интернет. Как покупать — выбор за вами! </p>
+      </div>
+      <br class="cc"/>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="left">
+      <a href="http://mnogo.ru" class="mnogoru"></a>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+  <div class="dialogs-container">
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-city">
+      <div id="dialog_cities">
+        <h1>Ваш город</h1>
+        <form>
+          <input type="checkbox" id="remember_me" name="remember_me" />
+          <label for="remember_me">Запомнить меня</label>
+          <input class="submit no-js-only inline" type="submit" value="Запомнить" />
+        </form>
+        <br class="cc" />
+        <ul class="city-list left">
+          <li><a href="/?city=moscow">Москва</a></li>
+          <li><a href="/?city=spb">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+        <ul class="city-list left">
+          <li><a href="">Москва</a></li>
+          <li><a href="">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+        <ul class="city-list left">
+          <li><a href="">Москва</a></li>
+          <li><a href="">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-login">
+      <div id="dialog_login">
+        <h1>Вход</h1>
+        <form class="plain">
+          <dt>
+            <label for="login">Логин</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="login" id="login"/>
+          </dd>
+          <dt>
+            <label for="password">Пароль</label>
+          </dt>
+          <dd style="margin-bottom:18px">
+            <input type="password"  class="text" name="password" id="password"/>
+          </dd>
+          <dd class="inline checkbox">
+            <input type="checkbox" name="remember-me" id="remember-me"/>
+            <label for="remember-me">Запомнить меня</label>
+          </dd>
+          <dd class="inline right"> <a href="" class="dashed dialog-trigger" rel="dialog_forget-password">Забыли пароль?</a> </dd>
+          <dd class="inline">
+            <input type="submit" class="submit narrow" value="Войти"/>
+            <span class="label_login-through">или через <a class="social-login fb" href=""></a><a class="social-login vk" href=""></a><a class="social-login tw" href=""></a></span> </dd>
+          <dd class="centered last login"><a href="/?dialog=register" class="dashed dialog-trigger" rel="dialog_register" id="close-dialog-login">Зарегистрироваться</a> </dd>
+        </form>
+      </div>
+    </div>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-register" style="display:none">
+      <div id="dialog_register">
+        <h1>Регистрация</h1>
+        <form class="plain">
+          <dt>
+            <label for="login">Логин</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="login" id="login"/>
+          </dd>
+          <dt>
+            <label for="password">Email</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="email" id="email"/>
+          </dd>
+          <dt>
+            <label for="password">Пароль</label>
+          </dt>
+          <dd>
+            <input type="password"  class="text" name="password" id="password"/>
+          </dd>
+          <dd class="inline checkbox">
+            <input type="checkbox" name="privacy-agree" id="privacy-agree" checked="checked"/>
+            <label for="privacy-agree" class="extra-small">Согласен с обработкой персональных данных</label>
+          </dd>
+          <dd class="centered">
+            <input type="submit" class="submit middle" value="Зарегистрироваться"/>
+          </dd>
+          <dd>
+            <p>Зарегистрироваться через <a class="social-login fb" href=""></a><a class="social-login vk" href=""></a><a class="social-login tw" href=""></a></p>
+          </dd>
+          <dd class="centered last login"><a href="/?dialog=login" class="dashed dialog-trigger" rel="dialog_register" id="close-dialog-register">Войти</a> </dd>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

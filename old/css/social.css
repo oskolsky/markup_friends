@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+div.social-fixed{margin-bottom:18px;}
+
+div.social-fixed a{display:inline-block;
+width:30px;
+height:30px; 
+margin-right:6px;
+margin-bottom:10px;
+background-color:#c0c0c0;
+background-repeat:no-repeat;
+background-position:center center;
+text-decoration:none; 
+cursor:pointer;
+opacity:0.9;
+border-radius:4px;
+}
+
+div.social-fixed a:hover {
+background-color:#999;
+opacity:1;
+}
+
+div.social-fixed a.fb{background-image:url(/images/ui/facebook_icon.png);}
+div.social-fixed a.vk{background-image:url(/images/ui/vkontakte_icon.png);}
+div.social-fixed a.tw{background-image:url(/images/ui/twitter_icon.png);}
+div.social-fixed a.inst{background-image:url(/images/ui/instagramm_icon.png);}
+
+div.social-fixed p{font-weight:600;}
+
+
+
+div.social-fixed.wide{position:fixed;
+top:40%;
+margin-left:-95px;
+z-index:10000;
+with:auto;
+}
+
+div.social-fixed.wide a{display:block;
+width:45px;
+height:45px;
+margin-bottom:1px;
+border-radius:0px;
+}
+
+div.social-fixed.wide a:hover {
+background-color:#4D749E;
+opacity:1;
+}
+
+div.social-fixed.wide p{display:none;}
+
+
+/* OPERA ONLY */
+
+doesnotexist:-o-prefocus, #content {
+overflow:visible;
+}
+

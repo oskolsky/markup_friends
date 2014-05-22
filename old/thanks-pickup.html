@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.9.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.9.custom.min.js"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	$('.tabs-tape').tabs();
+	latlng = new google.maps.LatLng(55.765271, 37.615964);
+	var myOptions = {
+	  zoom: 14,
+	  center: latlng,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var image = '/images/ui/letter_a-black.png';
+	gmap = new google.maps.Map(document.getElementById("shop-gmap"), myOptions);	
+	shopMarker = new google.maps.Marker({
+	  position: latlng,
+	  map: gmap,
+	  icon: image
+	});
+
+});
+</script>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first"> <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a> </div>
+      <div class="w-1-fifth"> <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey">круглосуточно, без выходных</span> </div>
+      <div class="w-1-fifth"> <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey">пн-пт, 10:00 - 19:00</span> </div>
+      <div class="w-1-fifth"> <a href="/shops" class="shops bordered"><b>Адреса магазинов</b></a> </div>
+      <div class="w-1-fifth"> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var> <i>шт</i></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr.png" alt="Apple Premium Reseller"/></a> </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="w-3-fifth first centered  center-aligned">
+      <h2 class="purple top-margin">Спасибо за заказ!</h2>
+      <p class="bigger">Владлен, благодарим за ваш заказ. <br />
+        Все детали уже высланы на адрес <a href="/">vladlen@kremlin.ru</a>.<br />
+      </p>
+    </div>
+    <div class="w-3-fifth center-aligned">
+      <h3 class="centered top-margin">Заказ №12382 231 231 на сумму 22 500 руб.</h3>
+      <table class="order-buyings thanks w-3-fifth">
+        <tr>
+          <td class="buying-name"><div class="holder-img"> <img src="/images/catalog/img-22_64x64.jpg" /> </div>
+            <div class="holder-desc"> <strong>Microsoft Office для Мас 2011
+              «Для дома и учебы» 3 пользователя</strong> <span>W7F-00022</span> </div></td>
+          <td class="buying-total"><b>3 x 3 990 руб.</b></td>
+        </tr>
+        <tr>
+          <td class="buying-name"><div class="holder-img"> <img src="/images/catalog/img-21_64x64.jpg" /> </div>
+            <div class="holder-desc"> <strong>Be.ez LE reporter для MacBook Air 11,6 </strong> <span>F-00022</span> </div></td>
+          <td class="buying-total"><b>23 990 руб.</b></td>
+        </tr>
+        <tr>
+          <td class="total"><span class="discounts left"> <span>Бонусная карта:</span> 4333-3333-44561<br />
+            <span>Карта Много.ру:</span> 3333-111-831<br />
+            <span>Дисконтный код:</span> RESR777<br />
+            </span> <span class="labels right"> Цена:<br />
+            Доставка:<br />
+            Скидка:<br />
+            <br />
+            Итого: </span></td>
+          <td class="total"><span class="cnt_price">112 950 руб.</span> <span class="cnt_delivery">10 950 руб.</span> <span class="cnt_discount">&mdash; 2 000 руб.</span><span class="cnt_empty">&nbsp;</span> <span class="cnt_total purple">120 000 руб.</span></td>
+        </tr>
+      </table>
+      <br class="cc"/>
+      <h5>Адрес пункта самовывоза</h5>
+      <div id="shop-gmap" class="single">
+      </div>
+      <a class="bt print" href="/blank-order" target="_blank">Распечатать</a>
+      <div class="personal-manager">
+      
+        <div class="holder-img"> <img src="/images/content/manager-01.jpg" /> </div>
+        <div class="holder-desc">
+          <p class="bigger">Менеджер компании Re:Store 
+            свяжется с Вами в ближайшее рабочее время. </p>
+          <p class="bigger purple" >Обращаем ваше внимание, что доставка осуществляется только при вашем подтверждении и ответе на звонок. </p>
+        </div>
+        <br class="cc"/>
+      </div>
+    </div>
+    <div class="w-5-fifth">
+      <div class="shedule">
+        <div class="left"> <span class="label">Время работы магазина</span> <span class="time-of-the-day">9<sup>00</sup> – 19<sup>00</sup></span> <span class="day-of-the-week">понедельник-пятница</span> <span class="time-of-the-day">10<sup>00</sup> - 17<sup>00</sup></span> <span class="day-of-the-week">суббота-воскресенье</span> </div>
+        <div class="left"> <span class="label">Телефон магазина</span> <span class="phone"> +7 (495) 580-92-46</span> <span class="label">Справочная служба</span> <span class="phone"> +7 (495) 580-92-46</span> </div>
+        <div class="social right"> <a class="fb">&nbsp;</a> <a class="vk">&nbsp;</a> <a class="tw">&nbsp;</a> </div>
+        <br class="cc"/>
+      </div>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+</body>
+</html>

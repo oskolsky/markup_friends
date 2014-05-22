@@ -1,0 +1,668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<link type="text/css" rel="stylesheet" href="/css/social.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.slider.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$('#tabs-tape-new, #tabs-tape-special').removeClass('hidden');
+	$('.tabs-tape .nav li a').each(function(i,el){
+		rel = $(this).attr('rel');
+		$(this).attr('href', rel);
+	});	
+	$('#tabs-tape-leaders').contentSlider({});
+	$('#tabs-tape-new').contentSlider({});
+	$('#tabs-tape-special').contentSlider({});	
+	
+
+	$('.tabs-tape').tabs();
+	InitPromoSlider();
+	function InitPromoSlider()
+	{
+		$(".slider-nav .w-1-fifth").click(function(){
+			var alink = $(this).find("a").attr("href");
+			window.location = alink;
+		});
+		$(".slide").click(function(){
+			var alink = $(this).find("a").attr("href");
+			window.location = alink;
+		});
+		
+		$('.slider-nav .w-1-fifth').hover(function() {
+			var i = $(".slider-nav .w-1-fifth").index(this);
+			clearInterval(slideInterval);
+			
+			var sSlide	= -728 * i + "px";
+			
+			$(".slider-container").stop().animate({ marginLeft: sSlide }, 600);
+			var sSlideLine	= 190 * i + "px";
+			$(".slider-handle").stop().animate({ marginLeft: sSlideLine }, 600 );
+    		clearInterval(slideInterval);
+
+  		}, 
+		function() {
+    		SlideTimer();
+  		});
+	}
+	
+	SlideTimer();
+	var slideInterval;
+	function SlideTimer(){
+		slideInterval = setInterval(function() {
+	  
+		   if (Number($(".slider-container").css("marginLeft").replace(/px/g, ''))%728==0){
+				if(Number($(".slider-container").css("marginLeft").replace(/px/g, ''))<=-2184){
+					sSlide = 0;
+					sSlideLine = 0;
+				}else {
+					sSlide	= Number($(".slider-container").css("marginLeft").replace(/px/g, ''))-728;
+					sSlideLine = Number($(".slider-handle").css("marginLeft").replace(/px/g, '')) + 190;
+				}
+				$(".slider-container").stop().animate({ marginLeft: sSlide+'px' }, 600, function() {} );
+				$(".slider-handle").stop().animate({ marginLeft: sSlideLine+'px' }, 600 ); 
+			}
+		}, 10000);
+	}
+	$.extend($.ui.dialog.prototype.options, {
+		autoOpen: false, 				 
+		closeOnEscape: false,
+		modal: true,
+		draggable:false,
+		resizable:false
+	});
+	$(".ui-widget-overlay").live("click", function() {  $("div[id^='dialog']").dialog("close");} );		
+	var $cityTrigger = $('a.city.dialog-trigger');
+	var $dialogCity = $("div#dialog_cities").dialog({ 
+		width:	  600,
+		height: 'auto',
+		dialogClass: 'dialog dlg-city',
+		position: {
+			my: "center top",
+			at: "right+300 top+300",
+			of: $cityTrigger,
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	$('div#dialog_cities a').click(function(e){
+		e.preventDefault();
+		var city = $(this).text();
+		$('a.city.dialog-trigger b').text(city);
+		$dialogCity.dialog("close");
+	});
+	var $dialogLogin = $("div#dialog_login").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-login',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});	
+	
+	var $dialogRegister = $("div#dialog_register").dialog({ 
+		width:	  320,
+		height: 'auto',
+		dialogClass: 'dialog dlg-register',
+		position: {
+			my: "center center",
+			collision: 'none',
+			offset: "0 0"
+		}
+	});		
+	$('a.dialog-trigger').click(function(e){
+		e.preventDefault();
+		var dlg = $(this).attr('rel');
+		$('div#'+dlg).dialog('open'); 
+	});
+	
+	function drawSocial(){
+		var w = $(window).width();
+		if (w > 1150) {
+			$('.social-fixed').addClass('wide');
+		}else {
+			$('.social-fixed').removeClass('wide');
+		}
+	};
+	drawSocial();
+	$(window).resize(function() {
+		drawSocial();
+	});
+	$('#close-dialog-login').click(function(){
+		$dialogLogin.dialog('close'); 
+		$dialogRegister.dialog('open');
+	});
+
+	$('#close-dialog-register').click(function(){
+		$dialogRegister.dialog('close');
+		$dialogLogin.dialog('open'); 
+	});
+});
+
+</script>
+</head>
+<body class="no-js">
+<script>
+$('body').removeClass('no-js');
+</script>
+<div id="noscript-warning">
+  <span>Для полноценной работы с сайтом требуется поддержка JavaScript.</span>
+</div>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <div id="logo">
+          <object data="/images/ui/logo.svg" width="113px" height="26px" type="image/svg+xml">
+            <img src="/images/ui/logo.png" alt="re:Store"/>
+          </object>
+          <a href="/" title="re:Store"></a>
+        </div>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey last">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth" style="margin-left:-14px; margin-right:43px">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a>
+        <div id="logo-apr">
+          <object data="/images/ui/logo_apr.svg" width="50px" height="50px" type="image/svg+xml">
+            <img src="/images/ui/logo_apr.png" alt="re:Store"/>
+          </object>
+          <a href="/aps"></a>
+        </div>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="sidebar w-1-fifth">
+      <ul id="nav-left">
+        <li><a href="/catalog">О компании</a></li>
+        <li><a href="/catalog">Каталог</a></li>
+        <li><a href="/catalog">Бонусная программа</a></li>
+        <li><a href="/catalog">Оплата и доставка</a></li>
+        <li><a href="/catalog">Гарантии</a></li>
+        <li><a href="/catalog">Обзоры товаров</a></li>
+        <li><a href="/catalog">Обучение</a></li>
+        <li><a href="/catalog">Корпоративным клиентам</a></li>
+        <li><a href="/catalog">Контакты</a></li>
+      </ul>
+      <div class="social-fixed">
+        <a class="fb" href="http://facebook.com" target="_blank">&nbsp;</a> <a class="vk" href="http://vk.com" target="_blank">&nbsp;</a> <a class="tw" href="http://twitter.com" target="_blank">&nbsp;</a> <a class="inst" href="http://instagram.com/restore_ru" target="_blank">&nbsp;</a>
+        <p class="dark-grey">Присоединяйтесь
+          к сообществу re:Store</p>
+      </div>
+      <h5>Новости</h5>
+      <div class="news-announce">
+        <span class="date"> 21.07.2012 </span>
+        <p>Акция: до конца лета при покупке 3 аксессуаров одного цвета — скидка 10% на все аксессуары!</p>
+        <a href="/news" class="more">Подробнее</a>
+      </div>
+      <div class="news-announce">
+        <span class="date"> 21.07.2012 </span>
+        <p>21 и 22 июля в Уфе в нашем магазине в СТЦ МЕГА особые условия для покупки MacBook Pro, iPad, iPhone и аксессуаров. Не пропустите!</p>
+        <a href="/news" class="more">Подробнее</a>
+      </div>
+      <div class="news-announce">
+        <span class="date"> 21.07.2012 </span>
+        <p>21 и 22 июля в Уфе в нашем магазине в СТЦ МЕГА особые условия для покупки MacBook Pro, iPad, iPhone и аксессуаров. Не пропустите!</p>
+        <a href="/news" class="more">Подробнее</a>
+      </div>
+    </div>
+    <div class="w-4-fifth last">
+      <div class="tabs-tape">
+        <ul class="nav">
+          <li class="ui-state-active"><a href="/index?tab=leaders" rel="#tabs-tape-leaders">Лидеры продаж</a></li>
+          <li><a href="/index-sec?tab=new" rel="#tabs-tape-new" >Новинки</a></li>
+          <li><a href="/index?tab=special" rel="#tabs-tape-special" >Специальная цена</a></li>
+        </ul>
+        <div id="tabs-tape-leaders">
+          <span class="tab-title">Лидеры продаж</span>
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content with-presence novelty-2" style="width:950px">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable and scratchproof with extended functionality<ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-202.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacAir 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality</strong> <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp;<ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7<ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tabs-tape-new" class="hidden">
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content with-presence novelty-2" style="width:1330px">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tabs-tape-special" class="hidden">
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content with-presence novelty-2" style="width:1330px">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-02.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="/images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="slides">
+        <div class="slider-container">
+          <div class="slide" style="background:url(/images/promo/banner_1.png) 0 0 no-repeat">
+            <a href="/product"></a>
+          </div>
+          <div class="slide" style="background:url(/images/promo/banner_1.png) 0 0 no-repeat">
+            <a href="/product"></a>
+          </div>
+          <div class="slide" style="background:url(/images/promo/banner_1.png) 0 0 no-repeat">
+            <a href="/product"></a>
+          </div>
+          <div class="slide" style="background:url(/images/promo/banner_1.png) 0 0 no-repeat">
+            <a href="/product"></a>
+          </div>
+        </div>
+      </div>
+      <div class="slider-handle">
+      </div>
+      <div class="slider-nav">
+        <div class="w-1-fifth" >
+          <div class="widget-h-88">
+            <a href="/promo-01"><img src="/images/catalog/img-11.png"/></a>
+          </div>
+          <div style="padding-top:18px;">
+            <p>Скидка 10% при покупке
+              трёх аксессуаров 
+              одного цвета.</p>
+          </div>
+        </div>
+        <div class="w-1-fifth" >
+          <div class="widget-h-88">
+            <a href="/promo-02"><img src="/images/catalog/img-12.png"/></a>
+          </div>
+          <div style="padding-top:18px;">
+            <p>Большой Jambox,
+              Еще больше 
+              удовольствий.
+              Вся полнота звука.</p>
+          </div>
+        </div>
+        <div class="w-1-fifth" >
+          <div class="widget-h-88">
+            <a href="/promo-03"><img src="/images/catalog/img-13.png"/></a>
+          </div>
+          <div style="padding-top:18px;">
+            <p>Купить в кредит
+              теперь можно
+              и через сайт.</p>
+          </div>
+        </div>
+        <div class="w-1-fifth last" >
+          <div class="widget-h-88">
+            <a href="/promo-04"><img src="/images/catalog/img-14.png" style="display:block; margin:7px auto" /></a>
+          </div>
+          <div style="padding-top:18px;">
+            <p>MacBook Pro 
+              с дисплеем Retina 
+              уже в продаже!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br class="cc"/>
+    <div class="w-5-fifth">
+      <div class="sidebar w-1-fifth">
+        <h5>Обзоры</h5>
+        <div class="news-announce">
+          <span class="date"> 21.07 </span>
+          <p>21 и 22 июля в Уфе в нашем магазине в СТЦ МЕГА особые условия для покупки MacBook Pro, iPad, iPhone и аксессуаров. Не пропустите!</p>
+          <a href="/news" class="more">Подробнее</a>
+        </div>
+      </div>
+      <div class="w-2-fifth" >
+        <div style="border:1px solid #cbcdcd; border-radius:6px;background:url(/images/ui/widget_bg.png) 0 bottom repeat-x; height:189px;">
+          <div style="float:left;">
+            <img src="/images/promo/re-application.png" style="margin-left:14px; display:block" />
+          </div>
+          <div style="float:left;width:180px;padding-top:26px; margin-left:14px;">
+            <h4>Мобильное приложение для iPhone</h4>
+            <p> Отзывы, новости, наличие техники, акции  — всё это и многое другое в мобильном формате.<br />
+              <a class="dark-grey" href="/">Подробнее</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="w-2-fifth last">
+        <div style="border:1px solid #cbcdcd; border-radius:6px; background:url(/images/ui/widget_bg.png) 0 bottom repeat-x; height:188px;">
+          <div style="float:left;width:180px;padding-top:26px; margin-left:14px;">
+            <h4>Бесплатные <br />
+              семинары</h4>
+            <ul class="smaller">
+              <li><span class="date">27.07</span> Знакомство с iPhone</li>
+              <li><span class="date">27.07</span> iWork для iPad</li>
+              <li><span class="date">27.07</span> iPad — продолжение</li>
+            </ul>
+            <a class="more dark-grey" href="/">Регистрация на семинары</a>
+          </div>
+          <div style="float:left;">
+            <img src="/images/promo/re-seminars.png" style="margin-left:44px; display:block; margin-top:120px;" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <br class="cc"/>
+    <div class="w-5-fifth">
+      <div class="w-1-fifth">
+        <h5>Техника Apple и аксессуары </h5>
+        <p> re:Store (реСтор) — 
+          официальный партнер 
+          компании Apple (Эппл)
+          в России и Европе, имеющий статус премиум-реселлера 
+          Apple Premium Reseller 
+          (Эппл Премиум Реселлер). </p>
+      </div>
+      <div class="w-2-fifth">
+        <p class="smaller"> re:Store — это не просто магазин, но и центр обслуживания, место, куда вы можете прийти, чтобы посоветоваться, выбрать подходящее устройство, где вас научат пользоваться им, дадут советы по эксплуатации и покажут возможности того, что вы приобрели. </p>
+        <p class="smaller"> re:Store — это компания, которая специализируется на продукции одной фирмы, фирмы, достойной особого разговора и пристального внимания. Наши продавцы — это специалисты в своей области. А качественная, удобная, простая в использовании техника от Apple (Эппл) доставляет удовольствие своим пользователям и редко требует какой-либо технической поддержки. </p>
+      </div>
+      <div class="w-2-fifth last">
+        <p class="smaller"> Мы продаем только официальные версии с легальной русской прошивкой, что избавляет клиентов от множества проблем. Цены на всю продукцию в наших магазинах техники Apple (Эппл) курируются поставщиками. </p>
+        <p class="smaller"> Мы продаем компьютеры, клавиатуры, мышки, мониторы, плееры, телефоны и многое другое по ценам, соответствующим политике компаний-производителей. Мы работаем, чтобы вам было удобно. Центры продаж техники Apple (Эппл) расположены по всей России. Вы можете придти, чтобы лично ознакомиться с тем или иным устройством. У нас предусмотрена и возможность заказа через интернет. Как покупать — выбор за вами! </p>
+      </div>
+      <br class="cc"/>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="left">
+      <a href="http://mnogo.ru" class="mnogoru"></a>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+  <div class="dialogs-container">
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-city">
+      <div id="dialog_cities">
+        <h1>Ваш город</h1>
+        <form>
+          <input type="checkbox" id="remember_me" name="remember_me" />
+          <label for="remember_me">Запомнить меня</label>
+          <input class="submit no-js-only inline" type="submit" value="Запомнить" />
+        </form>
+        <br class="cc" />
+        <ul class="city-list left">
+          <li><a href="/?city=moscow">Москва</a></li>
+          <li><a href="/?city=spb">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+        <ul class="city-list left">
+          <li><a href="">Москва</a></li>
+          <li><a href="">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+        <ul class="city-list left">
+          <li><a href="">Москва</a></li>
+          <li><a href="">Санкт-Петербург</a></li>
+          <li><a href="">Нижний Новгород</a></li>
+          <li><a href="">Уфа</a></li>
+          <li><a href="">Тула</a></li>
+          <li><a href="">Орёл</a></li>
+          <li><a href="">Курск</a></li>
+          <li><a href="">Новгород</a></li>
+          <li><a href="">Краснодар</a></li>
+          <li><a href="">Челябинск</a></li>
+          <li><a href="">Белгород</a></li>
+          <li><a href="">Рязань</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-login">
+      <div id="dialog_login">
+        <h1>Вход</h1>
+        <form class="plain">
+          <dt>
+            <label for="login">Логин</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="login" id="login"/>
+          </dd>
+          <dt>
+            <label for="password">Пароль</label>
+          </dt>
+          <dd style="margin-bottom:18px">
+            <input type="password"  class="text" name="password" id="password"/>
+          </dd>
+          <dd class="inline checkbox">
+            <input type="checkbox" name="remember-me" id="remember-me"/>
+            <label for="remember-me">Запомнить меня</label>
+          </dd>
+          <dd class="inline right"> <a href="" class="dashed dialog-trigger" rel="dialog_forget-password">Забыли пароль?</a> </dd>
+          <dd class="inline">
+            <input type="submit" class="submit narrow" value="Войти"/>
+            <span class="label_login-through">или через <a class="social-login fb" href=""></a><a class="social-login vk" href=""></a><a class="social-login tw" href=""></a></span> </dd>
+          <dd class="centered last login"><a href="/?dialog=register" class="dashed dialog-trigger" rel="dialog_register" id="close-dialog-login">Зарегистрироваться</a> </dd>
+        </form>
+      </div>
+    </div>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all dialog dlg-register" style="display:none">
+      <div id="dialog_register">
+        <h1>Регистрация</h1>
+        <form class="plain">
+          <dt>
+            <label for="login">Логин</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="login" id="login"/>
+          </dd>
+          <dt>
+            <label for="password">Email</label>
+          </dt>
+          <dd>
+            <input type="text"  class="text" name="email" id="email"/>
+          </dd>
+          <dt>
+            <label for="password">Пароль</label>
+          </dt>
+          <dd>
+            <input type="password"  class="text" name="password" id="password"/>
+          </dd>
+          <dd class="inline checkbox">
+            <input type="checkbox" name="privacy-agree" id="privacy-agree" checked="checked"/>
+            <label for="privacy-agree" class="extra-small">Согласен с обработкой персональных данных</label>
+          </dd>
+          <dd class="centered">
+            <input type="submit" class="submit middle" value="Зарегистрироваться"/>
+          </dd>
+          <dd>
+            <p>Зарегистрироваться через <a class="social-login fb" href=""></a><a class="social-login vk" href=""></a><a class="social-login tw" href=""></a></p>
+          </dd>
+          <dd class="centered last login"><a href="/?dialog=login" class="dashed dialog-trigger" rel="dialog_register" id="close-dialog-register">Войти</a> </dd>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.9.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.9.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.quantifier.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+	$('.tabs-tape').tabs();
+	$('#search-quick .text').focus(function(){
+		$(this).addClass('active');
+		$('#search-suggestions').css({'display':'block'});
+	});
+	$('#search-quick .text').blur(function(){
+		$(this).removeClass('active');
+		$('#search-suggestions').css({'display':'none'});
+	});	
+	$('.qnt').quantifier();
+	$('#order-form input.back, #order-form input.submit').click(function(e){
+		e.preventDefault();
+
+		var index = $(this).attr('rel');
+				console.log(index);
+		$('.tabs-tape').tabs('select',index-1);
+		
+	});
+});
+//]]>
+</script>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth">
+        <a href="/shops" class="shops bordered"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var> <i>шт</i></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr.png" alt="Apple Premium Reseller"/></a>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+        <div id="search-suggestions">
+          <ul class="suggestion-blocks">
+            <li> <span class="title">15 товаров</span>
+              <ul>
+                <li>
+                  <div class="holder-img">
+                    <a href="#"> <img src="/images/catalog/img-01_micro.jpg" /> </a><br />
+                  </div>
+                  <div  class="holder-desc">
+                    <a href="#">MacBook Pro
+                    15’’ Retina i7</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="holder-img">
+                    <a href="#"> <img src="/images/catalog/img-01_micro.jpg" /> </a><br />
+                  </div>
+                  <div  class="holder-desc">
+                    <a href="#"> MacBook Pro
+                    15’’ Retina i7</a>
+                  </div>
+                </li>
+              </ul>
+              <span class="title"><a href="#">Посмотреть все 15</a></span> </li>
+            <li class="last"> <span class="title">4 новости</span>
+              <ul>
+                <li>
+                  <div>
+                    <a href="#"> Презентация нового
+                    iPhone прошла вчера</a>
+                  </div>
+                </li>
+              </ul>
+              <span class="title"><a href="#">Посмотреть все 4</a></span> </li>
+          </ul>
+        </div>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+  <h1 style="margin-top:50px; margin-bottom:50px;padding-left:30px;">Адреса розничных магазинов</h1>
+    <div class="w-1-third wide-menu">
+
+
+			<div class="greybox">
+			<div class="corner-t-l"></div><div class="corner-t-r"></div>
+			<div>
+			<form name="semi-selector" action="#" method="post">
+				<div><select size="1" name="semi-select" id="semi-select" onchange="changeSem(document.getElementById('semi-select').value);">
+						<option value="0">Все семинары</option>
+						
+<option value="8373">Знакомство с Mac</option><option value="8375">Знакомство с iPad</option><option value="8372">iPhoto для Mac</option><option value="8371">Видео на Mac</option><option value="8711">iPad — продолжение</option><option value="8531">iWork для iPad</option><option value="8625">iCloud</option><option value="8626">Mac — продолжение</option><option value="8917">iTunes — синхронизация устройств</option>
+						</select></div>
+
+				<div id="clnd">
+
+<table class="calendar" cellpadding="0" cellspacing="0">
+	<tbody><tr class="week day">
+		<td>П</td><td>В</td><td>С</td><td>Ч</td><td>П</td><td>С</td><td>В</td>
+	</tr>
+	
+<tr class="week"><td class="out">29</td><td class="out">30</td><td class="out">31</td><td class="same"><div>1</div></td><td class="same"><div>2</div></td><td class="same"><div>3</div></td><td class="same"><div>4</div></td></tr><tr class="week"><td class="same"><div>5</div></td><td class="same"><div>6</div></td><td>7</td><td class="same"><div>8</div></td><td class="same"><div>9</div></td><td class="same"><div>10</div></td><td class="same"><div>11</div></td></tr><tr class="week"><td class="same"><div>12</div></td><td class="same"><div>13</div></td><td class="same"><div>14</div></td><td class="same"><div>15</div></td><td class="same"><div>16</div></td><td>17</td><td class="same"><div>18</div></td></tr><tr class="week"><td class="same"><div>19</div></td><td class="same"><div>20</div></td><td class="same"><div>21</div></td><td class="same"><div>22</div></td><td>23</td><td class="today"><div>24</div></td><td class="same"><div>25</div></td></tr><tr class="week"><td>26</td><td class="same"><div>27</div></td><td>28</td><td class="same"><div>29</div></td><td>30</td><td class="out">1</td><td class="out">2</td></tr>
+</tbody></table>				</div>
+				<div id="shop-select"></div>
+				<div id="date">
+				</div>
+			</form>
+			</div>
+			<div class="corner-b-l"></div><div class="corner-b-r"></div>
+		</div>
+		<div style="width: 100%; height: 35px; text-align: center;" align="center"><a href="/rss/"><img src="/images/ui/rss_subcribe_icon.png" height="23" width="113"></a></div>
+	<p style="font-size:1.2em;">
+<strong>Как записаться на семинар?</strong>
+<br>
+Для записи на семинар выберите интересующий вас семинар в календаре, затем укажите магазин и дату.
+</p>	
+ 	</div>
+        <div class="w-2-third last">
+  
+
+<!-- NEW SHEDULE START -->
+<style type="text/css">
+<!--
+
+#MSK { display:none; font-size:1.3em}
+#EKAT { display:none; font-size:1.3em}
+#NOV { display:none; font-size:1.3em}
+
+#loader {display:block; padding:16px 0px 16px 0px; text-align:center;}
+
+.city { font-size:1.5em; margin-top:14px;}
+.day {color:#E1207C; margin-bottom:10px; margin-top:10px;}
+.time {color:#999999;}
+.separator {color:#dddddd;}
+.city-link { color:#FF6600;}
+.locator { text-align:left; width:20%; float:right; padding-top:6px;}
+.whiter {color:#FFFFFF;}
+-->
+</style>
+
+
+<script type="text/javascript">
+
+$(document).ready(
+function () {
+
+var sheduleDivs = ['MSK', 'EKAT', 'NOV'];
+var todayDay = new Date();
+todayDay = todayDay.getDate();
+
+var dayParagraphs;
+var haveSheduledDays;
+var haveNotSheduleMessage = '<p><em>Извините, расписание семинаров ещё готовится.</em></p>';
+
+var strFromHTML;
+var dateFromHTML;
+
+for (var i=0; i<sheduleDivs.length; i++) {
+
+haveSheduledDays = false;
+dayParagraphs = $('#' + sheduleDivs[i] + ' .day');
+
+for (var j=0; j<dayParagraphs.length; j++) {
+strFromHTML = $(dayParagraphs[j]).html();
+dateFromHTML = Number(strFromHTML.substring(0, strFromHTML.indexOf(' ')));
+
+if (dateFromHTML < todayDay) {
+$(dayParagraphs[j]).next().remove();
+$(dayParagraphs[j]).remove();
+}
+else {
+haveSheduledDays = true;
+break;
+}
+
+}
+
+
+if (haveSheduledDays == false) {
+$('#' + sheduleDivs[i] + ' h3').after(haveNotSheduleMessage);
+}
+
+
+}
+
+$('#loader').hide();
+$('#MSK').show();
+
+});
+
+function showMSK() {
+document.getElementById('MSK').style.display = 'block';
+document.getElementById('EKAT').style.display = 'none';
+document.getElementById('NOV').style.display = 'none';
+ } 
+ 
+ function showNOV() {
+ document.getElementById('NOV').style.display = 'block';
+document.getElementById('MSK').style.display = 'none';
+document.getElementById('EKAT').style.display = 'none';
+ } 
+ 
+ function showEKAT() {
+document.getElementById('MSK').style.display = 'none';
+document.getElementById('EKAT').style.display = 'block';
+document.getElementById('NOV').style.display = 'none';
+ } 
+
+</script>
+
+
+<br>
+<p><img src="http://www.re-store.ru/seminars/seminars-logo.jpg" style="padding-left:12px;" align="right" border="0" height="50" width="92">Приглашаем&nbsp;вас на&nbsp;бесплатные семинары по&nbsp;Mac, iPad и&nbsp;iPhone, которые проходят в&nbsp;наших магазинах в&nbsp;Москве, Екатеринбурге и&nbsp;Новосибирске.</p>
+<p>Записаться на&nbsp;интересующий вас семинар можно у&nbsp;продавца в&nbsp;магазине где&nbsp;проходит семинар, или&nbsp;на&nbsp;этой странице&nbsp;— на&nbsp;специальной форме слева.</p>
+<p>С&nbsp;кратким описанием семинаров можно познакомиться <a href="#description">в&nbsp;самом конце этой страницы</a>.</p>
+
+<!-- AddThis Button BEGIN -->
+<div>
+<div style="float:left"><p>И ещё. Не забудьте рассказать другим о наших семинарах:&nbsp;&nbsp;</p></div>
+
+<div class="addthis_toolbox addthis_default_style">
+<a href="#" target="_blank" class="addthis_button_vk at300b" title="Рассказать ВКонтакте"><span class="at16nc at300bs at15nc at15t_vk at16t_vk"><span class="at_a11y">Share on vk</span></span></a>
+<a href="#" class="addthis_button_facebook at300b" title="Рассказать в FaceBook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a>
+<a target="_blank" href="http://www.addthis.com/bookmark.php?v=250&amp;winname=addthis&amp;pub=ra-4ea7afb94d46a9ae&amp;source=tbx-250&amp;lng=ru-RU&amp;s=mymailru&amp;url=http%3A%2F%2Fwww.re-store.ru%2Fseminars%2F&amp;title=re%3AStore%20%E2%80%94%20%D0%A1%D0%B5%D0%BC%D0%B8%D0%BD%D0%B0%D1%80%D1%8B&amp;ate=AT-ra-4ea7afb94d46a9ae/-/-/50b0938eb3e891e7/2&amp;frommenu=1&amp;uid=50b0938e016603f2&amp;ct=1&amp;tt=0&amp;captcha_provider=nucaptcha" class="addthis_button_mymailru at300b" title="Рассказать в Моем Мире"><span class="at16nc at300bs at15nc at15t_mymailru at16t_mymailru"><span class="at_a11y">Share on mymailru</span></span></a>
+<a href="#" class="addthis_button_twitter at300b" title="Рассказать через Twitter"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a>
+<a target="_blank" href="http://www.addthis.com/bookmark.php?v=250&amp;winname=addthis&amp;pub=ra-4ea7afb94d46a9ae&amp;source=tbx-250&amp;lng=ru-RU&amp;s=livejournal&amp;url=http%3A%2F%2Fwww.re-store.ru%2Fseminars%2F&amp;title=re%3AStore%20%E2%80%94%20%D0%A1%D0%B5%D0%BC%D0%B8%D0%BD%D0%B0%D1%80%D1%8B&amp;ate=AT-ra-4ea7afb94d46a9ae/-/-/50b0938eb3e891e7/3&amp;frommenu=1&amp;uid=50b0938ef95d6bc5&amp;ct=1&amp;tt=0&amp;captcha_provider=nucaptcha" class="addthis_button_livejournal at300b" title="Рассказать в ЖЖ"><span class="at16nc at300bs at15nc at15t_livejournal at16t_livejournal"><span class="at_a11y">Share on livejournal</span></span></a>
+<a href="#" class="addthis_button_compact at300m" title="Через другие службы"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
+<a href="#" style="display: block;" class="addthis_counter addthis_bubble_style"><a href="#" title="View more services" class="addthis_button_expanded">36</a><a class="atc_s addthis_button_compact"><span></span></a></a><div class="atclear"></div></div>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea7afb94d46a9ae"></script>
+<!-- AddThis Button END -->
+
+
+<br>
+
+
+
+
+<div style="border-bottom:1px #CCCCCC dotted;"></div>
+<br>
+<h1 style="font-size:2.2em; margin-top:6px; margin-bottom:16px;">Ближайшие семинары</h1>
+
+<div style="display: none;" id="loader"><img src="http://re-store.ru//images/ui/loader.gif" alt="" border="0"></div>
+
+<div style="display: block;" id="MSK">
+<div class="locator">
+<span style="color:#E1207C; ">•</span> Москва<br>
+<span class="whiter">•</span> <a href="javascript: showEKAT()" class="city-link">Екатеринбург</a>
+
+<br>
+<span class="whiter">•</span> <a href="javascript: showNOV()" class="city-link">Новосибирск</a>
+
+</div>
+
+<h3 style="font-size:1.5em;">Москва</h3>
+
+
+
+  
+
+
+  
+
+
+  
+<p class="day">24 ноября, магазин в ТЦ Метрополис</p>
+<p><span class="time">13:00</span> Знакомство с Mac<br>
+  <span class="time">14:00</span> iPhoto  для Mac<br>
+  <span class="time">15:00</span> Видео на Mac<br>
+  <span class="time">16:00</span> Знакомство с iPad</p>&nbsp;
+
+
+
+</div>
+
+<div id="EKAT">
+<div class="locator"><span class="whiter">•</span> <a href="javascript: showMSK()" class="city-link">Москва</a><br>
+<span style="color:#E1207C; ">•</span> Екатеринбург
+
+<br>
+<span class="whiter">•</span> <a href="javascript: showNOV()" class="city-link">Новосибирск</a>
+
+</div>
+
+
+<h3 style="font-size:1.5em;">Екатеринбург</h3>
+
+
+
+
+
+
+  
+<p class="day">25 ноября, магазин в СТЦ МЕГА</p>
+<p><span class="time">13:00</span> Mac — продолжение<br>
+  <span class="time">14:00</span> iPhoto для Mac<br>
+  <span class="time">16:00</span> Видео на Mac<br>
+  <span class="time">17:00</span> iPad — продолжение</p>
+  
+<p class="day">27 ноября, магазин в СТЦ МЕГА</p>
+<p><span class="time">18:00</span> Знакомство с Mac<br>
+  <span class="time">19:00</span> Видео на Mac<br>
+  <span class="time">20:00</span> iPhoto для Mac</p>
+  
+<p class="day">29 ноября, магазин в СТЦ МЕГА</p>
+<p><span class="time">18:00</span> iWork для iPad<br>
+  <span class="time">19:00</span> iTunes — синхронизация устройств<br>
+  <span class="time">20:00</span> iCloud</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+  
+</div>
+
+<div id="NOV">
+<div class="locator">
+<span class="whiter">•</span> <a href="javascript: showMSK()" class="city-link">Москва</a><br>
+<span class="whiter">•</span> <a href="javascript: showEKAT()" class="city-link">Екатеринбург</a><br>
+<span style="color:#E1207C; ">•</span> Новосибирск
+</div>
+
+<h3 style="font-size:1.5em;">Новосибирск</h3>
+
+
+
+
+
+
+
+<p class="day">29 ноября, магазин в ТРК Ройял Парк</p>
+<p><span class="time">19:00</span> Видео на Mac</p>
+
+
+
+</div>
+
+<a name="description"></a>
+<br>
+<div style="border-bottom:1px #CCCCCC dotted;"></div>
+<br>
+<h1 style="font-size:2.2em; margin-top:6px; margin-bottom:16px;">Краткое описание семинаров</h1><!-- NEW SHEDULE END -->
+
+
+<h4>Знакомство с Mac</h4><p>Если вы купили свой первый Mac или только думаете о покупке, этот семинар именно для вас. Вы узнаете простые базовые приемы работы со своим новым компьютером: например, как подключиться к интернету, как настроить почту. А еще познакомитесь с тем, как импортировать фотографии, как упорядочить музыкальную коллекцию и синхронизировать ее с iPod, как упорядочить и найти файлы на компьютере.</p><br><h4>Знакомство с iPhone</h4><p>Хотите узнать о возможностях нового iPhone 4? Приходите познакомиться с основами использования этого устройства. Как делать звонки, использовать почту и путешествовать по интернету, как загружать из App Store новые программы. Мы познакомим вас с новыми возможностями iPhone 4 — как устраивать видеоконференции, читать книги, снимать и монтировать видео в высоком разрешении.
+</p><br><h4>Знакомство с iPad</h4><p>На этой презентации мы расскажем вам о самых впечатляющих возможностях этого уникального устройства. Вы увидите, как на iPad можно просматривать любимые сайты, читать почту и смотреть фотографии и видео, как приобретать новые программы и читать книги.</p><br><h4>iPhoto для Mac</h4><p>Узнайте, как легко организовать, улучшить и передать кому-то другому вашу коллекцию фотографий с помощью iPhoto. Мы покажем вам новые способы демонстрации фотографий вашим друзьям и близким. А еще вы познакомитесь с совершенно новым подходом к созданию печатных альбомов.</p><br><h4>Видео на Mac</h4><p>iMovie поможет вам создать потрясающий фильм за короткое время. Мы покажем вам, как превратить домашнюю видеозапись в масштабный кинотрейлер голливудского качества, как подобрать идеальное звуковое сопровождение. Вы узнаете, как применить спецэффекты и превратить видео в выпуск новостей, а потом выложить его в интернете или записать на DVD.</p><br><h4>GarageBand</h4><p>Программа GarageBand превратит ваш Mac в&nbsp;студию звукозаписи. И&nbsp;вы&nbsp;узнаете, что в&nbsp;GarageBand есть всё необходимое, чтобы записать песню с&nbsp;великолепным звучанием,&nbsp;— а&nbsp;также функции, помогающие держать идеальный ритм, и&nbsp;уроки игры на&nbsp;фортепиано и&nbsp;гитаре.</p><br><h4>iPad — продолжение</h4><p>Углублённое знакомство с iPad.</p><br><h4>iPhoto для iPad</h4><p>На&nbsp;семинаре вы&nbsp;научитесь работать с&nbsp;приложением Apple iPhoto для&nbsp;iPad. Приложение iPhoto предназначено для&nbsp;каталогизации и&nbsp;редактирования фотографий.</p><br><h4>iWork для iPad</h4><p>Пакет программ iWork, который вы&nbsp;знаете и&nbsp;любите на&nbsp;Mac&nbsp;— Keynote, Pages и&nbsp;Numbers&nbsp;— был полностью переделан для использования на&nbsp;iPad. На&nbsp;этом семинаре мы&nbsp;покажем вам, как создавать впечатляющие презентации, документы и&nbsp;таблицы. Вы&nbsp;также узнаете, как переносить файлы на&nbsp;ваш iPad, открывать документы в&nbsp;формате Microsoft Office и&nbsp;сохранять в&nbsp;этом формате, и&nbsp;как отправлять готовые файлы. Присоединяйтесь к&nbsp;нам и&nbsp;вы&nbsp;узнаете почему Keynote, Pages и&nbsp;Numbers являются самыми удобными офисными программами для мобильных устройств.</p><br><h4>iMovie для iPad</h4><p>Теперь можно снимать и&nbsp;монтировать фильмы прямо на&nbsp;iPad или iPhone. Новая программа iMovie для этих мобильных устройств поможет вам в&nbsp;этом. На&nbsp;семинаре вы&nbsp;узнаете, как в&nbsp;проекте вашего фильма использовать темы, переходы и&nbsp;титры, как добавлять в&nbsp;фильм фотографии и&nbsp;музыкальное сопровождение. И&nbsp;мы&nbsp;покажем вам, как передать готовый фильм на&nbsp;компьютер или опубликовать на&nbsp;YouTube, Facebook или Vimeo.</p><br><h4>Презентации на Mac</h4><p>На семинаре вы научитесь создавать красочные презентации в приложении Apple Keynote.</p><br><h4>iTunes</h4><p>Синхронизация данных между Mac, iPad, iPhone и&nbsp;iPod&nbsp;touch.</p><br><h4>Знакомство с iOS 6</h4><p>Знакомство с мобильной операционной системой iOS 6.</p><br><h4>iCloud</h4><p>Семинар по основам использования облачного сервиса iCloud.</p><br><h4>Mac — продолжение</h4><p>Углублённое знакомство с Mac.</p><br><h4>iPhone — продолжение</h4><p>Углублённое знакомство с телефоном iPhone.</p><br><h4>iTunes — синхронизация устройств</h4><p>Базовые сведения и&nbsp;нюансы синхронизации музыки, фото, видео и&nbsp;других данных на&nbsp;устройствах Apple через iTunes.</p><br>
+
+<!-- SHEDULE LINK START -->
+<!--
+<br />
+<div style="padding:10px; border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 4px #CCCCCC inset; border:1px sold #CCCCCC;">
+  <div align="center" style="font-size:1.5em;"><img src="http://www.re-store.ru/seminars/seminars-logo.jpg" alt="Семинары re:Store" width="92" height="50" border="0" align="absmiddle"> &nbsp; <strong><a href="http://www.re-store.ru/news/company/seminars-shedule-for-january-2012/">Расписание семинаров на январь</a></strong> &rarr; </div>
+</div>
+-->
+
+<!-- SHEDULE LINK END -->
+
+		
+
+ 	</div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+</body>
+</html>

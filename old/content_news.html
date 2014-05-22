@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.9.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.9.custom.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+	$('.tabs-tape').tabs();
+	InitPromoSlider();
+	function InitPromoSlider()
+	{
+		$(".slider-nav .w-1-fifth").click(function(){
+			var alink = $(this).find("a").attr("href");
+			window.location = alink;
+		});
+		$(".slide").click(function(){
+			var alink = $(this).find("a").attr("href");
+			window.location = alink;
+		});
+		
+		$('.slider-nav .w-1-fifth').hover(function() {
+			var i = $(".slider-nav .w-1-fifth").index(this);
+			clearInterval(slideInterval);
+			
+			var sSlide	= -728 * i + "px";
+			
+			$(".slider-container").stop().animate({ marginLeft: sSlide }, 600);
+			var sSlideLine	= 190 * i + "px";
+			$(".slider-handle").stop().animate({ marginLeft: sSlideLine }, 600 );
+    		clearInterval(slideInterval);
+
+  		}, 
+		function() {
+    		SlideTimer();
+  		});
+	}
+	
+	//SlideTimer();
+	var slideInterval;
+	function SlideTimer(){
+		slideInterval = setInterval(function() {
+	  
+		   if (Number($(".slider-container").css("marginLeft").replace(/px/g, ''))%728==0){
+				if(Number($(".slider-container").css("marginLeft").replace(/px/g, ''))<=-2184){
+					sSlide = 0;
+					sSlideLine = 0;
+				}else {
+					sSlide	= Number($(".slider-container").css("marginLeft").replace(/px/g, ''))-728;
+					sSlideLine = Number($(".slider-handle").css("marginLeft").replace(/px/g, '')) + 190;
+				}
+				$(".slider-container").stop().animate({ marginLeft: sSlide+'px' }, 600, function() {} );
+				$(".slider-handle").stop().animate({ marginLeft: sSlideLine+'px' }, 600 ); 
+			}
+		}, 10000);
+	}
+	$('#search-quick .text').focus(function(){
+		$(this).addClass('active');
+		$('#search-suggestions').css({'display':'block'});
+	});
+	$('#search-quick .text').blur(function(){
+		$(this).removeClass('active');
+		$('#search-suggestions').css({'display':'none'});
+	});	
+	
+});
+//]]>
+</script>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth">
+        <a href="/shops" class="shops bordered"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var> <i>шт</i></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr.png" alt="Apple Premium Reseller"/></a>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input type="text" class="text"/>
+          <input type="submit" class="submit"/>
+        </form>
+        <div id="search-suggestions">
+          <ul class="suggestion-blocks">
+            <li> <span class="title">15 товаров</span>
+              <ul>
+                <li>
+                  <div class="holder-img">
+                    <a href="#"> <img src="/images/catalog/img-01_micro.jpg" /> </a><br />
+                  </div>
+                  <div  class="holder-desc">
+                    <a href="#">MacBook Pro
+                    15’’ Retina i7</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="holder-img">
+                    <a href="#"> <img src="/images/catalog/img-01_micro.jpg" /> </a><br />
+                  </div>
+                  <div  class="holder-desc">
+                    <a href="#"> MacBook Pro
+                    15’’ Retina i7</a>
+                  </div>
+                </li>
+              </ul>
+              <span class="title"><a href="#">Посмотреть все 15</a></span> </li>
+            <li class="last"> <span class="title">4 новости</span>
+              <ul>
+                <li>
+                  <div>
+                    <a href="#"> Презентация нового
+                    iPhone прошла вчера</a>
+                  </div>
+                </li>
+              </ul>
+              <span class="title"><a href="#">Посмотреть все 4</a></span> </li>
+          </ul>
+        </div>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div class="sidebar w-1-fifth">
+      <ul id="nav-left">
+        <li><a href="/catalog">О компании</a></li>
+        <li><a href="/catalog">Каталог</a></li>
+        <li><a href="/catalog">Бонусная программа</a></li>
+        <li><a href="/catalog">Оплата и доставка</a></li>
+        <li><a href="/catalog">Гарантии</a></li>
+        <li><a href="/catalog">Обзоры товаров</a></li>
+        <li><a href="/catalog">Обучение</a></li>
+        <li><a href="/catalog">Корпоративным клиентам</a></li>
+        <li><a href="/catalog">Контакты</a></li>
+      </ul>
+      <div class="social">
+        <a class="fb">&nbsp;</a> <a class="vk">&nbsp;</a> <a class="tw">&nbsp;</a> <a class="yt">&nbsp;</a>
+        <p class="dark-grey">Присоединяйтесь
+          к сообществу re:Store</p>
+      </div>
+    </div>
+    <div class="w-3-fifth last plain-content">
+    	    <ul class="bread"><li><a href="#">Каталог</a></li><li><a href="#">Mac</a></li><li><a href="#">MacBook Pro</a></li><li class="active"><a href="#">Новости</a></li></ul>
+      <h1>Заголовок новости</h1>
+      <div style="margin:16px 0 24px">
+      <span class="date">21 августа 2012 года</span><img src="/images/ui/tmp_social-counters.png" style="vertical-align:middle; margin-left:30px;" />
+      </div>
+			<p>Всё это время мы руководствовались главным принципом — максимально удовлетворять потребности наших клиентов. Это учитывалось и в нашем ассортименте: с каждым годом подборка аксессуаров в наших магазинах становилась все шире и интереснее. Пользователи всегда имели возможность познакомиться с любым продуктом «вживую», будь то компьютер, плеер или акустика. Ведь так проще принять решение о целесообразности покупки, особенно когда рядом опытный консультант, готовый прийти на помощь и ответить на все вопросы.</p>
+      <img src="/images/content/img01.jpg" />
+    </div>
+        <br class="cc"/>
+    <div class="w-5-fifth first">
+    <h5>Также читайте</h5>
+
+          <div class="news-announce w-1-fifth">
+        <span class="date"> 21.07 </span>
+        <strong>Black Edition Moscow</strong>
+        <p>Акция: до конца лета при покупке 3 аксессуаров одного цвета — скидка 10% на все аксессуары!</p>
+        <a href="/news" class="more">Подробнее</a>
+
+    </div>
+               <div class="news-announce w-1-fifth">
+        <span class="date"> 21.07 </span>
+                <strong>Black Edition Moscow</strong>
+        <p>Акция: до конца лета при покупке 3 аксессуаров одного цвета — скидка 10% на все аксессуары!</p>
+        <a href="/news" class="more">Подробнее</a>
+
+    </div>
+              <div class="news-announce w-1-fifth">
+        <span class="date"> 21.07 </span>
+                <strong>Black Edition Moscow</strong>
+        <p>Акция: до конца лета при покупке 3 аксессуаров одного цвета — скидка 10% на все аксессуары!</p>
+        <a href="/news" class="more">Подробнее</a>
+
+    </div>
+              <div class="news-announce w-1-fifth">
+        <span class="date"> 21.07 </span>
+                <strong>Black Edition Moscow</strong>
+        <p>Акция: до конца лета при покупке 3 аксессуаров одного цвета — скидка 10% на все аксессуары!</p>
+        <a href="/news" class="more">Подробнее</a>
+
+    </div>
+              <div class="news-announce w-1-fifth last">
+        <span class="date"> 21.07 </span>
+                <strong>Black Edition Moscow</strong>
+        <p>Акция: до конца лета при покупке 3 аксессуаров одного цвета — скидка 10% на все аксессуары!</p>
+        <a href="/news" class="more">Подробнее</a>
+
+    </div>
+    </div>
+    <br class="cc"/>
+    <div class="w-5-fifth">
+      <div class="w-1-fifth">
+        <h5>Техника Apple и аксессуары </h5>
+        <p> re:Store (реСтор) — 
+          официальный партнер 
+          компании Apple (Эппл)
+          в России и Европе, имеющий статус премиум-реселлера 
+          Apple Premium Reseller 
+          (Эппл Премиум Реселлер). </p>
+      </div>
+      <div class="w-2-fifth">
+        <p class="smaller"> re:Store — это не просто магазин, но и центр обслуживания, место, куда вы можете прийти, чтобы посоветоваться, выбрать подходящее устройство, где вас научат пользоваться им, дадут советы по эксплуатации и покажут возможности того, что вы приобрели. </p>
+        <p class="smaller"> re:Store — это компания, которая специализируется на продукции одной фирмы, фирмы, достойной особого разговора и пристального внимания. Наши продавцы — это специалисты в своей области. А качественная, удобная, простая в использовании техника от Apple (Эппл) доставляет удовольствие своим пользователям и редко требует какой-либо технической поддержки. </p>
+      </div>
+      <div class="w-2-fifth last">
+        <p class="smaller"> Мы продаем только официальные версии с легальной русской прошивкой, что избавляет клиентов от множества проблем. Цены на всю продукцию в наших магазинах техники Apple (Эппл) курируются поставщиками. </p>
+        <p class="smaller"> Мы продаем компьютеры, клавиатуры, мышки, мониторы, плееры, телефоны и многое другое по ценам, соответствующим политике компаний-производителей. Мы работаем, чтобы вам было удобно. Центры продаж техники Apple (Эппл) расположены по всей России. Вы можете придти, чтобы лично ознакомиться с тем или иным устройством. У нас предусмотрена и возможность заказа через интернет. Как покупать — выбор за вами! </p>
+      </div>
+      <br class="cc"/>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+</body>
+</html>

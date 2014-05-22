@@ -1,0 +1,749 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+<title>re:Store shop</title>
+<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.slider.js"></script>
+<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="/js/jquery.quantifier.js"></script>
+<script type="text/javascript" src="/js/jquery.stickyscroll.js"></script>
+<script type="text/javascript" src="/js/jquery.custom-radio-checkbox.js"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var warehouseGmap, shopGmap, warehouseMarker, shopMarker, latlng;
+
+// setWarehouseAddress and setShopAddress - two different functions to possible different login - multiple labels for shops and only one for warehouse etc...
+function setWarehouseAddress(lat, lng, zoom){
+	latlng = new google.maps.LatLng(lat, lng);
+	if (warehouseGmap != null){
+		//preload other values with json or simple ajax instead of harcoding;
+		warehouseGmap.setCenter(latlng);
+		shopMarker.setPosition(latlng);
+		google.maps.event.trigger(warehouseGmap, 'resize');			
+	}else{
+		var myOptions = {
+		  zoom: zoom,
+		  center: latlng,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var image = '/images/ui/letter_a-black.png';
+		warehouseGmap = new google.maps.Map(document.getElementById('warehouse-pickup-gmap'), myOptions);	
+		warehouseMarker = new google.maps.Marker({
+		  position: latlng,
+		  map: warehouseGmap,
+		  icon: image
+		});			
+	}
+};
+function setShopAddress(lat, lng, zoom){
+	latlng = new google.maps.LatLng(lat, lng);
+	if (shopGmap != null){
+		//preload other values with json or simple ajax instead of harcoding;
+		shopGmap.setCenter(latlng);
+		shopMarker.setPosition(latlng);
+		google.maps.event.trigger(shopGmap, 'resize');		
+	}else{
+		var myOptions = {
+		  zoom: zoom,
+		  center: latlng,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var image = '/images/ui/letter_a-black.png';
+		shopGmap = new google.maps.Map(document.getElementById('shop-pickup-gmap'), myOptions);	
+		shopMarker = new google.maps.Marker({
+			  position: latlng,
+			  map: shopGmap,
+			  icon: image
+		});		
+	}
+};
+
+$(function(){
+
+	$('#search-quick .text').focus(function(){
+		$(this).addClass('active');
+		$('#search-suggestions').css({'display':'block'});
+	});
+	$('#search-quick .text').blur(function(){
+		$(this).removeClass('active');
+		$('#search-suggestions').css({'display':'none'});
+	});	
+	$('.qnt').quantifier();
+	$('.buying-remove').remover();
+	$('#flipMap').stickyScroll({'unstick':false, duration:10});
+
+
+	$('dd.delivery-type-3 input[type="radio"]').customRadioCheckbox({'parent':'dd'}).change(function(){
+		setShopAddress(54.765271, 37.615964, 14);
+	});
+	$('dd.delivery-tab').css({'display':'none'});
+    
+	$('dl.order-payment input[type="radio"]').customRadioCheckbox({parent:'dl'}).change(function(){
+		$(this).parents('dd').siblings().removeClass('checked');
+		if ($(this).is(':checked')){
+			$(this).parents('dd').addClass('checked');
+		}
+	});
+	
+	$('select#loyalty-card').selectmenu({
+		style:'dropdown', 
+		menuWidth: 250,
+		change: function() {
+        }
+	});
+		
+	$('select#delivery-city').selectmenu({
+		style:'dropdown', 
+		menuWidth: 200,
+		change: function() {
+            setWarehouseAddress(54.765271, 37.615964, 14);
+        }
+	});
+
+	$('select#delivery-type').selectmenu({
+		style:'dropdown', 
+		menuWidth: 200,
+		change: function(event, options) {
+			if (options.value == 'delivery-type-1'){
+			  $('dd.delivery-tab').css({'display':'none'});
+			  $('dd.delivery-type-1').css({'display':'block'});
+			} else if (options.value == 'delivery-type-2') {			
+			  $('dd.delivery-tab').css({'display':'none'});
+			  $('dd.delivery-type-2').css({'display':'block'});
+			  setWarehouseAddress(55.765271, 37.615964, 14);
+			} else if (options.value == 'delivery-type-3') {
+ 			  $('dd.delivery-tab').css({'display':'none'});
+			  $('dd.delivery-type-3').css({'display':'block'});
+			  setShopAddress(55.765271, 37.615964, 14);
+			} else {
+ 			  $('dd.delivery-tab').css({'display':'none'});
+			}
+        }
+	});
+	
+	//slide down examples - validation should be done on the server side. tab-3 is opened in selectmenu - previous block.
+	var filled = false;
+	$('#tabs-order-step-1 input.submit').click(function(e){
+		e.preventDefault();
+		$(this).parents('dl').find('input.text').each(function(index, element) {
+            if ($(this).val()=='') filled = false; 
+				else filled = true;
+        });
+		if (filled) {
+			$('#tabs-order-step-1 input.submit').addClass('disabled').attr('disabled', 'disabled');
+			$('#tabs-order-step-2').slideDown(300).siblings('h2').addClass('active');
+			
+		}
+	});	
+	$('#tabs-order-step-2 input.submit').click(function(e){	
+		e.preventDefault();
+		$('#tabs-order-step-2 input.submit').addClass('disabled').attr('disabled', 'disabled');
+		$('#tabs-order-step-3').slideDown(300).siblings('h2').addClass('active');
+	});
+	$('#tabs-order-step-3 input.submit').click(function(e){
+		e.preventDefault();
+		$('#tabs-order-step-3 input.submit').addClass('disabled').attr('disabled', 'disabled');
+		$('#tabs-order-step-4').slideDown(300).siblings('h2').addClass('active');
+	});
+	$('#tabs-order-step-4 input.submit').click(function(e){
+		e.preventDefault();
+		$('#tabs-order-step-4 input.submit').addClass('disabled').attr('disabled', 'disabled');
+		$('#tabs-order-step-5').slideDown(300).siblings('h2').addClass('active');
+	});	
+	$('#tabs-order-step-1').siblings('h2').addClass('active')
+	$('#tabs-order-step-2, #tabs-order-step-3, #tabs-order-step-4, #tabs-order-step-5').hide();
+
+	
+});
+//]]>
+</script>
+</head>
+<body class="no-js">
+<script>
+$('body').removeClass('no-js');
+</script>
+<div id="noscript-warning">
+  <span>Для полноценной работы с сайтом требуется поддержка JavaScript.</span>
+</div>
+<div id="container">
+  <div id="header">
+    <div id="black-line">
+      <div class="w-1-fifth first">
+        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey">круглосуточно, без выходных</span>
+      </div>
+      <div class="w-1-fifth">
+        <span class="block first">Интернет магазин</span> <big>8 (495) <b>651-62-85</b></big> <span class="block grey">пн-пт, 10:00 - 19:00</span>
+      </div>
+      <div class="w-1-fifth">
+        <div>
+          <span class="block first">Город</span> <a href="/cities" class="city dialog-trigger" rel="dialog_cities"><b>Москва</b><ins></ins></a>
+        </div>
+        <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
+      </div>
+      <div class="w-1-fifth">
+        <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var> <i>шт</i></span></a> <a id="client_id"><span>Ваш ID: &nbsp;&nbsp;&nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr.png" alt="Apple Premium Reseller"/></a>
+      </div>
+    </div>
+    <div id="white-line">
+      <div class="w-1-fifth  first">
+        <form id="search-quick" method="post" action="/search">
+          <input tabindex="-1" type="text" class="text"/>
+          <input tabindex="-1" type="submit" class="submit"/>
+        </form>
+      </div>
+      <ul id="nav-top">
+        <li><a href="/catalog">Mac</a></li>
+        <li><a href="/catalog">iPod</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
+        <li><a href="/catalog">Аксессуары</a></li>
+        <li><a href="/catalog">Услуги</a></li>
+        <li><a href="/catalog">Акции</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
+        <li class="helper"></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <form id="order-form" class="plain" action="/thanks-manager" method="get">
+      <div class="w-5-fifth first">
+        <ul class="bread">
+          <li><a href="#">Корзина</a></li>
+          <li class="active"><a href="#">Оформление заказа</a></li>
+        </ul>
+        <br class="cc" />
+        <div class="w-half">
+          <h2 class="no-margin">Оформление заказа</h2>
+        </div>
+        <div class="w-half">
+          <p class="recall-us">Нужна помощь в оформлении заказа? <br />
+            Перезвоните нам 8 (495) 651-62-85 или <a href="#" class="dark-grey">закажите обратный звонок</a>!</p>
+        </div>
+        <br class="cc" />
+        <table class="order-buyings">
+          <tr>
+            <th class="buying-name">Наименование товара</th>
+            <th class="buying-price">Цена</th>
+            <th class="buying-qnt">Количество</th>
+            <th class="buying-total">Всего</th>
+            <td class="buying-remove"></td>
+          </tr>
+          <tr>
+            <td class="buying-name"><div class="holder-img">
+                <img src="/images/catalog/img-22_64x64.jpg" />
+              </div>
+              <div class="holder-desc">
+                <strong>Microsoft Office для Мас 2011
+                «Для дома и учебы» 3 пользователя</strong> <span>W7F-00022</span> <a href="#" class="add-accessory dialog-trigger js-only" rel="dialog_accessories">+ <span>Добавить аксессуар</span> </a>
+              </div></td>
+            <td class="buying-price"><b>3 990,-</b></td>
+            <td class="buying-qnt"><input tabindex="-1" type="text" class="qnt" value="1"/></td>
+            <td class="buying-total"><b>3 990,-</b></td>
+            <td class="buying-remove"><a class="qnt_bt_del" title="Удалить" href="/basket?action=remove&item=111"></a></td>
+          </tr>
+          <tr>
+            <td class="buying-name"><div class="holder-img">
+                <img src="/images/catalog/img-21_64x64.jpg" />
+              </div>
+              <div class="holder-desc">
+                <strong>Be.ez LE reporter для MacBook Air 11,6 </strong> <span>F-00022</span> <a href="#" class="add-accessory dialog-trigger js-only" rel="dialog_accessories">+ <span>Добавить аксессуар</span></a>
+              </div></td>
+            <td class="buying-price"><b>23 990,-</b></td>
+            <td class="buying-qnt"><input tabindex="-1"  type="text" class="qnt" value="1" /></td>
+            <td class="buying-total"><b>23 990,-</b></td>
+            <td class="buying-remove"><a class="qnt_bt_del" title="Удалить" href="/basket?action=remove&item=112"></a></td>
+          </tr>
+          <tr class="last">
+            <td colspan="2"></td>
+            <td colspan="2" class="total"><span class="label">Итого:</span><span class="cnt_total">112 950,-</span></td>
+            <td class="buying-remove"></td>
+          </tr>
+        </table>
+        <a href="" class="bt_order-with-paypal right" style="">Оплатить с paypal</a>
+        <br class="cc" />
+        <div style="width:920px; background:#ccc; font-size:3em; text-align:center; line-height:140px; vertical-align:middle; color:#333; height:140px; margin: 30px 0;">
+          Баннер
+        </div>
+      </div>
+      <div class="w-5-fifth no-min-height">
+        <h2><ins>1</ins>Кому доставить</h2>
+        <div id="tabs-order-step-1">
+          <p class="bigger"> Мы гарантируем кофиденциальность 
+            ваших персональных данных. Все поля обязательны для заполнения </p>
+          <dl class="order-who">
+            <dd>
+              <label>Ваше имя</label>
+              <input tabindex="1" type="text" class="text"/>
+              <p>как к вам обращаться?</p>
+            </dd>
+            <dd class="filled-error">
+              <label>Email</label>
+              <input tabindex="2" type="text" class="text" />
+              <p>сюда мы отправим
+                детали заказа</p>
+              <p class="error-desc">Введенный Email уже существует в системе, пожалуйста, авторизуйтесь или укажите другой Email.</p>
+            </dd>
+            <dd>
+              <label>Телефон</label>
+              <input tabindex="3" type="text" class="text" />
+              <p>по нему вам
+                позвонит курьер</p>
+            </dd>
+            <dd class="js-only">
+              <input type="submit" class="submit long" value="Заказать и уточнить детали"/>
+              <p class="bigger" style="margin-top:22px">После нажатия кнопки, ваш заказ будет принят менеджером.<br />
+                Уточнение дальнейших деталей необязательно. </p>
+              <p class="bigger"> Если вы хотите оплатить заказ кредитной картой через интернет, <br />
+                вам нужно оформить заказ полностью, заполнив все шаги. Спасибо за покупку!</p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="w-5-fifth no-min-height">
+        <h2><ins>2</ins>Куда доставить</h2>
+        <div id="tabs-order-step-2">
+          <dl class="order-where">
+            <dd>
+              <label>Город</label>
+              <select tabindex="4" name="city" id="delivery-city">
+                <option selected></option>
+                <option value="c1">Москва</option>
+                <option value="c2">Санкт Петербург</option>
+              </select>
+            </dd>
+            <dd class="delivery-type">
+              <label>Способ доставки</label>
+              <select tabindex="4" name="delivery-type" id="delivery-type">
+                <option selected></option>
+                <option value="delivery-type-1" id="delivery-type-1">Курьером, бесплатно</option>
+                <option value="delivery-type-3" id="delivery-type-3">Самовывоз из магазина</option>
+                <option value="delivery-type-2" id="delivery-type-2">Самовывоз со склада</option>
+              </select>
+            </dd>
+            <dd class="delivery-tab delivery-type-1">
+              <label>Адрес доставки <small class="no-js-only">(если выбрали доставку курьером)</small></label>
+              <textarea tabindex="7" ></textarea>
+            </dd>
+            <dd class="delivery-tab delivery-type-2">
+              <label>Адрес склада <small class="no-js-only">(если будете забирать самовывозом со склада)</small></label>
+              <p class="bigger">Санкт-Петербург, площадь Восстания, д.3. Время работы — с 9<sup>00</sup> до 19<sup>00</sup></p>
+              <div id="warehouse-pickup-gmap">
+              </div>
+            </dd>
+            <dd class="delivery-tab delivery-type-3">
+              <label>Выберите магазин <small class="no-js-only">(если будете забирать самовывозом из магазина)</small></label>
+              <div class="presence-in-shops left">
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-1"/>
+                <label for="shop-pickup-1" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Тверская, д. 16, павильон 3-13, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh2"  name="shop-pickup" id="shop-pickup-2"/>
+                <label for="shop-pickup-2" class="radio-plain">
+                ТЦ Галерея Актёр <i class="presence a-little"></i>
+                <p>ул. Тверская, д. 16, павильон 3-13, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh3"  name="shop-pickup" id="shop-pickup-3"/>
+                <label for="shop-pickup-3" class="radio-plain">
+                Белорусская<i class="presence a-little"></i>
+                <p>ул. Тверская, д. 16, павильон 3-13, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh4"  name="shop-pickup" id="shop-pickup-4"/>
+                <label for="shop-pickup-4" class="radio-plain">
+                ТРЦ  Европейский<i class="presence a-little"></i>
+                <p>ул. Тверская, д. 16, павильон 3-13, 3 этаж <nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-5"/>
+                <label for="shop-pickup-5" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-6"/>
+                <label for="shop-pickup-6" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-7"/>
+                <label for="shop-pickup-7" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-8"/>
+                <label for="shop-pickup-8" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-9"/>
+                <label for="shop-pickup-9" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-10"/>
+                <label for="shop-pickup-10" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-11"/>
+                <label for="shop-pickup-11" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-12"/>
+                <label for="shop-pickup-12" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-13"/>
+                <label for="shop-pickup-13" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-14"/>
+                <label for="shop-pickup-14" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-15"/>
+                <label for="shop-pickup-15" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-16"/>
+                <label for="shop-pickup-16" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-17"/>
+                <label for="shop-pickup-17" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-18"/>
+                <label for="shop-pickup-18" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-19"/>
+                <label for="shop-pickup-19" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+                <input type="radio" value="sh1"  name="shop-pickup" id="shop-pickup-20"/>
+                <label for="shop-pickup-20" class="radio-plain">
+                Петровка <i class="presence presented"></i>
+                <p>ул. Академика Петрова, д. 16, павильон 3-13, строение 10, 3 этаж<nobr> +7 496 232-23-12</nobr>, с 9<sup>00</sup> до 22<sup>00</sup> без выходных</p>
+                </label>
+              </div>
+              <div class="w-2-fifth left last" id="flipMap">
+                <div id="shop-pickup-gmap">
+                </div>
+              </div>
+              <br class="cc" />
+            </dd>
+            <dd class="js-only">
+              <input type="submit" class="submit big" value="Продолжить"/>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="w-5-fifth no-min-height">
+        <h2><ins>3</ins>Как оплатить</h2>
+        <div id="tabs-order-step-3">
+          <dl class="order-payment">
+            <dd>
+              <input tabindex="8" type="radio" value="v1"  name="delivery" id="delivery1"/>
+              <label class="smaller radio-plain" for="delivery1">Наличными курьеру</label>
+            </dd>
+            <dd>
+              <input tabindex="9" type="radio" value="v2" name="delivery" id="delivery2"/>
+              <label class="smaller radio-plain" for="delivery2">Безналичный расчёт для юр. лиц</label>
+            </dd>
+            <dd>
+              <input tabindex="10" type="radio" value="v2" name="delivery" id="delivery3"/>
+              <label class="smaller radio-plain" for="delivery3">Кредитной картой курьеру </label>
+            </dd>
+            <dd>
+              <input tabindex="11" type="radio" value="v2" name="delivery" id="delivery4"/>
+              <label class="smaller radio-plain" for="delivery4">Оформление товара в кредит</label>
+              <div class="line">
+              </div>
+              <p class="bigger">В процессе оформления заказа вы заполните небольшую анкету для банка. После оформления заказа с вами свяжется менеджер для уточнения деталей. <br />
+                Кредит предоставляет Альфа-Банк.</p>
+            </dd>
+            <dd>
+              <input tabindex="12" type="radio" value="v3" name="delivery" id="delivery5"/>
+              <label class="smaller radio-plain" for="delivery5">Кредитной картой через интернет</label>
+            </dd>
+            <dd>
+              <input tabindex="13" type="radio" value="v4" name="delivery" id="delivery6"/>
+              <label class="smaller radio-plain" for="delivery6">Банковский перевод</label>
+            </dd>
+            <dd>
+              <input tabindex="14" type="radio" value="v7" name="delivery" id="delivery7"/>
+              <label class="smaller radio-plain" for="delivery7">Оплатить с помощью <img src="/images/ui/logo_paypal-small.png"/></label>
+            </dd>            
+            <dd class="js-only">
+              <input type="submit" class="submit big" value="Продолжить"/>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="w-5-fifth no-min-height">
+        <h2><ins>4</ins>Мои привилегии</h2>
+        <div id="tabs-order-step-4">
+          <p class="bigger"> Мы гарантируем кофиденциальность 
+            ваших персональных данных. Все поля обязательны для заполнения </p>
+          <dl class="order-privileges">
+            <dd>
+              <label>Карта лояльности</label>
+              <select tabindex="4" name="loyalty-card" id="loyalty-card">
+                <option selected></option>
+                <option value="loyalty-card-1" id="loyalty-card-1">Mnogo.ru</option>
+                <option value="loyalty-card-2" id="loyalty-card-3">Бонусы от Сбербанка</option>
+              </select>
+              <p>подсказка о типа карты</p>
+            </dd>
+            <dd>
+              <label>Карта лояльности</label>
+              <input tabindex="2" type="text" class="text" />
+              <p>подсказка о номере карты<br />
+                <a href="" class="black">получить карту лояльности</a></p>
+            </dd>
+            <dd>
+              <label>Бонусный код</label>
+              <input tabindex="3" type="text" class="text" />
+              <p>подсказка о номере карты</p>
+            </dd>
+            <dd class="yellow-cut">
+              <p class="bigger"><b class="pink">Вы студент?</b> Воспользуйтесь привилегией купить товар со скидкой! Для этого пришлите нам скан своего студенческого билета в формате jpeg или png</p>
+              <input type="checkbox" class="checkbox" />
+              <label class="inline">Я студент</label>
+              <label class="inline">Файл</label>
+              <input type="file" class="file" />
+            </dd>
+            <dd class="js-only">
+              <input type="submit" class="submit big" value="Продолжить"/>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="w-5-fifth no-min-height">
+        <h2><ins>5</ins>Подтверждение</h2>
+        <div id="tabs-order-step-5">
+          <div class="w-2-third order-summary">
+            <p class="bigger"> Сикорский Леонид Яковлевич<br />
+              Электронная почта: dfsgdsfg@dfsdf.ty<br />
+              Телефон: +7 905 666-66-66<br />
+              Точное время доставки уточнит менеджер при согласовании деталей заказа</p>
+          </div>
+          <div class="w-1-third right order-total">
+            <p><span class="cnt_labels">Цена: </span><span class="cnt_price">79 460,-</span><br />
+              <span class="cnt_labels">Доставка:</span><span class="cnt_delivery">Бесплатно</span> <br />
+              <span class="cnt_labels">Скидка:</span><span class="cnt_discount">12 000 (-10%)</span> </p>
+          </div>
+          <br class="cc"/>
+          <div class="order-finish">
+            <p> Итого: <var class="purple">67640,-</var></p>
+            <input type="submit" class="submit big" value="Оформить"/>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="w-5-fifth">
+      <div class="w-1-fifth">
+        <h5>Техника Apple и аксессуары </h5>
+        <p> re:Store (реСтор) — 
+          официальный партнер 
+          компании Apple (Эппл)
+          в России и Европе, имеющий статус премиум-реселлера 
+          Apple Premium Reseller 
+          (Эппл Премиум Реселлер). </p>
+      </div>
+      <div class="w-2-fifth">
+        <p class="smaller"> re:Store — это не просто магазин, но и центр обслуживания, место, куда вы можете прийти, чтобы посоветоваться, выбрать подходящее устройство, где вас научат пользоваться им, дадут советы по эксплуатации и покажут возможности того, что вы приобрели. </p>
+        <p class="smaller"> re:Store — это компания, которая специализируется на продукции одной фирмы, фирмы, достойной особого разговора и пристального внимания. Наши продавцы — это специалисты в своей области. А качественная, удобная, простая в использовании техника от Apple (Эппл) доставляет удовольствие своим пользователям и редко требует какой-либо технической поддержки. </p>
+      </div>
+      <div class="w-2-fifth last">
+        <p class="smaller"> Мы продаем только официальные версии с легальной русской прошивкой, что избавляет клиентов от множества проблем. Цены на всю продукцию в наших магазинах техники Apple (Эппл) курируются поставщиками. </p>
+        <p class="smaller"> Мы продаем компьютеры, клавиатуры, мышки, мониторы, плееры, телефоны и многое другое по ценам, соответствующим политике компаний-производителей. Мы работаем, чтобы вам было удобно. Центры продаж техники Apple (Эппл) расположены по всей России. Вы можете придти, чтобы лично ознакомиться с тем или иным устройством. У нас предусмотрена и возможность заказа через интернет. Как покупать — выбор за вами! </p>
+      </div>
+      <br class="cc"/>
+    </div>
+  </div>
+  <br class="cc"/>
+  <div id="footer">
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Компьютеры Mac</li>
+        <li><a href="#">MacBook Air</a></li>
+        <li><a href="#">MacBook Air (2012)</a></li>
+        <li><a href="#">MacBook Pro 13"</a></li>
+        <li><a href="#">MacBook Pro 13" (2012)</a></li>
+        <li><a href="#">MacBook Pro 15"</a></li>
+        <li><a href="#">MacBook Pro 15" (2012)</a></li>
+        <li><a href="#">MacBook Pro 17"</a></li>
+        <li><a href="#">MacBook Pro с экраном Retina</a></li>
+        <li><a href="#">Mac mini</a></li>
+        <li><a href="#">iMac</a></li>
+        <li><a href="#">Mac Pro</a></li>
+        <li><a href="#">Mac Pro (2012)</a></li>
+        <li><a href="#">Apple Thunderbolt Display 27"</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Телефоны iPhone</li>
+        <li><a href="#">Apple iPhone 4S</a></li>
+        <li><a href="#">Apple iPhone 4</a></li>
+        <li><a href="#">Apple iPhone 3GS</a></li>
+      </ul>
+      <ul>
+        <li class="title">iPad</li>
+        <li><a href="#">Новый iPad</a></li>
+        <li><a href="#">Apple iPad 2</a></li>
+      </ul>
+      <ul>
+        <li class="title">Плееры iPod</li>
+        <li><a href="#">Apple iPod touch</a></li>
+        <li><a href="#">Apple iPod nano</a></li>
+        <li><a href="#">Apple iPod shuffle</a></li>
+        <li><a href="#">Apple iPod classic</a></li>
+      </ul>
+    </div>
+    <div class="w-1-fifth">
+      <ul>
+        <li class="title">Аксессуары</li>
+        <li><a href="#">Сервисная программа AppleCare</a></li>
+        <li><a href="#">Модемы и сеть</a></li>
+        <li><a href="#">Графические планшеты</a></li>
+        <li><a href="#">Фотокамеры</a></li>
+        <li><a href="#">Аксессуары для фотокамер</a></li>
+        <li><a href="#">Гарнитуры беспроводные</a></li>
+        <li><a href="#">Наушники</a></li>
+        <li><a href="#">Сумки для ноутбуков</a></li>
+        <li><a href="#">Чехлы для ноутбуков</a></li>
+        <li><a href="#">Чехлы для iPad</a></li>
+      </ul>
+    </div>
+    <div class="w-2-fifth padded last">
+      <ul>
+        <li class="title">Услуги</li>
+        <li><a href="#">Настройка iPod touch</a></li>
+        <li><a href="#">Страховой полис для iMac</a></li>
+        <li><a href="#">Настройка интернета для iPad и iPhone</a></li>
+        <li><a href="#">Настройка почты на iPad, iPhone и iPod</a></li>
+        <li><a href="#">Установка 1 программы</a></li>
+        <li><a href="#">Обновление или восстановление iPhone</a></li>
+        <li><a href="#">Страховой полис для iPad</a></li>
+        <li><a href="#">Страховой полис для MacBook, MacBook Pro и Air</a></li>
+        <li><a href="#">Перенос контактов на iPad</a></li>
+        <li><a href="#">Базовая настройка компьютера</a></li>
+      </ul>
+    </div>
+    <br class="cc"/>
+    <div class="left">
+      <p> © 2012 re:Store. <br />
+        Электронная почта: internetshop@re-store.ru<br />
+        Тел.: 8 (800) 700-19-44 (круглосуточно, ПН-ВС)<br />
+        <a href="/shops">Адреса магазинов</a> | <a href="/contacts">Контакты</a> </p>
+    </div>
+    <div class="right">
+      <p> re:Store — крупнейшая сеть Apple Premium Reseller в России<br />
+        <a href="/catalog">Каталог</a> | <a href="/about">О компании</a> | <a href="/bonus">Бонусная программа</a> | <a href="/delivery">Оплата и доставка</a><br />
+        <a href="/guarantees">Гарантии</a> | <a href="/reviews">Обзоры товаров</a> | <a href="/training">Обучение</a> | <a href="/corporative-clients">Корпоративным клиентам</a> | <a href="/sitemap">Карта сайта</a> </p>
+    </div>
+    <br class="cc"/>
+  </div>
+</div>
+<div class="hidden">
+  <div id="dialog_accessories">
+    <div class="dialog_tip">
+    </div>
+    <div id="tabs-tape-accessories">
+      <h1>Добавить аксессуары</h1>
+      <div class="scroll-pane">
+        <ul class="catalog scroll-content" style="width:1520px">
+          <!-- on serverside - width:itemcount*190px; -->
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+            Retina i7 high quality display with extra protection<span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+            Retina i7 high quality display with extra protection<span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+            64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+            By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+            By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+            By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+            By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+            By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
+        </ul>
+        <div class="scroll-bar-wrap ui-widget-content">
+          <div class="scroll-bar">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br class="cc" />
+  </div>
+</div>
+<script type="text/javascript">
+		$.extend($.ui.dialog.prototype.options, {
+			autoOpen: false, 				 
+    	    closeOnEscape: false,
+	        modal: true,
+			draggable:false,
+			resizable:false
+	    });
+		$(".ui-widget-overlay").live("click", function() {  $("div[id^='dialog']").dialog("close");} );		
+		
+		var $dialogAccessories = $("div#dialog_accessories").dialog({ 
+			width:	  800,
+			height: 415,
+			dialogClass: 'dialog dlg-accessories'
+		});		
+		$.extend($.ui.dialog.prototype.options.position, { collision: 'none' });
+
+		
+		$('a.dialog-trigger').click(function(e){
+			e.preventDefault();
+			var dlg = $(this).attr('rel');
+			var trigger = $(this);
+
+			//right here preload slider items
+			$('div#'+dlg).dialog({position: {
+				my: "left top",
+				at: "right+10 top-20",
+				of: trigger,
+				collision: 'none',
+				offset: "-50 32"
+			}}).dialog('open'); 
+			$('#tabs-tape-accessories').contentSlider({});
+		});
+		$('a.bt.add').live('click', function(e){
+			$dialogAccessories.dialog('close');
+		});
+		
+</script>
+</body>
+</html>
