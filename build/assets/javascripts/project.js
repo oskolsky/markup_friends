@@ -42,9 +42,13 @@ $(function() {
     // .. https://github.com/leafo/sticky-kit
     //
     $('#sidebar').stick_in_parent({
-        parent: '.ctn',
+        parent: '.page',
+        offset_top: 80
     });
     
+    $('#header').stick_in_parent({
+        parent: '.page'
+    });
 
     //
     // .. Masket input
