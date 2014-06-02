@@ -6,20 +6,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
 <title>re:Store shop</title>
-<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
-<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
-<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
-<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="css/application.css"/>
 <!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<link type="text/css" rel="stylesheet" href="css/ie.css"/>
 <![endif]-->
-<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
-<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
-<script type="text/javascript" src="/js/jquery.slider.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
-<script type="text/javascript" src="/js/jquery.quantifier.js"></script>
-<script type="text/javascript" src="/js/jquery.stickyscroll.js"></script>
-<script type="text/javascript" src="/js/jquery.custom-radio-checkbox.js"></script>
+<script type="text/javascript" src="js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.slider.js"></script>
+<script type="text/javascript" src="js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="js/jquery.quantifier.js"></script>
+<script type="text/javascript" src="js/jquery.stickyscroll.js"></script>
+<script type="text/javascript" src="js/jquery.custom-radio-checkbox.js"></script>
 <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script type="text/javascript">
 //<![CDATA[
@@ -39,7 +39,7 @@ function setWarehouseAddress(lat, lng, zoom){
 		  center: latlng,
 		  mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		var image = '/images/ui/letter_a-black.png';
+		var image = 'images/ui/letter_a-black.png';
 		warehouseGmap = new google.maps.Map(document.getElementById('warehouse-pickup-gmap'), myOptions);	
 		warehouseMarker = new google.maps.Marker({
 		  position: latlng,
@@ -61,7 +61,7 @@ function setShopAddress(lat, lng, zoom){
 		  center: latlng,
 		  mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		var image = '/images/ui/letter_a-black.png';
+		var image = 'images/ui/letter_a-black.png';
 		shopGmap = new google.maps.Map(document.getElementById('shop-pickup-gmap'), myOptions);	
 		shopMarker = new google.maps.Marker({
 			  position: latlng,
@@ -182,7 +182,7 @@ $('body').removeClass('no-js');
   <div id="header">
     <div id="black-line">
       <div class="w-1-fifth first">
-        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+        <a href="/" id="logo"><img src="images/ui/logo.png" alt="re:Store"/></a>
       </div>
       <div class="w-1-fifth">
         <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey">круглосуточно, без выходных</span>
@@ -197,7 +197,7 @@ $('body').removeClass('no-js');
         <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
       </div>
       <div class="w-1-fifth">
-        <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var> <i>шт</i></span></a> <a id="client_id"><span>Ваш ID: &nbsp;&nbsp;&nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr.png" alt="Apple Premium Reseller"/></a>
+        <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var> <i>шт</i></span></a> <a id="client_id"><span>Ваш ID: &nbsp;&nbsp;&nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="images/ui/logo_apr.png" alt="Apple Premium Reseller"/></a>
       </div>
     </div>
     <div id="white-line">
@@ -247,7 +247,7 @@ $('body').removeClass('no-js');
           </tr>
           <tr>
             <td class="buying-name"><div class="holder-img">
-                <img src="/images/catalog/img-22_64x64.jpg" />
+                <img src="images/catalog/img-22_64x64.jpg" />
               </div>
               <div class="holder-desc">
                 <strong>Microsoft Office для Мас 2011
@@ -260,7 +260,7 @@ $('body').removeClass('no-js');
           </tr>
           <tr>
             <td class="buying-name"><div class="holder-img">
-                <img src="/images/catalog/img-21_64x64.jpg" />
+                <img src="images/catalog/img-21_64x64.jpg" />
               </div>
               <div class="holder-desc">
                 <strong>Be.ez LE reporter для MacBook Air 11,6 </strong> <span>F-00022</span> <a href="#" class="add-accessory dialog-trigger js-only" rel="dialog_accessories">+ <span>Добавить аксессуар</span></a>
@@ -497,7 +497,7 @@ $('body').removeClass('no-js');
             </dd>
             <dd>
               <input tabindex="14" type="radio" value="v7" name="delivery" id="delivery7"/>
-              <label class="smaller radio-plain" for="delivery7">Оплатить с помощью <img src="/images/ui/logo_paypal-small.png"/></label>
+              <label class="smaller radio-plain" for="delivery7">Оплатить с помощью <img src="images/ui/logo_paypal-small.png"/></label>
             </dd>            
             <dd class="js-only">
               <input type="submit" class="submit big" value="Продолжить"/>
@@ -681,21 +681,21 @@ $('body').removeClass('no-js');
       <div class="scroll-pane">
         <ul class="catalog scroll-content" style="width:1520px">
           <!-- on serverside - width:itemcount*190px; -->
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
             Retina i7 high quality display with extra protection<span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
             Retina i7 high quality display with extra protection<span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
             64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a><a class="bt add">Добавить</a></li>
         </ul>
         <div class="scroll-bar-wrap ui-widget-content">

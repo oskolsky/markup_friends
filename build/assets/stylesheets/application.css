@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=latin,cyrillic);
 @import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
 @import url(vendor/jquery.arcticmodal-0.3.css);
 @import url(vendor/owl/owl.carousel.css);
@@ -636,7 +635,7 @@ body {
   background-image: url(/assets/images/pattern.png);
   color: #2b2b2b;
   font-weight: 400;
-  font-family: "Ubuntu", Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif; }
 
 body {
   font-size: 1.3rem;
@@ -646,7 +645,7 @@ img {
   font-style: italic; }
 
 h1, h2, h3, h4, h5, h6, .alpha, .beta, .gamma, .delta, .form-el.__legend, .epsilon, .zeta {
-  font-family: "Ubuntu", Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif; }
   h1.format-money > i,
   h1 .format-money > i, h2.format-money > i,
   h2 .format-money > i, h3.format-money > i,
@@ -671,27 +670,27 @@ h1, h2, h3, h4, h5, h6, .alpha, .beta, .gamma, .delta, .form-el.__legend, .epsil
 
 h1, .alpha {
   font-family: "geoslbc_w_inchregular", Helvetica, Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 4rem;
-  line-height: 7.2rem; }
+  line-height: 3.5rem; }
 
 h2, .beta {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 2.5rem;
   line-height: 2.5rem; }
 
 h3, .gamma {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.8rem;
   line-height: 2rem; }
 
 h4, .delta, .form-el.__legend {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2rem;
   line-height: 2.4rem; }
 
 h5, .epsilon {
-  font-weight: 600;
+  font-weight: 700;
   font-size: inherit;
   line-height: inherit; }
 
@@ -1718,6 +1717,7 @@ div.block {
   margin-bottom: 1rem; }
 
 .block_h_t {
+  padding: 2rem 0;
   text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.75); }
 
 .content-block, .comments {
@@ -1954,7 +1954,6 @@ div.block {
   padding: 0 20px;
   width: 25%;
   vertical-align: top;
-  font-family: Helvetica, Arial, sans-serif;
   line-height: 1.8rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2137,47 +2136,45 @@ div.block {
   .share_i:not(:last-child) {
     margin-right: 3rem; }
 
-.restore-social {
-  font-family: Helvetica, Arial, sans-serif; }
-  .restore-social .social-fixed {
-    margin-bottom: 18px; }
-    .restore-social .social-fixed.wide {
-      position: fixed;
-      top: 40%;
-      left: 50%;
-      z-index: 1000;
-      margin-left: -555px; }
-      .restore-social .social-fixed.wide a {
-        display: block;
-        margin-right: 6px;
-        margin-bottom: 1px;
-        width: 45px;
-        height: 45px;
-        border-radius: 0px;
-        background-color: #c0c0c0;
-        background-position: center center;
-        background-repeat: no-repeat;
-        text-decoration: none;
-        opacity: 0.9;
-        cursor: pointer; }
-        .restore-social .social-fixed.wide a.fb {
-          background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/facebook_icon.png); }
-        .restore-social .social-fixed.wide a.vk {
-          background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/vkontakte_icon.png); }
-        .restore-social .social-fixed.wide a.tw {
-          background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/twitter_icon.png); }
-        .restore-social .social-fixed.wide a.inst {
-          background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/instagramm_icon.png); }
-        .restore-social .social-fixed.wide a:hover {
-          background-color: #4D749E;
-          opacity: 1; }
-      .restore-social .social-fixed.wide p {
-        display: none;
-        margin-bottom: 10px;
-        color: #000;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px; }
+.restore-social .social-fixed {
+  margin-bottom: 18px; }
+  .restore-social .social-fixed.wide {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 1000;
+    margin-left: -555px; }
+    .restore-social .social-fixed.wide a {
+      display: block;
+      margin-right: 6px;
+      margin-bottom: 1px;
+      width: 45px;
+      height: 45px;
+      border-radius: 0px;
+      background-color: #c0c0c0;
+      background-position: center center;
+      background-repeat: no-repeat;
+      text-decoration: none;
+      opacity: 0.9;
+      cursor: pointer; }
+      .restore-social .social-fixed.wide a.fb {
+        background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/facebook_icon.png); }
+      .restore-social .social-fixed.wide a.vk {
+        background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/vkontakte_icon.png); }
+      .restore-social .social-fixed.wide a.tw {
+        background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/twitter_icon.png); }
+      .restore-social .social-fixed.wide a.inst {
+        background-image: url(http://www.re-store.ru/bitrix/templates/restore/images/ui/instagramm_icon.png); }
+      .restore-social .social-fixed.wide a:hover {
+        background-color: #4D749E;
+        opacity: 1; }
+    .restore-social .social-fixed.wide p {
+      display: none;
+      margin-bottom: 10px;
+      color: #000;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px; }
 
 .restore-header {
   position: relative;
@@ -2187,8 +2184,7 @@ div.block {
   width: 980px;
   height: 120px;
   border-bottom: 1px solid #eee;
-  font-size: 14px;
-  font-family: Helvetica, Arial, sans-serif; }
+  font-size: 14px; }
   .restore-header .w-1-fifth {
     position: relative;
     display: block;
@@ -2312,7 +2308,6 @@ div.block {
       color: #c9c9c9 !important;
       vertical-align: middle;
       font-size: 13px;
-      font-family: Helvetica, Arial, sans-serif;
       line-height: 22px; }
     .restore-header #search-quick .submit {
       position: absolute;
@@ -2381,8 +2376,7 @@ div.block {
     border-bottom: none; }
   .restore-header .suggestion-blocks span {
     display: block;
-    font-size: 11px;
-    font-family: Helvetica, Arial, sans-serif; }
+    font-size: 11px; }
   .restore-header .suggestion-blocks ul {
     margin: 6px 0 4px; }
   .restore-header .suggestion-blocks ul li {
@@ -2418,7 +2412,6 @@ div.block {
 .restore-footer {
   padding: 54px 0 40px;
   font-size: 12px;
-  font-family: Helvetica, Arial, sans-serif;
   line-height: 18px; }
   .restore-footer br.cc {
     display: block;

@@ -7,27 +7,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
 <title>re:Store shop</title>
-<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
-<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
-<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
-<link type="text/css" rel="stylesheet" href="/js/jquery.rateit/jquery.rateit.css"/>
-<link type="text/css" rel="stylesheet" href="/css/application.css?v=20131015"/>
+<link type="text/css" rel="stylesheet" href="js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery.rateit/jquery.rateit.css"/>
+<link type="text/css" rel="stylesheet" href="css/application.css?v=20131015"/>
 
 <!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<link type="text/css" rel="stylesheet" href="css/ie.css"/>
 <![endif]-->
-<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
-<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
-<script type="text/javascript" src="/js/jquery.slider.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
-<script type="text/javascript" src="/js/jquery.fadeGallery.js"></script>
-<script type="text/javascript" src="/js/jquery.quantifier.js"></script>
-<script type="text/javascript" src="/js/jquery.rateit/jquery.rateit.js"></script>
+<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.slider.js"></script>
+<script type="text/javascript" src="js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="js/jquery.fadeGallery.js"></script>
+<script type="text/javascript" src="js/jquery.quantifier.js"></script>
+<script type="text/javascript" src="js/jquery.rateit/jquery.rateit.js"></script>
 <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e982e7a18fd3985"></script>
 <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/project.js"></script>
-<script type="text/javascript" src="/js/feed.js"></script>
+<script type="text/javascript" src="js/project.js"></script>
+<script type="text/javascript" src="js/feed.js"></script>
 
 <script type="text/javascript">
 var shopGmap, shopMarker, latlng;
@@ -44,7 +44,7 @@ function setShopAddress(lat, lng, zoom){
 		  center: latlng,
 		  mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		var image = '/images/ui/letter_a-black.png';
+		var image = 'images/ui/letter_a-black.png';
 		shopGmap = new google.maps.Map(document.getElementById('shop-gmap-plain'), myOptions);	
 		shopMarker = new google.maps.Marker({
 			  position: latlng,
@@ -196,7 +196,7 @@ $('body').removeClass('no-js');
   <div id="header">
     <div id="black-line">
       <div class="w-1-fifth first">
-        <a href="/" id="logo"><img src="/images/ui/logo.png" alt="re:Store"/></a>
+        <a href="/" id="logo"><img src="images/ui/logo.png" alt="re:Store"/></a>
       </div>
       <div class="w-1-fifth">
         <span class="block first">Справочная служба</span> <big>8 (800) <b>700-19-44</b></big> <span class="block grey last">круглосуточно, без выходных</span>
@@ -211,7 +211,7 @@ $('body').removeClass('no-js');
         <a class="shops" href="/shops"><b>Адреса магазинов</b></a>
       </div>
       <div class="w-1-fifth">
-        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="/images/ui/logo_apr_50x50.png" alt="Apple Premium Reseller"/></a>
+        <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a> <a href="/aps" id="logo-apr" ><img src="images/ui/logo_apr_50x50.png" alt="Apple Premium Reseller"/></a>
       </div>
     </div>
     <div id="white-line">
@@ -253,24 +253,24 @@ $('body').removeClass('no-js');
           <div class="gallery-area">
             <!-- product-gallery -->
             <ul class="product-galery">
-              <li class="active"><img src="/images/catalog/img_14_b_1.jpg" alt="image description" /></li>
-              <li><img src="/images/catalog/img_15_b_1.jpg" alt="image description" /></li>
-              <li><img src="/images/catalog/img_16_b_1.jpg" alt="image description" /></li>
-              <li><img src="/images/catalog/img_17_b_1.jpg" alt="image description" /></li>
-              <li><img src="/images/catalog/img_14_b_1.jpg" alt="image description" /></li>
-              <li><img src="/images/catalog/img_15_b_1.jpg" alt="image description" /></li>
-              <li><img src="/images/catalog/img_15_b_1.jpg" alt="image description" /></li>
-              <li><img src="/images/catalog/img_14_b_1.jpg" alt="image description" /></li>
+              <li class="active"><img src="images/catalog/img_14_b_1.jpg" alt="image description" /></li>
+              <li><img src="images/catalog/img_15_b_1.jpg" alt="image description" /></li>
+              <li><img src="images/catalog/img_16_b_1.jpg" alt="image description" /></li>
+              <li><img src="images/catalog/img_17_b_1.jpg" alt="image description" /></li>
+              <li><img src="images/catalog/img_14_b_1.jpg" alt="image description" /></li>
+              <li><img src="images/catalog/img_15_b_1.jpg" alt="image description" /></li>
+              <li><img src="images/catalog/img_15_b_1.jpg" alt="image description" /></li>
+              <li><img src="images/catalog/img_14_b_1.jpg" alt="image description" /></li>
             </ul>
             <!-- gallery-area thumbs -->
             <div id="thumbs-slider">
               <div class="scroll-pane" style="overflow: hidden;">
                 <ul class="thumbs scroll-content">
-                  <li class="active"><a href="/images/catalog/img_14_b_1.jpg"><img src="/images/catalog/img_14_s_1.jpg" alt="image description" /></a></li>
-                  <li><a href="/images/catalog/img_15_b_1.jpg" target="_blank"><img src="/images/catalog/img_15_s_1.jpg" alt="image description" /></a></li>
-                  <li><a href="/images/catalog/img_16_b_1.jpg" target="_blank"><img src="/images/catalog/img_16_s_1.jpg" alt="image description" /></a></li>
-                  <li><a href="/images/catalog/img_17_b_1.jpg" target="_blank"><img src="/images/catalog/img_17_s_1.jpg" alt="image description" /></a></li>
-                  <li><a href="/images/catalog/img_14_b_1.jpg" target="_blank"><img src="/images/catalog/img_14_s_1.jpg" alt="image description" /></a></li>
+                  <li class="active"><a href="images/catalog/img_14_b_1.jpg"><img src="images/catalog/img_14_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="images/catalog/img_15_b_1.jpg" target="_blank"><img src="images/catalog/img_15_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="images/catalog/img_16_b_1.jpg" target="_blank"><img src="images/catalog/img_16_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="images/catalog/img_17_b_1.jpg" target="_blank"><img src="images/catalog/img_17_s_1.jpg" alt="image description" /></a></li>
+                  <li><a href="images/catalog/img_14_b_1.jpg" target="_blank"><img src="images/catalog/img_14_s_1.jpg" alt="image description" /></a></li>
                 </ul>
               </div>
             </div>
@@ -377,7 +377,7 @@ $('body').removeClass('no-js');
     <h2 class="subheader" id="video">Видео</h2>
     <div id="tabs-video">
       <div class="video-placeholder">
-        <img src="/images/tmp_video.png" />
+        <img src="images/tmp_video.png" />
       </div>
       <div class="video-description">
         <p class="bigger">Экран Retina c фантастическим разрешением 2880×1800 точек при диагонали 15’’ — глаз на нём уже не различает отдельных пикселей. Flash-архитектура накопителей. Скоростной 4-ядерный процессор Intel Ivy Bridge Core i7. До 7 часов работы без подзарядки. 
@@ -400,7 +400,7 @@ $('body').removeClass('no-js');
         </div>
       </div>
       <div class="w-1-fifth last">
-      <a href="#"><img src="/images/content/review_162x92.jpg" /></a>
+      <a href="#"><img src="images/content/review_162x92.jpg" /></a>
       </div>
       <br class="cc" />
       </div>
@@ -612,25 +612,25 @@ $('body').removeClass('no-js');
         <ul class="catalog scroll-content" style="width:950px">
           <!-- on serverside - width:itemcount*190px; -->
           
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
             Retina i7 Longest prelongest profits <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи и прочая хренотень <i class="fader"></i></a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span> </li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
             16 ГБ <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
             64 ГБ <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
             Retina i7 Longest prelongest profits <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи и прочая хренотень <i class="fader"></i></a> <a class="bt buy">В корзину</a> </li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
             16 ГБ <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
             64 ГБ <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price"><del>39 990</del> 36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a><span class="grey">Экономия 1000 руб.</span></li>
         </ul>
         <div class="scroll-bar-wrap ui-widget-content">
@@ -647,19 +647,19 @@ $('body').removeClass('no-js');
       <div class="scroll-pane">
         <ul class="catalog scroll-content" style="width:950px">
           <!-- on serverside - width:itemcount*190px; -->
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
             Retina i7 Longest prelongest profits <span class="price">36 490,-</span> </span> </a> <a href="#" class="all-accesories">Все дисплеи и прочая хренотень <i class="fader"></i></a> <a class="bt buy">В корзину</a> </li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
             16 ГБ <span class="price">36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
             64 ГБ <span class="price">36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,- </span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
             64 ГБ <span class="price">36 490,-</span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,-</span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
-          <li><a href="/item" > <span class="holder-img"> <img src="/images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+          <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
             By Dr. Dre <span class="price">36 490,-</span> </span> </a> <a href="#" class="all-accesories">Все дисплеи</a> <a class="bt buy">В корзину</a></li>
         </ul>
         <div class="scroll-bar-wrap ui-widget-content">
@@ -674,7 +674,7 @@ $('body').removeClass('no-js');
     <h2 class="subheader">Технические характеристики</h2>
     <div id="tabs-info-params">
       <div class="w-1-third">
-        <div style="background:url(/images/ui/delivery_box.png) 0 0 no-repeat; width:80px; height:80px;float:left; margin-top:24px;">
+        <div style="background:url(images/ui/delivery_box.png) 0 0 no-repeat; width:80px; height:80px;float:left; margin-top:24px;">
         </div>
         <div style="float:left; width:172px; margin-left:20px;">
           <strong class="title">Комплект поставки</strong>
@@ -1150,7 +1150,7 @@ $('body').removeClass('no-js');
       Ваш товар отложен на складе. </p>
   </div>
   <div id="dialog_buy-with-friends">
-    <h4 class="light-blue centered geoslab" style="background:url(/images/ui/buy-with-friends.png) center 0 no-repeat; padding-top:80px;">Вы начинаете создавать коллективный подарок</h4>
+    <h4 class="light-blue centered geoslab" style="background:url(images/ui/buy-with-friends.png) center 0 no-repeat; padding-top:80px;">Вы начинаете создавать коллективный подарок</h4>
     <p class="centered small" style="padding:0 10px"> Далее, вы перейдете на сайт 33 друга с выбранным товаром, зарегистрируетесь и пригласите друзей 
       для участия. Система поможет Вам управлять списком приглашенных и удобно оплатить взносы 
       с помощью кредитной карты. Товар будет зарезервирован для Вас на 5 дней.</p>
@@ -1274,7 +1274,7 @@ $('body').removeClass('no-js');
 				  center: latlng,
 				  mapTypeId: google.maps.MapTypeId.ROADMAP
 				};
-				var image = '/images/ui/letter_a-black.png';
+				var image = 'images/ui/letter_a-black.png';
 				
         gmap = new google.maps.Map(document.getElementById("shop-gmap"), myOptions);	
 				shopMarker = new google.maps.Marker({

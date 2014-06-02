@@ -6,20 +6,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
 <title>re:Store shop</title>
-<link type="text/css" rel="stylesheet" href="/js/jquery-ui-1.8.21.custom.css"/>
-<link type="text/css" rel="stylesheet" href="/js/jquery.slider.css"/>
-<link type="text/css" rel="stylesheet" href="/js/jquery.ui.selectmenu.css"/>
-<link type="text/css" rel="stylesheet" href="/css/application.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery-ui-1.8.21.custom.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery.slider.css"/>
+<link type="text/css" rel="stylesheet" href="js/jquery.ui.selectmenu.css"/>
+<link type="text/css" rel="stylesheet" href="css/application.css"/>
 
 <!--[if IE]>
-<link type="text/css" rel="stylesheet" href="/css/ie.css"/>
+<link type="text/css" rel="stylesheet" href="css/ie.css"/>
 <![endif]-->
-<script type="text/javascript" src="/js/jquery-1.5.min.js"></script>
-<script type="text/javascript" src="/js/jquery-ui-1.8.21.custom.min.js"></script>
-<script type="text/javascript" src="/js/jquery.slider.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.selectmenu.js"></script>
-<script type="text/javascript" src="/js/jquery.ui.datepicker-ru.js"></script>
-<script type="text/javascript" src="/js/jquery.custom-radio-checkbox.js"></script>
+<script type="text/javascript" src="js/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.slider.js"></script>
+<script type="text/javascript" src="js/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="js/jquery.ui.datepicker-ru.js"></script>
+<script type="text/javascript" src="js/jquery.custom-radio-checkbox.js"></script>
 <script type="text/javascript">
 
 $(function(){
@@ -72,7 +72,7 @@ $(function(){
 		console.log($child);
 	});
 	
-	var opts = { dateFormat: "dd.mm.yy", buttonImage: "/images/ui/icon_calendar.png", buttonImageOnly: true, showOn: 'both', changeMonth: true, changeYear: true, yearRange: "-100:+0"};	
+	var opts = { dateFormat: "dd.mm.yy", buttonImage: "images/ui/icon_calendar.png", buttonImageOnly: true, showOn: 'both', changeMonth: true, changeYear: true, yearRange: "-100:+0"};	
 	$('input.date').datepicker(opts);
 	$('a.child-remove').live('click',function(){
 		var $parent = $(this).parents('dl') 
@@ -265,7 +265,7 @@ $(function(){
 		});
 		$(this).parents('tr').removeClass('active').prev('tr').removeClass('active');
 	});
-	$( "#personal_birthday").datepicker({ dateFormat: "dd.mm.yy", buttonImage: "/images/ui/icon_calendar.png", buttonImageOnly: true, showOn: 'both', changeMonth: true, changeYear: true, yearRange: "-100:+0"});
+	$( "#personal_birthday").datepicker({ dateFormat: "dd.mm.yy", buttonImage: "images/ui/icon_calendar.png", buttonImageOnly: true, showOn: 'both', changeMonth: true, changeYear: true, yearRange: "-100:+0"});
 
 
 	var $dialogPassword = $("div#dialog_password").dialog({ 
@@ -310,8 +310,8 @@ $('body').removeClass('no-js');
     <div id="black-line">
       <div class="w-1-fifth first">
         <div id="logo">
-          <object data="/images/ui/logo.svg" width="113px" height="26px" type="image/svg+xml">
-            <img src="/images/ui/logo.png" alt="re:Store"/>
+          <object data="images/ui/logo.svg" width="113px" height="26px" type="image/svg+xml">
+            <img src="images/ui/logo.png" alt="re:Store"/>
           </object>
           <a href="/" title="re:Store"></a>
         </div>
@@ -331,8 +331,8 @@ $('body').removeClass('no-js');
       <div class="w-1-fifth">
         <span class="block first"><a href="/login" class="login dialog-trigger" rel="dialog_login">Вход</a> <a href="/registration" class="registration dialog-trigger" rel="dialog_register">Регистрация</a></span> <a href="/basket" class="basket"><span class="bordered">Корзина:</span> <span class="purple"><var>3</var>шт</span></a> <a id="client_id"><span>Ваш ID &nbsp;</span><span class="purple"><strong>432344</strong></span></a>
         <div id="logo-apr">
-          <object data="/images/ui/logo_apr.svg" width="50px" height="50px" type="image/svg+xml">
-            <img src="/images/ui/logo_apr.png" alt="re:Store"/>
+          <object data="images/ui/logo_apr.svg" width="50px" height="50px" type="image/svg+xml">
+            <img src="images/ui/logo_apr.png" alt="re:Store"/>
           </object>
           <a href="/aps"></a>
         </div>
@@ -392,7 +392,7 @@ $('body').removeClass('no-js');
         </ul>
         <div id="cabinet-page-1" class="cabinet-page-tab">
           <div class="w-1-fifth">
-            <img class="avatar" src="/images/ui/avatar_default.png" /> <a href="" class="dialog-trigger" rel="dialog_password">Изменить фото</a> <br />
+            <img class="avatar" src="images/ui/avatar_default.png" /> <a href="" class="dialog-trigger" rel="dialog_password">Изменить фото</a> <br />
             <a href="" class="dialog-trigger" rel="dialog_change-passwords">Изменить пароли</a>
           </div>
           <div class="w-3-fifth last">
@@ -473,7 +473,7 @@ $('body').removeClass('no-js');
                   <table class="order-buyings">
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
@@ -482,7 +482,7 @@ $('body').removeClass('no-js');
                     </tr>
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 из крокодиловой кожи с позолоченными заклёпками из платины </a> <span>F-00022</span>
@@ -491,7 +491,7 @@ $('body').removeClass('no-js');
                     </tr>
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
@@ -530,7 +530,7 @@ $('body').removeClass('no-js');
                   <table class="order-buyings">
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
@@ -539,7 +539,7 @@ $('body').removeClass('no-js');
                     </tr>
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 из крокодиловой кожи с позолоченными заклёпками из платины </a> <span>F-00022</span>
@@ -548,7 +548,7 @@ $('body').removeClass('no-js');
                     </tr>
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
@@ -595,7 +595,7 @@ $('body').removeClass('no-js');
                   <table class="order-buyings">
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
@@ -604,7 +604,7 @@ $('body').removeClass('no-js');
                     </tr>
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 из крокодиловой кожи с позолоченными заклёпками из платины </a> <span>F-00022</span>
@@ -613,7 +613,7 @@ $('body').removeClass('no-js');
                     </tr>
                     <tr>
                       <td class="buying-name"><div class="holder-img">
-                          <img src="/images/catalog/img-21_64x64.jpg" />
+                          <img src="images/catalog/img-21_64x64.jpg" />
                         </div>
                         <div class="holder-desc">
                           <a href="/product">Be.ez LE reporter для MacBook Air 11,6 </a> <span>F-00022</span>
@@ -644,7 +644,7 @@ $('body').removeClass('no-js');
           <div class="cabinet-contest-work">
             <h4 class="geoslab"><span class="purple">Название конкурса.</span> Заканчивается 12 сентября.</h4>
             <div class="w-1-fifth centered">
-              <a href="#" class="contest-work-img"><img src="/images/contest/01.jpg" /></a> <a href="#" class="grey dashed dialog-trigger" rel="dialog_confirm-deletion">Удалить работу</a>
+              <a href="#" class="contest-work-img"><img src="images/contest/01.jpg" /></a> <a href="#" class="grey dashed dialog-trigger" rel="dialog_confirm-deletion">Удалить работу</a>
             </div>
             <div class="w-3-fifth last">
               <dl>
@@ -667,7 +667,7 @@ $('body').removeClass('no-js');
           <div class="cabinet-contest-work">
             <h4 class="geoslab"><span class="purple">Название конкурса.</span> Заканчивается 12 сентября.</h4>
             <div class="w-1-fifth centered">
-              <a href="#" class="contest-work-img"><img src="/images/contest/01.jpg" /></a> <a href="#" class="grey dashed dialog-trigger" rel="dialog_confirm-deletion">Удалить работу</a>
+              <a href="#" class="contest-work-img"><img src="images/contest/01.jpg" /></a> <a href="#" class="grey dashed dialog-trigger" rel="dialog_confirm-deletion">Удалить работу</a>
             </div>
             <div class="w-3-fifth last">
               <dl>
@@ -726,7 +726,7 @@ $('body').removeClass('no-js');
         </div>
         <div id="cabinet-page-4" class="cabinet-page-tab">
           <div class="w-1-fifth">
-            <img class="avatar" src="/images/ui/avatar_default.png" /> <a href="" class="dialog-trigger" rel="dialog_password">Изменить фото</a> <br />
+            <img class="avatar" src="images/ui/avatar_default.png" /> <a href="" class="dialog-trigger" rel="dialog_password">Изменить фото</a> <br />
             <a href="" class="dialog-trigger" rel="dialog_change-passwords">Изменить пароли</a>
           </div>
           <div class="w-3-fifth last">

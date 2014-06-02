@@ -4,9 +4,8 @@ $(function() {
     
         var _this = this;
         var feed  = $(_this).data('feed');
-        var $feed = $(this).siblings(feed) || $(_this).closest('.section').find('.feed');
-
-        console.log($feed);
+        
+        $feed = typeof feed == 'undefined' ? $(_this).closest('.section').find('.feed') : $(_this).siblings(feed);
 
         $(_this).find('span').hide();
         $(_this).find('.fa').css({display: 'inline-block'});

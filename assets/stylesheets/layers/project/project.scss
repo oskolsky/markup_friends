@@ -189,6 +189,7 @@ div.block {
     margin-bottom: 1rem;
   }
     .block_h_t {
+      padding: 2rem 0;
       text-shadow: .1rem .1rem 0 rgba(255, 255, 255, .75);
     }
   .block_b {
@@ -522,7 +523,6 @@ div.block {
         padding: 0 20px;
         width: 25%;
         vertical-align: top;
-        font-family: Helvetica, Arial, sans-serif;
         line-height: 1.8rem;
         @include prefixes(box-sizing, border-box);
         a {

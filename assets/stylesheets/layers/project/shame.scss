@@ -4,7 +4,6 @@
 //
 //****************************************************************************************************
 .restore-social {
-  font-family: Helvetica, Arial, sans-serif;
   .social-fixed {
     margin-bottom: 18px;
     &.wide {
@@ -63,7 +62,6 @@
   height: 120px;
   border-bottom: 1px solid #eee;
   font-size: 14px;
-  font-family: Helvetica, Arial, sans-serif;
 
   .w-1-fifth {
     position: relative;
@@ -210,7 +208,6 @@
       color: #c9c9c9 !important;
       vertical-align: middle;
       font-size: 13px;
-      font-family: Helvetica, Arial, sans-serif;
       line-height: 22px;
     }
     .submit {
@@ -282,7 +279,7 @@
   #search-suggestions{position:absolute; z-index:1000; display:none; margin-top:-2px; margin-left:1px; width:100%; height:auto; border-radius:0 0 6px 6px; background:#fff url(http://www.re-store.ru/bitrix/templates/restore/images/ui/bg_suggestion.png) 0 0 repeat-x; box-shadow:0 3px 4px #ccc;}
   .suggestion-blocks li{ margin:6px; padding:3px 4px 6px;border-bottom:1px dotted #ccc; line-height:15px;}
   .suggestion-blocks li.last{border-bottom:none;}
-  .suggestion-blocks span{ display:block;font-size:11px; font-family: Helvetica, Arial, sans-serif;}
+  .suggestion-blocks span{ display:block;font-size:11px;}
   .suggestion-blocks ul{margin:6px 0 4px;}
   .suggestion-blocks ul li{ margin:2px 0; padding:0; border:none; font-weight:500;font-size:11px;line-height:11px;}
   .suggestion-blocks span a{color:#000; text-decoration:underline !important;}
@@ -311,7 +308,6 @@
 .restore-footer {
   padding: 54px 0 40px;
   font-size: 12px;
-  font-family: Helvetica, Arial, sans-serif;
   line-height: 18px;
 
   br.cc {
