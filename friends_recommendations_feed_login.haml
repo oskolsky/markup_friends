@@ -29,7 +29,7 @@
                   %br
                   интересны именно вам.
                 %footer
-                  %button.form-el.__btn.__large.__default Заполнить анкету
+                  %a.form-el.__btn.__large.__default{href: "#feedback-form", data: {scroll: "true"}} Заполнить анкету
 
               %hr.hr.__dashed
 
@@ -55,7 +55,7 @@
                         %i.fa.fa-refresh
                     %hr.hr.__dashed
 
-              .block.p-t_3.p-b_3
+              #feedback-form.block.p-t_3.p-b_3
                 .block_b
                   .content-block
                     %h2.title.__dashed
@@ -322,7 +322,8 @@
                             %input.form-el.__tx.__block.__date{type: "text", placeholder: "Дата рождения ДД.ММ.ГГ"}
                           .grid-i.__grid-3.va-m>
                             %p.tx.__muted.__i.__300 Информация о втором ребенке
+                      %p#feedback-form-message.tx.__xxl.__minor.m-b_2
                       %div
-                        %button.form-el.__btn.__large.__major{type: "submit"} Отправить анкету
+                        %button#feedback-form-send.form-el.__btn.__large.__major{type: "submit"} Отправить анкету
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

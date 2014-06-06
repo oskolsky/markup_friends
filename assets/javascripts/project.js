@@ -29,6 +29,26 @@ $(document).on('click', '.js-comments-reply', function() {
     return false;
 });
 
+//
+// .. Save feedback form
+//
+$(document).on('click', '#feedback-form-send', function() {
+    $.ajax({
+      type: 'POST',
+      url:  '/',
+      data: $('#feedback-form').find('.form').serialize(),
+      success: function() {
+          $('#feedback-form-message').text('Анкета успешно сохранена');
+          // $('#feedback-form')[0].reset(); - ЕСЛИ НУЖНО РЕСЕТИТЬ ФОРМУ
+      },
+      error: function() {
+          $('#feedback-form-message').text('Анкету сохранить не удалось, пожалуйста попробуйте позднее');
+      }
+    });
+    return false;
+});
+
+
 
 //****************************************************************************************************
 //

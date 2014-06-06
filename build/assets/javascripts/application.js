@@ -160,7 +160,7 @@ $(function() {
     var
       anchor = $(this).attr('href'),
       offset = $(this).data('offset') || 0,
-      destination = $(anchor).offset().top - offset;
+      destination = $(anchor).offset().top - offset - 80;
     
     $('html, body').animate({scrollTop: destination}, 500);
     
