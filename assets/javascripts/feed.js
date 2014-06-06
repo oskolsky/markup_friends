@@ -25,6 +25,13 @@ $(function() {
                                 $response.find('.product').resizeToMaxHeight();
                                 $(_this).find('span').show();
                                 $(_this).find('.fa').hide();
+
+                                //
+                                // .. Sticky
+                                // .. https://github.com/leafo/sticky-kit
+                                //
+                                $('#sidebar').trigger('sticky_kit:recalc');
+                                $('#header').trigger('sticky_kit:recalc');
                             });
                         } else {
                             $(_this).remove();
