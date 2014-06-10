@@ -47,7 +47,7 @@
                     %h3.title.__dashed
                       %span Новинки
                     .owl-carousel
-                      - 1.upto(10) do
+                      - 1.upto(4) do
                         .grid-i.__grid-2>
                           = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
                   %div
