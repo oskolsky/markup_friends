@@ -816,8 +816,8 @@ h6, .zeta {
   text-transform: uppercase; }
 .tx.__mark {
   padding: 0 .7rem;
-  background-color: #e1efff;
-  border-radius: .7rem; }
+  border-radius: .7rem;
+  background-color: #e1efff; }
 
 a {
   color: #2c92e1; }
