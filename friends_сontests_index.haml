@@ -1,0 +1,60 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Конкурсы / Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/friends/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_friends_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_friends_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              
+              %article.promo.__contests
+                %header.promo_h Раскрась праздник<br>в свои цвета!
+                %p.m-b_2
+                  Прием работ:
+                  %br
+                  %span.gamma 23 февраля по 8 марта
+                %p.m-b_2 
+                  Призовой фонд:
+                  %br
+                  %span.gamma 150 000 рублей
+                %footer
+                  %a.form-el.__btn.__large.__default{href: "/friends_сontests_show.html"} Подробнее о конкурсе
+
+              %hr.hr.__dashed
+
+              .block.p-t_2.p-b_3
+                .block_b
+                  %div
+                    %h3.title.__dashed
+                      %span Другие актуальные конкурсы
+                    - 1.upto(2) do
+                      = Haml::Engine.new(File.read('views/common/friends/_item_contest_new.haml')).render
+
+              .block.p-t_3.p-b_6
+                .block_b.m-b_4
+                  %h3.title.__dashed
+                    %span Завершившиеся конкурсы
+                  .feed
+                    - 1.upto(3) do
+                      = Haml::Engine.new(File.read('views/common/friends/_item_contest.haml')).render
+                .block_f
+                  .load-more
+                    .load-more_inner
+                      %a.form-el.__btn.__small.__default{href: "#", data: {load: "/data/contest_feed.html"}} 
+                        %span Показать еще 3 завершившихся конкурса
+                        %i.fa.fa-refresh
+                    %hr.hr.__dashed
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

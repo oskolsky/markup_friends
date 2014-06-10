@@ -814,6 +814,10 @@ h6, .zeta {
   text-transform: lowercase; }
 .tx.__upper {
   text-transform: uppercase; }
+.tx.__mark {
+  padding: 0 .7rem;
+  background-color: #e1efff;
+  border-radius: .7rem; }
 
 a {
   color: #2c92e1; }
@@ -1688,6 +1692,9 @@ a.ico:hover.__pulse, a.owl-prev:hover.__pulse, a.owl-next:hover.__pulse {
     color: #fff; }
   .promo.__reviews-feed {
     background: #4da3e6 url(/assets/images/friends/promo-reviews-feed.png) top right no-repeat;
+    color: #fff; }
+  .promo.__contests {
+    background: #4da3e6 url(/assets/images/friends/promo-contests.png) top right no-repeat;
     color: #fff; }
   .promo.__recommendations {
     background: #4da3e6 url(/assets/images/friends/promo-recommendations.png) top right no-repeat;
