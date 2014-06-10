@@ -2,14 +2,14 @@
   = Haml::Engine.new(File.read('views/common/friends/_action_controls.haml')).render
   .grid
     .grid-i.__grid-5>
-      %a{href: "#"}
+      %a{href: "/friends_сontests_show.html"}
         %img.va-t.c-bg.__light{src: "/assets/images/blank.gif", width: 370, height: 320, alt: "Конкурс: создай дизайн чехла и прославься на весь мир!"}
     .grid-i.__grid-4>
       .m-b_1
         = Haml::Engine.new(File.read('views/common/friends/_details.haml')).render
       .m-b_1
         %h2 
-          %a{href: "#"} Конкурс: создай дизайн чехла и&nbsp;прославься на&nbsp;весь мир!
+          %a{href: "/friends_сontests_show.html"} Конкурс: создай дизайн чехла и&nbsp;прославься на&nbsp;весь мир!
       .m-b_2
         %p Конкурс действует:
         %p с 01.12.2013 до 01.01.2014
