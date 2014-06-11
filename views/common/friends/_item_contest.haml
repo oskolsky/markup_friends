@@ -3,7 +3,7 @@
   = Haml::Engine.new(File.read('views/common/friends/_action_controls.haml')).render
   .grid
     .grid-i.__grid-3>
-      %a.double-hover{href: "/friends_сontests_show.html#{rand}"}
+      %a.double-hover{href: "/friends_contests_show.html##{rand}"}
         %img.item_photo.c-bg.__light{src: "/assets/images/blank.gif", width: 214, height: 180, alt: "Конкурс плакатов: Adobe понял и простил"}
     .grid-i.__grid-6>
       .m-b_1
@@ -12,9 +12,9 @@
           %span.tx.__voice 16 августа 2013 года
       .m-b_1
         %h3
-          %a.double-hover{href: "/friends_сontests_show.html#{rand}"} Конкурс плакатов: Adobe понял и&nbsp;простил
+          %a.double-hover{href: "/friends_contests_show.html##{rand}"} Конкурс плакатов: Adobe понял и&nbsp;простил
       .m-b_2
         %p Adobe Systems предлагает принять участие в&nbsp;креативном конкурсе на&nbsp;лучший плакат, посвященный амнистии компьютерных пиратов, либо социальной тематике о&nbsp;важности борьбы с&nbsp;интеллектуальным пиратством в&nbsp;сфере&nbsp;ПО.
       .item_btns
-        %a.form-el.__btn.__small.__default{href: "/friends_сontests_show.html#"} Работы победителей
-        %a.form-el.__btn.__small.__default{href: "/friends_сontests_show.html#"} Все работы
+        %a.form-el.__btn.__small.__default{href: "/friends_contests_show.html"} Работы победителей
+        %a.form-el.__btn.__small.__default{href: "/friends_contests_show.html"} Все работы
