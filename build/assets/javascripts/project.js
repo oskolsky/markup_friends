@@ -58,19 +58,6 @@ $(document).on('click', '#feedback-form-send', function() {
 $(function() {
 
     //
-    // .. Sticky
-    // .. https://github.com/leafo/sticky-kit
-    //
-    $('#sidebar').stick_in_parent({
-        parent: '.main > .ctn',
-        offset_top: 80
-    });
-    
-    $('#header').stick_in_parent({
-        parent: '.page'
-    });
-
-    //
     // .. Masket input
     //
     $('.form-el.__tx.__phone').mask('+7 (999) 999-99-99');
@@ -184,4 +171,19 @@ $(function() {
 // .. LOAD
 //
 //****************************************************************************************************
-$(window).load(function() {});
+$(window).load(function() {
+
+    //
+    // .. Sticky
+    // .. https://github.com/leafo/sticky-kit
+    //
+    $('#sidebar').stick_in_parent({
+        parent: '.main > .ctn',
+        offset_top: 80
+    });
+    
+    $('#header').stick_in_parent({
+        parent: '.page'
+    });
+    
+});
