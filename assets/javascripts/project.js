@@ -62,7 +62,7 @@ $(function() {
     // .. https://github.com/leafo/sticky-kit
     //
     $('#sidebar').stick_in_parent({
-        parent: '.page',
+        parent: '.main > .ctn',
         offset_top: 80
     });
     

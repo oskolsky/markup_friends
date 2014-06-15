@@ -1653,7 +1653,7 @@ a.ico:hover.__pulse, a.owl-prev:hover.__pulse, a.owl-next:hover.__pulse {
 
 .sidebar {
   position: relative;
-  z-index: 1000;
+  z-index: 1001;
   margin-right: 12px;
   margin-left: -32px;
   border-right: 1px solid #e2e2e2;
