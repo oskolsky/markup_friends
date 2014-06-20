@@ -63,6 +63,24 @@
                   %footer.content-block_footer
                     = Haml::Engine.new(File.read('views/common/friends/_tags.haml')).render
 
+                
+                .item-current
+                  %a{href: "#"}
+                    %img.item-current_img.c-bg.__dark{src: "/assets/images/blank.gif", width: "100%", alt: "Say the same things"}
+                / .item.__current
+                /   = Haml::Engine.new(File.read('views/common/friends/_action_controls.haml')).render
+                /   .m-b_2
+                /     %a.double-hover{href: "/friends_apps_show.html##{rand}"}
+                /       %img.item_photo.c-bg.__light{src: "/assets/images/blank.gif", width: 214, height: 214, alt: "Device 6"}
+                /   .m-b_1
+                /     = Haml::Engine.new(File.read('views/common/friends/_details.haml')).render
+                /   .m-b_1
+                /     %h3
+                /       %a.double-hover{href: "/friends_apps_show.html##{rand}"} Device&nbsp;6: интерактивная книга под маской игры
+                /   .m-b_2
+                /     %p Device 6&nbsp;для iOS&nbsp;&mdash; еще  одно потрясающее творение родом с&nbsp;таинственного острова разработчиков шведской инди-студии Simogo.
+                /   = Haml::Engine.new(File.read('views/common/friends/_tags.haml')).render                
+
               .block.p-t_2.p-b_3
                 .block_b
                   %h3.title.__dashed

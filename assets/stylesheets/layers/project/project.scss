@@ -326,6 +326,25 @@ div.block {
         }
       }
 
+//
+// .. Item current
+//
+.item-current {
+  position: absolute;
+  bottom: 3rem;
+  left: -24.6rem;
+  padding: 2rem;
+  width: 21.3rem;
+  background-color: #f0f0f0;
+  @extend .decor;
+  @include prefixes(box-sizing, border-box);
+}
+  .item-current_img {
+    border-radius: .3rem;
+    vertical-align: top;
+    box-shadow: 0 .1rem .1rem .1rem rgba(0, 0, 0, .33);
+  }
+
 
 
 //****************************************************************************************************
