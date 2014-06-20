@@ -144,6 +144,24 @@ $(function() {
         }
     });
 
+    //
+    // .. Raty init
+    // .. http://wbotelhos.com/raty
+    //
+    $('.raty').each(function() {
+        var 
+            _this = this,
+            score = $(_this).data('score');
+
+        $(this).raty({
+            starOff  : '/assets/images/friends/star-off.png',
+            starOn   : '/assets/images/friends/star-on.png',
+            starHalf : '/assets/images/friends/star-half.png',
+            readOnly: true,
+            score: $(_this).data('score')
+        });
+    });
+
 
 
     //****************************************************************************************************

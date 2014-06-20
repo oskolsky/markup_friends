@@ -45,6 +45,7 @@ var paths = {
       './assets/javascripts/vendor/accounting.js',
       './assets/javascripts/vendor/jquery.maskedinput.js',
       './assets/javascripts/vendor/jquery.sticky-kit.min.js',
+      './assets/javascripts/vendor/jquery.raty.js',
       './assets/javascripts/polyfill/polyfill.js',
       './assets/javascripts/config.js',
       './assets/javascripts/jquery.extensions.js',

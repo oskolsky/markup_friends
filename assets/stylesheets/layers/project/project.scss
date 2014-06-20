@@ -351,6 +351,17 @@ div.block {
     line-height: 2rem;
     a {color: inherit;}
   }
+  .item-current_raty  {
+    color: $muted-color;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    .raty {
+      position: relative;
+      top: .3rem;
+      margin-left: .5rem;
+      display: inline-block;
+    }
+  }
   .item-current_price {
     margin-bottom: 1.5rem;
     color: $muted-color;

@@ -1834,6 +1834,16 @@ div.block {
   .item-current_name a {
     color: inherit; }
 
+.item-current_raty {
+  color: #c1c1c1;
+  font-size: 1.2rem;
+  line-height: 2rem; }
+  .item-current_raty .raty {
+    position: relative;
+    top: .3rem;
+    margin-left: .5rem;
+    display: inline-block; }
+
 .item-current_price {
   margin-bottom: 1.5rem;
   color: #c1c1c1;
