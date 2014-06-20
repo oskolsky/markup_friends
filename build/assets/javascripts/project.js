@@ -191,17 +191,22 @@ $(function() {
 //****************************************************************************************************
 $(window).load(function() {
 
-    //
-    // .. Sticky
-    // .. https://github.com/leafo/sticky-kit
-    //
-    $('#sidebar').stick_in_parent({
-        parent: '.main > .ctn',
-        offset_top: 80
-    });
-    
-    $('#header').stick_in_parent({
-        parent: '.page'
-    });
+    if (window.matchMedia) {
+        if (matchMedia('all and (min-width: ' + config.matchMedia.desktop.minWidth + 'px)').matches) {
+            //
+            // .. Sticky
+            // .. https://github.com/leafo/sticky-kit
+            //
+            $('#sidebar').stick_in_parent({
+                parent: '.main > .ctn',
+                offset_top: 80
+            });
+            
+            $('#header').stick_in_parent({
+                parent: '.page'
+            });
+        }
+    }
+
     
 });
