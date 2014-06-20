@@ -337,12 +337,25 @@ div.block {
   width: 21.3rem;
   background-color: #f0f0f0;
   @extend .decor;
-  @include prefixes(box-sizing, border-box);
+  @include prefixes(box-sizing, border-box);  
 }
   .item-current_img {
+    margin-bottom: 1.5rem;
     border-radius: .3rem;
-    vertical-align: top;
     box-shadow: 0 .1rem .1rem .1rem rgba(0, 0, 0, .33);
+    vertical-align: top;
+  }
+  .item-current_name {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    a {color: inherit;}
+  }
+  .item-current_price {
+    margin-bottom: 1.5rem;
+    color: $muted-color;
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 
 

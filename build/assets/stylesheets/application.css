@@ -1822,9 +1822,23 @@ div.block {
   box-sizing: border-box; }
 
 .item-current_img {
+  margin-bottom: 1.5rem;
   border-radius: .3rem;
-  vertical-align: top;
-  box-shadow: 0 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.33); }
+  box-shadow: 0 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.33);
+  vertical-align: top; }
+
+.item-current_name {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  line-height: 2rem; }
+  .item-current_name a {
+    color: inherit; }
+
+.item-current_price {
+  margin-bottom: 1.5rem;
+  color: #c1c1c1;
+  font-size: 1.2rem;
+  line-height: 2rem; }
 
 .comments_i {
   position: relative;

@@ -67,6 +67,11 @@
                 .item-current
                   %a{href: "#"}
                     %img.item-current_img.c-bg.__dark{src: "/assets/images/blank.gif", width: "100%", alt: "Say the same things"}
+                  %p.item-current_name
+                    %a{href: "#"} Say the same things
+                  %p.item-current_price Бесплатно
+                  %a.form-el.__btn.__small.__major.__block{href: "#"} Смотреть в Appstore
+
                 / .item.__current
                 /   = Haml::Engine.new(File.read('views/common/friends/_action_controls.haml')).render
                 /   .m-b_2
