@@ -381,8 +381,7 @@ div.block {
     }
       .sport-promo_carousel_i_tx {
         position: absolute;
-        top: 5rem;
-        right: 0;
+        top: 5rem;        
         @extend .grid-i;
         @extend .grid-i.__grid-5;
         @extend .grid-i.__prefix-7;
@@ -400,6 +399,12 @@ div.block {
             line-height: 3.5rem;
           }
         }
+
+        &.__right {right: 0;}
+        &.__left  {left:  6rem;}
+
+        &.__base  {color: $base-color;}
+        &.__white {color: #fff;}
       }
   .sport-promo_controls {
     position: relative;

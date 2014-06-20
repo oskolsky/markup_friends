@@ -7,7 +7,6 @@
   src: url("/assets/fonts/geoslabinch-bold-webfont-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/geoslabinch-bold-webfont-webfont.woff") format("woff"), url("/assets/fonts/geoslabinch-bold-webfont-webfont.ttf") format("truetype"), url("/assets/fonts/geoslabinch-bold-webfont-webfont.svg#geoslbc_w_inchregular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, address, cite, code,
@@ -1840,8 +1839,7 @@ div.block {
 
 .sport-promo_carousel_i_tx {
   position: absolute;
-  top: 5rem;
-  right: 0; }
+  top: 5rem; }
   .sport-promo_carousel_i_tx p {
     margin-bottom: 2rem;
     font-size: 3rem;
@@ -1852,6 +1850,14 @@ div.block {
     list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5M0ZBODlCQkRGNDMxMUUzODczRUE5NkQwMTlGNDdDOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5M0ZBODlCQ0RGNDMxMUUzODczRUE5NkQwMTlGNDdDOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkzRkE4OUI5REY0MzExRTM4NzNFQTk2RDAxOUY0N0M4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkzRkE4OUJBREY0MzExRTM4NzNFQTk2RDAxOUY0N0M4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+L3l4/wAAAM1JREFUeNpi/K/QxUAmCAdiHyYyNQcC8UIg3kOOAZ5AvByIc0GGkGqAMxCvBeIyIJ4NEiDFAFsg3gTE9UA8CSZIrAHmQLwFiEEh3o0sATJAF4h58Wg2AuKdQDwNiBvRJZmgJh4CYiksmkGG7wDi+UBcic10kAEhQPwCiI8DsTaSnAYomqCBVoTLeSADvgCxLxDvBuLDQOwAxCpQ/lYgzgLi/7gMYIHSf4A4BYgfAvF2IH4PxAeBOBWfZmQDYKAZiB9BE0sMEP8lFD0AAQYA5pck9dZPX80AAAAASUVORK5CYII=");
     font-size: 1.8rem;
     line-height: 3.5rem; }
+  .sport-promo_carousel_i_tx.__right {
+    right: 0; }
+  .sport-promo_carousel_i_tx.__left {
+    left: 6rem; }
+  .sport-promo_carousel_i_tx.__base {
+    color: #2b2b2b; }
+  .sport-promo_carousel_i_tx.__white {
+    color: #fff; }
 
 .sport-promo_controls {
   position: relative;
