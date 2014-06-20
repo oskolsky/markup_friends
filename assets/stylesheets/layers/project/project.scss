@@ -362,11 +362,16 @@ div.block {
       display: inline-block;
     }
   }
-  .item-current_price {
+  .item-current_price,
+  .item-current_model {
     margin-bottom: 1.5rem;
     color: $muted-color;
     font-size: 1.2rem;
     line-height: 2rem;
+  }
+  .item-current_credit {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
   }
 
 

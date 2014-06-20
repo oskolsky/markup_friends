@@ -124,6 +124,10 @@ input {
       background-color: $major-color;
       color: #fff;
     }
+    &.__minor {
+      background-color: $minor-color;
+      color: #fff;
+    }
   }
 
   //
