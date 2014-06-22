@@ -162,6 +162,20 @@ $(function() {
         });
     });
 
+    //
+    // .. Jquery ui tabs init
+    //
+    $('.tabs').tabs({
+        activate: function(event, ui) {
+            //
+            // .. Sticky
+            // .. https://github.com/leafo/sticky-kit
+            //
+            $('#sidebar').trigger('sticky_kit:recalc');
+            $('#header').trigger('sticky_kit:recalc');
+        }
+    });
+
 
 
     //****************************************************************************************************

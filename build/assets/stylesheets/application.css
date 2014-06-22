@@ -2056,6 +2056,22 @@ div.block {
     display: none;
     color: #fff; }
 
+.tabs_nav_i {
+  display: inline-block;
+  line-height: 4rem; }
+  .tabs_nav_i:not(:last-child) {
+    margin-right: 2rem; }
+  .tabs_nav_i.ui-tabs-active .tabs_nav_i_a {
+    border: none;
+    color: #2b2b2b; }
+
+.tabs_nav_i_a {
+  border-bottom: 1px dotted #c1c1c1;
+  color: #c1c1c1; }
+  .tabs_nav_i_a:hover {
+    color: #c1c1c1;
+    text-decoration: none; }
+
 .hr.__dashed {
   height: 0;
   border-bottom: 1px dashed #ccc; }
