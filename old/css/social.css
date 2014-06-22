@@ -24,10 +24,10 @@ background-color:#999;
 opacity:1;
 }
 
-div.social-fixed a.fb{background-image:url(../images/ui/facebook_icon.png);}
-div.social-fixed a.vk{background-image:url(../images/ui/vkontakte_icon.png);}
-div.social-fixed a.tw{background-image:url(../images/ui/twitter_icon.png);}
-div.social-fixed a.inst{background-image:url(../images/ui/instagramm_icon.png);}
+div.social-fixed a.fb{background-image:url(/images/ui/facebook_icon.png);}
+div.social-fixed a.vk{background-image:url(/images/ui/vkontakte_icon.png);}
+div.social-fixed a.tw{background-image:url(/images/ui/twitter_icon.png);}
+div.social-fixed a.inst{background-image:url(/images/ui/instagramm_icon.png);}
 
 div.social-fixed p{font-weight:600;}
 
