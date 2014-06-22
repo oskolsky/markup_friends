@@ -1639,15 +1639,6 @@ a.ico:hover.__pulse, a.owl-prev:hover.__pulse, a.owl-next:hover.__pulse {
   background-color: #f0f0f0;
   text-align: center; }
 
-.header_filter {
-  margin-right: -32px;
-  padding: 2rem 0;
-  color: #848485; }
-  .header_filter .form-el.__select.__fake {
-    width: 16.5rem; }
-    .header_filter .form-el.__select.__fake:not(:last-child) {
-      margin-right: 1.5rem; }
-
 .main > .ctn {
   overflow: hidden;
   border-radius: 0 0 .6rem .6rem;
@@ -2178,6 +2169,14 @@ div.block {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%); }
+
+.filter {
+  margin-right: -32px;
+  color: #848485; }
+  .filter .form-el.__select.__fake {
+    width: 16.5rem; }
+    .filter .form-el.__select.__fake:not(:last-child) {
+      margin-right: 1.5rem; }
 
 .goto {
   position: relative;

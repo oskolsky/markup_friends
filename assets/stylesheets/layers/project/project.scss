@@ -39,15 +39,6 @@
     background-color: $border-color;
     text-align: center;
   }
-  .header_filter {
-    margin-right: -$ctn-padding;
-    padding: 2rem 0;
-    color: $voice-color;
-    .form-el.__select.__fake {
-      width: 16.5rem;
-      &:not(:last-child) {margin-right: 1.5rem;}      
-    }
-  }
 
 
 
@@ -824,6 +815,18 @@ div.block {
     right: 1.5rem;
     @include prefixes(transform, translateY(-50%));
   }
+
+//
+// .. Filter
+//
+.filter {
+  margin-right: -$ctn-padding;
+  color: $voice-color;
+  .form-el.__select.__fake {
+    width: 16.5rem;
+    &:not(:last-child) {margin-right: 1.5rem;}      
+  }
+}
 
 //
 // .. Go to
