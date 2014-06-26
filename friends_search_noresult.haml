@@ -1,0 +1,71 @@
+!!!
+%html.no-js{lang: "ru-RU"}
+  %head
+    %title Поиск / Friends
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
+  
+  %body#page.page
+    = Haml::Engine.new(File.read('views/common/friends/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_friends_header.haml')).render
+    
+    %main#main.main{role: "main"}
+      .ctn
+        .grid
+          
+          .grid-i.__grid-3>
+            = Haml::Engine.new(File.read('views/layouts/_friends_sidebar.haml')).render
+
+          .grid-i.__grid-9>
+            %section#section.section{role: "region", "aria-label" => "Content"}
+              
+              .block.p-b_3
+                .content-block
+                  %h2.title.__dashed 
+                    %span По Вашему запросу ничего не найдено
+                  %p.m-b_2
+                    Вернитесь на 
+                    %a{href: "/"} главную страницу 
+                    или воспользуйтесь поиском:
+                  %form.search
+                    %input.form-el.__tx.__block{type: "text", placeholder: "Поиск", autofocus: "autofocus"}
+                    %button.search_btn{type: "submit"}
+                      %i.ico.__18.__search
+
+              .block.p-t_1.p-b_3
+                .block_h
+                  %h1.block_h_t Возможно вам понравится
+                .block_b
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Выбор редакции
+                    .grid
+                      - 1.upto(3) do
+                        .grid-i.__grid-3>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_app.haml')).render
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Свежие обзоры
+                    .grid
+                      - 1.upto(3) do
+                        .grid-i.__grid-3>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_review.haml')).render
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Прошедшие конкурсы
+                    - 1.upto(2) do
+                      = Haml::Engine.new(File.read('views/common/friends/_item_contest.haml')).render
+                  %div.m-b_3
+                    %h3.title.__dashed
+                      %span Рекомендации
+                    .owl-carousel
+                      - 1.upto(10) do
+                        .grid-i.__grid-2>
+                          = Haml::Engine.new(File.read('views/common/friends/_item_recommendation.haml')).render
+                  %div
+                    %h3.title.__dashed
+                      %span Свежие видеообзоры
+                    - 1.upto(2) do
+                      = Haml::Engine.new(File.read('views/common/friends/_item_video.haml')).render
+
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

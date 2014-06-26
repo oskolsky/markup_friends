@@ -39,15 +39,6 @@
     background-color: $border-color;
     text-align: center;
   }
-  .header_filter {
-    margin-right: -$ctn-padding;
-    padding: 2rem 0;
-    color: $voice-color;
-    .form-el.__select.__fake {
-      width: 16.5rem;
-      &:not(:last-child) {margin-right: 1.5rem;}      
-    }
-  }
 
 
 
@@ -618,6 +609,47 @@ div.block {
 
 //****************************************************************************************************
 //
+// .. TABS
+//
+//****************************************************************************************************
+.tabs {
+
+}
+
+  .tabs_nav {
+
+  }
+    .tabs_nav_i {
+      display: inline-block;
+      line-height: 4rem;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+      
+      &.ui-tabs-active {
+        .tabs_nav_i_a {
+          border: none;
+          color: $base-color;
+        }   
+      }
+
+    }
+      .tabs_nav_i_a {
+        border-bottom: 1px dotted $muted-color;
+        color: $muted-color;
+        &:hover {
+          color: $muted-color;
+          text-decoration: none;
+        }
+      }
+
+  .tabs_i {
+
+  }
+
+
+//****************************************************************************************************
+//
 // .. ELEMENTS
 //
 //****************************************************************************************************
@@ -783,6 +815,18 @@ div.block {
     right: 1.5rem;
     @include prefixes(transform, translateY(-50%));
   }
+
+//
+// .. Filter
+//
+.filter {
+  margin-right: -$ctn-padding;
+  color: $voice-color;
+  .form-el.__select.__fake {
+    width: 16.5rem;
+    &:not(:last-child) {margin-right: 1.5rem;}      
+  }
+}
 
 //
 // .. Go to

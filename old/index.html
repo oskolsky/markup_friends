@@ -19,6 +19,17 @@
 <script type="text/javascript">
 $(function(){
 	
+	$('#tabs-tape-new, #tabs-tape-special').removeClass('hidden');
+	$('.tabs-tape .nav li a').each(function(i,el){
+		rel = $(this).attr('rel');
+		$(this).attr('href', rel);
+	});	
+	$('#tabs-tape-leaders').contentSlider({});
+	$('#tabs-tape-new').contentSlider({});
+	$('#tabs-tape-special').contentSlider({});	
+	
+
+	$('.tabs-tape').tabs();
 	InitPromoSlider();
 	function InitPromoSlider()
 	{
@@ -194,14 +205,14 @@ $('body').removeClass('no-js');
       </div>
       <ul id="nav-top">
         <li><a href="/catalog">Mac</a></li>
-        <li><a href="/catalog">iPad</a></li>
-        <li><a href="/catalog">iPhone</a></li>
         <li><a href="/catalog">iPod</a></li>
-        <li><a href="/catalog">Аудио</a></li>
+        <li><a href="/catalog">iPhone</a></li>
+        <li><a href="/catalog">iPad</a></li>
+        <li><a href="/catalog">Акустика</a></li>
         <li><a href="/catalog">Аксессуары</a></li>
         <li><a href="/catalog">Услуги</a></li>
         <li><a href="/catalog">Акции</a></li>
-        <li><a href="/catalog">Бизнес</a></li>
+        <li><a href="/catalog">Распродажа</a></li>
         <li class="helper"></li>
       </ul>
     </div>
@@ -211,18 +222,13 @@ $('body').removeClass('no-js');
       <ul id="nav-left">
         <li><a href="/catalog">О компании</a></li>
         <li><a href="/catalog">Каталог</a></li>
-        <li><a href="/catalog">Кредит и рассрочка</a></li>
-        <li><a href="/catalog">re:Store Friends</a></li>
         <li><a href="/catalog">Бонусная программа</a></li>
-        <li><a href="/catalog">Гарантии и сервис</a></li>
         <li><a href="/catalog">Оплата и доставка</a></li>
-        <li><a href="/catalog">Обмен и возврат</a></li>
-        <li><a href="/catalog">Распродажа</a></li>
-        <li><a href="/catalog">Новости</a></li>
+        <li><a href="/catalog">Гарантии</a></li>
         <li><a href="/catalog">Обзоры товаров</a></li>
         <li><a href="/catalog">Обучение</a></li>
+        <li><a href="/catalog">Корпоративным клиентам</a></li>
         <li><a href="/catalog">Контакты</a></li>
-        <li><a href="/catalog">Вакансии</a></li>
       </ul>
       <div class="social-fixed">
         <a class="fb" href="http://facebook.com" target="_blank">&nbsp;</a> <a class="vk" href="http://vk.com" target="_blank">&nbsp;</a> <a class="tw" href="http://twitter.com" target="_blank">&nbsp;</a> <a class="inst" href="http://instagram.com/restore_ru" target="_blank">&nbsp;</a>
@@ -246,7 +252,87 @@ $('body').removeClass('no-js');
         <a href="/news" class="more">Подробнее</a>
       </div>
     </div>
-    <div class="w-4-fifth last">      
+    <div class="w-4-fifth last">
+      <div class="tabs-tape">
+        <ul class="nav">
+          <li class="ui-state-active"><a href="/index?tab=leaders" rel="#tabs-tape-leaders">Лидеры продаж</a></li>
+          <li><a href="/index-sec?tab=new" rel="#tabs-tape-new" >Новинки</a></li>
+          <li><a href="/index?tab=special" rel="#tabs-tape-special" >Специальная цена</a></li>
+        </ul>
+        <div id="tabs-tape-leaders">
+          <span class="tab-title">Лидеры продаж</span>
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content with-presence novelty-2" style="width:950px">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable and scratchproof with extended functionality<ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-202.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacAir 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality</strong> <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp;<ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7<ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tabs-tape-new" class="hidden">
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content with-presence novelty-2" style="width:1330px">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-203.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tabs-tape-special" class="hidden">
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content with-presence novelty-2" style="width:1330px">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-02.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+              <li><a href="/product" title="MacBook Pro 15’’ Retina i7 super durable and scratchproof with extended functionality" > <span class="holder-img"> <img src="images/catalog/img-201.jpg" /> </span><span class="holder-desc"> <span class="holder-article"> <ins class="novelty">new</ins>MD101RU/A</span><span class="desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7&nbsp; super durable <ins class="fader">&nbsp;</ins></span><span class="price">36 490,- <del>39 990</del></span><span class="presence">Есть в наличии</span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="slides">
         <div class="slider-container">
           <div class="slide" style="background:url(images/promo/banner_1.png) 0 0 no-repeat">
