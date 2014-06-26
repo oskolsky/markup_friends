@@ -58,3 +58,89 @@
 .ui-send-to {
   vertical-align: top;
 }
+
+/* UI Friends */
+.ui-friends {
+  margin-bottom: 40px;
+}
+  .ui-friends_menu, .ui-friends_reviews, .ui-friends_photo {
+    position: relative;    
+    display: inline-block;
+    padding: 30px;
+    height: 320px;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .ui-friends_menu {
+    width: 195px;
+    border-radius: 5px 0 0 5px;
+    background-color: #fb2a8a;
+  }
+  .ui-friends_reviews {
+    left: -5px;
+    width: 385px;
+    border-radius: 5px 0 0 5px;
+    background-color: #e2e5e6;
+  }
+    .ui-friends_reviews_title {
+      margin-bottom: 15px;
+    }
+    .ui-friends_reviews_name {
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 20px;
+    }
+      .ui-friends_reviews_name a {
+        color: #000;
+        text-decoration: none;
+      }
+    .ui-friends_reviews_date {
+      color: #f22b86;
+    }
+      .ui-friends_reviews_date a {
+        text-decoration: none;
+      }
+    .ui-friends_reviews_content{
+      color: rgba(0, 0, 0, .64);
+      margin-bottom: 20px;
+    }
+    .ui-friends_reviews_tags a {
+      display: inline-block;
+      margin-right: 5px;
+      text-decoration: none;
+      font-size: 12px;
+    }
+  .ui-friends_photo {
+    left: -10px;
+    padding: 0;
+    width: 350px;
+    border-radius: 5px;
+  }
+    .ui-friends_photo img {
+      border-radius: 5px;
+      vertical-align: top;
+    }
+
+/* UI Friends logo */
+.ui-friends_logo {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* UI Friends menu */
+.ui-friends-menu {
+
+}
+  .ui-friends-menu_i:not(:last-child) {
+    border-bottom: 1px solid #f668a9;
+  }
+    .ui-friends-menu_i_a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 25px;
+    }
