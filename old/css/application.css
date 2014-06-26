@@ -594,7 +594,7 @@ ul.catalog.multi-rows li{margin-bottom:30px;}
 ul.catalog li a{ display:block;color:#000; text-decoration:none}
 ul.catalog li span.holder-img{display:block; position:relative; height:110px; width:100%; overflow:hidden; margin-bottom:24px;}
 ul.catalog li span.holder-img img{max-width:100%; height:auto; position:absolute; bottom:0; left:0;}
-ul.catalog li span.holder-desc{ font-size:1.3em; position:relative; height:120px; display:block; }
+ul.catalog li span.holder-desc{ font-size:13px; position:relative; height:120px; display:block; }
 ul.catalog.novelty-2 li span.holder-desc, ul.catalog.novelty-3 li span.holder-desc, ul.catalog.novelty-4 li span.holder-desc{ height:120px;}
 /*ul.catalog li span.holder-desc span.price{ position:absolute; bottom:0; left:0; background:url(../images/ui/fader-h-20px.png) 0 -9px repeat-x; padding-top:10px;}*/
 ul.catalog li ins.novelty{font-size:8px; color:#fff; background:#E1207C; border-radius:7px; padding:4px 6px 2px; display:block;  text-decoration:none; text-transform:uppercase; line-height:11px; position:absolute; top:-20px; right:0;letter-spacing: 0.2em; }
@@ -608,7 +608,7 @@ ul.catalog.novelty-2 li ins.novelty{font-size:9px; color:#fff; background:#E1207
 ul.catalog.novelty-2 li span.holder-article{color:#cccccc; font-size:9px; display:block; vertical-align:middle; white-space:nowrap; height:18px; line-height:18px}
 
 ul.catalog.novelty-3 li span.holder-img{margin-bottom:8px}
-ul.catalog.novelty-3 li ins.novelty{font-size:9px; color:#fff; background:#E1207C; border-radius:7px; padding:3px 4px 2px 5px; display:inline-block;  text-decoration:none; text-transform:lowercase; line-height:10px; letter-spacing: 0.1em; position:static; margin-right:4px; vertical-align:baseline }
+ul.catalog.novelty-3 li ins.novelty{font-size:9px; color:#fff; background:#E1207C; border-radius:7px; padding:3px 4px 2px 5px; display:inline-block;  text-decoration:none; text-transform:lowercase; line-height:10px; letter-spacing: 1px; position:static; margin-right:4px; vertical-align:baseline }
 ul.catalog.novelty-3 li span.holder-article{color:#cccccc; font-size:9px; display:block; vertical-align:middle; white-space:nowrap; height:18px;line-height:18px}
 
 ul.catalog.novelty-4 li span.holder-img{margin-bottom:8px}
