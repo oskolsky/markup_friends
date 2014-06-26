@@ -144,10 +144,10 @@ $(function(){
 
   $('#tabs').tabs();
 
-  $('.ui-friends-menu').find('.ui-friends-menu_i_a').click(function() {
+  $('.ui-friends-menu').find('.ui-friends-menu_i_a').hover(function() {
     var rel = $(this).attr('rel');
     $('.js-content').hide();
-    $('.js-' + rel).fadeIn(150);
+    $('.js-' + rel).show();
     return false;
   });
 });
