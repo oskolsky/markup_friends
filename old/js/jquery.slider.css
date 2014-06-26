@@ -39,7 +39,7 @@
 	position: relative;
 	top: 50%;
 }
-.bt-scroll-right,.bt-scroll-left{	width:22px; height:22px; background:url(images/ui/photo-slider_arrows.png) 0 0 no-repeat; text-indent:-9999px;
+.bt-scroll-right,.bt-scroll-left{	width:22px; height:22px; background:url(../images/ui/photo-slider_arrows.png) 0 0 no-repeat; text-indent:-9999px;
 	display:block;
 	position:absolute;
 	top:50%;
