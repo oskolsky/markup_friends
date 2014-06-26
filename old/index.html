@@ -143,6 +143,13 @@ $(function(){
 	});
 
   $('#tabs').tabs();
+
+  $('.ui-friends-menu').find('.ui-friends-menu_i_a').click(function() {
+    var rel = $(this).attr('rel');
+    $('.js-content').hide();
+    $('.js-' + rel).fadeIn(150);
+    return false;
+  });
 });
 
 </script>
@@ -653,32 +660,76 @@ $('body').removeClass('no-js');
           <a href="#" class="ui-friends_logo"><img src="images/friends-logo.png" width="130" height="37" alt="Friends"></a>
           <nav>
             <ul class="ui-friends-menu">
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Обзор дня</a></li>
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Техника Apple</a></li>
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Акусткика</a></li>
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Наушники</a></li>
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Приложения</a></li>
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Аксессуары</a></li>
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Конкурсы</a></li>
-              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a">Видеоролики</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="reviews">Обзор дня</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="apple">Техника Apple</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="acoustics">Акусткика</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="headphones">Наушники</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="apps">Приложения</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="accessories">Аксессуары</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="contests">Конкурсы</a></li>
+              <li class="ui-friends-menu_i"><a href="#" class="ui-friends-menu_i_a" rel="videos">Видеоролики</a></li>
             </ul>
           </nav>
         </div><!--
         --><div class="ui-friends_reviews">
-          <p class="ui-friends_reviews_title">Обзор дня</p>
-          <p class="ui-friends_reviews_name"><a href="#">Фитнес-браслет Jawbone UP: надел и забыл</a></p>
-          <p class="ui-friends_reviews_date">18.03.2014 | <a href="#">Денис Сущенко</a></p>
-          <p class="ui-friends_reviews_content">Все в один голос сошлись во мнении, что в обозримом будущем нас ждет шквал фитнес-браслетов на любой вкус. Фитнес-браслеты — это новый тип носимой электроники, который позволяет нам с вами следить за своим физическим состоянием. И Jawbone UP — один из таких...</p>
-          <nav class="ui-friends_reviews_tags">
-            <a href="#">Apple</a>
-            <a href="#">Jawbone</a>
-            <a href="#">Up</a>
-            <a href="#">Спорт</a>
-            <a href="#">Здоровье</a>
-          </nav>
+
+          <div class="js-reviews js-content" style="display: block;">
+            <p class="ui-friends_reviews_title">Обзор дня</p>
+            <p class="ui-friends_reviews_name"><a href="#">Фитнес-браслет Jawbone UP: надел и забыл</a></p>
+            <p class="ui-friends_reviews_date">18.03.2014 | <a href="#">Денис Сущенко</a></p>
+            <p class="ui-friends_reviews_content">Все в&nbsp;один голос сошлись во&nbsp;мнении, что в&nbsp;обозримом будущем нас ждет шквал фитнес-браслетов на&nbsp;любой вкус. Фитнес-браслеты&nbsp;&mdash; это новый тип носимой электроники, который позволяет нам с&nbsp;вами следить за&nbsp;своим физическим состоянием. И&nbsp;Jawbone UP&nbsp;&mdash; один из&nbsp;таких...</p>
+            <nav class="ui-friends_reviews_tags">
+              <a href="#">Apple</a>
+              <a href="#">Jawbone</a>
+              <a href="#">Up</a>
+              <a href="#">Спорт</a>
+              <a href="#">Здоровье</a>
+            </nav>
+          </div>
+          <div class="js-apple js-content" style="display: none;">
+            <p class="ui-friends_reviews_title">Техника Apple</p>
+            <p class="ui-friends_reviews_name"><a href="#">Apple осенью выпустит сразу несколько моделей iWatch</a></p>
+            <p class="ui-friends_reviews_date">18.03.2014 | <a href="#">Денис Сущенко</a></p>
+            <p class="ui-friends_reviews_content">Apple выпустит осенью сразу несколько моделей умных часов iWatch. Об&nbsp;этом сообщает издание The Wall Street Journal (WSJ) со&nbsp;ссылкой на&nbsp;осведомленные источники. Таким образом компания пытается составить конкуренцию Google и&nbsp;Samsung на&nbsp;рынке носимых электронных устройств.</p>
+            <nav class="ui-friends_reviews_tags">
+              <a href="#">Apple</a>
+              <a href="#">Jawbone</a>
+              <a href="#">Up</a>
+              <a href="#">Спорт</a>
+              <a href="#">Здоровье</a>
+            </nav>
+          </div>
+          <div class="js-acoustics js-content" style="display: none;">
+            <p class="ui-friends_reviews_title">Акусткика</p>
+            <p class="ui-friends_reviews_name"><a href="#">Акустическая система серии MAESTRO GOLD -"GH"</a></p>
+            <p class="ui-friends_reviews_date">18.03.2014 | <a href="#">Денис Сущенко</a></p>
+            <p class="ui-friends_reviews_content">Это инновационная топовая модель компании "aleks". Это идеал акустической системы! Компания "aleks" в 2014 году готовит к выпуску новую топовую модель акустической системы с НЧ диффузором 21" дюймов! Это самая инновационная акустика в мире.</p>
+            <nav class="ui-friends_reviews_tags">
+              <a href="#">Apple</a>
+              <a href="#">Jawbone</a>
+              <a href="#">Up</a>
+              <a href="#">Спорт</a>
+              <a href="#">Здоровье</a>
+            </nav>
+          </div>
+          <div class="js-headphones js-content" style="display: none;">Наушники</div>
+          <div class="js-apps js-content" style="display: none;">Приложения</div>
+          <div class="js-accessories js-content" style="display: none;">Аксессуары</div>
+          <div class="js-contests js-content" style="display: none;">Конкурсы</div>
+          <div class="js-videos js-content" style="display: none;">Видеоролики</div>
+
         </div><!--
         --><div class="ui-friends_photo">
-          <a href="#"><img src="images/friends-photo.jpg" width="350" height="320" alt=""></a>
+
+          <div class="js-reviews js-content" style="display: block;"><a href="#"><img src="images/friends-photo.jpg" width="350" height="320" alt=""></a></div>
+          <div class="js-apple js-content" style="display: none;"><a href="#"><img src="images/blank.gif" width="350" height="320" alt="" style="background-color: #ccc;"></a></div>
+          <div class="js-acoustics js-content" style="display: none;"><a href="#"><img src="images/blank.gif" width="350" height="320" alt="" style="background-color: #eee;"></a></div>
+          <div class="js-headphones js-content" style="display: none;"><a href="#"><img src="images/blank.gif" width="350" height="320" alt="" style="background-color: red;"></a></div>
+          <div class="js-apps js-content" style="display: none;"><a href="#"><img src="images/blank.gif" width="350" height="320" alt="" style="background-color: green;"></a></div>
+          <div class="js-accessories js-content" style="display: none;"><a href="#"><img src="images/blank.gif" width="350" height="320" alt="" style="background-color: blue;"></a></div>
+          <div class="js-contests js-content" style="display: none;"><a href="#"><img src="images/blank.gif" width="350" height="320" alt="" style="background-color: gold;"></a></div>
+          <div class="js-videos js-content" style="display: none;"><a href="#"><img src="images/blank.gif" width="350" height="320" alt="" style="background-color: black;"></a></div>
+          
         </div>
       </div>
       
