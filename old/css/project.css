@@ -56,20 +56,20 @@
 }
 
 /* jQuery ui tabs */
-.ui-tabs {
+.category-tabs .ui-tabs {
   margin: 50px -30px 0; !important;
   padding: 0 !important;
   border: none;
   border-top: 1px solid #d3d3d3;
   border-radius: 0;
 }
-  .ui-tabs-nav {    
+  .category-tabs .ui-tabs-nav {    
     padding: 0 !important;
     border: none;
     border-radius: 0;
     background: none;
   }
-    .ui-tabs-nav li {
+    .category-tabs  .ui-tabs-nav li {
       top: 0 !important;  
       margin: 0 !important;
       width: 326px;
@@ -77,17 +77,17 @@
       border-radius: 0;
       background: none !important;
     }
-    .ui-tabs-nav li:not(:last-child) {
+    .category-tabs .ui-tabs-nav li:not(:last-child) {
       border-right: 1px solid #fafafa !important;
     }
-    .ui-tabs-nav li.ui-state-active {
+    .category-tabs .ui-tabs-nav li.ui-state-active {
       background: none;
     }
-      .ui-tabs-nav li.ui-state-active a {
+      .category-tabs .ui-tabs-nav li.ui-state-active a {
         background: #fafafa;
         color: #000 !important;
       }
-      .ui-tabs-nav li a {
+      .category-tabs .ui-tabs-nav li a {
         position: relative;
         display: block;
         padding: 0 !important;
@@ -100,7 +100,7 @@
         font-size: 18px;
         line-height: 60px;
       }
-        .ui-tabs-nav li a:before {
+        .category-tabs .ui-tabs-nav li a:before {
           display: inline-block;
           margin-right: 10px;
           width: 40px;
@@ -109,15 +109,15 @@
           content: '';
           vertical-align: middle;
         }
-        .ui-tabs-li-1 a:before {background-position: 0 -40px;}
-        .ui-tabs-li-2 a:before {background-position: -40px -40px;}
-        .ui-tabs-li-3 a:before {background-position: -80px -40px;}
+        .category-tabs .ui-tabs-li-1 a:before {background-position: 0 -40px;}
+        .category-tabs .ui-tabs-li-2 a:before {background-position: -40px -40px;}
+        .category-tabs .ui-tabs-li-3 a:before {background-position: -80px -40px;}
 
-        .ui-tabs-li-1.ui-state-active a:before {background-position: 0 0;}
-        .ui-tabs-li-2.ui-state-active a:before {background-position: -40px 0;}
-        .ui-tabs-li-3.ui-state-active a:before {background-position: -80px 0;}
+        .category-tabs .ui-tabs-li-1.ui-state-active a:before {background-position: 0 0;}
+        .category-tabs .ui-tabs-li-2.ui-state-active a:before {background-position: -40px 0;}
+        .category-tabs .ui-tabs-li-3.ui-state-active a:before {background-position: -80px 0;}
 
-  .ui-tabs-panel {
+  .category-tabs .ui-tabs-panel {
     background: #fafafa !important;
     padding: 0 30px !important;
   }
