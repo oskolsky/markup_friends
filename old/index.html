@@ -18,6 +18,10 @@
 <script type="text/javascript" src="js/jquery.slider.js"></script>
 <script type="text/javascript">
 $(function(){
+
+  $('#tabs-1').contentSlider({});
+  $('#tabs-2').contentSlider({});
+  $('#tabs-3').contentSlider({});
 	
 	InitPromoSlider();
 	function InitPromoSlider()
@@ -368,289 +372,82 @@ $('body').removeClass('no-js');
           <li class="ui-tabs-li-3"><a href="#tabs-3">Люкс</a></li>
         </ul>
         <div id="tabs-1">
-          <ul class="catalog with-presence novelty-3">
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-          </ul>
-          
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7 high quality display with extra protection<span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li> <span class="holder-img"> <img src="images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+                16 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+                64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar"> </div>
+            </div>
+          </div>
         </div>
         <div id="tabs-2">
-          <ul class="catalog with-presence novelty-3">
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-          </ul>
-          
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7 high quality display with extra protection<span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li> <span class="holder-img"> <img src="images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+                16 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+                64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar"> </div>
+            </div>
+          </div>
         </div>
         <div id="tabs-3">
-          <ul class="catalog with-presence novelty-3">
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="MacBook&nbsp;Pro 15’’ Retina i7&nbsp; super durable and scratchproof with extended functionality">
-                <span class="holder-img"><img src="images/catalog/img-203.jpg"></span>
-                <span class="holder-desc">
-                  <span class="desc">
-                    <strong>MacBook&nbsp;Pro 15’’</strong>
-                    <br>
-                    Retina i7&nbsp; super durable and scratchproof with extended functionality
-                    <ins class="fader">&nbsp;</ins>
-                  </span>
-                  <span class="price">
-                    36&nbsp;490,- 
-                    <del>39&nbsp;990</del>
-                  </span>
-                  <span class="presence">Есть в наличии</span>
-                </span>
-              </a>
-            </li>
-          </ul>
-          
+          <div class="scroll-pane">
+            <ul class="catalog scroll-content">
+              <!-- on serverside - width:itemcount*190px; -->
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-01.jpg" /> </span> <span class="holder-desc"> <strong>MacBook Pro 15’’</strong><br />
+                Retina i7 high quality display with extra protection<span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li> <span class="holder-img"> <img src="images/catalog/img-02.jpg" /> </span> <span class="holder-desc"> <strong>iPad Wi-Fi </strong><br />
+                16 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-03.jpg" /> </span> <span class="holder-desc"> <strong>iPhone 4s</strong><br />
+                64 ГБ <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+              <li><a href="/item" > <span class="holder-img"> <img src="images/catalog/img-04.jpg" /> </span> <span class="holder-desc"> <strong>Beats Studio </strong><br />
+                By Dr. Dre <span class="price">36 490,- <del>39 990</del></span> </span> </a></li>
+            </ul>
+            <div class="scroll-bar-wrap ui-widget-content">
+              <div class="scroll-bar"> </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

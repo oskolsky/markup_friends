@@ -119,8 +119,10 @@
 
   .category-tabs .ui-tabs-panel {
     background: #fafafa !important;
-    padding: 0 30px !important;
+    padding: 30px 30px 0 !important;
   }
+  .category-tabs .bt-scroll-left  {left:  40px;}
+  .category-tabs .bt-scroll-right {right: 40px;}
 
 
 /* UI Send to */
