@@ -172,14 +172,12 @@
       margin-bottom: 15px;
     }
     .ui-friends_reviews_name {
-      margin-bottom: 15px;
-      font-weight: 700;
-      font-size: 20px;
+      margin-bottom: 0;
+      font-size: 14px;
       line-height: 20px;
     }
       .ui-friends_reviews_name a {
         color: #000;
-        text-decoration: none;
       }
     .ui-friends_reviews_date {
       color: #f22b86;
