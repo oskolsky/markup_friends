@@ -61,6 +61,9 @@
 // .. UI
 //
 *****************************************************************************************************/
+.ui-widget {
+  font-family: Arial, Helvetica, sans-serif;
+}
 /* jQuery ui select menu */
 .ui-selectmenu {
   overflow: visible !important;
@@ -110,6 +113,7 @@
         font-weight: 600;
         font-size: 18px;
         line-height: 60px;
+        font-family: Arial, Helvetica, sans-serif;
       }
         .category-tabs .ui-tabs-nav li a:before {
           display: inline-block;
